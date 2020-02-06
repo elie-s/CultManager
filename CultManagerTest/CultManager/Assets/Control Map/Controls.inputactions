@@ -1,0 +1,33 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "God",
+            "id": "14acc674-c8f3-4831-9ae0-09abe5b26b87",
+            "actions": [
+                {
+                    "name": "Touch0",
+                    "type": "Value",
+                    "id": "7c706cc4-d551-4dbd-8e64-3e42e2fc14dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "95b6032f-1829-4359-a493-d32fe756e62f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
