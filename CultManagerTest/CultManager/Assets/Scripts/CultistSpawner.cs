@@ -15,6 +15,11 @@ public class CultistSpawner : MonoBehaviour
     public GameObject devPanel;
     public GameObject statPanel;
 
+    [Header("Faith Components")]
+    public Image faithBar;
+    public float averageFaith;
+    float faithTotal;
+
     void Start()
     {
         StartCoroutine(Spawn());
@@ -23,6 +28,14 @@ public class CultistSpawner : MonoBehaviour
     private void Update()
     {
         fps.text = "FPS = " + ((int)(1.0f / Time.smoothDeltaTime)).ToString();
+
+        for (int i = 0; i < cultistList.Count; i++)
+        {
+            faithTotal +=cultistList[i].GetComponent<CultistController>().faith;
+        }
+        averageFaith = faithTotal / cultistList.Count;
+        faithBar.fillAmount = averageFaith / 100f;
+        faithTotal = 0;
     }
 
     IEnumerator Spawn()
@@ -43,7 +56,7 @@ public class CultistSpawner : MonoBehaviour
         }
 
     }
-
+    #region Developer Tools
     public void KillAll()
     {
         while (cultistList.Count > 0)
@@ -81,5 +94,10 @@ public class CultistSpawner : MonoBehaviour
             statPanel.SetActive(false);
         }
     }
+    #endregion
 
+    #region Faith Bar
+
+
+    #endregion
 }

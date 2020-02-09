@@ -13,9 +13,16 @@ public class CultistController : MonoBehaviour
     public Transform destination;
     public bool reachedDestination;
 
+    [Header("Cultist Properties")]
+    public float faith;
+
+    public bool isMale;
+
     void Awake()
     {
         moveSpeed = Random.Range(minSpeed, maxSpeed);
+        faith = Mathf.RoundToInt(Random.Range(0, 100f));
+        isMale = Mathf.RoundToInt(Random.Range(0f, 1f)) == 1 ? true : false;
     }
 
     void FixedUpdate()
