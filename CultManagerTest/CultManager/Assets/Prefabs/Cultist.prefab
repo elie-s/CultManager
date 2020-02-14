@@ -112,8 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 1
   minSpeed: 5
+  moveSpeed: 0
   destination: {fileID: 0}
   reachedDestination: 0
+  faith: 0
+  isMale: 0
 --- !u!114 &3721407785885083812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,5 +144,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0

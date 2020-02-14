@@ -14,15 +14,19 @@ public class CultistController : MonoBehaviour
     public bool reachedDestination;
 
     [Header("Cultist Properties")]
-    public float faith;
-
-    public bool isMale;
+    public int cultistId;
+    public int cultistBuilding;
+    public int cultistAge;
+    public float cultistFaith;
+    public Cultist cultistProperties;
 
     void Awake()
     {
         moveSpeed = Random.Range(minSpeed, maxSpeed);
-        faith = Mathf.RoundToInt(Random.Range(0, 100f));
-        isMale = Mathf.RoundToInt(Random.Range(0f, 1f)) == 1 ? true : false;
+        cultistFaith = Mathf.RoundToInt(Random.Range(0, 100f));
+        cultistAge = Mathf.RoundToInt(Random.Range(1, 85f));
+        cultistProperties = new Cultist(0, 0, "apple", cultistAge, cultistFaith);
+
     }
 
     void FixedUpdate()
