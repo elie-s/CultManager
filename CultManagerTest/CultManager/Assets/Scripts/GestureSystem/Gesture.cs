@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace CultManager
 {
-    public class Gesture
+    public static class Gesture
     {
-        
+        public static bool QuickTouch;
+        public static bool LongTouch;
+        public static bool DoubleTouch;
+        public static Vector2 Movement;
     }
 }

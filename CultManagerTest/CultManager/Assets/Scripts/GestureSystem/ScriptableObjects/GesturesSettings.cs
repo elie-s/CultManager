@@ -9,5 +9,7 @@ namespace CultManager
     {
         public float quickTouchDelay = 0.15f;
         public float doubleTapDelay = 0.20f;
+        public float swipeDuration = 0.25f;
+        public float movingDetectionThreshold = 0.1f;
     }
 }

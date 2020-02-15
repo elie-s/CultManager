@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CultManager
 {
     public class GestureManager : MonoBehaviour
     {
+        [SerializeField] private float distance = default;
         [SerializeField] private Camera playCam = default;
         [SerializeField] private DebugInstance debug = default;
+        [SerializeField] private UnityEvent OnQuickTouch = default;
+        [SerializeField] private UnityEvent OnDoubleTap = default;
+        [SerializeField] private UnityEvent OnLongTapEnd = default;
         [SerializeField] private GesturesSettings settings = default;
-        public static GestureState simpleTouch = default;
-        public static GestureState pinch = default;
 
         private bool isGettingGesture = false;
 
@@ -30,8 +33,9 @@ namespace CultManager
             isGettingGesture = true;
             float localTimer = 0.0f;
             bool cancelled = false;
-            Vector3 oldPos = Vector3.zero;
-            Vector2 oldScreenPos = Vector2.zero;
+            bool moved = false;
+            Vector2 oldPos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
+            Vector2 startPos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
 
             while (Input.touchCount > 0)
             {
@@ -41,18 +45,16 @@ namespace CultManager
                     StartCoroutine(MultipleTouchesRoutine());
                     break;
                 }
-                else if (Input.touches[0].phase == TouchPhase.Moved)
+                else if (Vector2.Distance(oldPos, AdjustedViewportRatioPosition(Input.GetTouch(0).position)) > settings.movingDetectionThreshold)
                 {
-                    if(Input.touches[0].deltaPosition.magnitude > 5.0f)
-                        debug.Log("Touch moved: "+ Input.GetTouch(0).deltaPosition.magnitude + " - "+Vector3.Distance(oldPos, Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position)), DebugInstance.Importance.Lesser);
-                    debug.Log("Pos: (" + oldScreenPos + " - " + oldPos + ") / (" + Input.GetTouch(0).position + " - " + Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position) + ")", DebugInstance.Importance.Lesser);
+                    debug.Log("Moved: " + Vector2.Distance(oldPos, AdjustedViewportRatioPosition(playCam.ScreenToViewportPoint(Input.GetTouch(0).position))), DebugInstance.Importance.Lesser);
+                    moved = true;
+                    Gesture.Movement = AdjustedViewportRatioPosition(Input.GetTouch(0).position) - startPos;
                 }
 
-                oldPos = Camera.main.ScreenToViewportPoint(Input.GetTouch(0).position);
-                oldScreenPos = Input.GetTouch(0).position;
+                oldPos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
                 yield return null;
                 localTimer += Time.deltaTime;
-                
             }
 
 
@@ -78,17 +80,29 @@ namespace CultManager
                             localTimer += Time.deltaTime;
                         }
 
-                        if (localTimer < settings.quickTouchDelay) debug.Log("Double touch.", DebugInstance.Importance.Average);
+                        if (localTimer < settings.quickTouchDelay)
+                        {
+                            debug.Log("Double touch.", DebugInstance.Importance.Average);
+                            Gesture.DoubleTouch = true;
+                            OnDoubleTap.Invoke();
+                        }
                     }
                     else
                     {
                         debug.Log("Quick touch.", DebugInstance.Importance.Average);
+                        Gesture.QuickTouch = true;
+                        OnQuickTouch.Invoke();
                     }
                 }
-                else
+                else if (!moved)
                 {
                     debug.Log("Long touch.", DebugInstance.Importance.Average);
+                    Gesture.LongTouch = true;
+                    OnLongTapEnd.Invoke();
                 }
+
+                yield return null;
+
 
                 EndGesture();
             }
@@ -98,6 +112,25 @@ namespace CultManager
         {
             debug.Log("Multiple touches detected. Starting MultipleTouchesRoutine.", DebugInstance.Importance.Lesser);
 
+            Vector2 touch0startPos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
+            Vector2 touch1startPos = AdjustedViewportRatioPosition(Input.GetTouch(1).position);
+            Vector2 touch0oldPos = touch0startPos;
+            Vector2 touch1oldPos = touch1startPos;
+            Vector2 touch0pos = touch0startPos;
+            Vector2 touch1pos = touch1startPos;
+
+            while (Input.touchCount > 1)
+            {
+                touch0pos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
+                touch1pos = AdjustedViewportRatioPosition(Input.GetTouch(1).position);
+
+                distance =  Vector2.Distance(touch0pos, touch1pos);
+
+                touch0oldPos = touch0pos;
+                touch1oldPos = touch1pos;
+                yield return null;
+            }
+
             yield return null;
 
             EndGesture();
@@ -105,6 +138,8 @@ namespace CultManager
 
         private void EndGesture()
         {
+            ResetGestures();
+
             StartCoroutine(EndGestureRoutine());
         }
 
@@ -117,8 +152,25 @@ namespace CultManager
                 yield return null;
             }
 
+            
             isGettingGesture = false;
             debug.Log("Stopped getting gesture.", DebugInstance.Importance.Average);
+        }
+
+        private Vector2 AdjustedViewportRatioPosition(Vector2 _OnScreenPosition)
+        {
+            Vector2 result = playCam.ScreenToViewportPoint(_OnScreenPosition);
+            float screenWidthHeightRatio = (float)Screen.height / (float)Screen.width;
+
+            return new Vector2(result.x, result.y * screenWidthHeightRatio);
+        }
+
+        private void ResetGestures()
+        {
+            Gesture.Movement = Vector2.zero;
+            Gesture.LongTouch = false;
+            Gesture.DoubleTouch = false;
+            Gesture.QuickTouch = false;
         }
     }
 }
