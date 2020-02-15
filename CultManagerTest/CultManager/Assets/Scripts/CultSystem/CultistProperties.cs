@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Cultist
+public class CultistProperties
 {
     public int id;
     public int building;
@@ -11,7 +11,7 @@ public class Cultist
     public int age;
     public float faith;
 
-    public Cultist(int index,int assignedBuilding,string cultistName,int cultistAge,float cultistFaith)
+    public CultistProperties(int index,int assignedBuilding,string cultistName,int cultistAge,float cultistFaith)
     {
         id = index;
         building = assignedBuilding;

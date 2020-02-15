@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class CultistManager : MonoBehaviour
 {
     [Header("Cult Database")]
+    [SerializeField]
     CultistData cultistData;
     public List<GameObject> CultistList;
-    public List<Cultist> cultDatabase = new List<Cultist>();
+    //public List<CultistProperties> cultDatabase = new List<CultistProperties>();
 
     [Header("Spawning Cultists")]
-    public CultistSpawner cultSpawner;
+    public AgentSpawner cultSpawner;
     public int totalNumberOfCultists;
     private int cultistsToSpawn;
 
@@ -37,7 +38,7 @@ public class CultistManager : MonoBehaviour
         fps.text = "FPS = " + ((int)(1.0f / Time.smoothDeltaTime)).ToString();
         for (int i = 0; i < CultistList.Count; i++)
         {
-            faithTotal += cultDatabase[i].faith;
+            faithTotal += cultistData.CultistPropertiesList[i].faith;
         }
         averageFaith = faithTotal / CultistList.Count;
         faithBar.fillAmount = averageFaith / 100f;

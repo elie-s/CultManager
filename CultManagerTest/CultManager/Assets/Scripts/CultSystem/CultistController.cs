@@ -18,14 +18,14 @@ public class CultistController : MonoBehaviour
     public int cultistBuilding;
     public int cultistAge;
     public float cultistFaith;
-    public Cultist cultistProperties;
+    public CultistProperties cultistProperties;
 
     void Awake()
     {
         moveSpeed = Random.Range(minSpeed, maxSpeed);
         cultistFaith = Mathf.RoundToInt(Random.Range(0, 100f));
         cultistAge = Mathf.RoundToInt(Random.Range(1, 85f));
-        cultistProperties = new Cultist(0, 0, "apple", cultistAge, cultistFaith);
+        cultistProperties = new CultistProperties(0, 0, "apple", cultistAge, cultistFaith);
 
     }
 
