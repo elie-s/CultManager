@@ -27,6 +27,7 @@ public class AgentSpawner : MonoBehaviour
             CultistProperties prop = obj.GetComponent<CultistController>().cultistProperties;
             cultistManager.CultistList.Add(obj);
             cultistData.CultistPropertiesList.Add(prop);
+            
             Transform child = transform.GetChild(Random.Range(0, LastZoneTransform.GetSiblingIndex()));
             obj.GetComponent<WaypointNavigator>().currentWaypoint = child.GetComponent<Waypoint>();
             obj.transform.position = child.position;

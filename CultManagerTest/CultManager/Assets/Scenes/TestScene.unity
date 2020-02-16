@@ -2248,14 +2248,6 @@ MonoBehaviour:
   cultistData: {fileID: 11400000, guid: 13a86498df1d2ae45967913790f5e44e, type: 2}
   CultistList: []
   cultSpawner: {fileID: 452735633}
-  totalNumberOfCultists: 100
-  fps: {fileID: 1586137019}
-  agents: {fileID: 1972351497}
-  sliderAgents: {fileID: 1435184857}
-  devPanel: {fileID: 1607481077}
-  statPanel: {fileID: 2139234242}
-  faithBar: {fileID: 1828865193}
-  averageFaith: 0
 --- !u!114 &220398313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7247,8 +7239,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220398312}
-        m_MethodName: KillAll
+      - m_Target: {fileID: 2090318462}
+        m_MethodName: KillAllAgents
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7808,8 +7800,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220398312}
-        m_MethodName: Respawn
+      - m_Target: {fileID: 2090318462}
+        m_MethodName: RespawnAgents
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13791,7 +13783,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220398312}
+      - m_Target: {fileID: 2090318462}
         m_MethodName: OnSliderChange
         m_Mode: 0
         m_Arguments:
@@ -14052,7 +14044,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220398312}
+      - m_Target: {fileID: 2090318462}
         m_MethodName: EnableDevMode
         m_Mode: 0
         m_Arguments:
@@ -23954,6 +23946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3afeef95a6a38b4090bf0bfb332c99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cultistData: {fileID: 11400000, guid: 13a86498df1d2ae45967913790f5e44e, type: 2}
+  faithBar: {fileID: 1828865193}
 --- !u!1001 &2036510754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24877,6 +24871,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b7a5b4afc57ff428ef017b598cf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cultistData: {fileID: 11400000, guid: 13a86498df1d2ae45967913790f5e44e, type: 2}
+  cultistManager: {fileID: 220398312}
+  fps: {fileID: 1586137019}
+  agents: {fileID: 1972351497}
+  sliderAgents: {fileID: 1435184857}
+  devPanel: {fileID: 1607481077}
+  statPanel: {fileID: 2139234242}
 --- !u!1 &2091847903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 145902, guid: 39b5ad9fd45e9074fa1a30bcd97fa639,
