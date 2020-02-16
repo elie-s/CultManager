@@ -10,5 +10,9 @@ namespace CultManager
         public static bool LongTouch;
         public static bool DoubleTouch;
         public static Vector2 Movement;
+        public static float PinchValue;
+        public static bool Pinching;
+        public static float RotationValue;
+        public static bool Rotating;
     }
 }

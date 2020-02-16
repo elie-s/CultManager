@@ -15,4 +15,8 @@ MonoBehaviour:
   quickTouchDelay: 0.21
   doubleTapDelay: 0.2
   swipeDuration: 0.25
-  moveingDetectionThreshold: 0.000001
+  movingDetectionThreshold: 0.001
+  RotationAngleDetectionThreshold: 5
+  pinchDistanceDetectionThreshold: 0.01
+  pinchMinDistance: 0.2
+  pinchMaxDistance: 1.25
