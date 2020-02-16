@@ -7,8 +7,6 @@ namespace CultManager
 {
     public class GestureManager : MonoBehaviour
     {
-        [SerializeField] private float debugStartAngle = default;
-        [SerializeField] private float debugGestureValue = default;
         [SerializeField] private Camera playCam = default;
         [SerializeField] private DebugInstance debug = default;
         [SerializeField] private UnityEvent OnQuickTouch = default;
@@ -26,7 +24,6 @@ namespace CultManager
         void Update()
         {
             if (!isGettingGesture && Input.touchCount != 0) StartCoroutine(TouchRoutine());
-            debugGestureValue = Gesture.RotationValue;
         }
 
         private IEnumerator TouchRoutine()
@@ -129,8 +126,6 @@ namespace CultManager
             float angle = 0.0f;
 
             MultipleTouchMode mode = default;
-
-            debugStartAngle = startAngle;
 
             // Rotation or Pinch detection loop.
             while (Input.touchCount > 1)
