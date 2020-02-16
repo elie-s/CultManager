@@ -23,10 +23,11 @@ public class AgentSpawner : MonoBehaviour
         int count = 0;
         while (count < cultistsToSpawn)
         {
-            GameObject obj = Instantiate(cultistData.cultistPrefab);
+            GameObject obj = Instantiate(cultistData.cultistPrefab,gameObject.transform);
             CultistProperties prop = obj.GetComponent<CultistController>().cultistProperties;
             cultistManager.CultistList.Add(obj);
             cultistData.CultistPropertiesList.Add(prop);
+            cultistData.totalNumberOfCultists++;
             
             Transform child = transform.GetChild(Random.Range(0, LastZoneTransform.GetSiblingIndex()));
             obj.GetComponent<WaypointNavigator>().currentWaypoint = child.GetComponent<Waypoint>();

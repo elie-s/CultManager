@@ -29,12 +29,13 @@ public class DevToolsManager : MonoBehaviour
 
     void Update()
     {
-        UpdateFPS(); 
+        UpdateStats(); 
     }
 
-    void UpdateFPS()
+    void UpdateStats()
     {
         fps.text = "FPS = " + ((int)(1.0f / Time.smoothDeltaTime)).ToString();
+        agents.text = "AGENTS = " + cultistData.totalNumberOfCultists.ToString();
     }
 
     #region Developer Tools
@@ -53,7 +54,7 @@ public class DevToolsManager : MonoBehaviour
 
     public void OnSliderChange(float value)
     {
-        cultistsToSpawn = Mathf.RoundToInt((value * 250f));
+        cultistsToSpawn = Mathf.RoundToInt((value * cultistData.maxNumberOfCultists));
         sliderAgents.text = cultistsToSpawn.ToString();
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CultistManager : MonoBehaviour
 {
@@ -39,14 +38,15 @@ public class CultistManager : MonoBehaviour
             Destroy(CultistList[CultistList.Count - 1]);
             cultistData.CultistPropertiesList.RemoveAt(CultistList.Count - 1);
             CultistList.RemoveAt(CultistList.Count - 1);
+            cultistData.totalNumberOfCultists--;
         }
-        cultistData.totalNumberOfCultists = 0;
+        //cultistData.totalNumberOfCultists = 0;
     }
 
     public void Respawn(int number)
     {
         KillAll();
         cultSpawner.SpawnCultists(number);
-        cultistData.totalNumberOfCultists = number;
+        //cultistData.totalNumberOfCultists = number;
     }
 }

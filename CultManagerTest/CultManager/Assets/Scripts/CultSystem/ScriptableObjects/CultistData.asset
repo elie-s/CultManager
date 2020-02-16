@@ -14,8 +14,408 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cultistPrefab: {fileID: 3721407785885083865, guid: 355480b32fdad45409437cd1c111387e,
     type: 3}
-  maxNumberOfCultists: 250
-  totalNumberOfCultists: 0
+  maxNumberOfCultists: 100
+  totalNumberOfCultists: 100
   maxFaith: 100
-  averageFaith: 0
-  CultistPropertiesList: []
+  averageFaith: 51.45
+  CultistPropertiesList:
+  - id: 0
+    building: 0
+    age: 82
+    faith: 89
+  - id: 0
+    building: 0
+    age: 81
+    faith: 83
+  - id: 0
+    building: 0
+    age: 31
+    faith: 38
+  - id: 0
+    building: 0
+    age: 64
+    faith: 51
+  - id: 0
+    building: 0
+    age: 5
+    faith: 46
+  - id: 0
+    building: 0
+    age: 14
+    faith: 74
+  - id: 0
+    building: 0
+    age: 66
+    faith: 99
+  - id: 0
+    building: 0
+    age: 41
+    faith: 7
+  - id: 0
+    building: 0
+    age: 47
+    faith: 79
+  - id: 0
+    building: 0
+    age: 61
+    faith: 91
+  - id: 0
+    building: 0
+    age: 52
+    faith: 16
+  - id: 0
+    building: 0
+    age: 84
+    faith: 100
+  - id: 0
+    building: 0
+    age: 50
+    faith: 76
+  - id: 0
+    building: 0
+    age: 50
+    faith: 43
+  - id: 0
+    building: 0
+    age: 80
+    faith: 74
+  - id: 0
+    building: 0
+    age: 18
+    faith: 34
+  - id: 0
+    building: 0
+    age: 25
+    faith: 44
+  - id: 0
+    building: 0
+    age: 63
+    faith: 11
+  - id: 0
+    building: 0
+    age: 39
+    faith: 29
+  - id: 0
+    building: 0
+    age: 50
+    faith: 64
+  - id: 0
+    building: 0
+    age: 24
+    faith: 51
+  - id: 0
+    building: 0
+    age: 71
+    faith: 77
+  - id: 0
+    building: 0
+    age: 39
+    faith: 72
+  - id: 0
+    building: 0
+    age: 83
+    faith: 6
+  - id: 0
+    building: 0
+    age: 75
+    faith: 62
+  - id: 0
+    building: 0
+    age: 74
+    faith: 60
+  - id: 0
+    building: 0
+    age: 21
+    faith: 90
+  - id: 0
+    building: 0
+    age: 24
+    faith: 43
+  - id: 0
+    building: 0
+    age: 25
+    faith: 41
+  - id: 0
+    building: 0
+    age: 17
+    faith: 47
+  - id: 0
+    building: 0
+    age: 43
+    faith: 40
+  - id: 0
+    building: 0
+    age: 84
+    faith: 94
+  - id: 0
+    building: 0
+    age: 54
+    faith: 11
+  - id: 0
+    building: 0
+    age: 14
+    faith: 74
+  - id: 0
+    building: 0
+    age: 69
+    faith: 82
+  - id: 0
+    building: 0
+    age: 31
+    faith: 53
+  - id: 0
+    building: 0
+    age: 63
+    faith: 23
+  - id: 0
+    building: 0
+    age: 60
+    faith: 61
+  - id: 0
+    building: 0
+    age: 18
+    faith: 76
+  - id: 0
+    building: 0
+    age: 29
+    faith: 20
+  - id: 0
+    building: 0
+    age: 69
+    faith: 37
+  - id: 0
+    building: 0
+    age: 21
+    faith: 4
+  - id: 0
+    building: 0
+    age: 53
+    faith: 22
+  - id: 0
+    building: 0
+    age: 65
+    faith: 69
+  - id: 0
+    building: 0
+    age: 73
+    faith: 46
+  - id: 0
+    building: 0
+    age: 33
+    faith: 1
+  - id: 0
+    building: 0
+    age: 49
+    faith: 46
+  - id: 0
+    building: 0
+    age: 35
+    faith: 79
+  - id: 0
+    building: 0
+    age: 63
+    faith: 70
+  - id: 0
+    building: 0
+    age: 35
+    faith: 30
+  - id: 0
+    building: 0
+    age: 18
+    faith: 88
+  - id: 0
+    building: 0
+    age: 18
+    faith: 42
+  - id: 0
+    building: 0
+    age: 3
+    faith: 93
+  - id: 0
+    building: 0
+    age: 17
+    faith: 24
+  - id: 0
+    building: 0
+    age: 9
+    faith: 61
+  - id: 0
+    building: 0
+    age: 71
+    faith: 23
+  - id: 0
+    building: 0
+    age: 30
+    faith: 71
+  - id: 0
+    building: 0
+    age: 45
+    faith: 15
+  - id: 0
+    building: 0
+    age: 18
+    faith: 67
+  - id: 0
+    building: 0
+    age: 56
+    faith: 9
+  - id: 0
+    building: 0
+    age: 29
+    faith: 42
+  - id: 0
+    building: 0
+    age: 6
+    faith: 91
+  - id: 0
+    building: 0
+    age: 10
+    faith: 94
+  - id: 0
+    building: 0
+    age: 2
+    faith: 54
+  - id: 0
+    building: 0
+    age: 18
+    faith: 26
+  - id: 0
+    building: 0
+    age: 53
+    faith: 53
+  - id: 0
+    building: 0
+    age: 68
+    faith: 48
+  - id: 0
+    building: 0
+    age: 60
+    faith: 17
+  - id: 0
+    building: 0
+    age: 58
+    faith: 81
+  - id: 0
+    building: 0
+    age: 32
+    faith: 29
+  - id: 0
+    building: 0
+    age: 9
+    faith: 30
+  - id: 0
+    building: 0
+    age: 32
+    faith: 56
+  - id: 0
+    building: 0
+    age: 5
+    faith: 7
+  - id: 0
+    building: 0
+    age: 12
+    faith: 19
+  - id: 0
+    building: 0
+    age: 5
+    faith: 77
+  - id: 0
+    building: 0
+    age: 52
+    faith: 18
+  - id: 0
+    building: 0
+    age: 79
+    faith: 31
+  - id: 0
+    building: 0
+    age: 22
+    faith: 88
+  - id: 0
+    building: 0
+    age: 33
+    faith: 81
+  - id: 0
+    building: 0
+    age: 54
+    faith: 77
+  - id: 0
+    building: 0
+    age: 34
+    faith: 85
+  - id: 0
+    building: 0
+    age: 81
+    faith: 73
+  - id: 0
+    building: 0
+    age: 3
+    faith: 50
+  - id: 0
+    building: 0
+    age: 8
+    faith: 81
+  - id: 0
+    building: 0
+    age: 80
+    faith: 27
+  - id: 0
+    building: 0
+    age: 70
+    faith: 73
+  - id: 0
+    building: 0
+    age: 8
+    faith: 50
+  - id: 0
+    building: 0
+    age: 14
+    faith: 13
+  - id: 0
+    building: 0
+    age: 37
+    faith: 18
+  - id: 0
+    building: 0
+    age: 84
+    faith: 11
+  - id: 0
+    building: 0
+    age: 78
+    faith: 17
+  - id: 0
+    building: 0
+    age: 20
+    faith: 30
+  - id: 0
+    building: 0
+    age: 83
+    faith: 90
+  - id: 0
+    building: 0
+    age: 45
+    faith: 95
+  - id: 0
+    building: 0
+    age: 14
+    faith: 45
+  - id: 0
+    building: 0
+    age: 28
+    faith: 59
+  - id: 0
+    building: 0
+    age: 68
+    faith: 92
+  - id: 0
+    building: 0
+    age: 64
+    faith: 12
+  - id: 0
+    building: 0
+    age: 41
+    faith: 48
+  - id: 0
+    building: 0
+    age: 28
+    faith: 29
