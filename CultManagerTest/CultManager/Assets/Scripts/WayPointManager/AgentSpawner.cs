@@ -8,9 +8,18 @@ public class AgentSpawner : MonoBehaviour
     [Header("Cultist Components")]
     public CultistData cultistData;
     public CultistManager cultistManager;
+    public bool OnStartSpawn;
     [SerializeField]
     private int cultistsToSpawn;
     public Transform LastZoneTransform;
+
+    void Start()
+    {
+        if (OnStartSpawn)
+        {
+            StartCoroutine(Spawn());
+        }
+    }
 
     public void SpawnCultists(int number)
     {

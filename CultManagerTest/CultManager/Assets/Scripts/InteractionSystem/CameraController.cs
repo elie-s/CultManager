@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     public Transform followTransform;
     public Transform cameraTransform;
 
+    public bool canRotate;
+
     public float normalSpeed;
     public float fastSpeed;
     public float movementSpeed;

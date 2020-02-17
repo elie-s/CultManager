@@ -63,44 +63,34 @@ namespace CultManager
                 {
                     localTimer = 0.0f;
 
-                    if (!moved)
+                    while (localTimer < settings.doubleTapDelay && Input.touchCount == 0)
                     {
+                        yield return null;
+                        localTimer += Time.deltaTime;
+                    }
 
-                        while (localTimer < settings.doubleTapDelay && Input.touchCount == 0)
+                    if (localTimer < settings.doubleTapDelay && Input.touchCount == 1)
+                    {
+                        localTimer = 0.0f;
+
+                        while (localTimer < settings.quickTouchDelay && Input.touchCount == 1)
                         {
                             yield return null;
                             localTimer += Time.deltaTime;
                         }
 
-                        if (localTimer < settings.doubleTapDelay && Input.touchCount == 1)
+                        if (localTimer < settings.quickTouchDelay)
                         {
-                            localTimer = 0.0f;
-
-                            while (localTimer < settings.quickTouchDelay && Input.touchCount == 1)
-                            {
-                                yield return null;
-                                localTimer += Time.deltaTime;
-                            }
-
-                            if (localTimer < settings.quickTouchDelay)
-                            {
-                                debug.Log("Double touch.", DebugInstance.Importance.Average);
-                                Gesture.DoubleTouch = true;
-                                OnDoubleTap.Invoke();
-                            }
-                        }
-                        else
-                        {
-                            debug.Log("Quick touch.", DebugInstance.Importance.Average);
-                            Gesture.QuickTouch = true;
-                            OnQuickTouch.Invoke();
+                            debug.Log("Double touch.", DebugInstance.Importance.Average);
+                            Gesture.DoubleTouch = true;
+                            OnDoubleTap.Invoke();
                         }
                     }
                     else
                     {
-                        debug.Log("Released Movement touch.", DebugInstance.Importance.Average);
-                        Gesture.ReleasedMovementTouch = true;
-                        OnLongTapEnd.Invoke();
+                        debug.Log("Quick touch.", DebugInstance.Importance.Average);
+                        Gesture.QuickTouch = true;
+                        OnQuickTouch.Invoke();
                     }
                 }
                 else if (!moved)

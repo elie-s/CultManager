@@ -12,10 +12,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f90e9f5763be704d888ff8c8ed0961b, type: 3}
   m_Name: CultistData
   m_EditorClassIdentifier: 
-  cultistPrefab: {fileID: 3721407785885083865, guid: 355480b32fdad45409437cd1c111387e,
+  cultistPrefab: {fileID: 2553536314730404260, guid: e49632f250896a54ebf739d6ae0bb816,
     type: 3}
-  maxNumberOfCultists: 1000
-  totalNumberOfCultists: 0
+  maxNumberOfCultists: 100
+  totalNumberOfCultists: 12
   maxFaith: 100
-  averageFaith: NaN
-  CultistPropertiesList: []
+  averageFaith: 45.416668
+  CultistPropertiesList:
+  - id: 0
+    building: 0
+    age: 79
+    faith: 42
+  - id: 0
+    building: 0
+    age: 64
+    faith: 18
+  - id: 0
+    building: 0
+    age: 10
+    faith: 26
+  - id: 0
+    building: 0
+    age: 18
+    faith: 59
+  - id: 0
+    building: 0
+    age: 76
+    faith: 39
+  - id: 0
+    building: 0
+    age: 26
+    faith: 64
+  - id: 0
+    building: 0
+    age: 39
+    faith: 56
+  - id: 0
+    building: 0
+    age: 23
+    faith: 4
+  - id: 0
+    building: 0
+    age: 73
+    faith: 50
+  - id: 0
+    building: 0
+    age: 8
+    faith: 80
+  - id: 0
+    building: 0
+    age: 33
+    faith: 65
+  - id: 0
+    building: 0
+    age: 33
+    faith: 42
