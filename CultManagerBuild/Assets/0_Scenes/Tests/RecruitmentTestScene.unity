@@ -677,6 +677,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
       propertyPath: playCam
       value: 
       objectReference: {fileID: 1466126562}
@@ -684,6 +689,31 @@ PrefabInstance:
         type: 3}
       propertyPath: debug.filter
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 636797849}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NewCardList
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: OnDoubleTap.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
