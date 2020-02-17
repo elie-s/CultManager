@@ -650,6 +650,11 @@ PrefabInstance:
       propertyPath: playCam
       value: 
       objectReference: {fileID: 1466126562}
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: debug.filter
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
       propertyPath: m_Name
@@ -727,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 7091614057802202696, guid: e1b6e9cc9e769fa43a8193bb49c20eed,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7091614057802202697, guid: e1b6e9cc9e769fa43a8193bb49c20eed,
         type: 3}
