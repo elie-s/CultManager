@@ -48,7 +48,10 @@ namespace CultManager
                 {
                     debug.Log("Moved: " + Vector2.Distance(oldPos, AdjustedViewportRatioPosition(playCam.ScreenToViewportPoint(Input.GetTouch(0).position))), DebugInstance.Importance.Lesser);
                     moved = true;
-                    Gesture.Movement = AdjustedViewportRatioPosition(Input.GetTouch(0).position) - startPos;
+
+                    Vector2 movement = AdjustedViewportRatioPosition(Input.GetTouch(0).position) - startPos;
+                    Gesture.DeltaMovement = movement - Gesture.Movement;
+                    Gesture.Movement = movement;
                 }
 
                 oldPos = AdjustedViewportRatioPosition(Input.GetTouch(0).position);
@@ -171,13 +174,19 @@ namespace CultManager
                 distance =  Vector2.Distance(touch0pos, touch1pos);
                 angle = Vector2.SignedAngle(AdjustedViewportRatioPosition(Input.GetTouch(topFingerIndex).position) - centerPos, refAngleVector);
 
+                float value;
+
                 switch (mode)
                 {
                     case MultipleTouchMode.Pinch:
-                        Gesture.PinchValue = Mathf.InverseLerp(startDistance, settings.pinchMinDistance, distance) * -1;
+                        value = Mathf.InverseLerp(startDistance, settings.pinchMinDistance, distance) * -1;
+                        Gesture.PinchDeltaValue = value - Gesture.PinchValue;
+                        Gesture.PinchValue = value;
                         break;
                     case MultipleTouchMode.Stretch:
-                        Gesture.PinchValue = Mathf.InverseLerp(startDistance, settings.pinchMaxDistance, distance);
+                        value = Mathf.InverseLerp(startDistance, settings.pinchMaxDistance, distance);
+                        Gesture.PinchDeltaValue = value - Gesture.PinchValue;
+                        Gesture.PinchValue = value;
                         break;
                     case MultipleTouchMode.Rotation:
                         Gesture.RotationValue = LerpAngle(angle, Gesture.RotationValue);
@@ -237,11 +246,13 @@ namespace CultManager
         private void ResetGestures()
         {
             Gesture.Movement = Vector2.zero;
+            Gesture.DeltaMovement = Vector2.zero;
             Gesture.ReleasedMovementTouch = false;
             Gesture.LongTouch = false;
             Gesture.DoubleTouch = false;
             Gesture.QuickTouch = false;
             Gesture.PinchValue = 0.0f;
+            Gesture.PinchDeltaValue = 0.0f;
             Gesture.Pinching = false;
             Gesture.RotationValue = 0.0f;
             Gesture.Rotating = false;
