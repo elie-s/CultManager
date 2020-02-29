@@ -19,7 +19,7 @@ MonoBehaviour:
   minFocusPointYValue: 1.5
   maxFocusPointYValue: 3.75
   rotationSpeed: 1.5
-  spanAngle: 63.43
+  spanAngle: 60
   orbitCurve:
     serializedVersion: 2
     m_Curve:
@@ -44,8 +44,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maxFOV: 75
-  minFOV: 45
+  maxZoomDistanceFraction: 0.15
+  maxFOV: 60
+  minFOV: 92.5
   zoomLerpCurve:
     serializedVersion: 2
     m_Curve:

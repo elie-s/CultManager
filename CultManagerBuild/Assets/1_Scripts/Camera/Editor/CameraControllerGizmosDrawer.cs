@@ -23,18 +23,30 @@ namespace CultManager
         private void CamFocusGizmo()
         {
             Handles.color = Color.cyan;
-            Handles.DrawDottedLine((serializedObject.FindProperty("focusPoint").objectReferenceValue as Transform).position, (serializedObject.FindProperty("camTransform").objectReferenceValue as Transform).position, 3.0f);
+            Handles.DrawDottedLine((serializedObject.FindProperty("focusPoint").objectReferenceValue as Transform).position, (serializedObject.FindProperty("positionController").objectReferenceValue as Transform).position, 3.0f);
         }
 
         private void OrbitSpanGizmo()
         {
             Vector3 camPos = (serializedObject.FindProperty("camTransform").objectReferenceValue as Transform).position;
             Vector3 focusPos = (serializedObject.FindProperty("focusPoint").objectReferenceValue as Transform).position;
+            Vector3 controllerPos = (serializedObject.FindProperty("positionController").objectReferenceValue as Transform).position;
 
-            Vector3 direction = (camPos - focusPos).normalized;
-            Vector2 startDirection = new Vector2(direction.x, direction.z);
+            Vector2 startDirection;
+            float radius;
 
-            float radius = Vector2.Distance(new Vector2(camPos.x, camPos.z), new Vector2(focusPos.x, focusPos.z));
+            if (!Application.isPlaying)
+            {
+                Vector3 direction = (camPos - focusPos).normalized;
+                startDirection = new Vector2(direction.x, direction.z);
+                radius = Vector2.Distance(new Vector2(camPos.x, camPos.z), new Vector2(focusPos.x, focusPos.z));
+            }
+            else
+            {
+                startDirection = serializedObject.FindProperty("startDirection").vector2Value;
+                radius = serializedObject.FindProperty("radius").floatValue;
+            }
+            
 
             float angle = (serializedObject.FindProperty("settings").objectReferenceValue as CameraControllerSettings).spanAngle * Mathf.Deg2Rad;
             float angleCorrection = Mathf.Atan2(startDirection.y, startDirection.x);
@@ -53,11 +65,11 @@ namespace CultManager
             Handles.DrawWireArc(focusPos, Vector3.up, new Vector3(startDirection.x, 0.0f, startDirection.y), angle * Mathf.Rad2Deg *-1, radius);
 
             Handles.color = Color.green;
-            Handles.DrawLine(camPos, new Vector3(camPos.x, focusPos.y, camPos.z));
-            Handles.DrawLine(focusPos, new Vector3(camPos.x, focusPos.y, camPos.z));
+            Handles.DrawLine(controllerPos, new Vector3(controllerPos.x, focusPos.y, controllerPos.z));
+            Handles.DrawLine(focusPos, new Vector3(controllerPos.x, focusPos.y, controllerPos.z));
 
             Handles.color = Color.yellow;
-            Handles.DrawWireCube(new Vector3(camPos.x, focusPos.y, camPos.z), Vector3.one * 0.1f);
+            Handles.DrawWireCube(new Vector3(controllerPos.x, focusPos.y, controllerPos.z), Vector3.one * 0.1f);
         }
     }
 }

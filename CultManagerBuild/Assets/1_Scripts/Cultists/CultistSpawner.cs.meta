@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: b658c75996141694787bee347f4f2bb4
+guid: 314f74b7ed6f709408cae35df8ca415e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - data: {fileID: 11400000, guid: 028805a29c716224cbb925bbc857a4aa, type: 2}
-  - settings: {fileID: 11400000, guid: 7c72b3891d6f23148a7142dfb2eb6497, type: 2}
+  - cultistPrefab: {fileID: 5385566779566899302, guid: 8b811cb67833d76489c2aa199e6b1f0f,
+      type: 3}
+  - parent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -24,6 +24,7 @@ namespace CultManager
 
 
         [Header("Zoom Control")]
+        public float maxZoomDistanceFraction = 0.25f;
         public float maxFOV = 75.0f;
         public float minFOV = 20.0f;
         public AnimationCurve zoomLerpCurve = default;

@@ -1,32 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CultManager
 {
     public class CultManager : MonoBehaviour
     {
+        [SerializeField] private DebugInstance debug = default;
         [SerializeField] private CultData data = default;
         [SerializeField, DrawScriptable] private CultSettings settings = default;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Awake()
         {
-
+            if (data.cultists == null || data.cultists.Count == 0) SetTestCultists(settings.testCultistsAmount);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void SetTestCultists(int _amount)
         {
-
+            for (int i = 0; i < _amount; i++)
+            {
+                data.AddCultist(CreateRandomCultist());
+            }
         }
 
         public Cultist CreateRandomCultist()
         {
-            Sprite sprite = settings.cultistThumbnails[Random.Range(0, settings.cultistThumbnails.Length)];
+            int sprite = Random.Range(0, settings.cultistThumbnails.Length);
             string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)];
 
-            return data.CreateCultist(cultistName, sprite);
+            Cultist result = data.CreateCultist(cultistName, sprite);
+
+            return result;
+        }
+
+        [ContextMenu("Reset Cult List")]
+        private void ResetCultistList()
+        {
+            data.Reset();
         }
     }
 }

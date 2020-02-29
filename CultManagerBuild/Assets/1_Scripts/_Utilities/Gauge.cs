@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Gauge
 {
     public float min { get; private set; }
@@ -27,6 +28,7 @@ public class Gauge
     }
 }
 
+[System.Serializable]
 public class IntGauge
 {
     public int min { get; private set; }

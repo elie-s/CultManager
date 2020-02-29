@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CultManager
 {
@@ -9,28 +7,31 @@ namespace CultManager
         [SerializeField] private DebugInstance debug = default;
         [SerializeField] private Transform camTransform = default;
         [SerializeField] private Transform positionController = default;
+        [SerializeField] private Transform positionTarget = default;
         [SerializeField] private Transform focusPoint = default;
         [SerializeField] private Transform focusController = default;
         [SerializeField] private Camera cam = default;
+        [SerializeField, Range(0.0f, 1.0f)] private float verticalLerpValue;
+        [SerializeField, Range(0.0f, 1.0f)] private float azimuthalLerpValue;
+        [SerializeField, Range(0.0f, 1.0f)] private float zoomLerpValue;
         [SerializeField, DrawScriptable] private CameraControllerSettings settings;
-        
 
-        private Vector2 startDirection;
+
+        [SerializeField, HideInInspector] private Vector2 startDirection;
         private float startZoomValue;
 
         private float maxAngle;
         private float minAngle;
-        private float radius;
-        private float verticalLerpValue;
-        private float azimuthalLerpValue;
-        private float zoomLerpValue;
-
-        private bool unzooming;
+        [SerializeField, HideInInspector] private float radius;
+        private float authorizedRadius;
+        
+        
+        
 
         void Start()
         {
             SetStartDirection();
-            zoomLerpValue = Mathf.InverseLerp(settings.minFOV, settings.maxFOV, cam.fieldOfView);
+            zoomLerpValue = 1.0f;
             azimuthalLerpValue = 0.5f;
             verticalLerpValue = Mathf.InverseLerp(settings.minPositionControlYvalue, settings.maxPositionControlYValue, camTransform.position.y);
             startZoomValue = cam.fieldOfView;
@@ -97,21 +98,31 @@ namespace CultManager
         private void Zoom()
         {
             zoomLerpValue += Gesture.PinchDeltaValue * settings.zoomSpeed * -1;
-            zoomLerpValue = Mathf.Clamp01(zoomLerpValue);
-            cam.fieldOfView = Mathf.Lerp(settings.minFOV, settings.maxFOV, settings.zoomLerpCurve.Evaluate(zoomLerpValue));
-            if (!Gesture.Pinching)
-            {
-                if (Mathf.Abs(zoomLerpValue - 0.5f) < 0.025f) zoomLerpValue = 0.5f;
-                else if (zoomLerpValue > 0.5f) zoomLerpValue -= 0.5f / settings.unzoomDuration * Time.deltaTime;
-                else if (zoomLerpValue < 0.5f) zoomLerpValue += 0.5f / settings.unzoomDuration * Time.deltaTime;
-            }
+            zoomLerpValue = Mathf.Clamp(zoomLerpValue, settings.maxZoomDistanceFraction, 1.0f);
+            positionTarget.position = Vector3.Lerp(focusPoint.position, positionController.position, zoomLerpValue);
+            authorizedRadius = Vector2.Distance(new Vector2(focusPoint.position.x, focusPoint.position.z), new Vector2(positionTarget.position.x, positionTarget.position.z));
+            //cam.fieldOfView = Mathf.Lerp(settings.minFOV, settings.maxFOV, zoomLerpValue);
+
+            //if (!Gesture.Pinching)
+            //{
+            //    if (Mathf.Abs(zoomLerpValue - 0.5f) < 0.025f) zoomLerpValue = 0.5f;
+            //    else if (zoomLerpValue > 0.5f) zoomLerpValue -= 0.5f / settings.unzoomDuration * Time.deltaTime;
+            //    else if (zoomLerpValue < 0.5f) zoomLerpValue += 0.5f / settings.unzoomDuration * Time.deltaTime;
+            //}
         }
 
         private void MoveCamera()
         {
-            camTransform.position = Vector3.Lerp(camTransform.position, positionController.position, settings.cameraLerpForce);
+            camTransform.position = Vector3.Lerp(camTransform.position, positionTarget.position, settings.cameraLerpForce);
             focusPoint.position = Vector3.Lerp(focusPoint.position, focusController.position, settings.cameraLerpForce);
+            //KeepDistance();
             camTransform.LookAt(focusPoint);
+        }
+
+        private void KeepDistance()
+        {
+            Vector2 direction = (new Vector2(camTransform.position.x, camTransform.position.z).normalized - new Vector2(focusPoint.position.x, focusPoint.position.z).normalized).normalized * authorizedRadius;
+            camTransform.position = new Vector3(direction.x, camTransform.position.y, direction.y);
         }
 
         public Transform GetCamTransform()

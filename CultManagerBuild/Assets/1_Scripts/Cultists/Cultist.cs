@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CultManager
 {
@@ -12,14 +10,18 @@ namespace CultManager
         public int age { get; private set; }
         public IntGauge faith { get; private set; }
         public IntGauge morale { get; private set; }
-        public Sprite sprite { get; private set; }
+        public int spriteIndex { get; private set; }
         public CultistTraits traits { get; private set; }
+        public Room room { get; private set; }
 
-        public Cultist(ulong _id, string _name, Sprite _sprite)
+        public bool isBusy => room != Room.none;
+
+        public Cultist(ulong _id, string _name, int _sprite)
         {
             id = _id;
             cultistName = _name;
-            sprite = _sprite;
+            spriteIndex = _sprite;
+            room = Room.none;
             RandomAge();
             faith = new IntGauge(0, 100, false);
             faith.SetValue(50);
@@ -37,6 +39,16 @@ namespace CultManager
             }
 
             age = value;
+        }
+
+        public void SetToRoom(Room _room)
+        {
+            room = _room;
+        }
+
+        public override string ToString()
+        {
+            return "Cultist #" + id + " (" + cultistName + ")";
         }
     }
 }

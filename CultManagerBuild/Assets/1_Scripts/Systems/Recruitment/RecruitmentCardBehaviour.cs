@@ -67,7 +67,7 @@ namespace CultManager
 
         public void SetCultist(Cultist _cultist)
         {
-            photo.sprite = _cultist.sprite;
+            //photo.sprite = _cultist.spriteIndex;
             descriptionField.text = _cultist.cultistName + ", " + _cultist.age + ".";
         }
 

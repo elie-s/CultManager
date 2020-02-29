@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CultManager
 {
@@ -9,5 +7,7 @@ namespace CultManager
     {
         public Sprite[] cultistThumbnails;
         public string[] cultistNames;
+        [Header("Test values")]
+        public int testCultistsAmount = 50;
     }
 }
