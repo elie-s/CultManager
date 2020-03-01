@@ -72,9 +72,9 @@ namespace CultManager
             return result;
         }
 
-        public void RegisterTo(Room _room, ulong[] _ids)
+        public void RegisterTo(Room _room, Notification _notification, float _duration, ulong[] _ids)
         {
-            roomsRegistrations[(int)_room] = new SystemRegistration(_ids);
+            roomsRegistrations[(int)_room] = new SystemRegistration(_notification, _duration, _ids);
 
             for (int i = 0; i < _ids.Length; i++)
             {

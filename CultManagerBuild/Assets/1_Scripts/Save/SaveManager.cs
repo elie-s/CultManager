@@ -33,11 +33,11 @@ namespace CultManager
         }
 
         [ContextMenu("Load")]
-        public void Loadgame()
+        public bool Loadgame()
         {
             if (!File.Exists(dataPath))
             {
-                return;
+                return false;
             }
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -48,6 +48,12 @@ namespace CultManager
             debug.Log("Game load from: " + dataPath, DebugInstance.Importance.Average);
 
             data.LoadSave(save);
+            return true;
+        }
+
+        private void OnApplicationQuit()
+        {
+            SaveGame();
         }
     }
 }

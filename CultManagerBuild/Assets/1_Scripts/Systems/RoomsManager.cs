@@ -8,12 +8,29 @@ namespace CultManager
     {
         [SerializeField] private DebugInstance debug = default;
         [SerializeField] private RecruitmentManager recruitment = default;
+        [SerializeField] private NotificationsManager notificationsManager = default;
         [SerializeField] private CultData data = default;
+
+        private void Update()
+        {
+            CheckScheduledRoomsActions();
+        }
+
+        private void CheckScheduledRoomsActions()
+        {
+            foreach (SystemRegistration systemRegistration in data.roomsRegistrations)
+            {
+                if (!systemRegistration.isEmpty && systemRegistration.hasPassed)
+                {
+                    debug.Log(systemRegistration + " has passed.", DebugInstance.Importance.Lesser);
+                }
+            }
+        }
 
         [ContextMenu("Test Register Cultist")]
         private void TestRegisterCultist()
         {
-            RegisterCultistsToRoom(Room.Recruitment, data.cultists[0].id);
+            RegisterCultistsToRoom(Room.Recruitment, 1.0f/60.0f, data.cultists[0].id);
         }
 
         [ContextMenu("Test Unregister Room")]
@@ -22,7 +39,7 @@ namespace CultManager
             UnregisterCultistsFromRoom(Room.Recruitment);
         }
 
-        public void RegisterCultistsToRoom(Room _room, params ulong[] _cultistsID)
+        public void RegisterCultistsToRoom(Room _room, float _duration, params ulong[] _cultistsID)
         {
             if(_room == Room.none)
             {
@@ -30,7 +47,7 @@ namespace CultManager
                 return;
             }
 
-            data.RegisterTo(_room, _cultistsID);
+            data.RegisterTo(_room,notificationsManager.SendNotificationIn(Mathf.RoundToInt(_duration * 60)), _duration, _cultistsID);
         }
 
         public void UnregisterCultistsFromRoom(Room _room)

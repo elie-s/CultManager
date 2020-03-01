@@ -5,12 +5,13 @@ namespace CultManager
     public class CultManager : MonoBehaviour
     {
         [SerializeField] private DebugInstance debug = default;
+        [SerializeField] private SaveManager saveManager = default;
         [SerializeField] private CultData data = default;
         [SerializeField, DrawScriptable] private CultSettings settings = default;
 
         private void Awake()
         {
-            if (data.cultists == null || data.cultists.Count == 0) SetTestCultists(settings.testCultistsAmount);
+            InitalizeData();
         }
 
         private void SetTestCultists(int _amount)
@@ -29,6 +30,20 @@ namespace CultManager
             Cultist result = data.CreateCultist(cultistName, sprite);
 
             return result;
+        }
+
+        public void AddCultists(params Cultist[] _cultists)
+        {
+            foreach (Cultist cultist in _cultists)
+            {
+                data.AddCultist(cultist);
+            }
+        }
+
+        private void InitalizeData()
+        {
+            bool saveLoaded = saveManager.Loadgame();
+            if (!saveLoaded && (data.cultists == null || data.cultists.Count == 0)) SetTestCultists(settings.testCultistsAmount);
         }
 
         [ContextMenu("Reset Cult List")]

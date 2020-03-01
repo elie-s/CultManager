@@ -14,6 +14,7 @@ namespace CultManager
         private Cultist[] cultistProposed;
         private List<Cultist> cultistKept;
         private int index;
+        private int maxSelected;
 
         private const Room room = Room.Recruitment;
 
@@ -35,6 +36,23 @@ namespace CultManager
             }
 
             index = 0;
+            maxSelected = settings.validations;
+            NextCard();
+        }
+
+        public void NewCardList(int _proposition, int _selection)
+        {
+            cultistKept = new List<Cultist>();
+            cards = new GameObject[_proposition];
+            cultistProposed = new Cultist[_proposition];
+
+            for (int i = 0; i < _proposition; i++)
+            {
+                NewCard(i);
+            }
+
+            index = 0;
+            maxSelected = _selection;
             NextCard();
         }
 
@@ -66,7 +84,13 @@ namespace CultManager
 
         private void NextCard()
         {
-            if (index < cards.Length) cards[index].SetActive(true);
+            if (index < cards.Length && cultistKept.Count < maxSelected) cards[index].SetActive(true);
+            else AddToCult();
+        }
+
+        private void AddToCult()
+        {
+            cultManager.AddCultists(cultistKept.ToArray());
         }
     }
 }

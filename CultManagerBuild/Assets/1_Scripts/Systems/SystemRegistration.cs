@@ -1,21 +1,29 @@
 ﻿using System;
+using UnityEngine;
 
 namespace CultManager
 {
     [Serializable]
     public struct SystemRegistration : IEquatable<SystemRegistration>
     {
-        public DateTime date;
+        public DateTime startDate;
+        public DateTime endDate;
         public ulong[] cultistsID;
+        public Notification notification;
+        private bool empty;
 
-        public bool isEmpty => Equals(Empty);
+        public bool isEmpty => empty;
+        public bool hasPassed => endDate < DateTime.Now;
 
-        public static SystemRegistration Empty => new SystemRegistration() { date = DateTime.MinValue, cultistsID = null };
+        public static SystemRegistration Empty => new SystemRegistration() { startDate = DateTime.MinValue, endDate = DateTime.MaxValue, cultistsID = new ulong[0], empty = true };
 
-        public SystemRegistration(params Cultist[] _cultists)
+        public SystemRegistration(Notification _notification, float _duration, params Cultist[] _cultists)
         {
-            date = DateTime.Now;
+            startDate = DateTime.Now;
+            endDate = DateTime.Now.AddHours(_duration);
             cultistsID = new ulong[_cultists.Length];
+            notification = _notification;
+            empty = false;
 
             for (int i = 0; i < _cultists.Length; i++)
             {
@@ -23,33 +31,41 @@ namespace CultManager
             }
         }
 
-        public SystemRegistration(params ulong[] _ids)
+        public SystemRegistration(Notification _notification, float _duration, params ulong[] _ids)
         {
-            date = DateTime.Now;
+            startDate = DateTime.Now;
+            endDate = DateTime.Now.AddHours(_duration);
             cultistsID = _ids;
+            notification = _notification;
+
+            empty = false;
         }
 
-        public SystemRegistration(DateTime _date, params ulong[] _ids)
+        public SystemRegistration(Notification _notification, DateTime _date, float _duration, params ulong[] _ids)
         {
-            date = _date;
+            startDate = _date;
+            endDate = startDate.AddHours(_duration);
             cultistsID = _ids;
+            notification = _notification;
+
+            empty = false;
         }
 
         public bool Equals(SystemRegistration other)
         {
-            return date == other.date && cultistsID == other.cultistsID;
+            return startDate == other.startDate && endDate == other.endDate && cultistsID.Length == other.cultistsID.Length;
         }
 
         public override string ToString()
         {
-            string result = date.ToString();
+            string result = startDate.ToString() + " -> " + endDate.ToString();
 
             foreach (ulong id in cultistsID)
             {
                 result+= "\nCultist #"+id;
             }
 
-            return base.ToString();
+            return result;
         }
     }
 }

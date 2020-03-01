@@ -36,7 +36,7 @@ namespace CultManager
             debug.Log("Channel: \"" + channelName + "\" (" + channelID + ") registered.", DebugInstance.Importance.Mandatory);
         }
 
-        public void SendNotificationIn(int _minutes)
+        public Notification SendNotificationIn(int _minutes)
         {
             AndroidNotification notification = new AndroidNotification();
 
@@ -47,6 +47,8 @@ namespace CultManager
 
             int id = AndroidNotificationCenter.SendNotification(notification, channelID);
             debug.Log("Notification: \"" + notificationTitle + "\" ("+ id + ") registered on channel: " + channelID + ". Notification is scheduled at " + System.DateTime.Now.AddMinutes(_minutes), DebugInstance.Importance.Mandatory);
+
+            return new Notification(System.DateTime.Now.AddMinutes(_minutes), id);
         }
     }
 }
