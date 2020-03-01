@@ -5,7 +5,7 @@ namespace CultManager
     [System.Serializable]
     public class Cultist
     {
-        public readonly ulong id;
+        public ulong id { get; private set; }
         public string cultistName { get; private set; }
         public int age { get; private set; }
         public IntGauge faith { get; private set; }
@@ -48,7 +48,7 @@ namespace CultManager
 
         public override string ToString()
         {
-            return "Cultist #" + id + " (" + cultistName + ")";
+            return "Cultist #" + id + " (" + cultistName + ")" + (room != Room.none ? " ["+room+"]" : "");
         }
     }
 }

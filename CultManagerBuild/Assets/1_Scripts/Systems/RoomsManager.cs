@@ -7,21 +7,22 @@ namespace CultManager
     public class RoomsManager : MonoBehaviour
     {
         [SerializeField] private DebugInstance debug = default;
+        [SerializeField] private RecruitmentManager recruitment = default;
         [SerializeField] private CultData data = default;
 
-        // Start is called before the first frame update
-        void Start()
+        [ContextMenu("Test Register Cultist")]
+        private void TestRegisterCultist()
         {
-
+            RegisterCultistsToRoom(Room.Recruitment, data.cultists[0].id);
         }
 
-        // Update is called once per frame
-        void Update()
+        [ContextMenu("Test Unregister Room")]
+        private void TestUnregisterRoom()
         {
-
+            UnregisterCultistsFromRoom(Room.Recruitment);
         }
 
-        public void RegisterCultistsToRoom(Room _room, params Cultist[] _cultists)
+        public void RegisterCultistsToRoom(Room _room, params ulong[] _cultistsID)
         {
             if(_room == Room.none)
             {
@@ -29,7 +30,7 @@ namespace CultManager
                 return;
             }
 
-            data.roomsRegistrations[(int)_room] = new SystemRegistration(_cultists);
+            data.RegisterTo(_room, _cultistsID);
         }
 
         public void UnregisterCultistsFromRoom(Room _room)
@@ -40,7 +41,7 @@ namespace CultManager
                 return;
             }
 
-            data.roomsRegistrations[(int)_room] = SystemRegistration.Empty;
+            data.Unregister(_room);
         }
     }
 }

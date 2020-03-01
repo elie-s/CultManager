@@ -39,5 +39,17 @@ namespace CultManager
         {
             return date == other.date && cultistsID == other.cultistsID;
         }
+
+        public override string ToString()
+        {
+            string result = date.ToString();
+
+            foreach (ulong id in cultistsID)
+            {
+                result+= "\nCultist #"+id;
+            }
+
+            return base.ToString();
+        }
     }
 }

@@ -36,5 +36,11 @@ namespace CultManager
         {
             data.Reset();
         }
+
+        [ContextMenu("Debug Cultist 0")]
+        private void DebugCultist0()
+        {
+            Debug.Log(data.cultists[0]);
+        }
     }
 }

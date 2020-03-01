@@ -8,7 +8,7 @@ namespace CultManager
     public class CultData : ScriptableObject
     {
         [SerializeField] private DebugInstance debug = default;
-        public SystemRegistration[] roomsRegistrations;
+        public SystemRegistration[] roomsRegistrations { get; private set; }
         public List<Cultist> cultists { get; private set; }
         public ulong idIndex { get; private set; }
 
@@ -70,6 +70,38 @@ namespace CultManager
             debug.Log(result + " created.", DebugInstance.Importance.Lesser);
 
             return result;
+        }
+
+        public void RegisterTo(Room _room, ulong[] _ids)
+        {
+            roomsRegistrations[(int)_room] = new SystemRegistration(_ids);
+
+            for (int i = 0; i < _ids.Length; i++)
+            {
+                GetCultist(_ids[i]).SetToRoom(_room);
+                debug.Log(GetCultist(_ids[i]) + " registered to the room " + GetCultist(_ids[i]).room + ".", DebugInstance.Importance.Lesser);
+            }
+        }
+
+        public void Unregister(Room _room)
+        {
+            if(roomsRegistrations[(int)_room].cultistsID == null || roomsRegistrations[(int)_room].cultistsID.Length == 0)
+            {
+                debug.Log("There is no cultist to unregister from " + _room + ".", DebugInstance.Importance.Lesser);
+            }
+
+            for (int i = 0; i < roomsRegistrations[(int)_room].cultistsID.Length; i++)
+            {
+                GetCultist(roomsRegistrations[(int)_room].cultistsID[i]).SetToRoom(Room.none);
+                debug.Log(GetCultist(roomsRegistrations[(int)_room].cultistsID[i]) + " unregistered from the room " + _room + ".", DebugInstance.Importance.Lesser);
+            }
+
+            roomsRegistrations[(int)_room] = SystemRegistration.Empty;
+        }
+
+        public void Unregister(ulong[] _ids)
+        {
+
         }
     }
 }

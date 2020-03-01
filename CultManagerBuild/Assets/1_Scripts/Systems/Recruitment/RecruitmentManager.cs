@@ -15,6 +15,8 @@ namespace CultManager
         private List<Cultist> cultistKept;
         private int index;
 
+        private const Room room = Room.Recruitment;
+
         void Start()
         {
 
