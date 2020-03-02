@@ -9,16 +9,20 @@ namespace CultManager
     {
         public DateTime due;
         public int id;
+        public bool cancelled { get; private set; }
 
         public Notification(DateTime _date, int _id)
         {
             due = _date;
             id = _id;
+            cancelled = false;
         }
 
         public void Cancel()
         {
-            AndroidNotificationCenter.CancelNotification(id);
+            if (!cancelled) AndroidNotificationCenter.CancelNotification(id);
+
+            cancelled = true;
         }
     }
 }

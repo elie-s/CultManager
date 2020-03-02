@@ -6,14 +6,14 @@ namespace CultManager
     [Serializable]
     public struct SystemRegistration : IEquatable<SystemRegistration>
     {
-        public DateTime startDate;
-        public DateTime endDate;
+        [SerializeField] public DateTime startDate;
+        [SerializeField] public DateTime endDate;
         public ulong[] cultistsID;
         public Notification notification;
-        private bool empty;
+        [SerializeField, HideInInspector]private bool empty;
 
         public bool isEmpty => empty;
-        public bool hasPassed => endDate < DateTime.Now;
+        public bool hasPassed => !empty && endDate < DateTime.Now;
 
         public static SystemRegistration Empty => new SystemRegistration() { startDate = DateTime.MinValue, endDate = DateTime.MaxValue, cultistsID = new ulong[0], empty = true };
 

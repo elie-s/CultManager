@@ -96,6 +96,7 @@ namespace CultManager
                 debug.Log(GetCultist(roomsRegistrations[(int)_room].cultistsID[i]) + " unregistered from the room " + _room + ".", DebugInstance.Importance.Lesser);
             }
 
+            roomsRegistrations[(int)_room].notification.Cancel();
             roomsRegistrations[(int)_room] = SystemRegistration.Empty;
         }
 

@@ -18,6 +18,14 @@ namespace CultManager
 
         private void CheckScheduledRoomsActions()
         {
+            //for (int i = 0; i < data.roomsRegistrations.Length; i++)
+            //{
+            //    if(data.roomsRegistrations[i].hasPassed)
+            //    {
+                    
+            //    }
+            //}
+
             foreach (SystemRegistration systemRegistration in data.roomsRegistrations)
             {
                 if (!systemRegistration.isEmpty && systemRegistration.hasPassed)
@@ -28,7 +36,7 @@ namespace CultManager
         }
 
         [ContextMenu("Test Register Cultist")]
-        private void TestRegisterCultist()
+        public void TestRegisterCultist()
         {
             RegisterCultistsToRoom(Room.Recruitment, 1.0f/60.0f, data.cultists[0].id);
         }

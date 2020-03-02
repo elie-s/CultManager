@@ -246,6 +246,7 @@ MonoBehaviour:
   debug:
     filter: 15
   recruitment: {fileID: 0}
+  notificationsManager: {fileID: 0}
   data: {fileID: 11400000, guid: 028805a29c716224cbb925bbc857a4aa, type: 2}
 --- !u!4 &52806129
 Transform:
@@ -4219,6 +4220,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7770725416994819990, guid: ab6f0f91ec375af4aafba407f3ada6e8,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 419581422}
+    - target: {fileID: 7770725416994819990, guid: ab6f0f91ec375af4aafba407f3ada6e8,
+        type: 3}
+      propertyPath: saveManager
+      value: 
+      objectReference: {fileID: 1104484636}
     - target: {fileID: 7770725416994819991, guid: ab6f0f91ec375af4aafba407f3ada6e8,
         type: 3}
       propertyPath: m_LocalPosition.x

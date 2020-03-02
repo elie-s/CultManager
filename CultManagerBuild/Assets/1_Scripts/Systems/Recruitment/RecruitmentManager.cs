@@ -6,8 +6,12 @@ namespace CultManager
 {
     public class RecruitmentManager : MonoBehaviour
     {
+        [SerializeField] private CultData data = default;
         [SerializeField] private CultManager cultManager = default;
+        [SerializeField] private GameObject seeList = default;
+        [SerializeField] private GameObject sendRecruitButton = default;
         [SerializeField] private Transform cardParents = default;
+        [SerializeField] private RoomsManager roomsManager = default;
         [SerializeField, DrawScriptable] private RecruitmentManagerSettings settings = default;
 
         private GameObject[] cards;
@@ -23,9 +27,16 @@ namespace CultManager
 
         }
 
+        private void Update()
+        {
+            CheckAvailability();
+        }
+
         [ContextMenu("New List")]
         public void NewCardList()
         {
+            roomsManager.UnregisterCultistsFromRoom(room);
+
             cultistKept = new List<Cultist>();
             cards = new GameObject[settings.propositionsAmount];
             cultistProposed = new Cultist[settings.propositionsAmount];
@@ -91,6 +102,23 @@ namespace CultManager
         private void AddToCult()
         {
             cultManager.AddCultists(cultistKept.ToArray());
+        }
+
+        private void CheckAvailability()
+        {
+            if(data && data.roomsRegistrations[(int)room].hasPassed)
+            {
+                if (!seeList.activeSelf) seeList.SetActive(true);
+            }
+            else if ( data && data.roomsRegistrations[(int)room].isEmpty)
+            {
+                if (!sendRecruitButton.activeSelf) sendRecruitButton.SetActive(true);
+            }
+            else
+            {
+                if (seeList.activeSelf) seeList.SetActive(false);
+                if (sendRecruitButton.activeSelf) sendRecruitButton.SetActive(false);
+            }
         }
     }
 }

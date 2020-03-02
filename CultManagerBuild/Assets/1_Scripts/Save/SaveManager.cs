@@ -55,5 +55,11 @@ namespace CultManager
         {
             SaveGame();
         }
+
+        public void Quit()
+        {
+            SaveGame();
+            Application.Quit();
+        }
     }
 }

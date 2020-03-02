@@ -35,7 +35,7 @@ namespace CultManager
             debug.Log(data.cultists.Count + " cultists spawned.", DebugInstance.Importance.Average);
         }
 
-        private void SpawnNewCultist()
+        public void SpawnNewCultist()
         {
             Instantiate(cultistPrefab, RandomPosition(), Quaternion.identity, parent);
         }

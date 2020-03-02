@@ -6,6 +6,7 @@ namespace CultManager
     {
         [SerializeField] private DebugInstance debug = default;
         [SerializeField] private SaveManager saveManager = default;
+        [SerializeField] private CultistSpawner spawner = default;
         [SerializeField] private CultData data = default;
         [SerializeField, DrawScriptable] private CultSettings settings = default;
 
@@ -37,13 +38,20 @@ namespace CultManager
             foreach (Cultist cultist in _cultists)
             {
                 data.AddCultist(cultist);
+                spawner?.SpawnNewCultist();
             }
+
+            saveManager.SaveGame();
         }
 
         private void InitalizeData()
         {
             bool saveLoaded = saveManager.Loadgame();
-            if (!saveLoaded && (data.cultists == null || data.cultists.Count == 0)) SetTestCultists(settings.testCultistsAmount);
+            if (!saveLoaded && (data.cultists == null || data.cultists.Count == 0))
+            {
+                data.Reset();
+                SetTestCultists(settings.testCultistsAmount);
+            }
         }
 
         [ContextMenu("Reset Cult List")]
