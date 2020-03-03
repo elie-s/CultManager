@@ -10,6 +10,8 @@ namespace CultManager
         [SerializeField] private CultData data = default;
         [SerializeField, DrawScriptable] private CultSettings settings = default;
 
+        private bool useSave = false;
+
         private void Awake()
         {
             InitalizeData();
@@ -41,12 +43,14 @@ namespace CultManager
                 spawner?.SpawnNewCultist();
             }
 
-            saveManager.SaveGame();
+            if(useSave) saveManager.SaveGame();
         }
 
         private void InitalizeData()
         {
-            bool saveLoaded = saveManager.Loadgame();
+            useSave = saveManager;
+
+            bool saveLoaded = useSave ? saveManager.Loadgame() : false;
             if (!saveLoaded && (data.cultists == null || data.cultists.Count == 0))
             {
                 data.Reset();

@@ -214,54 +214,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15583639}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &52806127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 52806129}
-  - component: {fileID: 52806128}
-  m_Layer: 0
-  m_Name: RoomsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &52806128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52806127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d038ed7ca229a849a0fc3bfa0ba3218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug:
-    filter: 15
-  recruitment: {fileID: 0}
-  notificationsManager: {fileID: 0}
-  data: {fileID: 11400000, guid: 028805a29c716224cbb925bbc857a4aa, type: 2}
---- !u!4 &52806129
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52806127}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &68410441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1009,7 @@ Transform:
   m_Children:
   - {fileID: 743843127}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &419581422
 MonoBehaviour:
@@ -1073,8 +1025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug:
     filter: -1
-  data: {fileID: 11400000, guid: 028805a29c716224cbb925bbc857a4aa, type: 2}
-  cultistPrefab: {fileID: 5385566779566899302, guid: 8b811cb67833d76489c2aa199e6b1f0f,
+  data: {fileID: 11400000, guid: 360a2a7e1a5def047885e2e7025b90d9, type: 2}
+  cultistPrefab: {fileID: 899735755983673951, guid: 0a25abd52e468484fbad29f76f53f85e,
     type: 3}
   yValue: 0.4
   spawnAreaMultipliers: {x: 4, y: 3}
@@ -1800,56 +1752,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103459437}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1104484635
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1104484637}
-  - component: {fileID: 1104484636}
-  m_Layer: 0
-  m_Name: SaveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1104484636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104484635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a57bb3625cd744499c8a09e8aa5892e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debug:
-    filter: 15
-  data: {fileID: 11400000, guid: 028805a29c716224cbb925bbc857a4aa, type: 2}
-  version: 0
-  saveFolder: Save
-  saveName: save
-  saveExtension: chtulhu
---- !u!4 &1104484637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104484635}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133323458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,7 +3773,7 @@ Transform:
   - {fileID: 1955041526}
   - {fileID: 231625819}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985813877
 GameObject:
@@ -4229,7 +4131,19 @@ PrefabInstance:
         type: 3}
       propertyPath: saveManager
       value: 
-      objectReference: {fileID: 1104484636}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770725416994819990, guid: ab6f0f91ec375af4aafba407f3ada6e8,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 360a2a7e1a5def047885e2e7025b90d9,
+        type: 2}
+    - target: {fileID: 7770725416994819990, guid: ab6f0f91ec375af4aafba407f3ada6e8,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: 0dee9034110c52b4ea61ef553e86769a,
+        type: 2}
     - target: {fileID: 7770725416994819991, guid: ab6f0f91ec375af4aafba407f3ada6e8,
         type: 3}
       propertyPath: m_LocalPosition.x
