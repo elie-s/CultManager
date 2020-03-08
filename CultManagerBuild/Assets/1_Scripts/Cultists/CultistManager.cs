@@ -2,51 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CultistManager : MonoBehaviour
+namespace CultManager
 {
-    [Header("Cult Database")]
-    [SerializeField]
-    CultistData cultistData;
-    public List<GameObject> CultistList;
-
-    [Header("Spawning Cultists")]
-    public AgentSpawner cultSpawner;
-    private int cultistsToSpawn;
-
-    float faithTotal;
-
-    void Start()
+    public class CultistManager : MonoBehaviour
     {
-        cultistData.ResetCultistData();
-        cultSpawner.SpawnCultists(cultistData.totalNumberOfCultists);
-    }
+        [Header("Cult Database")]
+        [SerializeField]
+        CultistData cultistData;
+        public List<GameObject> CultistList;
 
-    void Update()
-    {
-        for (int i = 0; i < CultistList.Count; i++)
+        [Header("Spawning Cultists")]
+        public AgentSpawner cultSpawner;
+        private int cultistsToSpawn;
+
+        float faithTotal;
+
+        void Start()
         {
-            faithTotal += cultistData.CultistPropertiesList[i].faith;
+            cultistData.ResetCultistData();
+            cultSpawner.SpawnCultists(cultistData.totalNumberOfCultists);
         }
-        cultistData.averageFaith = faithTotal / CultistList.Count;
-        faithTotal = 0;
-    }
 
-    public void KillAll()
-    {
-        while (CultistList.Count > 0)
+        void Update()
         {
-            Destroy(CultistList[CultistList.Count - 1]);
-            cultistData.CultistPropertiesList.RemoveAt(CultistList.Count - 1);
-            CultistList.RemoveAt(CultistList.Count - 1);
-            cultistData.totalNumberOfCultists--;
+            for (int i = 0; i < CultistList.Count; i++)
+            {
+                faithTotal += cultistData.CultistPropertiesList[i].faith;
+            }
+            cultistData.averageFaith = faithTotal / CultistList.Count;
+            faithTotal = 0;
         }
-        //cultistData.totalNumberOfCultists = 0;
-    }
 
-    public void Respawn(int number)
-    {
-        KillAll();
-        cultSpawner.SpawnCultists(number);
-        //cultistData.totalNumberOfCultists = number;
+        public void KillAll()
+        {
+            while (CultistList.Count > 0)
+            {
+                Destroy(CultistList[CultistList.Count - 1]);
+                cultistData.CultistPropertiesList.RemoveAt(CultistList.Count - 1);
+                CultistList.RemoveAt(CultistList.Count - 1);
+                cultistData.totalNumberOfCultists--;
+            }
+            //cultistData.totalNumberOfCultists = 0;
+        }
+
+        public void Respawn(int number)
+        {
+            KillAll();
+            cultSpawner.SpawnCultists(number);
+            //cultistData.totalNumberOfCultists = number;
+        }
     }
 }
+

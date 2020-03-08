@@ -27,6 +27,10 @@ namespace CultManager
             faith.SetValue(50);
             morale = new IntGauge(0, 100, false);
             morale.SetValue(50);
+
+            //traits = CultistTraits.TraitA | CultistTraits.TraitC | CultistTraits.TraitD;
+
+            //traits += CultistTraits.TraitF;
         }
 
         public void RandomAge()

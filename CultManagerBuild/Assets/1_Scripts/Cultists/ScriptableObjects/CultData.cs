@@ -8,6 +8,7 @@ namespace CultManager
     public class CultData : ScriptableObject
     {
         [SerializeField] private DebugInstance debug = default;
+
         public SystemRegistration[] roomsRegistrations { get; private set; }
         public List<Cultist> cultists { get; private set; }
         public ulong idIndex { get; private set; }
