@@ -822,7 +822,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 39296814}
   m_HandleRect: {fileID: 39296813}
   m_Direction: 0
-  m_Value: -0.00000007811001
+  m_Value: -0.00000015622
   m_Size: 0.6056722
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1055,18 +1055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef8409c92b927345b3ddbc8509bf1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTokens:
-  - {fileID: 1849126294}
-  - {fileID: 2126031637}
-  - {fileID: 860893494}
-  - {fileID: 766250662}
-  - {fileID: 2061905549}
-  - {fileID: 1578124449}
-  locations:
-  - {fileID: 2141233894}
-  - {fileID: 1719380957}
-  - {fileID: 503093174}
-  tokenObject: {fileID: 0}
+  puzzleManager: {fileID: 0}
+  playerTokenParent: {fileID: 1637863742}
+  locationsParent: {fileID: 76580578}
 --- !u!1 &860893494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1470318047345910724, guid: 5dc8be9a8b53b7c42b33edcbd27a3d9a,

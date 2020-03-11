@@ -3,31 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PuzzleManagerUI : MonoBehaviour
+
+namespace CultManager
 {
-    public GameObject[] playerTokens;
-    public GameObject[] locations;
-    public GameObject tokenObject;
-
-
-    void Start()
+    public class PuzzleManagerUI : MonoBehaviour
     {
-        
+        public PuzzleManager puzzleManager;
+        [SerializeField]
+        private GameObject playerTokenParent;
+        [SerializeField]
+        private GameObject locationsParent;
+        //[SerializeField]
+        private GameObject[] playerTokens;
+        //[SerializeField]
+        private GameObject[] locations;
+        private GameObject tokenObject;
+
+
+        void Start()
+        {
+
+        }
+
+        void Update()
+        {
+
+        }
+
+        void GatherChildren(GameObject parent, GameObject[] children)
+        {
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                children[i] = parent.transform.GetChild(i).gameObject;
+            }
+        }
+
+        public void TokenSelection(int tokenID)
+        {
+            playerTokens = new GameObject[playerTokenParent.transform.childCount];
+            GatherChildren(playerTokenParent, playerTokens);
+            tokenObject = playerTokens[tokenID];
+        }
+
+        public void PlaceToken(int locationId)
+        {
+            locations = new GameObject[locationsParent.transform.childCount];
+            GatherChildren(locationsParent, locations);
+            tokenObject.transform.SetParent(locations[locationId].transform);
+            tokenObject.transform.position = locations[locationId].transform.position;
+        }
+
+        void AddNodes()
+        {
+
+        }
     }
 
-    void Update()
-    {
-        
-    }
-
-    public void TokenSelection(int tokenID)
-    {
-        tokenObject = playerTokens[tokenID];
-    }
-
-    public void PlaceToken(int locationId)
-    {
-        tokenObject.transform.parent = locations[locationId].transform;
-        tokenObject.transform.position = locations[locationId].transform.position;
-    }
 }
