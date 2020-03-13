@@ -8,7 +8,7 @@ namespace CultManager
     public class PuzzleManager : MonoBehaviour
     {
         [SerializeField]
-        private List<PuzzleNode> puzzleNodes;
+        public List<PuzzleNode> puzzleNodes;
         [SerializeField]
         private PuzzlePattern[] puzzlePatterns;
 
@@ -22,7 +22,7 @@ namespace CultManager
         }
 
         [ContextMenu("Test Check Pattern")]
-        private void TestCheckPatterns()
+        public void TestCheckPatterns()
         {
             Debug.Log(CheckPatterns(puzzleNodes, puzzlePatterns));
             
@@ -39,6 +39,7 @@ namespace CultManager
             }
             return -1;
         }
+
     }
 }
 

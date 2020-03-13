@@ -22,12 +22,14 @@ namespace CultManager
 
         void Start()
         {
-
+            locations = new GameObject[locationsParent.transform.childCount];
+            GatherChildren(locationsParent, locations);
+            playerTokens = new GameObject[playerTokenParent.transform.childCount];
+            GatherChildren(playerTokenParent, playerTokens);
         }
 
         void Update()
         {
-
         }
 
         void GatherChildren(GameObject parent, GameObject[] children)
@@ -40,22 +42,25 @@ namespace CultManager
 
         public void TokenSelection(int tokenID)
         {
-            playerTokens = new GameObject[playerTokenParent.transform.childCount];
-            GatherChildren(playerTokenParent, playerTokens);
+            
             tokenObject = playerTokens[tokenID];
         }
 
         public void PlaceToken(int locationId)
         {
-            locations = new GameObject[locationsParent.transform.childCount];
-            GatherChildren(locationsParent, locations);
-            tokenObject.transform.SetParent(locations[locationId].transform);
-            tokenObject.transform.position = locations[locationId].transform.position;
+            if (tokenObject)
+            {
+                tokenObject.transform.SetParent(locations[locationId].transform);
+                tokenObject.transform.position = locations[locationId].transform.position;
+                AddNode(locationId);
+            }
+            
         }
 
-        void AddNodes()
+        void AddNode(int a)
         {
-
+            tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = a;
+            puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
         }
     }
 
