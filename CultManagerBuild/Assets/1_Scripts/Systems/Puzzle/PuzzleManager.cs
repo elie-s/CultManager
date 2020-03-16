@@ -25,7 +25,6 @@ namespace CultManager
         public void TestCheckPatterns()
         {
             Debug.Log(CheckPatterns(puzzleNodes, puzzlePatterns));
-            
         }
 
         int CheckPatterns(List<PuzzleNode> _puzzleNodes, PuzzlePattern[] _puzzlePatterns)
