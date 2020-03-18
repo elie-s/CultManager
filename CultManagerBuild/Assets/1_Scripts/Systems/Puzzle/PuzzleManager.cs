@@ -11,6 +11,7 @@ namespace CultManager
         public List<PuzzleNode> puzzleNodes;
         [SerializeField]
         private PuzzlePattern[] puzzlePatterns;
+        public Token[] cultistTokens;
 
         private void Start()
         {
