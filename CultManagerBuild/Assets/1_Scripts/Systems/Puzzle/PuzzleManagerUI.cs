@@ -23,7 +23,7 @@ namespace CultManager
         private GameObject[] locations;
         [SerializeField]
         private List<Vector3> lineRenderPos;
-        //[SerializeField]
+        [SerializeField]
         private GameObject locationObject;
         private int locationId;
 
@@ -75,7 +75,7 @@ namespace CultManager
 
         public void DisplayTokensWithTrait(NodeBehavior nodeBehavior)
         {
-            Debug.Log(nodeBehavior.node.token.cultistTraits);
+            //Debug.Log(nodeBehavior.node.token.cultistTraits);
             DestroyAll();
             playerTokens.Clear();
             for (int i = 0; i < puzzleManager.cultistTokens.Length; i++)
@@ -83,11 +83,11 @@ namespace CultManager
                 if (nodeBehavior.node.token.CompareToken(puzzleManager.cultistTokens[i]))
                 {
                     playerTokens.Add(Instantiate(playerTokenPrefab, transform.position, Quaternion.identity, playerTokenParent.transform));
-                    Debug.Log(puzzleManager.cultistTokens[i].cultistTraits);
-                    playerTokens[playerTokens.Count-1].GetComponent<TokenBehavior>().puzzleNode.node.token = puzzleManager.cultistTokens[i];
+                    //Debug.Log(puzzleManager.cultistTokens[i].cultistTraits);
+                    playerTokens[playerTokens.Count - 1].GetComponent<TokenBehavior>().puzzleNode.node.token = puzzleManager.cultistTokens[i];
                 }
             }
-            locationObject=nodeBehavior.gameObject;
+            locationObject = nodeBehavior.gameObject;
             locationId = nodeBehavior.node.id;
         }
 
@@ -96,21 +96,30 @@ namespace CultManager
             tokenObject = playerTokens[tokenID];
             tokenObjectBehavior = tokenObject.GetComponent<TokenBehavior>();
         }
-
         */
 
         public void PlaceThisToken(GameObject tokenObject)
         {
-            if (locationObject)
+            if (tokenObject.transform.parent == playerTokenParent.transform)
             {
-                playerTokens.Remove(tokenObject);
-                tokenObject.transform.SetParent(locationObject.transform);
-                tokenObject.transform.position = locationObject.transform.position;
-                lineRenderPos.Add(tokenObject.transform.position);
-                tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = locationId;
-                puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
+                if (locationObject)
+                {
+                    playerTokens.Remove(tokenObject);
+                    tokenObject.transform.SetParent(locationObject.transform);
+                    tokenObject.transform.position = locationObject.transform.position;
+                    lineRenderPos.Add(tokenObject.transform.position);
+                    tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = locationId;
+                    puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
+                }
             }
-
+            else
+            {
+                Destroy(tokenObject);
+                DisplayTokensWithTrait(locationObject.GetComponent<NodeBehavior>());
+                lineRenderPos.Remove(tokenObject.transform.position);
+                tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = 0;
+                puzzleManager.puzzleNodes.Remove(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
+            }
         }
 
         public void CastSacrifice()
