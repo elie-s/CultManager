@@ -8,11 +8,13 @@ namespace CultManager
     public class TokenBehavior : MonoBehaviour
     {
         public PuzzleNode puzzleNode;
+        PuzzleManagerUI puzzleManagerUI;
         Transform[] children;
 
 
         void Start()
         {
+            puzzleManagerUI = FindObjectOfType<PuzzleManagerUI>();
             GatherChildren();
             SetUpTraits(puzzleNode);
         }
@@ -45,6 +47,11 @@ namespace CultManager
                     children[i].gameObject.SetActive(false); ;
                 }
             }
+        }
+
+        public void PlaceToken()
+        {
+            puzzleManagerUI.PlaceThisToken(gameObject);
         }
     }
 

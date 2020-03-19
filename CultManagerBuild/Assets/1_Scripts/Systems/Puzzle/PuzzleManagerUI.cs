@@ -24,10 +24,10 @@ namespace CultManager
         [SerializeField]
         private List<Vector3> lineRenderPos;
         //[SerializeField]
-        private GameObject tokenObject;
         private GameObject locationObject;
+        private int locationId;
 
-        private TokenBehavior tokenObjectBehavior;
+        //private TokenBehavior tokenObjectBehavior;
 
 
         void Start()
@@ -87,6 +87,8 @@ namespace CultManager
                     playerTokens[playerTokens.Count-1].GetComponent<TokenBehavior>().puzzleNode.node.token = puzzleManager.cultistTokens[i];
                 }
             }
+            locationObject=nodeBehavior.gameObject;
+            locationId = nodeBehavior.node.id;
         }
 
         /*public void TokenSelection(int tokenID)
@@ -97,14 +99,16 @@ namespace CultManager
 
         */
 
-        public void PlaceToken(int tokenId)
+        public void PlaceThisToken(GameObject tokenObject)
         {
             if (locationObject)
             {
+                playerTokens.Remove(tokenObject);
                 tokenObject.transform.SetParent(locationObject.transform);
                 tokenObject.transform.position = locationObject.transform.position;
                 lineRenderPos.Add(tokenObject.transform.position);
-                AddNode(tokenId);
+                tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = locationId;
+                puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
             }
 
         }
@@ -112,16 +116,10 @@ namespace CultManager
         public void CastSacrifice()
         {
             puzzleManager.TestCheckPatterns();
-            GameObject lineRendererGO = Instantiate(LineRendererPrefab, transform.position, Quaternion.identity, transform);
+            GameObject lineRendererGO = Instantiate(LineRendererPrefab, transform.position, Quaternion.identity, puzzleManager.transform);
             LineRenderer lr = lineRendererGO.GetComponent<LineRenderer>();
             lr.positionCount = lineRenderPos.Count;
             lr.SetPositions(lineRenderPos.ToArray());
-        }
-
-        void AddNode(int a)
-        {
-            tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = a;
-            puzzleManager.puzzleNodes.Add(tokenObjectBehavior.puzzleNode);
         }
     }
 
