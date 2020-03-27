@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbe1489212010674e8a87e28f7013e32, type: 3}
-  m_Name: Inventor
+  m_Name: 1_Apple
   m_EditorClassIdentifier: 
-  pillarName: Elon Musk
-  pillarTrivia: Invents new technology, roasts people on twitter and steals your
-    girl
-  pillarRequirement: 'Find 500 broke people with a purpose '
-  maxBuildPoints: 300
-  rateOfBuildingPerUnit: 1
-  requiredResource: 500
-  maxUnitsForBuilding: 10
+  pillarName: Pomme d'amour
+  pillarTrivia: Makes apple cider for you all your life
+  pillarRequirement: Required sacrifice of 100 virgin apples.
+  maxBuildPoints: 10
+  rateOfBuildingPerUnit: 0.4
+  requiredResource: 100
+  maxUnitsForBuilding: 5

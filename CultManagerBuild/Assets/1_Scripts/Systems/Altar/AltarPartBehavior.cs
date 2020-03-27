@@ -9,6 +9,7 @@ namespace CultManager
         [Header("Reference")]
         [SerializeField] TempManager tempManager;
         [SerializeField] AltarPartUI altarPartUI;
+        AltarPartBehavior altarPartBehavior;
 
         [Header("Active state")]
         public ObjectState currentObjectState;
@@ -25,13 +26,14 @@ namespace CultManager
 
         void Start()
         {
+            objectInteraction = gameObject.GetComponent<ObjectInteraction>();
             SetReferences();
         }
 
         void SetReferences()
         {
-            objectInteraction = gameObject.GetComponent<ObjectInteraction>();
-            altarPartUI.altarPartBehavior = gameObject.GetComponent<AltarPartBehavior>();
+            altarPartBehavior = gameObject.GetComponent<AltarPartBehavior>();
+            altarPartUI.altarPartBehavior = altarPartBehavior;
             altarPartUI.DisplayData();
         }
 
@@ -41,11 +43,15 @@ namespace CultManager
             if (isBought)
             {
                 AssignCultists();
-                if (currentAssignedCultists > 0 && !isBuilding)
+                if (currentAssignedCultists > 0/* && !isBuilding*/)
                 {
                     if (currentBuildPoints < currentAltarPartData.maxBuildPoints)
                     {
                         StartCoroutine(SimulateBuilding(currentAssignedCultists));
+                    }
+                    else
+                    {
+                        tempManager.CheckPillarProgress();
                     }
                 }
                 ComputeRateOfBuilding();
@@ -57,23 +63,26 @@ namespace CultManager
             currentObjectState = objectInteraction.selectionState;
             if (currentObjectState == ObjectState.Selected)
             {
-                altarPartUI.gameObject.SetActive(true);
+                altarPartUI.gameObject.SetActive(currentObjectState == ObjectState.Selected ? true : false);
+                SetReferences();
                 altarPartUI.DisplayData();
             }
             else
             {
-                altarPartUI.gameObject.SetActive(false);
+                altarPartUI.gameObject.SetActive(ObjectInteraction.isSelected);
             }
         }
 
-        public void BuyBuilding()
+        public void BuyBuilding(AltarPartBehavior instance)
         {
-            if (tempManager.currentResource >= currentAltarPartData.requiredResource)
+            if (instance == altarPartBehavior)
             {
-                tempManager.currentResource -= currentAltarPartData.requiredResource;
-                isBought = true;
+                if (tempManager.currentResource >= currentAltarPartData.requiredResource)
+                {
+                    tempManager.currentResource -= currentAltarPartData.requiredResource;
+                    isBought = true;
+                }
             }
-
         }
 
         void AssignCultists()
@@ -96,9 +105,8 @@ namespace CultManager
         {
             isBuilding = true;
             currentBuildPoints += 1;
-            yield return new WaitForSeconds(1 / (currentAltarPartData.rateOfBuildingPerUnit * a));
+            yield return new WaitForSecondsRealtime( 1 / (currentAltarPartData.rateOfBuildingPerUnit*a));
             isBuilding = false;
-            StopCoroutine(SimulateBuilding(0));
         }
 
         /*IEnumerator SimulateBuilding2(int a)

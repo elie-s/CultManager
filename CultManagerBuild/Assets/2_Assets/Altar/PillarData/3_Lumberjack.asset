@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe1489212010674e8a87e28f7013e32, type: 3}
+  m_Name: 3_Lumberjack
+  m_EditorClassIdentifier: 
+  pillarName: Lumberjack
+  pillarTrivia: Will shelter all your cult forever, despises homeless people. Is
+    often racist to them...
+  pillarRequirement: Sacrifice 1000 seasoned roasted chickens.
+  maxBuildPoints: 750
+  rateOfBuildingPerUnit: 1
+  requiredResource: 1000
+  maxUnitsForBuilding: 25

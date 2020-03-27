@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbe1489212010674e8a87e28f7013e32, type: 3}
-  m_Name: Apple
+  m_Name: 6_Netflix
   m_EditorClassIdentifier: 
-  pillarName: Pomme d'amour
-  pillarTrivia: Makes apple cider for you all your life
-  pillarRequirement: Required sacrifice of one hundered virgin apples
-  maxBuildPoints: 50
-  rateOfBuildingPerUnit: 1
-  requiredResource: 100
-  maxUnitsForBuilding: 5
+  pillarName: Netflix
+  pillarTrivia: Usually lures procastinators, these days popular among everyone.
+  pillarRequirement: Just beg 10000 people for their password.
+  maxBuildPoints: 24000
+  rateOfBuildingPerUnit: 2
+  requiredResource: 10000
+  maxUnitsForBuilding: 100

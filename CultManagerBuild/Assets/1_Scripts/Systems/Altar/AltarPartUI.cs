@@ -46,7 +46,7 @@ namespace CultManager
 
         public void Buy()
         {
-            altarPartBehavior.BuyBuilding();
+            altarPartBehavior.BuyBuilding(altarPartBehavior);
             buyButton.SetActive(!altarPartBehavior.isBought);
             progressImage.SetActive(altarPartBehavior.isBought);
         }
