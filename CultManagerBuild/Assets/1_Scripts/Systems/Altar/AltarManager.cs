@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CultManager
 {
-    public class TempManager : MonoBehaviour
+    public class AltarManager : MonoBehaviour
     {
         public int currentResource;
         public int currentCultists;
@@ -29,7 +29,7 @@ namespace CultManager
             int ctr = 0;
             for (int i = 0; i < AltarParts.Count; i++)
             {
-                if (AltarParts[i].buildProgress == 1)
+                if (AltarParts[i].currentBuildPoints.ratio == 1)
                 {
                     ctr++;
                 }

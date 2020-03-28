@@ -7,18 +7,17 @@ namespace CultManager
     public class AltarPartBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] TempManager tempManager;
+        [SerializeField] AltarManager tempManager;
         [SerializeField] AltarPartUI altarPartUI;
         AltarPartBehavior altarPartBehavior;
 
         [Header("Active state")]
         public ObjectState currentObjectState;
         public bool isBought;
-        public float buildProgress;
 
         [Header("Altar Part Stats")]
         public AltarPartData currentAltarPartData;
-        public float currentBuildPoints;
+        public Gauge currentBuildPoints;
         public int currentAssignedCultists;
         ObjectInteraction objectInteraction;
 
@@ -28,6 +27,7 @@ namespace CultManager
         {
             objectInteraction = gameObject.GetComponent<ObjectInteraction>();
             SetReferences();
+            currentBuildPoints = new Gauge(0, currentAltarPartData.maxBuildPoints, false);
         }
 
         void SetReferences()
@@ -43,9 +43,9 @@ namespace CultManager
             if (isBought)
             {
                 AssignCultists();
-                if (currentAssignedCultists > 0/* && !isBuilding*/)
+                if (currentAssignedCultists > 0 && !isBuilding)
                 {
-                    if (currentBuildPoints < currentAltarPartData.maxBuildPoints)
+                    if (currentBuildPoints.ratio < 1f)
                     {
                         StartCoroutine(SimulateBuilding(currentAssignedCultists));
                     }
@@ -54,7 +54,6 @@ namespace CultManager
                         tempManager.CheckPillarProgress();
                     }
                 }
-                ComputeRateOfBuilding();
             }
         }
 
@@ -104,8 +103,9 @@ namespace CultManager
         IEnumerator SimulateBuilding(int a)
         {
             isBuilding = true;
-            currentBuildPoints += 1;
-            yield return new WaitForSecondsRealtime( 1 / (currentAltarPartData.rateOfBuildingPerUnit*a));
+            currentBuildPoints.Increment((currentAltarPartData.rateOfBuildingPerUnit * a));
+            yield return new WaitForSecondsRealtime( 1 );
+            Debug.Log("Increment "+1 / (currentAltarPartData.rateOfBuildingPerUnit * a));
             isBuilding = false;
         }
 
@@ -118,10 +118,6 @@ namespace CultManager
             StopCoroutine(SimulateBuilding(0));
         }*/
 
-        void ComputeRateOfBuilding()
-        {
-            buildProgress = currentBuildPoints / currentAltarPartData.maxBuildPoints;
-        }
     }
 }
 

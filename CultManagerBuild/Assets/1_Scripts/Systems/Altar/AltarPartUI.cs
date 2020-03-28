@@ -32,8 +32,8 @@ namespace CultManager
             pillarRequirement.text = altarPartBehavior.currentAltarPartData.pillarRequirement;
             buyButton.SetActive(!altarPartBehavior.isBought);
             progressImage.SetActive(altarPartBehavior.isBought);
-            progressBar.fillAmount = altarPartBehavior.buildProgress;
-            progressRate.text = Mathf.RoundToInt(altarPartBehavior.buildProgress*100).ToString()+"%";
+            progressBar.fillAmount = altarPartBehavior.currentBuildPoints.ratio;
+            progressRate.text = Mathf.RoundToInt(altarPartBehavior.currentBuildPoints.percentage).ToString()+"%";
         }
 
 
