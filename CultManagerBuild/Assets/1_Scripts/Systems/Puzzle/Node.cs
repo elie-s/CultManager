@@ -27,5 +27,17 @@ namespace CultManager
                 return false;
             }
         }
+
+        public bool IncludesNode(Node node)
+        {
+            if (node.id == id && token.IncludesToken(node.token))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

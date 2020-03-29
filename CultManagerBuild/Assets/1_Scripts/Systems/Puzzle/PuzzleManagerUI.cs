@@ -80,7 +80,7 @@ namespace CultManager
             playerTokens.Clear();
             for (int i = 0; i < puzzleManager.cultistTokens.Length; i++)
             {
-                if (nodeBehavior.node.token.CompareToken(puzzleManager.cultistTokens[i]))
+                if (nodeBehavior.node.token.IncludesToken(puzzleManager.cultistTokens[i]))
                 {
                     playerTokens.Add(Instantiate(playerTokenPrefab, transform.position, Quaternion.identity, playerTokenParent.transform));
                     //Debug.Log(puzzleManager.cultistTokens[i].cultistTraits);

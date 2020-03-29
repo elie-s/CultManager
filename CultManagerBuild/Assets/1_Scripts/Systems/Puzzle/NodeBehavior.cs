@@ -12,7 +12,7 @@ namespace CultManager
         public bool VerifyNode(PuzzleNode puzzleNode)
         {
             currentNode = puzzleNode.node;
-            return (node.token.CompareToken(currentNode.token));
+            return (node.token.IncludesToken(currentNode.token));
         }
     }
 
