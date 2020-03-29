@@ -10,5 +10,6 @@ namespace CultManager
         public int propositionsAmount = 10;
         public int validations = 2;
         public GameObject recruitmentCardPrefab = default;
+        public Sprite[] recruitmentPhotos = default;
     }
 }

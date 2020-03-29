@@ -1,6 +1,4 @@
 ﻿using System.IO;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
@@ -9,20 +7,24 @@ namespace CultManager
     public class SaveManager : MonoBehaviour
     {
         [SerializeField] private DebugInstance debug = default;
-        [SerializeField] private CultData data = default;
-        [SerializeField] private int version = 0;
-        [SerializeField] private string saveFolder = "Save";
-        [SerializeField] private string saveName = "save";
-        [SerializeField] private string saveExtension = "chtulhu";
+        [Header("Data sets")]
+        [SerializeField] private CultData cultData = default;
+        [SerializeField] private InfluenceData influenceData = default;
+        [SerializeField] private MoneyData moneyData = default;
+        [SerializeField] private PoliceData policeData = default;
+        [Header("Settings")]
+        [SerializeField, DrawScriptable] private SaveSettings settings = default;
 
-        private string dataPath => Application.persistentDataPath + "/" + saveFolder + "/" + saveName + "." + saveExtension + version;
+        public static bool saveLoaded { get; private set; }
+
+        private string dataPath => Application.persistentDataPath + "/" + settings.saveFolder + "/" + settings.saveName + "." + settings.saveExtension + settings.version;
 
         [ContextMenu("Save")]
         public void SaveGame()
         {
-            Save save = new Save(version, data);
+            Save save = new Save(settings.version, cultData, influenceData, moneyData, policeData);
 
-            if (!Directory.Exists(Application.persistentDataPath + "/" + saveFolder)) Directory.CreateDirectory(Application.persistentDataPath + "/" + saveFolder);
+            if (!Directory.Exists(Application.persistentDataPath + "/" + settings.saveFolder)) Directory.CreateDirectory(Application.persistentDataPath + "/" + settings.saveFolder);
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream saveFile = File.Create(dataPath);
@@ -37,6 +39,7 @@ namespace CultManager
         {
             if (!File.Exists(dataPath))
             {
+                saveLoaded = false;
                 return false;
             }
 
@@ -47,19 +50,13 @@ namespace CultManager
 
             debug.Log("Game load from: " + dataPath, DebugInstance.Importance.Average);
 
-            data.LoadSave(save);
+            cultData.LoadSave(save);
+            influenceData.LoadSave(save);
+            moneyData.LoadSave(save);
+            policeData.LoadSave(save);
+
+            saveLoaded = true;
             return true;
-        }
-
-        private void OnApplicationQuit()
-        {
-            SaveGame();
-        }
-
-        public void Quit()
-        {
-            SaveGame();
-            Application.Quit();
-        }
+        } 
     }
 }

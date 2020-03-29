@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace CultManager
+{
+    public class MoneyManager : MonoBehaviour
+    {
+        [SerializeField] private MoneyData data;
+
+        public void Increase(int _value)
+        {
+            data.Increase((uint)_value);
+        }
+
+        public void InitializeData()
+        {
+            if (!SaveManager.saveLoaded) data.Reset();
+        }
+    }
+}

@@ -12,6 +12,8 @@ namespace CultManager
         public SystemRegistration[] roomsRegistrations { get; private set; }
         public List<Cultist> cultists { get; private set; }
         public ulong idIndex { get; private set; }
+        public int candidatesCount { get; private set; }
+        public int maxCandidatesCount { get; private set; }
 
         public void Reset()
         {
@@ -22,6 +24,9 @@ namespace CultManager
             {
                 roomsRegistrations[i] = SystemRegistration.Empty;
             }
+
+            candidatesCount = 10;
+            maxCandidatesCount = 30;
 
             debug.Log("Cult's data reset.", DebugInstance.Importance.Highest);
         }
@@ -37,6 +42,8 @@ namespace CultManager
             cultists = _save.cultists.ToList();
             roomsRegistrations = _save.roomsRegistrations;
             idIndex = _save.cultIdIndex;
+            candidatesCount = _save.candidatesCount;
+            maxCandidatesCount = _save.maxCandidatesCount;
 
             debug.Log("Cult's data load from save.", DebugInstance.Importance.Highest);
         }
@@ -72,6 +79,30 @@ namespace CultManager
 
             return result;
         }
+
+        public void SetCandidatesCount(int _amount)
+        {
+            candidatesCount = Mathf.Clamp(_amount, 0, maxCandidatesCount);
+        }
+
+        public void SetMaxCandidatesCount(int _max)
+        {
+            maxCandidatesCount = _max;
+        }
+
+        public void AddCandidateToCount()
+        {
+            candidatesCount = Mathf.Clamp(candidatesCount + 1, 0, maxCandidatesCount);
+            debug.Log("Candidate added. Now Candidate Count is " + candidatesCount, DebugInstance.Importance.Lesser);
+        }
+
+        public void RemoveCandidateFromCount()
+        {
+            candidatesCount = Mathf.Clamp(candidatesCount - 1, 0, maxCandidatesCount);
+            debug.Log("Candidate removed. Now Candidate Count is " + candidatesCount, DebugInstance.Importance.Lesser);
+        }
+
+        
 
         public void RegisterTo(Room _room, Notification _notification, float _duration, ulong[] _ids)
         {

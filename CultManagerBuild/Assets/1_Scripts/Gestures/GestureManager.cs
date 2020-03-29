@@ -12,7 +12,7 @@ namespace CultManager
         [SerializeField] private UnityEvent OnQuickTouch = default;
         [SerializeField] private UnityEvent OnDoubleTap = default;
         [SerializeField] private UnityEvent OnLongTapEnd = default;
-        [SerializeField] private GesturesSettings settings = default;
+        [SerializeField, DrawScriptable] private GesturesSettings settings = default;
 
         private bool isGettingGesture = false;
 

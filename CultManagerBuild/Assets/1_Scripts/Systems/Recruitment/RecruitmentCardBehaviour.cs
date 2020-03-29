@@ -10,6 +10,9 @@ namespace CultManager
     {
         [SerializeField] private Image photo = default;
         [SerializeField] private TextMeshProUGUI descriptionField = default;
+        [SerializeField] private TextMeshProUGUI moneyField = default;
+        [SerializeField] private TextMeshProUGUI policeField = default;
+        [SerializeField] private GameObject[] traits = default;
         [SerializeField] private RectTransform rectTransform = default;
         [SerializeField, DrawScriptable] private RecruitmentCardBehaviourSettings settings = default;
 
@@ -70,6 +73,24 @@ namespace CultManager
             //photo.sprite = _cultist.spriteIndex;
             descriptionField.text = _cultist.cultistName + ", " + _cultist.age + ".";
         }
+
+        public void SetCandidate(Candidate _candidate)
+        {
+            descriptionField.text = _candidate.cultist.cultistName + ", " + _candidate.cultist.age + ".";
+            moneyField.text = _candidate.money.ToString();
+            policeField.text = _candidate.policeValue.ToString();
+
+            for (int i = 0; i < traits.Length; i++)
+            {
+                traits[i].SetActive(_candidate.cultist.traits.HasFlag((CultistTraits)i));
+            }
+        }
+
+        public void SetPhoto(Sprite _sprite)
+        {
+            photo.sprite = _sprite;
+        }
+
 
         public void SetCallbacks(System.Action _onSwipedLeft, System.Action _onSwipedRight)
         {

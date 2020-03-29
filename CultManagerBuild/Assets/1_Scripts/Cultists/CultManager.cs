@@ -5,16 +5,17 @@ namespace CultManager
     public class CultManager : MonoBehaviour
     {
         [SerializeField] private DebugInstance debug = default;
-        [SerializeField] private SaveManager saveManager = default;
+        [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultistSpawner spawner = default;
         [SerializeField] private CultData data = default;
+        [SerializeField] private int currentCandidatesDebug = 0;
         [SerializeField, DrawScriptable] private CultSettings settings = default;
 
         private bool useSave = false;
 
-        private void Awake()
+        private void Update()
         {
-            InitalizeData();
+            currentCandidatesDebug = data.candidatesCount;
         }
 
         private void SetTestCultists(int _amount)
@@ -43,19 +44,28 @@ namespace CultManager
                 spawner?.SpawnNewCultist();
             }
 
-            if(useSave) saveManager.SaveGame();
+            if(useSave) gameManager.SaveGame();
         }
 
-        private void InitalizeData()
+        public void InitalizeData()
         {
-            useSave = saveManager;
+            useSave = SaveManager.saveLoaded;
 
-            bool saveLoaded = useSave ? saveManager.Loadgame() : false;
-            if (!saveLoaded && (data.cultists == null || data.cultists.Count == 0))
+            if (!useSave && (data.cultists == null || data.cultists.Count == 0))
             {
                 data.Reset();
                 SetTestCultists(settings.testCultistsAmount);
             }
+        }
+
+        public void DecreaseCandidates()
+        {
+            data.RemoveCandidateFromCount();
+        }
+
+        public void IncreaseCandidates()
+        {
+            data.AddCandidateToCount();
         }
 
         [ContextMenu("Reset Cult List")]
