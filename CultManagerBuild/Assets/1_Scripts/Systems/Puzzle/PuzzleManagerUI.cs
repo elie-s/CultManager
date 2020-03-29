@@ -27,6 +27,8 @@ namespace CultManager
         private GameObject locationObject;
         private int locationId;
 
+        NodeBehavior locationNode;
+
         //private TokenBehavior tokenObjectBehavior;
 
 
@@ -89,6 +91,7 @@ namespace CultManager
             }
             locationObject = nodeBehavior.gameObject;
             locationId = nodeBehavior.node.id;
+            locationNode = nodeBehavior;
         }
 
         /*public void TokenSelection(int tokenID)
@@ -107,28 +110,33 @@ namespace CultManager
                     playerTokens.Remove(tokenObject);
                     tokenObject.transform.SetParent(locationObject.transform);
                     tokenObject.transform.position = locationObject.transform.position;
-                    lineRenderPos.Add(tokenObject.transform.position);
+                    //lineRenderPos.Add(tokenObject.transform.position);
                     tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = locationId;
-                    puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
+                    locationNode.active = true;
+                    locationNode.currentNode = tokenObject.GetComponent<TokenBehavior>().puzzleNode.node;
+                    //puzzleManager.puzzleNodes.Add(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
                 }
             }
             else
             {
                 Destroy(tokenObject);
-                DisplayTokensWithTrait(locationObject.GetComponent<NodeBehavior>());
-                lineRenderPos.Remove(tokenObject.transform.position);
+                DisplayTokensWithTrait(locationNode);
+                locationNode.active = false;
+                locationNode.currentNode = new Node();
+                //lineRenderPos.Remove(tokenObject.transform.position);
                 tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = 0;
-                puzzleManager.puzzleNodes.Remove(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
+                //puzzleManager.puzzleNodes.Remove(tokenObject.GetComponent<TokenBehavior>().puzzleNode);
             }
         }
 
         public void CastSacrifice()
         {
-            puzzleManager.TestCheckPatterns();
+            puzzleManager.SegmentActivation();
+            /*puzzleManager.TestCheckPatterns();
             GameObject lineRendererGO = Instantiate(LineRendererPrefab, transform.position, Quaternion.identity, puzzleManager.transform);
             LineRenderer lr = lineRendererGO.GetComponent<LineRenderer>();
             lr.positionCount = lineRenderPos.Count;
-            lr.SetPositions(lineRenderPos.ToArray());
+            lr.SetPositions(lineRenderPos.ToArray());*/
         }
     }
 

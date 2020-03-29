@@ -7,7 +7,8 @@ namespace CultManager
     public class NodeBehavior : MonoBehaviour
     {
         public Node node;
-        private Node currentNode;
+        public bool active;
+        public Node currentNode;
 
         public bool VerifyNode(PuzzleNode puzzleNode)
         {

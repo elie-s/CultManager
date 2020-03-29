@@ -12,6 +12,8 @@ namespace CultManager
         [SerializeField]
         private PuzzlePattern[] puzzlePatterns;
         public Token[] cultistTokens;
+        public bool summonActivation;
+
 
         private void Start()
         {
@@ -20,6 +22,11 @@ namespace CultManager
 
         private void Update()
         {
+        }
+
+        public void SegmentActivation()
+        {
+            summonActivation = true;
         }
 
         [ContextMenu("Test Check Pattern")]
