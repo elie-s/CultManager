@@ -119,10 +119,10 @@ namespace CultManager
             }
             else
             {
+                tokenObject.transform.GetComponentInParent<NodeBehavior>().active = false;
+                tokenObject.transform.GetComponentInParent<NodeBehavior>().currentNode = new Node();
                 Destroy(tokenObject);
                 DisplayTokensWithTrait(locationNode);
-                locationNode.active = false;
-                locationNode.currentNode = new Node();
                 //lineRenderPos.Remove(tokenObject.transform.position);
                 tokenObject.GetComponent<TokenBehavior>().puzzleNode.node.id = 0;
                 //puzzleManager.puzzleNodes.Remove(tokenObject.GetComponent<TokenBehavior>().puzzleNode);

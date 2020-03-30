@@ -8,9 +8,10 @@ namespace CultManager
     public class PuzzleManager : MonoBehaviour
     {
         [SerializeField]
-        public List<PuzzleNode> puzzleNodes;
+        SegmentManager segmentManager;
+        /*public List<PuzzleNode> puzzleNodes;
         [SerializeField]
-        private PuzzlePattern[] puzzlePatterns;
+        private PuzzlePattern[] puzzlePatterns;*/
         public Token[] cultistTokens;
         public bool summonActivation;
 
@@ -26,13 +27,13 @@ namespace CultManager
 
         public void SegmentActivation()
         {
-            summonActivation = true;
+            segmentManager.Summon();
         }
 
         [ContextMenu("Test Check Pattern")]
         public void TestCheckPatterns()
         {
-            Debug.Log(CheckPatterns(puzzleNodes, puzzlePatterns));
+            //Debug.Log(CheckPatterns(puzzleNodes, puzzlePatterns));
         }
 
         int CheckPatterns(List<PuzzleNode> _puzzleNodes, PuzzlePattern[] _puzzlePatterns)

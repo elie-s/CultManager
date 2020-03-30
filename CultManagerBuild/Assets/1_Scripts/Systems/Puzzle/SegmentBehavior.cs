@@ -12,12 +12,6 @@ namespace CultManager
         public GameObject LineRendererPrefab;
 
         GameObject lineRendererGO;
-        PuzzleManager puzzleManager;
-
-        void Awake()
-        {
-            puzzleManager = FindObjectOfType<PuzzleManager>();
-        }
 
         void Update()
         {
@@ -42,6 +36,23 @@ namespace CultManager
                     ActivateSegment();
                 }
             }
+            else
+            {
+                int ctr = 0;
+                for (int i = 0; i < nodes.Length; i++)
+                {
+                    if (nodes[i].active && nodes[i].currentNode.token.IncludesToken(tokens[i]))
+                    {
+                        ctr++;
+                    }
+                }
+                if (ctr != nodes.Length)
+                {
+                    segmentActive = false;
+                    DeactivateSegment();
+                }
+            }
+
             
         }
 

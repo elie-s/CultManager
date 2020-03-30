@@ -121,6 +121,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73433119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5038447502700484066, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1985094763127243868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &73433120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73433119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b963a0ff73814a815bddef3f7052e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  success: 0
+  castSuccessful:
+    m_PersistentCalls:
+      m_Calls: []
+  castUnSuccessful:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &787349249
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +538,7 @@ PrefabInstance:
     - target: {fileID: 1985094763184947898, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
         type: 3}
       propertyPath: cultistTokens.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1985094763184947898, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
         type: 3}
@@ -569,6 +594,16 @@ PrefabInstance:
         type: 3}
       propertyPath: cultistTokens.Array.data[11].cultistTraits
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985094763184947898, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
+        type: 3}
+      propertyPath: segmentManager
+      value: 
+      objectReference: {fileID: 73433120}
+    - target: {fileID: 1985094763184947898, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
+        type: 3}
+      propertyPath: cultistTokens.Array.data[12].cultistTraits
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2107744168131023125, guid: c3775bf1e7a0d584c91d2bc845ff6deb,
         type: 3}
