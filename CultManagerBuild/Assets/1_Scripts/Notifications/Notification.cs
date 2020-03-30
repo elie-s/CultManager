@@ -1,5 +1,7 @@
 ﻿using System;
+#if UNITY_ANDROID || UNITY_EDITOR
 using Unity.Notifications.Android;
+#endif
 
 
 namespace CultManager
@@ -20,8 +22,9 @@ namespace CultManager
 
         public void Cancel()
         {
+#if UNITY_ANDROID || UNITY_EDITOR
             if (!cancelled) AndroidNotificationCenter.CancelNotification(id);
-
+#endif
             cancelled = true;
         }
     }
