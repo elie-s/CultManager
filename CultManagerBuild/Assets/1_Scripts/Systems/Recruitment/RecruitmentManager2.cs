@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] private PoliceManager police = default;
         [SerializeField] private Transform cardParents = default;
         [SerializeField] private GameObject closeButton = default;
+        [SerializeField] private GameObject interactableCollider = default;
         [SerializeField, DrawScriptable] private RecruitmentManagerSettings settings = default;
 
         private GameObject currentCard;
@@ -69,11 +70,13 @@ namespace CultManager
         [ContextMenu("Open")]
         public void Open()
         {
-            if (currentCard) currentCard.SetActive(true);
-            else SetCard();
+            StartCoroutine(DelayedOpen());
 
-            closeButton.SetActive(true);
-            gameManager.DisableCamController();
+            //if (currentCard) currentCard.SetActive(true);
+            //else SetCard();
+
+            //closeButton.SetActive(true);
+            //gameManager.DisableCamController();
         }
 
         public void Close()
@@ -81,7 +84,23 @@ namespace CultManager
             if (currentCard) currentCard.SetActive(false);
 
             closeButton.SetActive(false);
-            gameManager.EnableCamController();
+            //gameManager.EnableCamController();
+            gameManager.SetCameraState(CameraController.CameraState.Default);
+            interactableCollider?.SetActive(true);
+        }
+
+        private IEnumerator DelayedOpen()
+        {
+            gameManager.SetCameraState(CameraController.CameraState.Candidates);
+            interactableCollider?.SetActive(false);
+            
+            yield return new WaitForSeconds(1.0f);
+
+            if(currentCard) currentCard.SetActive(true);
+            else SetCard();
+
+            closeButton.SetActive(true);
+            //gameManager.DisableCamController();
         }
     }
 }

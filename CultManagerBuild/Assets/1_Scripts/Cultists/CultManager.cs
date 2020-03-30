@@ -29,7 +29,7 @@ namespace CultManager
         public Cultist CreateRandomCultist()
         {
             int sprite = Random.Range(0, settings.cultistThumbnails.Length);
-            string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)];
+            string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)] + " " + settings.cultistLastNames[Random.Range(0, settings.cultistLastNames.Length)];
 
             Cultist result = data.CreateCultist(cultistName, sprite);
 

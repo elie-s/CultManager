@@ -11,6 +11,15 @@ namespace CultManager
         [SerializeField] private Transform focusPoint = default;
         [SerializeField] private Transform focusController = default;
         [SerializeField] private Camera cam = default;
+        [SerializeField] private CameraState state = CameraState.Default;
+        [SerializeField] private Camera puzzleCam = default;
+        [Header("Focus Altar")]
+        [SerializeField] private Transform focusAltar = default;
+        [SerializeField] private Transform positionAltar = default;
+        [Header("Focus Candidates")]
+        [SerializeField] private Transform focusCandidates = default;
+        [SerializeField] private Transform positionCandidates = default;
+        [Header("Debug")]
         [SerializeField, Range(0.0f, 1.0f)] private float verticalLerpValue;
         [SerializeField, Range(0.0f, 1.0f)] private float azimuthalLerpValue;
         [SerializeField, Range(0.0f, 1.0f)] private float zoomLerpValue;
@@ -26,7 +35,42 @@ namespace CultManager
         private float authorizedRadius;
 
         private bool disable = false;
-        
+
+        private Transform currentFocus
+        {
+            get
+            {
+                switch (state)
+                {
+                    case CameraState.Default:
+                        return focusController;
+                    case CameraState.Altar:
+                        return focusAltar;
+                    case CameraState.Candidates:
+                        return focusCandidates;
+                    default:
+                        return focusController;
+                }
+            }
+        }
+
+        private Transform currentPosition
+        {
+            get
+            {
+                switch (state)
+                {
+                    case CameraState.Default:
+                        return positionTarget;
+                    case CameraState.Altar:
+                        return positionAltar;
+                    case CameraState.Candidates:
+                        return positionCandidates;
+                    default:
+                        return positionTarget;
+                }
+}
+        }
 
         void Start()
         {
@@ -100,7 +144,7 @@ namespace CultManager
             zoomLerpValue += Gesture.PinchDeltaValue * settings.zoomSpeed * -1;
             zoomLerpValue = Mathf.Clamp(zoomLerpValue, settings.maxZoomDistanceFraction, 1.0f);
             positionTarget.position = Vector3.Lerp(focusPoint.position, positionController.position, zoomLerpValue);
-            authorizedRadius = Vector2.Distance(new Vector2(focusPoint.position.x, focusPoint.position.z), new Vector2(positionTarget.position.x, positionTarget.position.z));
+            authorizedRadius = Vector2.Distance(new Vector2(focusPoint.position.x, focusPoint.position.z), new Vector2(currentPosition.position.x, currentPosition.position.z));
             //cam.fieldOfView = Mathf.Lerp(settings.minFOV, settings.maxFOV, zoomLerpValue);
 
             //if (!Gesture.Pinching)
@@ -113,8 +157,8 @@ namespace CultManager
 
         private void MoveCamera()
         {
-            camTransform.position = Vector3.Lerp(camTransform.position, positionTarget.position, settings.cameraLerpForce);
-            focusPoint.position = Vector3.Lerp(focusPoint.position, focusController.position, settings.cameraLerpForce);
+            camTransform.position = Vector3.Lerp(camTransform.position, currentPosition.position, settings.cameraLerpForce);
+            focusPoint.position = Vector3.Lerp(focusPoint.position, currentFocus.position, settings.cameraLerpForce);
             //KeepDistance();
             camTransform.LookAt(focusPoint);
         }
@@ -138,6 +182,42 @@ namespace CultManager
         public void Enable()
         {
             disable = false;
+        }
+
+        public void SetState(CameraState _state)
+        {
+            state = _state;
+
+            if(_state != CameraState.Default)
+            {
+                Disable();
+            }
+            else
+            {
+                Enable();
+            }
+
+            SwitchCams();
+        }
+
+        private void SwitchCams()
+        {
+            if(state == CameraState.Puzzle)
+            {
+                cam.depth = -1;
+            }
+            else
+            {
+                cam.depth = 10;
+            }
+        }
+
+        public enum CameraState
+        {
+            Default, 
+            Altar, 
+            Candidates,
+            Puzzle
         }
     }
 }

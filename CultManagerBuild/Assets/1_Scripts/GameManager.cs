@@ -16,6 +16,8 @@ namespace CultManager
         [Header("Controllers")]
         [SerializeField] private CameraController camController = default;
 
+        private bool isHome = true;
+
         private void Awake()
         {
             saveManager?.Loadgame();
@@ -27,7 +29,7 @@ namespace CultManager
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) Quit();
+            if (isHome && Input.GetKeyDown(KeyCode.Escape)) Quit();
         }
 
         public void SaveGame()
@@ -43,6 +45,12 @@ namespace CultManager
         public void EnableCamController()
         {
             camController.Enable();
+        }
+
+        public void SetCameraState(CameraController.CameraState _state)
+        {
+            camController.SetState(_state);
+            isHome = _state == CameraController.CameraState.Default;
         }
 
         private void OnApplicationQuit()

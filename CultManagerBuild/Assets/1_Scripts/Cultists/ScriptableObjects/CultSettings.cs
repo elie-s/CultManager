@@ -7,6 +7,7 @@ namespace CultManager
     {
         public Sprite[] cultistThumbnails;
         public string[] cultistNames;
+        public string[] cultistLastNames;
         [Header("Test values")]
         public int testCultistsAmount = 50;
     }

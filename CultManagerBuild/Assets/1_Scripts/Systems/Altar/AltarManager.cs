@@ -9,6 +9,9 @@ namespace CultManager
         [SerializeField] private CultData cultData = default;
         [SerializeField] private MoneyData moneyData = default;
         [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private GameObject interactableCollider = default;
+        [SerializeField] private GameManager gameManager = default;
+        [SerializeField] private GameObject backButton = default;
 
         public bool altarComplete;
 
@@ -18,6 +21,8 @@ namespace CultManager
         public int currentResource => (int)moneyData.value;
         public int currentCultists => cultData.cultists.Count;
         public IntGauge assignedCultists;
+
+        private bool isOpened = false;
 
         void Start()
         {
@@ -29,6 +34,7 @@ namespace CultManager
         void Update()
         {
             assignedCultists.SetMax(cultData.cultists.Count);
+            if (isOpened && Input.GetKeyDown(KeyCode.Escape)) Close();
         }
 
         public void CheckPillarProgress()
@@ -83,6 +89,22 @@ namespace CultManager
         public void Buy(int _amount)
         {
             moneyManager.Decrease(_amount);
+        }
+
+        public void Close()
+        {
+            gameManager?.SetCameraState(CameraController.CameraState.Default);
+            interactableCollider?.SetActive(true);
+            backButton?.SetActive(false);
+            isOpened = false;
+        }
+
+        public void Open()
+        {
+            gameManager?.SetCameraState(CameraController.CameraState.Altar);
+            interactableCollider?.SetActive(false);
+            backButton?.SetActive(true);
+            isOpened = true;
         }
     }
 }
