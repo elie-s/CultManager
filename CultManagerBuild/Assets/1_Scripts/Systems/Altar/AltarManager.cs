@@ -6,22 +6,29 @@ namespace CultManager
 {
     public class AltarManager : MonoBehaviour
     {
-        public int currentResource;
-        public int currentCultists;
+        [SerializeField] private CultData cultData = default;
+        [SerializeField] private MoneyData moneyData = default;
+        [SerializeField] private MoneyManager moneyManager = default;
+
         public bool altarComplete;
 
         public GameObject altarCenter;
         public List<AltarPartBehavior> AltarParts;
 
+        public int currentResource => (int)moneyData.value;
+        public int currentCultists => cultData.cultists.Count;
+        public IntGauge assignedCultists;
+
         void Start()
         {
             GatherChildren(gameObject, AltarParts);
             altarCenter.SetActive(altarComplete);
+            assignedCultists = new IntGauge(0, cultData.cultists.Count, false);
         }
 
         void Update()
         {
-
+            assignedCultists.SetMax(cultData.cultists.Count);
         }
 
         public void CheckPillarProgress()
@@ -52,10 +59,30 @@ namespace CultManager
                     {
                         AltarPartList.Add(current);
                     }
-                    
-                }
-                
+                } 
             }
+        }
+
+        public int AssignWorkers(int _amountAsked)
+        {
+            int result = 0;
+
+            if (_amountAsked <= assignedCultists.amountLeft) result = _amountAsked;
+            else result = assignedCultists.amountLeft;
+
+            assignedCultists.Increment(result);
+
+            return result;
+        }
+
+        public void UnassignWorkers(int _amount)
+        {
+            assignedCultists.Increment(-_amount);
+        }
+
+        public void Buy(int _amount)
+        {
+            moneyManager.Decrease(_amount);
         }
     }
 }

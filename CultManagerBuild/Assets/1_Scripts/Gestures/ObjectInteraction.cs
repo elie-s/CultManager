@@ -10,7 +10,7 @@ namespace CultManager
         public Material selectedMat;
         public ObjectState selectionState;
         public static bool isSelected;
-        Material tempMat;
+        public Material tempMat;
         MeshRenderer meshRend, _meshRend;
         Transform _hitObj;
 
@@ -27,7 +27,7 @@ namespace CultManager
                 {
                     if (_hitObj != null)
                     {
-                        _meshRend = _hitObj.GetComponent<MeshRenderer>();
+                        _meshRend = _hitObj.GetComponentInChildren<MeshRenderer>();
                         _meshRend.material = tempMat;
                         selectionState = ObjectState.Hovering;
                         _hitObj = null;
@@ -46,7 +46,7 @@ namespace CultManager
                     {
                         if (selectionState != ObjectState.Selected)
                         {
-                            meshRend = hitObj.GetComponent<MeshRenderer>();
+                            meshRend = hitObj.GetComponentInChildren<MeshRenderer>();
                             if (meshRend != null)
                             {
                                 tempMat = meshRend.material;

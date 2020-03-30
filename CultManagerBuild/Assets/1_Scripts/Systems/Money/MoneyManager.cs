@@ -13,6 +13,11 @@ namespace CultManager
             data.Increase((uint)_value);
         }
 
+        public void Decrease(int _value)
+        {
+            data.Decrease((uint)_value);
+        }
+
         public void InitializeData()
         {
             if (!SaveManager.saveLoaded) data.Reset();

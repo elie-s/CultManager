@@ -13,6 +13,8 @@ namespace CultManager
         [SerializeField] private InfluenceManager influenceManager = default;
         [SerializeField] private PoliceManager policeManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
+        [Header("Controllers")]
+        [SerializeField] private CameraController camController = default;
 
         private void Awake()
         {
@@ -31,6 +33,16 @@ namespace CultManager
         public void SaveGame()
         {
             saveManager.SaveGame();
+        }
+
+        public void DisableCamController()
+        {
+            camController.Disable();
+        }
+
+        public void EnableCamController()
+        {
+            camController.Enable();
         }
 
         private void OnApplicationQuit()

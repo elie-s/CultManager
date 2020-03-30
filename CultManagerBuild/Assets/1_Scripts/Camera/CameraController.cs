@@ -24,8 +24,8 @@ namespace CultManager
         private float minAngle;
         [SerializeField, HideInInspector] private float radius;
         private float authorizedRadius;
-        
-        
+
+        private bool disable = false;
         
 
         void Start()
@@ -39,10 +39,10 @@ namespace CultManager
 
         void Update()
         {
-            LerpsHandler();
+            if(!disable) LerpsHandler();
             VerticalMovement();
             AzimuthalMovement();
-            Zoom();
+            if(!disable) Zoom();
             MoveCamera();
         }
 
@@ -128,6 +128,16 @@ namespace CultManager
         public Transform GetCamTransform()
         {
             return camTransform;
+        }
+
+        public void Disable()
+        {
+            disable = true;
+        }
+
+        public void Enable()
+        {
+            disable = false;
         }
     }
 }

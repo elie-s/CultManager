@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CultManager
 {
@@ -9,9 +10,9 @@ namespace CultManager
     {
         public AltarPartBehavior altarPartBehavior;
         [Header("Display Data")]
-        public Text pillarName;
-        public Text pillarTrivia;
-        public Text pillarRequirement;
+        public TextMeshProUGUI pillarName;
+        public TextMeshProUGUI pillarTrivia;
+        public TextMeshProUGUI pillarRequirement;
         public GameObject buyButton;
         public GameObject progressImage;
 

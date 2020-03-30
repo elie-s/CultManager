@@ -7,9 +7,8 @@ namespace CultManager
     public class AltarPartBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] AltarManager tempManager;
-        [SerializeField] AltarPartUI altarPartUI;
-        AltarPartBehavior altarPartBehavior;
+        [SerializeField] AltarManager altarManager = default;
+        [SerializeField] AltarPartUI altarPartUI = default;
 
         [Header("Active state")]
         public ObjectState currentObjectState;
@@ -32,8 +31,7 @@ namespace CultManager
 
         void SetReferences()
         {
-            altarPartBehavior = gameObject.GetComponent<AltarPartBehavior>();
-            altarPartUI.altarPartBehavior = altarPartBehavior;
+            altarPartUI.altarPartBehavior = this;
             altarPartUI.DisplayData();
         }
 
@@ -51,7 +49,9 @@ namespace CultManager
                     }
                     else
                     {
-                        tempManager.CheckPillarProgress();
+                        altarManager.CheckPillarProgress();
+                        altarManager.UnassignWorkers(currentAssignedCultists);
+                        currentAssignedCultists = 0;
                     }
                 }
             }
@@ -74,11 +74,11 @@ namespace CultManager
 
         public void BuyBuilding(AltarPartBehavior instance)
         {
-            if (instance == altarPartBehavior)
+            if (instance == this)
             {
-                if (tempManager.currentResource >= currentAltarPartData.requiredResource)
+                if (altarManager.currentResource >= currentAltarPartData.requiredResource)
                 {
-                    tempManager.currentResource -= currentAltarPartData.requiredResource;
+                    altarManager.Buy(currentAltarPartData.requiredResource);
                     isBought = true;
                 }
             }
@@ -86,18 +86,7 @@ namespace CultManager
 
         void AssignCultists()
         {
-            for (int i = 0; i < (currentAltarPartData.maxUnitsForBuilding-currentAssignedCultists); i++)
-            {
-                if (tempManager.currentCultists > 0)
-                {
-                    tempManager.currentCultists--;
-                    currentAssignedCultists++;
-                }
-                else
-                {
-                    break;
-                }
-            }
+            currentAssignedCultists += altarManager.AssignWorkers(currentAltarPartData.maxUnitsForBuilding - currentAssignedCultists);
         }
 
         IEnumerator SimulateBuilding(int a)

@@ -37,6 +37,7 @@ public class IntGauge
     public int max { get; private set; }
     public int value { get; private set; }
     public int ratio => (value - min) / (max - min);
+    public int amountLeft => max - value;
 
     public IntGauge(int _min, int _max, bool _startFull = true)
     {
@@ -48,6 +49,11 @@ public class IntGauge
     public void SetValue(int _value)
     {
         value = Mathf.Clamp(_value, min, max);
+    }
+
+    public void SetMax(int _max)
+    {
+        max = _max;
     }
 
     public void Increment(int _increment)

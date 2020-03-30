@@ -8,8 +8,6 @@ namespace CultManager
         public ulong id { get; private set; }
         public string cultistName { get; private set; }
         public int age { get; private set; }
-        public IntGauge faith { get; private set; }
-        public IntGauge morale { get; private set; }
         public int spriteIndex { get; private set; }
         public CultistTraits traits { get; private set; }
         public Room room { get; private set; }
@@ -23,14 +21,7 @@ namespace CultManager
             spriteIndex = _sprite;
             room = Room.none;
             RandomAge();
-            faith = new IntGauge(0, 100, false);
-            faith.SetValue(50);
-            morale = new IntGauge(0, 100, false);
-            morale.SetValue(50);
-
-            //traits = CultistTraits.TraitA | CultistTraits.TraitC | CultistTraits.TraitD;
-
-            //traits += CultistTraits.TraitF;
+            traits = (CultistTraits)Random.Range(0, 65);
         }
 
         public void RandomAge()

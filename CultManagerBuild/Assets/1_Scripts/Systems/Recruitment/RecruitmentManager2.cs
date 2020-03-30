@@ -7,10 +7,12 @@ namespace CultManager
     public class RecruitmentManager2 : MonoBehaviour
     {
         [SerializeField] private CultData data = default;
+        [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private PoliceManager police = default;
         [SerializeField] private Transform cardParents = default;
+        [SerializeField] private GameObject closeButton = default;
         [SerializeField, DrawScriptable] private RecruitmentManagerSettings settings = default;
 
         private GameObject currentCard;
@@ -38,6 +40,7 @@ namespace CultManager
         private void CardKept()
         {
             Destroy(currentCard);
+            currentCard = null;
             UpdateCult();
             cultManager.DecreaseCandidates();
             SetCard();
@@ -46,11 +49,11 @@ namespace CultManager
         private void CardLeft()
         {
             Destroy(currentCard);
+            currentCard = null;
             cultManager.DecreaseCandidates();
             SetCard();
         }
-
-        [ContextMenu("SetCard")]
+        
         public void SetCard()
         {
             if (data.candidatesCount > 0) NewCard();
@@ -61,6 +64,24 @@ namespace CultManager
             cultManager.AddCultists(currentCandidate.cultist);
             police?.Incerment(currentCandidate.policeValue);
             money?.Increase(currentCandidate.money);
+        }
+
+        [ContextMenu("Open")]
+        public void Open()
+        {
+            if (currentCard) currentCard.SetActive(true);
+            else SetCard();
+
+            closeButton.SetActive(true);
+            gameManager.DisableCamController();
+        }
+
+        public void Close()
+        {
+            if (currentCard) currentCard.SetActive(false);
+
+            closeButton.SetActive(false);
+            gameManager.EnableCamController();
         }
     }
 }
