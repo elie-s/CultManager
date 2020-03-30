@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pillarName: Guimel
   pillarTrivia: Third part of the altar.
-  pillarRequirement: You need $400 to unlock this building.
+  pillarRequirement: You need $800 to unlock this building.
   maxBuildPoints: 1000
-  rateOfBuildingPerUnit: 3
-  requiredResource: 400
-  maxUnitsForBuilding: 10
+  rateOfBuildingPerUnit: 1
+  requiredResource: 800
+  maxUnitsForBuilding: 20
