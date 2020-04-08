@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab1ca2d04bae2f4e8e1bb391ee915c3, type: 3}
+  m_Name: Cult Settings
+  m_EditorClassIdentifier: 
+  cultistThumbnails:
+  - {fileID: 21300000, guid: 00c0eeddef0ac324aa6a408785e85d2a, type: 3}
+  - {fileID: 21300000, guid: 7a4d4ea05adac0d4dac8ada2f705c77e, type: 3}
+  - {fileID: 21300000, guid: eef5d7599e34a7e468e4899e3f55bf5e, type: 3}
+  - {fileID: 21300000, guid: 67239b4df60185c47a683b519282ebf3, type: 3}
+  - {fileID: 21300000, guid: b1d5116e18b10964bac26f06570ca387, type: 3}
+  - {fileID: 21300000, guid: e929a82190b79ee4fa756f60f3c642cc, type: 3}
+  cultistNames:
+  - Tike
+  - Lruce
+  - Cackie
+  - Auhammad
+  - Com
+  cultistLastNames:
+  - Myson
+  - Bee
+  - Jhan
+  - Mli
+  - Truise
+  testCultistsAmount: 50
