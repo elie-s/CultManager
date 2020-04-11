@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad175bb9f4cefc469e3346598d9ccce, type: 3}
   m_Name: AltarData
   m_EditorClassIdentifier: 
-  altarParts: []
-  availableCultists: 0
+  altarParts:
+  - altarPartName: 
+    assignedCultists: 0
+    isBought: 0
+  availableCultists: 95
+  altarCompletion: 0

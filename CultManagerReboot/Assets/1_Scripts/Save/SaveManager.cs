@@ -16,9 +16,23 @@ namespace CultManager
         [Header("Settings")]
         [SerializeField] private SaveSettings settings = default;
 
+        [SerializeField] private int currentCultistsDebug = 0;
+        [SerializeField] private int currentMoneyDebug = 0;
+        [SerializeField] private int currentInfluenceDebug = 0;
+        [SerializeField] private int currentPoliceDebug = 0;
+
         public static bool saveLoaded;
 
         private string dataPath => Application.persistentDataPath + "/" + settings.saveFolder + "/" + settings.saveName + "." + settings.saveExtension + settings.version;
+
+
+        private void Update()
+        {
+            currentCultistsDebug = (int)cultData.cultists.Count;
+            currentMoneyDebug = (int)moneyData.value;
+            currentPoliceDebug = policeData.value;
+            currentInfluenceDebug = (int)influenceData.value;
+        }
 
         [ContextMenu("Save")]
         public void SaveGame()

@@ -50,7 +50,7 @@ public class IntGauge
     public int min { get; private set; }
     public int max { get; private set; }
     public int value { get; private set; }
-    public int ratio => (value - min) / (max - min);
+    public float ratio =>(float) (value - min) / (float)(max - min);
     public int amountLeft => max - value;
 
     public IntGauge(int _min, int _max, bool _startFull = true)

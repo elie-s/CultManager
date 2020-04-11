@@ -61,9 +61,13 @@ namespace CultManager
 
         private void UpdateCult()
         {
-            cultManager.AddCultists(currentCandidate.cultist);
-            police?.Incerment(currentCandidate.policeValue);
-            money?.Increase(currentCandidate.moneyValue);
+            if (currentCandidate!=null)
+            {
+                cultManager.AddCultists(currentCandidate.cultist);
+                police?.Incerment(currentCandidate.policeValue);
+                money?.Increase(currentCandidate.moneyValue);
+            }
+            
         }
 
         void SetCard()

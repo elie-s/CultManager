@@ -9,6 +9,7 @@ namespace CultManager
         public string cultistName { get; private set; }
         public int age { get; private set; }
         public int spriteIndex { get; private set; }
+        public bool occupied { get; set; }
         public CultistTraits traits { get; private set; }
 
         public Cultist(ulong _id, string _cultistName, int _spriteIndex)
@@ -18,6 +19,7 @@ namespace CultManager
             spriteIndex = _spriteIndex;
             RandomAge();
             RandomTraits();
+            occupied = false;
         }
 
         public void RandomAge()

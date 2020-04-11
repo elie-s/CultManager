@@ -11,6 +11,7 @@ namespace CultManager
         public string altarPartName;
         public int maxCultists;
         public int maxBuildPoints;
+        public int cost;
         [TextArea(2, 6)]
         public string description;
 

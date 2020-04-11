@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] private CultSettings settings = default;
         [SerializeField] Cultist[] cultists;
 
+
         private bool useSave = false;
 
         void Update()

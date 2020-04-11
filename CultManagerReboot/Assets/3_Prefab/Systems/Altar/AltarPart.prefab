@@ -43,8 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55b114d8ad637f4ca5b1b055ecf0491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  altarManager: {fileID: 0}
   altarPart:
     altarPartName: Lasagne
     assignedCultists: 0
+    isBought: 0
   altarPartData: {fileID: 11400000, guid: 733e8953f4ee6af42b778a2dbce1f376, type: 2}
   altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
+  cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+  money: {fileID: 11400000, guid: 725344e8f3ae05541832d01648f003db, type: 2}
