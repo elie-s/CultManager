@@ -30,7 +30,7 @@ namespace CultManager
             if (money.value >= altarPartData.cost)
             {
                 altarManager.Buy(altarPartData.cost);
-                altarPart.isBought=true;
+                altarPart.Buy();
             }
         }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CultManager
 {
     [System.Serializable]
-    public struct AltarPart
+    public class AltarPart
     {
         public string altarPartName;
         public int assignedCultists;
@@ -24,6 +24,7 @@ namespace CultManager
         public void Buy()
         {
             isBought = true;
+            Debug.Log("Bought !");
         }
 
         public void Increase(int _value)

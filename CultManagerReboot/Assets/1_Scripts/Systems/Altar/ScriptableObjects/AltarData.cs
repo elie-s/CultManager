@@ -16,7 +16,7 @@ namespace CultManager
         {
             for (int i = 0; i < altarParts.Length; i++)
             {
-                altarParts[i] = new AltarPart();
+                altarParts[i] = default;
             }
             availableCultists = 0;
             altarCompletion = false;
