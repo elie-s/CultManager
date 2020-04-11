@@ -5,82 +5,88 @@ using UnityEngine;
 [System.Serializable]
 public class Gauge
 {
+    [SerializeField] private float _value;
+    [SerializeField] private float _max;
+
     public float min { get; private set; }
-    public float max { get; private set; }
-    public float value { get; private set; }
+    public float max => _max;
+    public float value => _value;
     public float ratio => (value - min) / (max - min);
     public float percentage => ratio * 100;
 
     public Gauge(float _min, float _max, bool _startFull = true)
     {
         min = _min;
-        max = _max;
-        value = _startFull ? _max : _min;
+        this._max = _max;
+        _value = _startFull ? _max : _min;
         Debug.Log("Value "+value+", Min "+min+ ", Max " + max);
     }
 
     public void SetValue()
     {
-        value = Mathf.Clamp(min, min, max);
+        _value = Mathf.Clamp(min, min, max);
     }
     public void SetValue(float _value)
     {
-        value = Mathf.Clamp(_value, min, max);
+        this._value = Mathf.Clamp(_value, min, max);
     }
 
     public void SetMax(int _max)
     {
-        max = _max;
+        this._max = _max;
     }
 
     public void Increment(float _increment)
     {
-        value = Mathf.Clamp(value + _increment, min, max);
+        _value = Mathf.Clamp(value + _increment, min, max);
     }
 
     public void Decrement(float _decrement)
     {
-        value = Mathf.Clamp(value - _decrement, min, max);
+        _value = Mathf.Clamp(value - _decrement, min, max);
     }
 }
 
 [System.Serializable]
 public class IntGauge
 {
+    [SerializeField] private int _value;
+    [SerializeField] private int _max;
+
     public int min { get; private set; }
-    public int max { get; private set; }
-    public int value { get; private set; }
+    public int max => _max;
+    public int value => _value;
     public float ratio =>(float) (value - min) / (float)(max - min);
     public int amountLeft => max - value;
 
     public IntGauge(int _min, int _max, bool _startFull = true)
     {
         min = _min;
-        max = _max;
-        value = _startFull ? _max : _min;
+        this._max = _max;
+        _value = _startFull ? _max : _min;
     }
 
     public void SetValue()
     {
-        value = Mathf.Clamp(min, min, max);
+        _value = Mathf.Clamp(min, min, max);
     }
     public void SetValue(int _value)
     {
-        value = Mathf.Clamp(_value, min, max);
+        _value = Mathf.Clamp(_value, min, max);
     }
 
     public void SetMax(int _max)
     {
-        max = _max;
+        this._max = _max;
     }
 
     public void Increment(int _increment)
     {
-        value = Mathf.Clamp(value + _increment, min, max);
+        _value = Mathf.Clamp(value + _increment, min, max);
     }
 
     public void Decrement(int _decrement)
     {
-        value = Mathf.Clamp(value - _decrement, min, max);
+        _value = Mathf.Clamp(value - _decrement, min, max);
     }
 }
