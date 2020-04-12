@@ -32,6 +32,8 @@ namespace CultManager
         //Altar Data
         public AltarPart[] altarParts;
         public int availableCultists;
+        public bool altarCompletion;
+        public DateTime lastBuildTimeReference;
 
 
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData)
@@ -54,6 +56,8 @@ namespace CultManager
 
             altarParts = _altarData.altarParts;
             availableCultists = _altarData.availableCultists;
+            altarCompletion = _altarData.altarCompletion;
+            lastBuildTimeReference = _altarData.lastBuildTimeReference;
         }
     }
 }

@@ -25,7 +25,14 @@ namespace CultManager
 
         private void Start()
         {
-            altarPart.Init(0, altarPartData.maxBuildPoints, false);
+            if (!SaveManager.saveLoaded)
+            {
+                altarPart.Init(0, altarPartData.maxBuildPoints, false);
+            }
+            else
+            {
+                UpdateBuildProgress();
+            }
         }
 
         [ContextMenu("BuyAltarPart")]
@@ -38,10 +45,15 @@ namespace CultManager
             }
         }
 
+        public void UpdateBuildProgress()
+        {
+            System.TimeSpan timeSpan = System.DateTime.Now - altarData.lastBuildTimeReference;
+            int buildPointsToAdd = Mathf.FloorToInt((int)timeSpan.TotalSeconds *altarPart.assignedCultists);
+            altarPart.IncrementBuildPoints(buildPointsToAdd);
+        }
+
         private void Update()
         {
-            Debug.Log("Build Points are " + altarPart.currentBuildPoints.value);
-            Debug.Log("Max Build Points are " + altarPart.currentBuildPoints.max);
             if (altarPart.isBought)
             {
                 if (altarPart.currentBuildPoints.ratio < 1f)
@@ -53,6 +65,7 @@ namespace CultManager
                         if (altarPart.currentBuildPoints.ratio < 1f)
                         {
                             StartCoroutine(SimulateBuilding(altarPart.assignedCultists));
+                            altarData.ResetBuildTimeReference();
                         }
                     }
                 }
@@ -67,8 +80,8 @@ namespace CultManager
 
         void AssignCultists()
         {
-            Debug.Log(altarPart.assignedCultists);
-            altarPart.IncreaseAssignedCultists(altarManager.AssignWorkers(altarPartData.maxCultists - altarPart.assignedCultists)); 
+            altarPart.IncreaseAssignedCultists(altarManager.AssignWorkers(altarPartData.maxCultists - altarPart.assignedCultists));
+            Debug.Log((altarPartData.maxCultists - altarPart.assignedCultists));
         }
 
         IEnumerator SimulateBuilding(int cultistsNum)

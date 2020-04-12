@@ -29,6 +29,17 @@ namespace CultManager
             }
         }
 
+        public int FindOccupied()
+        {
+            int ctr = 0;
+            for (int i = 0; i < cultists.Count; i++)
+            {
+                if (cultists[i].IsOccupied())
+                    ctr++;
+            }
+            return ctr;
+        }
+
         public void Initialize()
         {
             idIndex = 0;

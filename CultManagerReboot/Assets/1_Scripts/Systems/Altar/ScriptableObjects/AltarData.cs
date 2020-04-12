@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 namespace CultManager
@@ -11,6 +12,8 @@ namespace CultManager
         public AltarPart[] altarParts;
         public int availableCultists;
         public bool altarCompletion;
+        public DateTime lastBuildTimeReference;
+
 
         public void Reset()
         {
@@ -51,13 +54,21 @@ namespace CultManager
             }
         }
 
+        public void ResetBuildTimeReference()
+        {
+            lastBuildTimeReference = System.DateTime.Now;
+        }
 
+        public void ResetBuildTimeReference(DateTime _dateTime)
+        {
+            lastBuildTimeReference = _dateTime;
+        }
 
         public void LoadSave(Save _save)
         {
             SetAvailableCultists(_save.availableCultists);
             altarParts = _save.altarParts;
-            Debug.Log(_save.altarParts.Length);
+            ResetBuildTimeReference(_save.lastBuildTimeReference);
         }
     }
 }

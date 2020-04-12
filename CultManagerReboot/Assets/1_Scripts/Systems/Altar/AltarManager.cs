@@ -24,7 +24,7 @@ namespace CultManager
             altarParts = gameObject.GatherAllChildrenInList();
             altarPartBehaviors = gameObject.GatherBehaviorInArray<AltarPartBehavior>();
             altarData.SetAvailableCultists(cult.cultists.Count);
-            assignedCultists = new IntGauge(0, altarData.availableCultists);
+            assignedCultists = new IntGauge(0, altarData.availableCultists,false);
         }
 
         void Update()
@@ -67,7 +67,7 @@ namespace CultManager
                     if (!cult.cultists[i].occupied)
                     {
                         Debug.Log("Result " + result);
-                        cult.cultists[i].occupied = true;
+                        cult.cultists[i].ToggleOccupy();
                         assignedCultists.Increment(1);
                         result++;
                     }
@@ -78,7 +78,7 @@ namespace CultManager
                 }
             }
             //assignedCultists.Increment(result);
-            //Debug.Log("Result "+result);
+            Debug.Log("Result "+result);
             return result;
         }
 

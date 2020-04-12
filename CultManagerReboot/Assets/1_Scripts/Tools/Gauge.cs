@@ -66,6 +66,13 @@ public class IntGauge
         _value = _startFull ? _max : _min;
     }
 
+    public IntGauge(IntGauge intGauge)
+    {
+        min = intGauge.min;
+        _max = intGauge.max;
+        _value = intGauge.value;
+    }
+
     public void SetValue()
     {
         _value = Mathf.Clamp(min, min, max);
@@ -88,5 +95,10 @@ public class IntGauge
     public void Decrement(int _decrement)
     {
         _value = Mathf.Clamp(value - _decrement, min, max);
+    }
+
+    public override string ToString()
+    {
+        return value + "/" + max;
     }
 }

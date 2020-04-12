@@ -24,7 +24,12 @@ namespace CultManager
 
         public void ToggleOccupy()
         {
-            occupied = false;
+            occupied = !occupied;
+        }
+
+        public bool IsOccupied()
+        {
+            return occupied;
         }
 
         public void RandomAge()
