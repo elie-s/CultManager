@@ -58,7 +58,7 @@ namespace CultManager
         {
             useSave = SaveManager.saveLoaded;
 
-            if (!useSave && (data.cultists == null || data.cultists.Count == 0))
+            if (!useSave /*&& (data.cultists == null || data.cultists.Count == 0)*/)
             {
                 data.Reset();
                 SetTestCultists(settings.testCultistsAmount);

@@ -20,6 +20,15 @@ namespace CultManager
             maxCandidatesCount = 30;
         }
 
+
+        public void ToggleOccupy()
+        {
+            for (int i = 0; i < cultists.Count; i++)
+            {
+                cultists[i].ToggleOccupy();
+            }
+        }
+
         public void Initialize()
         {
             idIndex = 0;

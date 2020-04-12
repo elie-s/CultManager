@@ -27,25 +27,55 @@ namespace CultManager
             Debug.Log("Bought !");
         }
 
-        public void Increase(int _value)
+        public void IncreaseAssignedCultists(int _value)
         {
             assignedCultists += _value;
         }
 
-        public void Decrease(int _value)
+        public void DecreaseAssignedCultists(int _value)
         {
             assignedCultists -= _value;
         }
 
-        public void Reset()
+        public void ResetAssignedCultists()
         {
             assignedCultists = 0;
         }
 
-        public void Reset(int _value)
+        public void ResetAssignedCultists(int _value)
         {
             assignedCultists = _value;
         }
 
+
+        public void Init(int _min, int _max, bool _startFull = true)
+        {
+            currentBuildPoints = new IntGauge(_min, _max, _startFull);
+        }
+
+        public void SetBuildPoints()
+        {
+            currentBuildPoints.SetValue();
+        }
+
+        public void SetBuildPoints(int _value)
+        {
+            currentBuildPoints.SetValue(_value);
+        }
+
+        public void SetMaxBuildPoints(int _max)
+        {
+            currentBuildPoints.SetMax(_max);
+        }
+
+        public void IncrementBuildPoints(int _increment)
+        {
+            currentBuildPoints.Increment(_increment);
+        }
+
+        public void DecrementBuildPoints(int _decrement)
+        {
+            currentBuildPoints.Decrement(_decrement);
+        }
     }
 }

@@ -52,6 +52,7 @@ namespace CultManager
         }
 
 
+
         public void LoadSave(Save _save)
         {
             SetAvailableCultists(_save.availableCultists);

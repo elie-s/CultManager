@@ -23,6 +23,10 @@ namespace CultManager
 
         private bool isBuilding;
 
+        private void Start()
+        {
+            altarPart.Init(0, altarPartData.maxBuildPoints, false);
+        }
 
         [ContextMenu("BuyAltarPart")]
         public void BuyButton()
@@ -36,6 +40,8 @@ namespace CultManager
 
         private void Update()
         {
+            Debug.Log("Build Points are " + altarPart.currentBuildPoints.value);
+            Debug.Log("Max Build Points are " + altarPart.currentBuildPoints.max);
             if (altarPart.isBought)
             {
                 if (altarPart.currentBuildPoints.ratio < 1f)
@@ -43,6 +49,7 @@ namespace CultManager
                     AssignCultists();
                     if (!isBuilding)
                     {
+                        //Debug.Log("Building");
                         if (altarPart.currentBuildPoints.ratio < 1f)
                         {
                             StartCoroutine(SimulateBuilding(altarPart.assignedCultists));
@@ -53,7 +60,7 @@ namespace CultManager
                 {
                     altarManager.AltarCompletion();
                     altarManager.UnassignWorkers(altarPart.assignedCultists);
-                    altarPart.Reset();
+                    altarPart.ResetAssignedCultists();
                 }
             }
         }
@@ -61,13 +68,13 @@ namespace CultManager
         void AssignCultists()
         {
             Debug.Log(altarPart.assignedCultists);
-            altarPart.Reset(altarManager.AssignWorkers(altarPartData.maxCultists - altarPart.assignedCultists)); 
+            altarPart.IncreaseAssignedCultists(altarManager.AssignWorkers(altarPartData.maxCultists - altarPart.assignedCultists)); 
         }
 
-        IEnumerator SimulateBuilding(int a)
+        IEnumerator SimulateBuilding(int cultistsNum)
         {
             isBuilding = true;
-            altarPart.currentBuildPoints.Increment(1);
+            altarPart.IncrementBuildPoints(cultistsNum);
             yield return new WaitForSecondsRealtime(1);
             isBuilding = false;
         }

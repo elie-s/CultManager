@@ -56,7 +56,7 @@ namespace CultManager
         public int AssignWorkers(int _amountAsked)
         {
             int result = 0;
-
+            
             /*if (_amountAsked <= assignedCultists.amountLeft) result = _amountAsked;
             else result = assignedCultists.amountLeft;*/
 
@@ -66,6 +66,7 @@ namespace CultManager
                 {
                     if (!cult.cultists[i].occupied)
                     {
+                        Debug.Log("Result " + result);
                         cult.cultists[i].occupied = true;
                         assignedCultists.Increment(1);
                         result++;
@@ -77,7 +78,7 @@ namespace CultManager
                 }
             }
             //assignedCultists.Increment(result);
-
+            //Debug.Log("Result "+result);
             return result;
         }
 

@@ -22,6 +22,11 @@ namespace CultManager
             occupied = false;
         }
 
+        public void ToggleOccupy()
+        {
+            occupied = false;
+        }
+
         public void RandomAge()
         {
             int value = 11;
