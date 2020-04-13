@@ -41,6 +41,7 @@ namespace CultManager
 
         public void AltarCompletion()
         {
+
             int ctr = 0;
             for (int i = 0; i < altarPartBehaviors.Length; i++)
             {
