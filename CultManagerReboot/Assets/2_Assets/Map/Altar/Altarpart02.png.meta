@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: afe35cc43389d2b4691b72c10be12343
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4842038921361758064
+    second: Altarpart02_0
+  - first:
+      213: 3075158178843519217
+    second: Altarpart02_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +103,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Altarpart02_0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 132
+        width: 755
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098ed97514f9dccb0800000000000000
+      internalID: -4842038921361758064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Altarpart02_1
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 74
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8ea1e12182daa20800000000000000
+      internalID: 3075158178843519217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
