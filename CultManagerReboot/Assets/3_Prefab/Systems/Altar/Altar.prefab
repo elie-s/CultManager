@@ -48,6 +48,9 @@ MonoBehaviour:
   altarPartBehaviors: []
   cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   moneyManager: {fileID: 0}
+  assignedCultists:
+    _value: 0
+    _max: 0
 --- !u!1001 &2904987335693188366
 PrefabInstance:
   m_ObjectHideFlags: 0

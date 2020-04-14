@@ -77,5 +77,7 @@ namespace CultManager
         {
             currentBuildPoints.Decrement(_decrement);
         }
+
+        
     }
 }

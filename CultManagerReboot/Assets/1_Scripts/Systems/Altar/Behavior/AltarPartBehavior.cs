@@ -92,6 +92,10 @@ namespace CultManager
             isBuilding = false;
         }
 
+        public void Test()
+        {
+            Debug.Log("SOXCESS");
+        }
     }
 }
 

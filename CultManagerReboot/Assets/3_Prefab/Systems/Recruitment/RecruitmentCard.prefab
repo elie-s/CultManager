@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 712986878647974631}
   - component: {fileID: 712986878647974629}
   - component: {fileID: 712986878647974628}
+  - component: {fileID: 386863502013713337}
   m_Layer: 5
   m_Name: RecruitmentCard
   m_TagString: Untagged
@@ -1798,6 +1799,30 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &386863502013713337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712986878647974630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1c21f21e1aa344db1e642df14fd143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recruitmentManager: {fileID: 0}
+  image: {fileID: 712986878329161997}
+  nameAndAgeText: {fileID: 712986878805902121}
+  moneyText: {fileID: 712986877259187755}
+  policeText: {fileID: 712986878388813001}
+  traits:
+  - {fileID: 712986877066706798}
+  - {fileID: 712986877154140643}
+  - {fileID: 712986877369133754}
+  - {fileID: 712986877552812530}
+  - {fileID: 712986877363055114}
+  - {fileID: 712986878876798599}
 --- !u!1 &712986878805902123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,7 +2323,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8780269841122250257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 386863502013713337}
+        m_MethodName: Kept
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7331062566982068848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,7 +2451,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5271018238608662582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 386863502013713337}
+        m_MethodName: Left
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8155925256215401620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2499,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 182.1, y: 484}
-  m_SizeDelta: {x: 175, y: 200}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6767974899042811346
 CanvasRenderer:
@@ -2480,7 +2527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8bb1fdb34318bdd4f85158b7d514efe7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67850ec014885264b9d0b78a658a4259, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2532,4 +2579,15 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1488702133934719517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 386863502013713337}
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -17,11 +17,11 @@ namespace CultManager
         public GameObject card;
         public GameObject recruitmentObj;
         private Candidate currentCandidate;
-        private CardDisplay cardDisplay;
+        private RecruitmentCardBehavior cardDisplay;
 
         void Start()
         {
-            cardDisplay = card.GetComponent<CardDisplay>();
+            cardDisplay = card.GetComponent<RecruitmentCardBehavior>();
         }
 
         private Candidate CreateCandidate()
@@ -56,7 +56,8 @@ namespace CultManager
             int age = currentCandidate.cultist.age;
             int policeValue = currentCandidate.policeValue;
             int moneyValue = currentCandidate.moneyValue;
-            cardDisplay.Display(sprite, name, age, policeValue, moneyValue);
+            CultistTraits traits = currentCandidate.cultist.traits;
+            cardDisplay.Display(sprite, name, age, policeValue, moneyValue,traits);
         }
 
         private void UpdateCult()
