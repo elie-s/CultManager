@@ -13,13 +13,12 @@ namespace CultManager
         [SerializeField] private CameraTarget[] targets = default;
         [SerializeField] private CameraControllerSettings settings = default;
 
-
         private CameraTarget origin;
         private bool locked;
 
         private void OnEnable()
         {
-            
+            InitCam();
         }
 
         private void InitCam()
