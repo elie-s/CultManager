@@ -15,9 +15,21 @@ MonoBehaviour:
   altarParts:
   - altarPartName: 
     assignedCultists: 0
-    isBought: 1
+    isBought: 0
     currentBuildPoints:
-      _value: 100
-      _max: 100
-  availableCultists: 51
+      _value: 0
+      _max: 0
+  - altarPartName: 
+    assignedCultists: 0
+    isBought: 0
+    currentBuildPoints:
+      _value: 0
+      _max: 0
+  - altarPartName: 
+    assignedCultists: 0
+    isBought: 0
+    currentBuildPoints:
+      _value: 0
+      _max: 0
+  availableCultists: 55
   altarCompletion: 1

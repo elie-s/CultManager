@@ -11,10 +11,9 @@ namespace CultManager
         [SerializeField] AltarManager altarManager = default;
 
         [Header("Altar Data")]
-        public int index;
         public AltarPartData altarPartData;
         public AltarData altarData;
-        public AltarPart altarPart => altarData.altarParts[index];
+        public AltarPart altarPart => altarData.altarParts[altarPartData.altarPartIndex];
             
 
         [Header("Cult Parameters")]

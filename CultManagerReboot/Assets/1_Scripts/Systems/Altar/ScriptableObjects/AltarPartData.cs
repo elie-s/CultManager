@@ -9,17 +9,20 @@ namespace CultManager
     public class AltarPartData : ScriptableObject
     {
         public string altarPartName;
+        public int altarPartIndex;
         public int maxCultists;
         public int maxBuildPoints;
         public int cost;
         [TextArea(2, 6)]
         public string description;
+        public Sprite altarSprite;
 
         AltarPart currentAltarPart;
 
-        void Init(AltarPart _altarPart)
+        public AltarPart Init(AltarData altarData)
         {
-            currentAltarPart = _altarPart;
+            currentAltarPart = altarData.altarParts[altarPartIndex];
+            return currentAltarPart;
         }
     }
 }

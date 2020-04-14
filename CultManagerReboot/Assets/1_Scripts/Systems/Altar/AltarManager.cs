@@ -9,7 +9,7 @@ namespace CultManager
     {
         [Header("Altar Data")]
         [SerializeField] private AltarData altarData = default;
-        [SerializeField] private AltarPartBehavior[] altarPartBehaviors;
+        [SerializeField] public AltarPartBehavior[] altarPartBehaviors;
 
         [Header("Cult Parameters")]
         [SerializeField] private CultData cult = default;

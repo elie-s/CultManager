@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5dd0d9b2727fdc48aab220735c031f8, type: 3}
-  m_Name: Parmesan
+  m_Name: Part3
   m_EditorClassIdentifier: 
-  altarPartName: Parmesan
-  maxCultists: 5
-  maxBuildPoints: 100
-  cost: 50
-  description: Hard nutty cheese
+  altarPartName: Part3
+  altarPartIndex: 2
+  maxCultists: 25
+  maxBuildPoints: 2500
+  cost: 500
+  description: Third part of the altar
+  altarSprite: {fileID: 21300000, guid: 9644f294d8db6db40bfe72f48407c4fc, type: 3}
