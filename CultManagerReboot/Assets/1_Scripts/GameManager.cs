@@ -35,12 +35,31 @@ namespace CultManager
 
         public void SaveGame()
         {
+            Debug.Log("SAVED BOI");
             saveManager.SaveGame();
         }
 
         private void OnApplicationQuit()
         {
             SaveGame();
+        }
+
+        public void OnApplicationFocus(bool focus)
+        {
+            if (!focus)
+            {
+                SaveGame();
+            }
+            
+        }
+
+        public void OnApplicationPause(bool pause)
+        {
+            if (pause)
+            {
+                SaveGame();
+            }
+                
         }
 
         public void Quit()
