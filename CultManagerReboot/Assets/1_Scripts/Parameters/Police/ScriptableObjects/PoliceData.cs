@@ -34,8 +34,7 @@ namespace CultManager
 
         public void LoadSave(Save _save)
         {
-            Reset(_save.policeMaxValue);
-            Set(_save.policeCurrentValue);
+            gauge = new IntGauge(_save.policeCurrentValue, _save.policeMaxValue, false);
         }
     }
 }

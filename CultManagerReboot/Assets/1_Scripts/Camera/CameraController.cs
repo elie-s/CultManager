@@ -13,12 +13,15 @@ namespace CultManager
         [SerializeField] private CameraTarget[] targets = default;
         [SerializeField] private CameraControllerSettings settings = default;
 
+        public static bool isAtOrigin;
+
         private CameraTarget origin;
         private bool locked;
 
         private void OnEnable()
         {
             InitCam();
+            isAtOrigin = true;
         }
 
         private void InitCam()
@@ -37,11 +40,13 @@ namespace CultManager
         public void Transition(int _index)
         {
             Transition(targets[_index]);
+            isAtOrigin = false;
         }
 
         public void TransitionToOrigin()
         {
             Transition(origin);
+            isAtOrigin = true;
         }
 
         private IEnumerator TransitionRoutine(CameraTarget _target)

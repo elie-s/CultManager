@@ -16,10 +16,10 @@ namespace CultManager
         [Header("Settings")]
         [SerializeField] private SaveSettings settings = default;
 
-        [SerializeField] private int currentCultistsDebug = 0;
-        [SerializeField] private int currentMoneyDebug = 0;
-        [SerializeField] private int currentInfluenceDebug = 0;
-        [SerializeField] private int currentPoliceDebug = 0;
+        [SerializeField] public int currentCultistsDebug = 0;
+        [SerializeField] public int currentMoneyDebug = 0;
+        [SerializeField] public int currentInfluenceDebug = 0;
+        [SerializeField] public int currentPoliceDebug = 0;
 
         public static bool saveLoaded;
 

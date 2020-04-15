@@ -33,8 +33,7 @@ namespace CultManager
 
         private void Update()
         {
-
-            
+            Display(currentId);
         }
 
         public void Display(int id)
@@ -48,13 +47,14 @@ namespace CultManager
             {
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
-                altarPartBar.fillAmount = altarPart.currentBuildPoints.ratio;
-                cultistsBar.fillAmount = (float)(altarPart.assignedCultists/altarPartData.maxCultists);
+                altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;
+                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists/altarPartData.maxCultists),Time.deltaTime);
             }
             else
             {
                 buyButton.SetActive(true);
                 altarPartImage.color = new Color(0, 0, 0, 1f);
+                altarPartBar.fillAmount = 0f;
             }
         }
 
@@ -65,17 +65,17 @@ namespace CultManager
 
         public void CloseButton()
         {
-            Panel.SetActive(true);
+            Panel.SetActive(false);
         }
 
         public void OpenButton()
         {
-            Panel.SetActive(false);
+            Panel.SetActive(true);
         }
 
         public void Next()
         {
-            if (currentId < altarPartDatas.Length - 1)
+            if (currentId < (altarPartDatas.Length - 1))
             {
                 currentId += 1;
             }
@@ -83,7 +83,6 @@ namespace CultManager
             {
                 currentId = 0;
             }
-            Display(currentId);
         }
 
         public void Previous()
@@ -96,7 +95,7 @@ namespace CultManager
             {
                 currentId =altarPartDatas.Length;
             }
-            Display(currentId);
+            
         }
 
     }
