@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   altarParts:
   - altarPartName: 
-    assignedCultists: 0
+    assignedCultists: 5
     isBought: 0
     currentBuildPoints:
       _value: 0
-      _max: 0
+      _max: 100
   - altarPartName: 
-    assignedCultists: 0
+    assignedCultists: 5
     isBought: 0
     currentBuildPoints:
       _value: 0
-      _max: 0
+      _max: 600
   - altarPartName: 
-    assignedCultists: 0
+    assignedCultists: 5
     isBought: 0
     currentBuildPoints:
       _value: 0
-      _max: 0
-  availableCultists: 0
+      _max: 2500
+  availableCultists: 50
   altarCompletion: 0

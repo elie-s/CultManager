@@ -1729,6 +1729,8 @@ GameObject:
   - component: {fileID: 712986878647974629}
   - component: {fileID: 712986878647974628}
   - component: {fileID: 386863502013713337}
+  - component: {fileID: 6134376834698356604}
+  - component: {fileID: 8999713757031421521}
   m_Layer: 5
   m_Name: RecruitmentCard
   m_TagString: Untagged
@@ -1823,6 +1825,84 @@ MonoBehaviour:
   - {fileID: 712986877552812530}
   - {fileID: 712986877363055114}
   - {fileID: 712986878876798599}
+--- !u!225 &6134376834698356604
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712986878647974630}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8999713757031421521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712986878647974630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ae3abb52eca2544ac9b9f7427a6625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 6134376834698356604}
+  rectTransform: {fileID: 712986878647974631}
+  lerpValue: 0
+  onSwipeLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 386863502013713337}
+        m_MethodName: Left
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8999713757031421521}
+        m_MethodName: ResetValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSwipeRight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 386863502013713337}
+        m_MethodName: Kept
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8999713757031421521}
+        m_MethodName: ResetValues
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  settings: {fileID: 11400000, guid: af6c79b8d9690b843ba0b6bc89a42d37, type: 2}
 --- !u!1 &712986878805902123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2610,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 386863502013713337}
         m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8999713757031421521}
+        m_MethodName: ResetValues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
