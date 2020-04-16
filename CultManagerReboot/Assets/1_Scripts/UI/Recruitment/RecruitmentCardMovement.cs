@@ -75,6 +75,22 @@ namespace CultManager
             }
         }
 
+        public void ExitRight()
+        {
+            if (isExiting) return;
+
+            lerpValue = 0.001f;
+            StartCoroutine(ExitRoutine());
+        }
+
+        public void ExitLeft()
+        {
+            if (isExiting) return;
+
+            lerpValue = -0.001f;
+            StartCoroutine(ExitRoutine());
+        }
+
         private IEnumerator ExitRoutine()
         {
             Debug.Log("Exiting");
