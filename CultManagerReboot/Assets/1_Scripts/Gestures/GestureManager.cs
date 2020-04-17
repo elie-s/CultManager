@@ -23,7 +23,102 @@ namespace CultManager
 
         void Update()
         {
-            if (!isGettingGesture && Input.touchCount != 0) StartCoroutine(TouchRoutine());
+            if(!isGettingGesture)
+            {
+                if (Input.touchCount != 0) StartCoroutine(TouchRoutine());
+                if (Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
+            }
+        }
+
+        private IEnumerator MouseRoutine()
+        {
+            debug.Log("Starting TouchRoutine.", DebugInstance.Importance.Lesser);
+            isGettingGesture = true;
+            float localTimer = 0.0f;
+            bool cancelled = false;
+            bool moved = false;
+            Vector2 oldPos = AdjustedViewportRatioPosition(Input.mousePosition);
+            Vector2 startPos = AdjustedViewportRatioPosition(Input.mousePosition);
+
+            Gesture.Touching = true;
+
+            Gesture.BeginTouch = true;
+            yield return null;
+            Gesture.BeginTouch = false;
+
+            while (Input.GetMouseButton(0))
+            {
+
+                if (Vector2.Distance(oldPos, AdjustedViewportRatioPosition(Input.mousePosition)) > settings.movingDetectionThreshold)
+                {
+                    debug.Log("Moved: " + Vector2.Distance(oldPos, AdjustedViewportRatioPosition(playCam.ScreenToViewportPoint(Input.mousePosition))), DebugInstance.Importance.Lesser);
+                    moved = true;
+
+                    Vector2 movement = AdjustedViewportRatioPosition(Input.mousePosition) - startPos;
+                    Gesture.DeltaMovement = movement - Gesture.Movement;
+                    Gesture.Movement = movement;
+                }
+
+                oldPos = AdjustedViewportRatioPosition(Input.mousePosition);
+                yield return null;
+                localTimer += Time.deltaTime;
+            }
+
+
+            if (!cancelled)
+            {
+                if (localTimer < settings.quickTouchDelay)
+                {
+                    localTimer = 0.0f;
+
+                    while (localTimer < settings.doubleTapDelay && !Input.GetMouseButton(0))
+                    {
+                        yield return null;
+                        localTimer += Time.deltaTime;
+                    }
+
+                    if (localTimer < settings.doubleTapDelay && Input.GetMouseButton(0))
+                    {
+                        localTimer = 0.0f;
+
+                        while (localTimer < settings.quickTouchDelay && Input.GetMouseButton(0))
+                        {
+                            yield return null;
+                            localTimer += Time.deltaTime;
+                        }
+
+                        if (localTimer < settings.quickTouchDelay)
+                        {
+                            debug.Log("Double touch.", DebugInstance.Importance.Average);
+                            Gesture.DoubleTouch = true;
+                            OnDoubleTap.Invoke();
+                        }
+                    }
+                    else
+                    {
+                        debug.Log("Quick touch.", DebugInstance.Importance.Average);
+                        Gesture.QuickTouch = true;
+                        OnQuickTouch.Invoke();
+                    }
+                }
+                else if (!moved)
+                {
+                    debug.Log("Long touch.", DebugInstance.Importance.Average);
+                    Gesture.LongTouch = true;
+                    OnLongTapEnd.Invoke();
+                }
+                else
+                {
+                    debug.Log("Released Movement touch.", DebugInstance.Importance.Average);
+                    Gesture.ReleasedMovementTouch = true;
+                    OnLongTapEnd.Invoke();
+                }
+
+                yield return null;
+
+
+                EndMouseGesture();
+            }
         }
 
         private IEnumerator TouchRoutine()
@@ -215,7 +310,27 @@ namespace CultManager
             StartCoroutine(EndGestureRoutine());
         }
 
+        private void EndMouseGesture()
+        {
+            ResetGestures();
+
+            StartCoroutine(EndMouseGestureRoutine());
+        }
+
         private IEnumerator EndGestureRoutine()
+        {
+            debug.Log("Starting EndGestureRoutine.", DebugInstance.Importance.Lesser);
+
+            while (Input.GetMouseButton(0))
+            {
+                yield return null;
+            }
+            
+            isGettingGesture = false;
+            debug.Log("Stopped getting gesture.", DebugInstance.Importance.Average);
+        }
+
+        private IEnumerator EndMouseGestureRoutine()
         {
             debug.Log("Starting EndGestureRoutine.", DebugInstance.Importance.Lesser);
 
@@ -223,7 +338,7 @@ namespace CultManager
             {
                 yield return null;
             }
-            
+
             isGettingGesture = false;
             debug.Log("Stopped getting gesture.", DebugInstance.Importance.Average);
         }
