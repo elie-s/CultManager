@@ -1,10 +1,13 @@
-﻿public enum HexagonalGridSlice
+﻿namespace CultManager
 {
-    Center = -1,
-    Top,
-    TopRight,
-    BottomRight,
-    Bottom,
-    BottomLeft,
-    TopLeft,
+    public enum HexagonalGridSlice
+    {
+        Center = -1,
+        Top,
+        TopRight,
+        BottomRight,
+        Bottom,
+        BottomLeft,
+        TopLeft,
+    }
 }

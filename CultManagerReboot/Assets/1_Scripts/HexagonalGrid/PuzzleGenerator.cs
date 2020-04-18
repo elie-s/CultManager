@@ -2,73 +2,76 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleGenerator : MonoBehaviour
+namespace CultManager
 {
-    [SerializeField] private float scale = 1.0f;
-    [SerializeField] private HexagonalGridPatternGenerationsSettings[] settings;
-
-    private HexagonalGrid grid;
-    private HexagonalGridPattern pattern;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PuzzleGenerator : MonoBehaviour
     {
-        grid = new HexagonalGrid(scale, 1);
-        grid.SetGrid();
-    }
+        [SerializeField] private float scale = 1.0f;
+        [SerializeField] private HexagonalGridPatternGenerationsSettings[] settings;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
+        private HexagonalGrid grid;
+        private HexagonalGridPattern pattern;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            ResetGrid();
-            Generate();
+            grid = new HexagonalGrid(scale, 1);
+            grid.SetGrid();
         }
-    }
 
-    [ContextMenu("Generate")]
-    public void Generate()
-    {
-        pattern = new HexagonalGridPattern(grid, settings[0]);
-
-        for (int i = 1; i < settings.Length; i++)
+        private void Update()
         {
-            grid.DoubleGrid();
-            pattern.DoubleSize();
-            pattern.AddToShape(settings[i]);
-        }
-    }
-
-    [ContextMenu("Reset")]
-    public void ResetGrid()
-    {
-        grid = new HexagonalGrid(scale, 1);
-        grid.SetGrid();
-
-        pattern = null;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if(grid != null)
-        {
-            Gizmos.color = Color.blue;
-
-            foreach (Vector2Int node in grid.nodes)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
+                ResetGrid();
+                Generate();
             }
         }
 
-        if (pattern != null)
+        [ContextMenu("Generate")]
+        public void Generate()
         {
-            Gizmos.color = Color.yellow;
+            pattern = new HexagonalGridPattern(grid, settings[0]);
 
-            foreach (HexagonalGridSegment segment in pattern.segments)
+            for (int i = 1; i < settings.Length; i++)
             {
-                Gizmos.DrawLine(grid.NodeToWorldPosition(segment.a), grid.NodeToWorldPosition(segment.b));
+                grid.DoubleGrid();
+                pattern.DoubleSize();
+                pattern.AddToShape(settings[i]);
             }
         }
-    }
 
+        [ContextMenu("Reset")]
+        public void ResetGrid()
+        {
+            grid = new HexagonalGrid(scale, 1);
+            grid.SetGrid();
+
+            pattern = null;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (grid != null)
+            {
+                Gizmos.color = Color.blue;
+
+                foreach (Vector2Int node in grid.nodes)
+                {
+                    Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
+                }
+            }
+
+            if (pattern != null)
+            {
+                Gizmos.color = Color.yellow;
+
+                foreach (HexagonalGridSegment segment in pattern.segments)
+                {
+                    Gizmos.DrawLine(grid.NodeToWorldPosition(segment.a), grid.NodeToWorldPosition(segment.b));
+                }
+            }
+        }
+
+    }
 }

@@ -2,66 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour
+namespace CultManager
 {
-    [SerializeField] private HexagonalGrid grid = default;
-    [SerializeField] private int shapeSegments = 5;
-    [SerializeField] private bool startAtCenter = true;
-    [SerializeField] private HexagonalGridPattern.Mode mode;
-
-    private Vector2Int randomNode = default;
-    [SerializeField] private HexagonalGridPattern pattern;
-
-    // Start is called before the first frame update
-    void Start()
+    public class GridManager : MonoBehaviour
     {
-        grid.SetGrid();
-        pattern = new HexagonalGridPattern(grid, startAtCenter, mode);
-        //SetRandom();
-    }
+        [SerializeField] private HexagonalGrid grid = default;
+        [SerializeField] private int shapeSegments = 5;
+        [SerializeField] private bool startAtCenter = true;
+        [SerializeField] private HexagonalGridPattern.Mode mode;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) NewPattern();
-    }
+        private Vector2Int randomNode = default;
+        [SerializeField] private HexagonalGridPattern pattern;
 
-    public void NewPattern()
-    {
-        pattern.StartAtCenter(startAtCenter);
-        pattern.NewMode(mode);
-        pattern.NewShape(shapeSegments);
-    }
-
-    [ContextMenu("SetRandom")]
-    public void SetRandom()
-    {
-        randomNode = grid.GetRandomNode();
-        Debug.Log(grid.GetSlice(randomNode));
-    }
-
-    [ContextMenu("DoubleGrid")]
-    public void DoubleGrid()
-    {
-        grid.DoubleGrid();
-        pattern.DoubleSize();
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if(grid != null)
+        // Start is called before the first frame update
+        void Start()
         {
-            Gizmos.color = Color.blue;
+            grid.SetGrid();
+            pattern = new HexagonalGridPattern(grid, startAtCenter, mode);
+            //SetRandom();
+        }
 
-            foreach (Vector2Int node in grid.nodes)
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) NewPattern();
+        }
+
+        public void NewPattern()
+        {
+            pattern.StartAtCenter(startAtCenter);
+            pattern.NewMode(mode);
+            pattern.NewShape(shapeSegments);
+        }
+
+        [ContextMenu("SetRandom")]
+        public void SetRandom()
+        {
+            randomNode = grid.GetRandomNode();
+            Debug.Log(grid.GetSlice(randomNode));
+        }
+
+        [ContextMenu("DoubleGrid")]
+        public void DoubleGrid()
+        {
+            grid.DoubleGrid();
+            pattern.DoubleSize();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (grid != null)
             {
-                Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
-            }
+                Gizmos.color = Color.blue;
 
-            Gizmos.color = Color.yellow;
+                foreach (Vector2Int node in grid.nodes)
+                {
+                    Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
+                }
 
-            foreach (HexagonalGridSegment segment in pattern.segments)
-            {
-                Gizmos.DrawLine(grid.NodeToWorldPosition(segment.a), grid.NodeToWorldPosition(segment.b));
+                Gizmos.color = Color.yellow;
+
+                foreach (HexagonalGridSegment segment in pattern.segments)
+                {
+                    Gizmos.DrawLine(grid.NodeToWorldPosition(segment.a), grid.NodeToWorldPosition(segment.b));
+                }
             }
         }
     }
