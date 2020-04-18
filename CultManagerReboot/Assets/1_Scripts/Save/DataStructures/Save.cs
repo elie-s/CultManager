@@ -35,8 +35,11 @@ namespace CultManager
         public bool altarCompletion;
         public DateTime lastBuildTimeReference;
 
+        //Note Tab
+        public NoteTabSegment[] noteTabSegments;
 
-        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData)
+
+        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -58,6 +61,8 @@ namespace CultManager
             availableCultists = _altarData.availableCultists;
             altarCompletion = _altarData.altarCompletion;
             lastBuildTimeReference = _altarData.lastBuildTimeReference;
+
+            noteTabSegments = _noteTabData.noteTabSegments.ToArray();
         }
     }
 }
