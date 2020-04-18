@@ -14,6 +14,9 @@ namespace CultManager
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private PoliceManager police = default;
 
+        [SerializeField] private CurrentPanel thisPanelName;
+
+
         public GameObject card;
         public GameObject recruitmentObj;
         private Candidate currentCandidate;
@@ -86,14 +89,22 @@ namespace CultManager
         [ContextMenu("Recruit")]
         public void StartRecruitment()
         {
-            Debug.Log("Candidates are " + data.candidatesCount);
-            card.SetActive(true);
-            SetCard();
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                GameManager.currentPanel = thisPanelName;
+                Debug.Log("Candidates are " + data.candidatesCount);
+                card.SetActive(true);
+                SetCard();
+            }
         }
         [ContextMenu("Close Recruitment")]
         public void StopRecruitment()
         {
-            card.SetActive(false);
+            if (GameManager.currentPanel == thisPanelName)
+            {
+                card.SetActive(false);
+                GameManager.currentPanel = CurrentPanel.None;
+            }
         }
     }
 }

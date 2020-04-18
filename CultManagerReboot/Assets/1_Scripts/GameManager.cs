@@ -14,10 +14,17 @@ namespace CultManager
         [SerializeField] private PoliceManager policeManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
 
+        public static CurrentIsland currentIsland;
+        public static CurrentPanel currentPanel;
+
+        [SerializeField] private CurrentIsland island;
+        [SerializeField] private CurrentPanel panel;
+
         private bool isHome = true;
 
         private void Awake()
         {
+            currentIsland = CurrentIsland.Origin;
             saveManager?.Loadgame();
             cultManager?.InitalizeData();
             influenceManager?.InitializeData();
@@ -27,6 +34,8 @@ namespace CultManager
 
         void Update()
         {
+            island = currentIsland;
+            panel = currentPanel;
             if (isHome && Input.GetKeyDown(KeyCode.Escape))
             {
                 Quit();

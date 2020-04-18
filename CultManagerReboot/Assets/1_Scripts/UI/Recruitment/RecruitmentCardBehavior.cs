@@ -11,6 +11,7 @@ namespace CultManager
     {
         [Header("Reference")]
         [SerializeField] private RecruitmentManager recruitmentManager;
+        
 
         [Header("Display")]
         public Image image;

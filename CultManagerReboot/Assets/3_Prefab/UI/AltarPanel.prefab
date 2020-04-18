@@ -221,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &746602754936431897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -780,6 +780,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 733e8953f4ee6af42b778a2dbce1f376, type: 2}
   - {fileID: 11400000, guid: ee3f085dec50c144db47acf0b0bfe2ac, type: 2}
   - {fileID: 11400000, guid: a6a2eeca376302c45a00a23f76c8ff55, type: 2}
+  thisPanelName: 3
   Panel: {fileID: 5040759309414862080}
   buyButton: {fileID: 1311935254673782448}
   altarPartImage: {fileID: 7537339198015420891}

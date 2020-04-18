@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] private AltarManager altarManager;
         [SerializeField] private AltarData altarData;
         [SerializeField] private AltarPartData[] altarPartDatas;
+        [SerializeField] private CurrentPanel thisPanelName;
 
         [Header("Display")]
         [SerializeField] private GameObject Panel;
@@ -65,12 +66,21 @@ namespace CultManager
 
         public void CloseButton()
         {
-            Panel.SetActive(false);
+            if (GameManager.currentPanel == thisPanelName)
+            {
+                GameManager.currentPanel = CurrentPanel.None;
+                Panel.SetActive(false);
+            }
         }
 
         public void OpenButton()
         {
-            Panel.SetActive(true);
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                GameManager.currentPanel = thisPanelName;
+                Panel.SetActive(true);
+            }
+            
         }
 
         public void Next()

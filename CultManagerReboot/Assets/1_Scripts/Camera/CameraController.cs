@@ -39,14 +39,23 @@ namespace CultManager
 
         public void Transition(int _index)
         {
-            Transition(targets[_index]);
-            isAtOrigin = false;
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                Transition(targets[_index]);
+                GameManager.currentIsland = (CurrentIsland)(_index + 1);
+                isAtOrigin = false;
+            }
         }
 
         public void TransitionToOrigin()
         {
-            Transition(origin);
-            isAtOrigin = true;
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                Transition(origin);
+                GameManager.currentIsland = (CurrentIsland)(0);
+                isAtOrigin = true;
+            }
+            
         }
 
         private IEnumerator TransitionRoutine(CameraTarget _target)
