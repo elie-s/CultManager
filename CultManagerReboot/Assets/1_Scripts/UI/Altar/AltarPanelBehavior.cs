@@ -25,31 +25,29 @@ namespace CultManager
 
         private AltarPart altarPart;
         private int currentId;
+        private AltarPartData currentAltarPartData => altarPartDatas[currentId];
 
         private void Start()
         {
             currentId = 0;
-            Display(currentId);
+            if (GameManager.currentPanel == thisPanelName)
+                Display();
         }
 
         private void Update()
         {
-            Display(currentId);
+            if (GameManager.currentPanel == thisPanelName)
+                Display();
         }
 
-        public void Display(int id)
+        public void Display()
         {
-            AltarPartData altarPartData = altarPartDatas[id];
-            altarPartImage.sprite = altarPartData.altarSprite;
-            altarPartBar.sprite = altarPartData.altarSprite;
-            costText.text = altarPartData.cost.ToString();
-            altarPart = altarPartData.Init(altarData);
             if (altarPart.isBought)
             {
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
                 altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;
-                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists/altarPartData.maxCultists),Time.deltaTime);
+                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists/ currentAltarPartData.maxCultists),Time.deltaTime);
             }
             else
             {
@@ -57,6 +55,18 @@ namespace CultManager
                 altarPartImage.color = new Color(0, 0, 0, 1f);
                 altarPartBar.fillAmount = 0f;
             }
+        }
+
+
+        public void SetCurrentAltarPart()
+        {
+            altarPartImage.sprite = currentAltarPartData.altarSprite;
+            altarPartBar.sprite = currentAltarPartData.altarSprite;
+            costText.text = currentAltarPartData.cost.ToString();
+            altarPart = currentAltarPartData.Init(altarData);
+
+            altarPartBar.fillAmount = altarPart.currentBuildPoints.ratio;
+            cultistsBar.fillAmount = (float)(altarPart.assignedCultists / currentAltarPartData.maxCultists);
         }
 
         public void BuyButton()
@@ -79,6 +89,7 @@ namespace CultManager
             {
                 GameManager.currentPanel = thisPanelName;
                 Panel.SetActive(true);
+                SetCurrentAltarPart();
             }
             
         }
@@ -93,6 +104,7 @@ namespace CultManager
             {
                 currentId = 0;
             }
+            SetCurrentAltarPart();
         }
 
         public void Previous()
@@ -105,7 +117,7 @@ namespace CultManager
             {
                 currentId =altarPartDatas.Length;
             }
-            
+            SetCurrentAltarPart();
         }
 
     }
