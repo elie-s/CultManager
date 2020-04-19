@@ -59,13 +59,12 @@ namespace CultManager
 
         private IEnumerator SlideRoutine()
         {
-            yield return null;
-
             while (Gesture.Touching)
             {
                 lerpValue += Gesture.DeltaMovement.x * settings.slideMultiplier;
+                Debug.Log(Gesture.DeltaMovement.x);
 
-                yield return null;
+                yield return new WaitForFixedUpdate();
 
                 if(Mathf.Abs(lerpValue) > settings.slideThreshold)
                 {

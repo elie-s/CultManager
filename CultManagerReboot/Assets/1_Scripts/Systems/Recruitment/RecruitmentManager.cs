@@ -15,17 +15,11 @@ namespace CultManager
         [SerializeField] private PoliceManager police = default;
 
         [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private RecruitmentCardBehavior cardDisplay = default;
+        [SerializeField] private RecruitmentCardMovement cardMovement = default;
 
-
-        public GameObject card;
         public GameObject recruitmentObj;
         private Candidate currentCandidate;
-        private RecruitmentCardBehavior cardDisplay;
-
-        void Start()
-        {
-            cardDisplay = card.GetComponent<RecruitmentCardBehavior>();
-        }
 
         private Candidate CreateCandidate()
         {
@@ -53,6 +47,7 @@ namespace CultManager
 
         public void NextCard()
         {
+            cardMovement.ResetValues();
             currentCandidate = CreateCandidate();
             Sprite sprite = settings.cultistThumbnails[currentCandidate.cultist.spriteIndex];
             string name = currentCandidate.cultist.cultistName;
@@ -78,12 +73,19 @@ namespace CultManager
         {
             if (data.candidatesCount > 0)
             {
-                NextCard();
+                StartCoroutine(DelayedAction(NextCard, 0.3f));
             }
             else
             {
                 StopRecruitment();
             }
+        }
+
+        private IEnumerator DelayedAction(System.Action _action, float _delay)
+        {
+            yield return new WaitForSeconds(_delay);
+
+            _action();
         }
 
         [ContextMenu("Recruit")]
@@ -93,18 +95,29 @@ namespace CultManager
             {
                 GameManager.currentPanel = thisPanelName;
                 Debug.Log("Candidates are " + data.candidatesCount);
-                card.SetActive(true);
+                StartCoroutine(DelayedAction(EnableCard, 0.3f));
                 SetCard();
             }
         }
+
         [ContextMenu("Close Recruitment")]
         public void StopRecruitment()
         {
             if (GameManager.currentPanel == thisPanelName)
             {
-                card.SetActive(false);
+                DisableCard();
                 GameManager.currentPanel = CurrentPanel.None;
             }
+        }
+
+        private void EnableCard()
+        {
+            cardDisplay.gameObject.SetActive(true);
+        }
+
+        private void DisableCard()
+        {
+            cardDisplay.gameObject.SetActive(false);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace CultManager
         [SerializeField] private UnityEvent OnQuickTouch = default;
         [SerializeField] private UnityEvent OnDoubleTap = default;
         [SerializeField] private UnityEvent OnLongTapEnd = default;
+        [SerializeField] private bool useMouse = false;
         [SerializeField, DrawScriptable] private GesturesSettings settings = default;
 
         private bool isGettingGesture = false;
@@ -25,8 +26,8 @@ namespace CultManager
         {
             if(!isGettingGesture)
             {
-                if (Input.touchCount != 0) StartCoroutine(TouchRoutine());
-                if (Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
+                if (!useMouse && Input.touchCount != 0) StartCoroutine(TouchRoutine());
+                if (useMouse && Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
             }
         }
 
@@ -48,7 +49,7 @@ namespace CultManager
 
             while (Input.GetMouseButton(0))
             {
-
+                Gesture.DeltaMovement = Vector2.zero;
                 if (Vector2.Distance(oldPos, AdjustedViewportRatioPosition(Input.mousePosition)) > settings.movingDetectionThreshold)
                 {
                     debug.Log("Moved: " + Vector2.Distance(oldPos, AdjustedViewportRatioPosition(playCam.ScreenToViewportPoint(Input.mousePosition))), DebugInstance.Importance.Lesser);
@@ -57,6 +58,8 @@ namespace CultManager
                     Vector2 movement = AdjustedViewportRatioPosition(Input.mousePosition) - startPos;
                     Gesture.DeltaMovement = movement - Gesture.Movement;
                     Gesture.Movement = movement;
+
+                    Debug.Log("mvt: " + Gesture.DeltaMovement.x);
                 }
 
                 oldPos = AdjustedViewportRatioPosition(Input.mousePosition);
@@ -139,6 +142,7 @@ namespace CultManager
 
             while (Input.touchCount > 0)
             {
+                Gesture.DeltaMovement = Vector2.zero;
                 if (Input.touchCount > 1)
                 {
                     cancelled = true;

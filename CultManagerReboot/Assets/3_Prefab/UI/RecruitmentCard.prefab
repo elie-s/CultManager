@@ -2378,8 +2378,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 386863502013713337}
-          m_MethodName: Kept
+        - m_Target: {fileID: 8999713757031421521}
+          m_MethodName: ExitRight
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2480,8 +2480,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 386863502013713337}
-          m_MethodName: Left
+        - m_Target: {fileID: 8999713757031421521}
+          m_MethodName: ExitLeft
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
