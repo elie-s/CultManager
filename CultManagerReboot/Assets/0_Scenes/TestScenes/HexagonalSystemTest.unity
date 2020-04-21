@@ -235,12 +235,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1
   settings:
-  - shapeSegments: 3
-    startAtCenter: 0
-    mode: 2
-  - shapeSegments: 4
+  - shapeSegments: 2
     startAtCenter: 1
     mode: 2
+  - shapeSegments: 2
+    startAtCenter: 0
+    mode: 2
+  patternSettings:
+    shapeSegments: 1
+    startAtCenter: 1
+    mode: 0
+  pattern:
+    segments: []
+    startAtCenter: 0
 --- !u!4 &70967579
 Transform:
   m_ObjectHideFlags: 0
@@ -286,15 +293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 1
   settings:
-  - shapeSegments: 3
-    startAtCenter: 0
+  - shapeSegments: 2
+    startAtCenter: 1
     mode: 2
-  - shapeSegments: 4
+  - shapeSegments: 3
     startAtCenter: 0
     mode: 2
   - shapeSegments: 8
     startAtCenter: 1
     mode: 3
+  patternSettings:
+    shapeSegments: 8
+    startAtCenter: 1
+    mode: 0
+  pattern:
+    segments: []
+    startAtCenter: 0
 --- !u!4 &559634803
 Transform:
   m_ObjectHideFlags: 0

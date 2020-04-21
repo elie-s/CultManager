@@ -11,7 +11,7 @@ namespace CultManager
         [SerializeField] private bool startAtCenter = true;
         [SerializeField] private HexagonalGridPattern.Mode mode;
 
-        private Vector2Int randomNode = default;
+        private HexagonalGridNode randomNode = default;
         [SerializeField] private HexagonalGridPattern pattern;
 
         // Start is called before the first frame update
@@ -38,7 +38,7 @@ namespace CultManager
         public void SetRandom()
         {
             randomNode = grid.GetRandomNode();
-            Debug.Log(grid.GetSlice(randomNode));
+            Debug.Log(randomNode.slice);
         }
 
         [ContextMenu("DoubleGrid")]
@@ -54,7 +54,7 @@ namespace CultManager
             {
                 Gizmos.color = Color.blue;
 
-                foreach (Vector2Int node in grid.nodes)
+                foreach (HexagonalGridNode node in grid.nodes)
                 {
                     Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
                 }

@@ -10,8 +10,8 @@ namespace CultManager
         public List<HexagonalGridSegment> segments;
         public bool startAtCenter;
 
-        private HexagonalGrid grid;
-        private List<Vector2Int> nodes;
+        public HexagonalGrid grid { get; private set; }
+        public List<HexagonalGridNode> nodes { get; private set; }
         private Mode mode;
 
         public HexagonalGridPattern(HexagonalGrid _grid, bool _center, Mode _mode)
@@ -19,7 +19,7 @@ namespace CultManager
             grid = _grid;
             startAtCenter = _center;
             segments = new List<HexagonalGridSegment>();
-            nodes = new List<Vector2Int>();
+            nodes = new List<HexagonalGridNode>();
             mode = _mode;
 
             NewShape(3);
@@ -28,7 +28,7 @@ namespace CultManager
         public HexagonalGridPattern(HexagonalGrid _grid, HexagonalGridPatternGenerationsSettings _settings)
         {
             segments = new List<HexagonalGridSegment>();
-            nodes = new List<Vector2Int>();
+            nodes = new List<HexagonalGridNode>();
 
             grid = _grid;
 
@@ -37,15 +37,15 @@ namespace CultManager
             NewShape(_settings.shapeSegments);
         }
 
-        public void AddToShape(HexagonalGridPatternGenerationsSettings _settings)
+        public void AddToShape(HexagonalGridPatternGenerationsSettings _settings, bool _mustBeConnected)
         {
             mode = _settings.mode;
             startAtCenter = _settings.startAtCenter;
 
-            Vector2Int currentNode = startAtCenter ? grid.nodes[0] : grid.nodes[Random.Range(0, grid.nodes.Count)];
+            HexagonalGridNode currentNode = startAtCenter ? grid.nodes[0] : grid.nodes[Random.Range(0, grid.nodes.Count)];
             HexagonalGridSegment segment = grid.RandomSegmentFromNode(currentNode);
 
-            AddSegment(segment);
+            AddSegment(segment, _mustBeConnected);
 
             for (int i = 1; i < _settings.shapeSegments; i++)
             {
@@ -63,7 +63,7 @@ namespace CultManager
                 } while (segments.Contains(segment) && safety < 36);
 
 
-                if (safety < 36) AddSegment(segment);
+                if (safety < 36) AddSegment(segment, _mustBeConnected);
             }
         }
 
@@ -80,12 +80,12 @@ namespace CultManager
         public void NewShape(int _segmentCounts)
         {
             segments = new List<HexagonalGridSegment>();
-            nodes = new List<Vector2Int>();
+            nodes = new List<HexagonalGridNode>();
 
-            Vector2Int currentNode = startAtCenter ? grid.nodes[0] : grid.nodes[Random.Range(0, grid.nodes.Count)];
+            HexagonalGridNode currentNode = startAtCenter ? grid.nodes[0] : grid.nodes[Random.Range(0, grid.nodes.Count)];
             HexagonalGridSegment segment = grid.RandomSegmentFromNode(currentNode);
 
-            AddSegment(segment);
+            AddSegment(segment, false);
 
             for (int i = 1; i < _segmentCounts; i++)
             {
@@ -103,40 +103,43 @@ namespace CultManager
                 } while (segments.Contains(segment) && safety < 36);
 
 
-                if (safety < 36) AddSegment(segment);
+                if (safety < 36) AddSegment(segment, false);
             }
         }
 
-        private void NewSegment(HexagonalGridSegment _segment)
+        private void NewSegment(HexagonalGridSegment _segment, bool _mustBeConnected)
         {
             if (!segments.Contains(_segment))
             {
-                segments.Add(_segment);
+                if ((_mustBeConnected && (nodes.Contains(_segment.a) || nodes.Contains(_segment.b))) || !_mustBeConnected)
+                {
+                    segments.Add(_segment);
 
-                if (!nodes.Contains(_segment.a)) nodes.Add(_segment.a);
-                if (!nodes.Contains(_segment.b)) nodes.Add(_segment.b);
+                    if (!nodes.Contains(_segment.a)) nodes.Add(_segment.a);
+                    if (!nodes.Contains(_segment.b)) nodes.Add(_segment.b);
+                }
             }
         }
 
-        private void AddSegment(HexagonalGridSegment _segment)
+        private void AddSegment(HexagonalGridSegment _segment, bool _mustBeConnected)
         {
-            NewSegment(_segment);
+            NewSegment(_segment, _mustBeConnected);
 
             switch (mode)
             {
                 case Mode.SymmetryAxial:
-                    NewSegment(grid.GetVerticalAxialSimmetry(_segment));
+                    NewSegment(grid.GetVerticalAxialSimmetry(_segment), _mustBeConnected);
                     break;
                 case Mode.SymmetryRotation3:
-                    NewSegment(grid.RotateSegment(_segment, 2));
-                    NewSegment(grid.RotateSegment(_segment, 4));
+                    NewSegment(grid.RotateSegment(_segment, 2), _mustBeConnected);
+                    NewSegment(grid.RotateSegment(_segment, 4), _mustBeConnected);
                     break;
                 case Mode.SymmetryRotation6:
-                    NewSegment(grid.RotateSegment(_segment, 1));
-                    NewSegment(grid.RotateSegment(_segment, 2));
-                    NewSegment(grid.RotateSegment(_segment, 3));
-                    NewSegment(grid.RotateSegment(_segment, 4));
-                    NewSegment(grid.RotateSegment(_segment, 5));
+                    NewSegment(grid.RotateSegment(_segment, 1), _mustBeConnected);
+                    NewSegment(grid.RotateSegment(_segment, 2), _mustBeConnected);
+                    NewSegment(grid.RotateSegment(_segment, 3), _mustBeConnected);
+                    NewSegment(grid.RotateSegment(_segment, 4), _mustBeConnected);
+                    NewSegment(grid.RotateSegment(_segment, 5), _mustBeConnected);
                     break;
                 default:
                     return;
@@ -151,15 +154,16 @@ namespace CultManager
 
             foreach (HexagonalGridSegment segment in segments)
             {
-                tmpSegment = grid.StretchSegment(segment);
-                HexagonalGridSegment[] newSegments = grid.CutSegment(tmpSegment);
+                tmpSegment = segment.StretchSegment();
+
+                HexagonalGridSegment[] newSegments = tmpSegment.CutSegment();
 
                 if (!tmpSegments.Contains(newSegments[0])) tmpSegments.Add(newSegments[0]);
                 if (!tmpSegments.Contains(newSegments[1])) tmpSegments.Add(newSegments[1]);
             }
 
             segments = tmpSegments;
-            nodes = new List<Vector2Int>();
+            nodes = new List<HexagonalGridNode>();
 
             foreach (HexagonalGridSegment segment in segments)
             {

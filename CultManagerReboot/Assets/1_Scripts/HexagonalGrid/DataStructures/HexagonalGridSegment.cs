@@ -8,16 +8,16 @@ namespace CultManager
     [System.Serializable]
     public struct HexagonalGridSegment : IEquatable<HexagonalGridSegment>
     {
-        public Vector2Int a;
-        public Vector2Int b;
+        public HexagonalGridNode a;
+        public HexagonalGridNode b;
 
-        public HexagonalGridSegment(Vector2Int _aNode, Vector2Int _bNode)
+        public HexagonalGridSegment(HexagonalGridNode _aNode, HexagonalGridNode _bNode)
         {
             a = _aNode;
             b = _bNode;
         }
 
-        public bool ConnectedTo(Vector2Int _node)
+        public bool ConnectedTo(HexagonalGridNode _node)
         {
             return _node == a || _node == b;
         }
@@ -32,7 +32,7 @@ namespace CultManager
             return (a == other.a && b == other.b) || (a == other.b && b == other.a);
         }
 
-        public bool Contains(Vector2Int _node)
+        public bool Contains(HexagonalGridNode _node)
         {
             return a == _node || b == _node;
         }
@@ -44,6 +44,29 @@ namespace CultManager
 
 
             return result;
+        }
+
+        public HexagonalGridSegment StretchSegment()
+        {
+            HexagonalGridNode _a = a.ShiftFromCenter();
+            HexagonalGridNode _b = b.ShiftFromCenter();
+
+            return new HexagonalGridSegment(_a, _b);
+        }
+
+        public HexagonalGridSegment[] CutSegment()
+        {
+            List<HexagonalGridSegment> result = new List<HexagonalGridSegment>();
+
+            int x = Mathf.RoundToInt(a.x > b.x ? b.x + (float)(a.x - b.x) / 2.0f : a.x + (float)(b.x - a.x) / 2.0f);
+            int y = Mathf.RoundToInt(a.y > b.y ? b.y + (float)(a.y - b.y) / 2.0f : a.y + (float)(b.y - a.y) / 2.0f);
+
+            HexagonalGridNode middle = new HexagonalGridNode(x, y);
+
+            result.Add(new HexagonalGridSegment(a, middle));
+            result.Add(new HexagonalGridSegment(b, middle));
+
+            return result.ToArray();
         }
 
         public override string ToString()
