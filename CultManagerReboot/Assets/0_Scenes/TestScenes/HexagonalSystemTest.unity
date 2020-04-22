@@ -359,17 +359,16 @@ MonoBehaviour:
   - shapeSegments: 2
     startAtCenter: 1
     mode: 2
-  - shapeSegments: 3
+  - shapeSegments: 5
+    startAtCenter: 0
+    mode: 2
+  - shapeSegments: 6
     startAtCenter: 0
     mode: 2
   patternSettings:
-    shapeSegments: 1
+    shapeSegments: 10
     startAtCenter: 1
     mode: 0
-  gizmosColors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 1, g: 0, b: 0.906075, a: 0}
-  - {r: 0, g: 1, b: 0.052033424, a: 0}
 --- !u!4 &1069043171
 Transform:
   m_ObjectHideFlags: 0
@@ -430,7 +429,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1069043170}
-        m_MethodName: Generate
+        m_MethodName: Generate2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
