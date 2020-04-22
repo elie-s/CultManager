@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CultManager
+namespace CultManager.HexagonalGrid
 {
     public class GridManager : MonoBehaviour
     {
-        [SerializeField] private HexagonalGrid grid = default;
+        [SerializeField] private HexGrid grid = default;
         [SerializeField] private int shapeSegments = 5;
         [SerializeField] private bool startAtCenter = true;
-        [SerializeField] private HexagonalGridPattern.Mode mode;
+        [SerializeField] private Pattern.Mode mode;
 
-        private HexagonalGridNode randomNode = default;
-        [SerializeField] private HexagonalGridPattern pattern;
+        private Node randomNode = default;
+        [SerializeField] private Pattern pattern;
 
         // Start is called before the first frame update
         void Start()
         {
             grid.SetGrid();
-            pattern = new HexagonalGridPattern(grid, startAtCenter, mode);
+            pattern = new Pattern(grid, startAtCenter, mode);
             //SetRandom();
         }
 
@@ -54,14 +54,14 @@ namespace CultManager
             {
                 Gizmos.color = Color.blue;
 
-                foreach (HexagonalGridNode node in grid.nodes)
+                foreach (Node node in grid.nodes)
                 {
                     Gizmos.DrawSphere(grid.NodeToWorldPosition(node), 0.05f);
                 }
 
                 Gizmos.color = Color.yellow;
 
-                foreach (HexagonalGridSegment segment in pattern.segments)
+                foreach (Segment segment in pattern.segments)
                 {
                     Gizmos.DrawLine(grid.NodeToWorldPosition(segment.a), grid.NodeToWorldPosition(segment.b));
                 }

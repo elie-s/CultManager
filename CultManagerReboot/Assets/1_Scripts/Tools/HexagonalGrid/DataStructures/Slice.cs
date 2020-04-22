@@ -1,6 +1,6 @@
-﻿namespace CultManager
+﻿namespace CultManager.HexagonalGrid
 {
-    public enum HexagonalGridSlice
+    public enum Slice
     {
         Center = -1,
         Top,

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/UI/NoteTab/NoteTabData")]
-    public class NoteTabData : ScriptableObject
+    public class NoteTabData : ScriptableObject, ILoadable
     {
         public List<NoteTabSegment> noteTabSegments;
 

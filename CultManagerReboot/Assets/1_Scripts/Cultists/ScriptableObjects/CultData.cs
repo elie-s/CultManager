@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Cult/CultData")]
-    public class CultData : ScriptableObject
+    public class CultData : ScriptableObject, ILoadable
     {
         public List<Cultist> cultists { get; private set; }
         public ulong idIndex { get; private set; }

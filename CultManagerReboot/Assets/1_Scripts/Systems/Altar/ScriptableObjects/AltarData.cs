@@ -7,7 +7,7 @@ using System;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Systems/AltarData")]
-    public class AltarData : ScriptableObject
+    public class AltarData : ScriptableObject, ILoadable
     {
         public AltarPart[] altarParts;
         public int availableCultists;

@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CultManager.HexagonalGrid;
+using Grid = CultManager.HexagonalGrid.HexGrid;
 
 namespace CultManager
 {
@@ -12,7 +13,7 @@ namespace CultManager
         public float[] node2= new float[2];
         public int iconIndex;
 
-        public NoteTabSegment(HexagonalGridSegment _segment, int _iconIndex)
+        public NoteTabSegment(Segment _segment, int _iconIndex)
         {
             node1[0] = _segment.a.x;
             node1[1] = _segment.a.y;

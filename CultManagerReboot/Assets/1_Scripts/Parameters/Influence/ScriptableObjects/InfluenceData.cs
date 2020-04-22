@@ -7,7 +7,7 @@ using UnityEngine;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Parameters/InfluenceData")]
-    public class InfluenceData : ScriptableObject
+    public class InfluenceData : ScriptableObject, ILoadable
     {
         public uint value { get; private set; }
         public DateTime lastCandidateTimeReference { get; private set; }

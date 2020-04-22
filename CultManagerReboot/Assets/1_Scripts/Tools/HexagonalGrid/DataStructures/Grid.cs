@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace CultManager
+namespace CultManager.HexagonalGrid
 {
     [System.Serializable]
-    public class HexagonalGrid
+    public class HexGrid
     {
         public float scale;
-        public List<HexagonalGridNode> nodes;
-        public List<HexagonalGridSegment> segments;
+        public List<Node> nodes;
+        public List<Segment> segments;
         public int layers;
 
-        public HexagonalGrid(float _scale, int _layers)
+        public HexGrid(float _scale, int _layers)
         {
             scale = _scale;
             layers = _layers;
@@ -21,7 +21,7 @@ namespace CultManager
             SetGrid();
         }
 
-        public HexagonalGrid(HexagonalGridPattern _pattern)
+        public HexGrid(Pattern _pattern)
         {
             scale = _pattern.grid.scale;
             layers = _pattern.grid.layers;
@@ -32,10 +32,10 @@ namespace CultManager
 
         public void SetGrid()
         {
-            nodes = new List<HexagonalGridNode>();
-            segments = new List<HexagonalGridSegment>();
+            nodes = new List<Node>();
+            segments = new List<Segment>();
 
-            nodes.Add(HexagonalGridNode.zero);
+            nodes.Add(Node.zero);
 
             for (int s = 0; s < 6; s++)
             {
@@ -48,9 +48,9 @@ namespace CultManager
                 //        else Debug.Log("bug !");
                 //    }
                 //}
-                HexagonalGridNode[] sliceNodes = HexagonalGridNode.NodesInSlice((HexagonalGridSlice)s, layers);
+                Node[] sliceNodes = Node.NodesInSlice((Slice)s, layers);
 
-                foreach (HexagonalGridNode node in sliceNodes)
+                foreach (Node node in sliceNodes)
                 {
                     if (!nodes.Contains(node)) nodes.Add(node);
                      else Debug.Log("bug !");
@@ -59,11 +59,11 @@ namespace CultManager
 
             for (int i = 0; i < nodes.Count; i++)
             {
-                HexagonalGridNode[] neighbours = nodes[i].GetNeighbours();
+                Node[] neighbours = nodes[i].GetNeighbours();
 
                 for (int j = 0; j < neighbours.Length; j++)
                 {
-                    HexagonalGridSegment segment = new HexagonalGridSegment(nodes[i], neighbours[j]);
+                    Segment segment = new Segment(nodes[i], neighbours[j]);
                     if (nodes.Contains(neighbours[j]) && !segments.Contains(segment))
                     {
                         segments.Add(segment);
@@ -84,17 +84,17 @@ namespace CultManager
             SetGrid(layers * 2);
         }
 
-        public Vector2 NodeToWorldPosition(HexagonalGridNode _node)
+        public Vector2 NodeToWorldPosition(Node _node)
         {
             Vector2 xAxis = Vector2.right * (_node.x * scale);
             return xAxis - new Vector2(_node.y * scale * Mathf.Cos(-60 * Mathf.Deg2Rad), _node.y * scale * Mathf.Sin(-60 * Mathf.Deg2Rad));
         }
 
-        public HexagonalGridSegment[] SegmentsUsingNode(HexagonalGridNode _node)
+        public Segment[] SegmentsUsingNode(Node _node)
         {
-            List<HexagonalGridSegment> results = new List<HexagonalGridSegment>();
+            List<Segment> results = new List<Segment>();
 
-            foreach (HexagonalGridSegment segment in segments)
+            foreach (Segment segment in segments)
             {
                 if (segment.ConnectedTo(_node)) results.Add(segment);
             }
@@ -102,19 +102,19 @@ namespace CultManager
             return results.ToArray();
         }
 
-        public HexagonalGridSegment RandomSegmentFromNode(HexagonalGridNode _node)
+        public Segment RandomSegmentFromNode(Node _node)
         {
-            HexagonalGridSegment[] segments = SegmentsUsingNode(_node);
+            Segment[] segments = SegmentsUsingNode(_node);
 
             return segments[Random.Range(0, segments.Length)];
         }
 
-        public HexagonalGridNode GetRandomNode()
+        public Node GetRandomNode()
         {
             return nodes[Random.Range(0, nodes.Count)];
         }
 
-        public HexagonalGridNode GetVerticalAxialSymmetry(HexagonalGridNode _node)
+        public Node GetVerticalAxialSymmetry(Node _node)
         {
             int x = 0;
             float middle = (float)_node.y / 2.0f;
@@ -124,24 +124,24 @@ namespace CultManager
             else if (_node.y < 0) x = _node.x < middle ? _node.x + Mathf.RoundToInt(2 * difference) : _node.x - Mathf.RoundToInt(2 * difference);
             else x = -_node.x;
 
-            return new HexagonalGridNode(x, _node.y);
+            return new Node(x, _node.y);
         }
 
-        public HexagonalGridSegment GetVerticalAxialSimmetry(HexagonalGridSegment _segment)
+        public Segment GetVerticalAxialSimmetry(Segment _segment)
         {
-            return new HexagonalGridSegment(GetVerticalAxialSymmetry(_segment.a), GetVerticalAxialSymmetry(_segment.b));
+            return new Segment(GetVerticalAxialSymmetry(_segment.a), GetVerticalAxialSymmetry(_segment.b));
         }
 
-        public HexagonalGridNode TranslateInSlice(HexagonalGridNode _node, int _amountOfSlices)
+        public Node TranslateInSlice(Node _node, int _amountOfSlices)
         {
-            HexagonalGridSlice newSlice = (HexagonalGridSlice)(((int)_node.slice + _amountOfSlices) % 6);
+            Slice newSlice = (Slice)(((int)_node.slice + _amountOfSlices) % 6);
 
-            return HexagonalGridNode.PosFromSlice(_node.PosInSlice(), newSlice);
+            return Node.PosFromSlice(_node.PosInSlice(), newSlice);
         }
 
-        public HexagonalGridSegment RotateSegment(HexagonalGridSegment _segment, int _rotations)
+        public Segment RotateSegment(Segment _segment, int _rotations)
         {
-            return new HexagonalGridSegment(TranslateInSlice(_segment.a, _rotations), TranslateInSlice(_segment.b, _rotations));
+            return new Segment(TranslateInSlice(_segment.a, _rotations), TranslateInSlice(_segment.b, _rotations));
         }
     }
 }

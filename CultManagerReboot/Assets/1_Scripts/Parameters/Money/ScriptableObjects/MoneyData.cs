@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Parameters/MoneyData")]
-    public class MoneyData : ScriptableObject
+    public class MoneyData : ScriptableObject, ILoadable
     {
         public uint value { get; private set; }
 

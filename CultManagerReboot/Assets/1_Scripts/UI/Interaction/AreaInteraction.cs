@@ -15,18 +15,14 @@ namespace CultManager
 
         void Update()
         {
-            if (!CameraController.isAtOrigin)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
+                Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                if (col.OverlapPoint(worldPos))
                 {
-                    Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                    if (col.OverlapPoint(worldPos))
-                    {
-                        onAreaClicked.Invoke();
-                    }
+                    onAreaClicked.Invoke();
                 }
             }
-            
         }
     }
 }

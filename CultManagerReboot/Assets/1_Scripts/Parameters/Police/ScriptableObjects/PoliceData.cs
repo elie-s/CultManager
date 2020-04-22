@@ -6,7 +6,7 @@ using UnityEngine;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Parameters/PoliceData")]
-    public class PoliceData : ScriptableObject
+    public class PoliceData : ScriptableObject, ILoadable
     {
         private IntGauge gauge;
         public int value => gauge.value;

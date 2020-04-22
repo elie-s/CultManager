@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CultManager.HexagonalGrid;
+using HexGrid = CultManager.HexagonalGrid.HexGrid;
 
 
 namespace CultManager
@@ -38,8 +40,11 @@ namespace CultManager
         //Note Tab
         public NoteTabSegment[] noteTabSegments;
 
+        //Puzzle Data
+        public HexGrid puzzleGrid;
+        public Segment[] puzzlePatternSegments;
 
-        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData)
+        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -63,6 +68,9 @@ namespace CultManager
             lastBuildTimeReference = _altarData.lastBuildTimeReference;
 
             noteTabSegments = _noteTabData.noteTabSegments.ToArray();
+
+            puzzleGrid = _puzzleData.grid;
+            puzzlePatternSegments = _puzzleData.pattern.segments.ToArray();
         }
     }
 }

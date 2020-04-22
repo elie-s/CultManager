@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CultManager
+namespace CultManager.HexagonalGrid
 {
     [System.Serializable]
-    public class HexagonalGridPatternGenerationsSettings
+    public class PatternGenerationSettings
     {
         public int shapeSegments = 1;
         public bool startAtCenter = true;
-        public HexagonalGridPattern.Mode mode;
+        public Pattern.Mode mode;
     }
 }
