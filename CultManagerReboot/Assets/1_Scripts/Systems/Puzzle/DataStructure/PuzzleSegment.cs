@@ -33,5 +33,10 @@ namespace CultManager
         {
             return segment.Equals(_segment);
         }
+
+        public bool IsConnected(PuzzleSegment _segment)
+        {
+            return _segment.segment.ConnectedTo(segment);
+        }
     }
 }

@@ -28,18 +28,18 @@ namespace CultManager
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 Debug.Log(i+"/"+segments.Length);
-                segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(data.puzzle[i].b, _scale), Quaternion.identity, parent);
+                segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent);
                 segments[i].GetComponent<SegmentBehaviour>().Init(data.puzzle[i], _scale);
 
                 if(!instantiatedNodes.Contains(data.puzzle[i].a))
                 {
-                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].a, _scale), Quaternion.identity, parent));
+                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].a, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
                     instantiatedNodes.Add(data.puzzle[i].a);
                 }
 
                 if(!instantiatedNodes.Contains(data.puzzle[i].b))
                 {
-                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].b, _scale), Quaternion.identity, parent));
+                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
                     instantiatedNodes.Add(data.puzzle[i].b);
                 }
 
