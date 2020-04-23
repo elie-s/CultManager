@@ -41,9 +41,7 @@ namespace CultManager
         public NoteTabSegment[] noteTabSegments;
 
         //Puzzle Data
-        public HexGrid puzzleGrid;
-        public Segment[] puzzlePatternSegments;
-
+        public PuzzleSegment[] puzzle;
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData)
         {
             savingSystemVersion = _savingSystemVersion;
@@ -69,8 +67,7 @@ namespace CultManager
 
             noteTabSegments = _noteTabData.noteTabSegments.ToArray();
 
-            puzzleGrid = _puzzleData.grid;
-            puzzlePatternSegments = _puzzleData.pattern.segments.ToArray();
+            puzzle = _puzzleData.puzzle.ToArray();
         }
     }
 }

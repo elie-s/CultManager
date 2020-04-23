@@ -151,7 +151,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: cf7a3ccb67131e140bedb441059be702, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7bbce533b0ee6464b9853cc261e0d058, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,6 +162,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6481201868609261602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4927283332373020759}
+  - component: {fileID: 2099597765028456138}
+  m_Layer: 0
+  m_Name: Collider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4927283332373020759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481201868609261602}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4033448831061021989}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &2099597765028456138
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481201868609261602}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.00000048428774, y: 0.4793164}
+      - {x: -0.14311293, y: 0.22687769}
+      - {x: -0.13603085, y: -0.26583472}
+      - {x: 0.0016577095, y: -0.48169076}
+      - {x: 0.14390309, y: -0.28710875}
+      - {x: 0.15134412, y: 0.23114288}
 --- !u!1 &7298722069946417272
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4033448831061021989}
   - component: {fileID: 1001033245191995267}
+  - component: {fileID: 889315632425446803}
   m_Layer: 0
   m_Name: PuzzleSegment
   m_TagString: Untagged
@@ -192,6 +255,8 @@ Transform:
   m_Children:
   - {fileID: 1930766650259867293}
   - {fileID: 9039297533316286912}
+  - {fileID: 2459686204249760977}
+  - {fileID: 4927283332373020759}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -211,4 +276,90 @@ MonoBehaviour:
   bloodTypeColor:
   - {r: 0.30980393, g: 0, b: 0.05490196, a: 1}
   - {r: 0.972549, g: 0, b: 0.17254902, a: 1}
-  - {r: 0.9647059, g: 0, b: 0.29803923, a: 1}
+  - {r: 0.5882353, g: 0.12941177, b: 0.19215687, a: 1}
+  bloodTypeColorDisable:
+  - {r: 0.468, g: 0.468, b: 0.468, a: 1}
+  - {r: 0.972549, g: 0.972549, b: 0.972549, a: 1}
+  - {r: 0.667, g: 0.667, b: 0.667, a: 1}
+  sprites:
+  - {fileID: 21300000, guid: fc4580a6b1f0fc14a88f54bb1095ef16, type: 3}
+  - {fileID: 21300000, guid: 7bbce533b0ee6464b9853cc261e0d058, type: 3}
+  - {fileID: 21300000, guid: 9e89162897f540c48918dbe43f50c6b6, type: 3}
+  - {fileID: 21300000, guid: 97dbcb878fc71634fa83cfe863df5a78, type: 3}
+  - {fileID: 21300000, guid: aa80e9ff8d245d442bb6bf88315ca044, type: 3}
+  - {fileID: 21300000, guid: 9063a07d535d6a340a605e44340d2dd2, type: 3}
+--- !u!114 &889315632425446803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298722069946417272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  col: {fileID: 2099597765028456138}
+  onAreaClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1001033245191995267}
+        m_MethodName: InverSelection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &8352607689888855258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2459686204249760977}
+  - component: {fileID: 4560847596322282466}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2459686204249760977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352607689888855258}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4033448831061021989}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &4560847596322282466
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352607689888855258}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.35, y: 0.91}
+  m_Direction: 0

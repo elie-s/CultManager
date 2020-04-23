@@ -21,26 +21,6 @@ namespace CultManager
             ResetNodes();
             ResetSegments();
 
-            segments = new GameObject[data.grid.segments.Count];
-            nodes = new GameObject[data.grid.nodes.Count];
-
-            for (int i = 0; i < segments.Length; i++)
-            {
-                segments[i] = Instantiate(segmentPrefab, data.grid.NodeToWorldPosition(data.grid.segments[i].b) + (Vector2)parent.transform.position, Quaternion.identity, parent);
-                segments[i].GetComponent<SegmentBehaviour>().Init(data.grid.segments[i], _scale);
-            }
-
-            for (int i = 0; i < nodes.Length; i++)
-            {
-                nodes[i] = Instantiate(nodePrefab, data.grid.NodeToWorldPosition(data.grid.nodes[i]) + (Vector2)parent.transform.position, Quaternion.identity, parent);
-            }
-        }
-
-        public void DisplayPuzzle2(float _scale)
-        {
-            ResetNodes();
-            ResetSegments();
-
             segments = new GameObject[data.puzzle.Count];
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();

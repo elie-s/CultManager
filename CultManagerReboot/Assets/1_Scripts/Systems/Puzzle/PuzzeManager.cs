@@ -17,33 +17,11 @@ namespace CultManager
 
         private void Start()
         {
-            data.grid = new HexGrid(scale, 1);
+            if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
         }
 
         [ContextMenu("Generate")]
         public void Generate()
-        {
-            data.grid = new HexGrid(scale, 1);
-            data.pattern = new Pattern(data.grid, settings[0]);
-
-            for (int i = 1; i < settings.Length; i++)
-            {
-                data.grid.DoubleGrid();
-                data.pattern.DoubleSize();
-                data.pattern.AddToShape(settings[i], true);
-            }
-
-            gridConstruction = data.pattern;
-            Debug.Log(gridConstruction.stepSegments[0].Count);
-            data.grid = new HexGrid(data.pattern);
-            data.pattern = new Pattern(data.grid, patternSettings);
-            //Debug.Log("Segment amount: " + pattern.segments.Count);
-
-            display?.DisplayPuzzle(scale);
-        }
-
-        [ContextMenu("Generate2")]
-        public void Generate2()
         {
             HexGrid grid = new HexGrid(scale, 1);
             Pattern pattern = new Pattern(grid, settings[0]);
@@ -79,48 +57,17 @@ namespace CultManager
                 }
             }
 
-            display?.DisplayPuzzle2(scale);
+            display?.DisplayPuzzle(scale);
         }
 
         private void OnDrawGizmosSelected()
         {
-            if (data.grid != null && gridConstruction.stepSegments == null)
+            if(data.puzzle != null)
             {
-                foreach (Segment segment in data.grid.segments)
+                foreach (PuzzleSegment segment in data.puzzle)
                 {
-                    //Gizmos.color = Color.blue;
-                    //Gizmos.DrawSphere(data.grid.NodeToWorldPosition(segment.a), 0.05f);
-                    //Gizmos.DrawSphere(data.grid.NodeToWorldPosition(segment.b), 0.05f);
-                    //Gizmos.color = new Color(1.0f, 0.0f, 0.0f, 0.85f);
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawLine(data.grid.NodeToWorldPosition(segment.a), data.grid.NodeToWorldPosition(segment.b));
-                }
-            }
-            else if (gridConstruction.stepSegments != null)
-            {
-                for (int i = 0; i < gridConstruction.stepSegments.Count; i++)
-                {
-                    Debug.Log(gridConstruction.stepSegments[i].Count);
-                    foreach (Segment segment in gridConstruction.stepSegments[i])
-                    {
-
-                        //Gizmos.color = Color.blue;
-                        //Gizmos.DrawSphere(data.grid.NodeToWorldPosition(segment.a), 0.05f);
-                        //Gizmos.DrawSphere(data.grid.NodeToWorldPosition(segment.b), 0.05f);
-                        //Gizmos.color = new Color(1.0f, 0.0f, 0.0f, 0.85f);
-                        Gizmos.color = i == 0 ? Color.red : (i == 1 ? Color.magenta : Color.green);
-                        Gizmos.DrawLine(data.grid.NodeToWorldPosition(segment.a), data.grid.NodeToWorldPosition(segment.b));
-                    }
-                }
-            }
-
-            if (data.pattern != null)
-            {
-                Gizmos.color = new Color(1.0f, 0.92f, 0.016f, 0.75f);
-
-                foreach (Segment segment in data.pattern.segments)
-                {
-                    Gizmos.DrawLine(data.grid.NodeToWorldPosition(segment.a), data.grid.NodeToWorldPosition(segment.b));
+                    Gizmos.color = segment.patternSegment ? Color.yellow : Color.blue;
+                    Gizmos.DrawLine(Node.WorldPosition(segment.a, scale) + (Vector2)transform.position, Node.WorldPosition(segment.b, scale) + (Vector2)transform.position);
                 }
             }
         }

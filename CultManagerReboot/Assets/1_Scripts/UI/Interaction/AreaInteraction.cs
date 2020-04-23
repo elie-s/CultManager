@@ -12,6 +12,10 @@ namespace CultManager
         [SerializeField] private Collider2D col;
         [SerializeField] private UnityEvent onAreaClicked = default;
 
+        private void OnEnable()
+        {
+            if (!cam) cam = Camera.main;
+        }
 
         void Update()
         {
