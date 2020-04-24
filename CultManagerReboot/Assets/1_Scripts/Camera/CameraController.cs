@@ -39,7 +39,7 @@ namespace CultManager
 
         public void Transition(int _index)
         {
-            if (GameManager.currentPanel == CurrentPanel.None)
+            if (GameManager.currentPanel == CurrentPanel.None )
             {
                 Transition(targets[_index]);
                 GameManager.currentIsland = (CurrentIsland)(_index + 1);
@@ -49,7 +49,7 @@ namespace CultManager
 
         public void TransitionToOrigin()
         {
-            if (GameManager.currentPanel == CurrentPanel.None)
+            if (GameManager.currentPanel == CurrentPanel.None )
             {
                 Transition(origin);
                 GameManager.currentIsland = (CurrentIsland)(0);
