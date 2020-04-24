@@ -12,6 +12,9 @@ namespace CultManager
         [SerializeField] private Collider2D col;
         [SerializeField] private UnityEvent onAreaClicked = default;
 
+        public CurrentPanel reqdPanel=CurrentPanel.None; 
+        public CurrentIsland reqdIsland=CurrentIsland.All; 
+
         private void OnEnable()
         {
             if (!cam) cam = Camera.main;
@@ -19,14 +22,22 @@ namespace CultManager
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (GameManager.currentIsland == CurrentIsland.All || GameManager.currentIsland==reqdIsland)
             {
-                Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                if (col.OverlapPoint(worldPos))
+                if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
-                    onAreaClicked.Invoke();
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                        if (col.OverlapPoint(worldPos))
+                        {
+                            onAreaClicked.Invoke();
+                        }
+                    }
                 }
+                
             }
+            
         }
     }
 }

@@ -7,7 +7,8 @@ namespace CultManager
 {
     public enum CurrentIsland
     {
-        Origin=0,
+        All = -1,
+        Origin =0,
         RecruitmentIsland=1,
         AltarIsland=2,
         PuzzleIsland=3,
