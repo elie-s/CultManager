@@ -42,7 +42,12 @@ namespace CultManager
 
         //Puzzle Data
         public PuzzleSegment[] puzzle;
-        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData)
+
+        //Blood Bank Data
+        public BloodBank[] bloodBanks;
+        public int level;
+
+        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,BloodBankData _bloodBankData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -68,6 +73,9 @@ namespace CultManager
             noteTabSegments = _noteTabData.noteTabSegments.ToArray();
 
             puzzle = _puzzleData.puzzle.ToArray();
+
+            bloodBanks = _bloodBankData.bloodBanks;
+            level = _bloodBankData.level;
         }
     }
 }

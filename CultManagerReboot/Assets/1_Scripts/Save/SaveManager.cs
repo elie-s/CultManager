@@ -15,6 +15,7 @@ namespace CultManager
         [SerializeField] private AltarData altarData = default;
         [SerializeField] private NoteTabData noteTabData = default;
         [SerializeField] private PuzzleData puzzleData = default;
+        [SerializeField] private BloodBankData bloodBankData = default;
         [Header("Settings")]
         [SerializeField] private SaveSettings settings = default;
 
@@ -39,7 +40,7 @@ namespace CultManager
         [ContextMenu("Save")]
         public void SaveGame()
         {
-            Save save = new Save(settings.version, cultData, influenceData, moneyData, policeData,altarData,noteTabData,puzzleData);
+            Save save = new Save(settings.version, cultData, influenceData, moneyData, policeData, altarData, noteTabData, puzzleData, bloodBankData);
 
             if (!Directory.Exists(Application.persistentDataPath + "/" + settings.saveFolder))
             {
@@ -73,6 +74,7 @@ namespace CultManager
             altarData.LoadSave(save);
             noteTabData.LoadSave(save);
             puzzleData.LoadSave(save);
+            bloodBankData.LoadSave(save);
 
             saveLoaded = true;
             return true;
