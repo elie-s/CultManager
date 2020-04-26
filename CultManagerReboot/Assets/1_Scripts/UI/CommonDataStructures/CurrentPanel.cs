@@ -12,6 +12,7 @@ namespace CultManager
         RecruitmentIsland=1,
         AltarIsland=2,
         PuzzleIsland=3,
+        SummonArea=4,
     }
     public enum CurrentPanel
     {
