@@ -199,13 +199,13 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   sRenderer: {fileID: 6969481020714482653}
   bloodTypeColor:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.99607843, g: 0.06666667, b: 0.10980392, a: 1}
+  - {r: 0.7254902, g: 0.30588236, b: 0.3254902, a: 1}
+  - {r: 0.44705883, g: 0.15294118, b: 0.17254902, a: 1}
   bloodTypeColorDisable:
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.99607843, g: 0.99607843, b: 0.99607843, a: 1}
+  - {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
+  - {r: 0.44705883, g: 0.44705883, b: 0.44705883, a: 1}
 --- !u!114 &889315632425446803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   onAreaClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4007905835081724721}
         m_MethodName: InverSelection
         m_Mode: 1
         m_Arguments:
