@@ -31,16 +31,19 @@ namespace CultManager
                 segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent);
                 segments[i].GetComponent<SegmentBehaviour>().Init(data.puzzle[i], _scale);
 
-                if(!instantiatedNodes.Contains(data.puzzle[i].a))
+                if (nodePrefab)
                 {
-                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].a, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
-                    instantiatedNodes.Add(data.puzzle[i].a);
-                }
+                    if (!instantiatedNodes.Contains(data.puzzle[i].a))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].a, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(data.puzzle[i].a);
+                    }
 
-                if(!instantiatedNodes.Contains(data.puzzle[i].b))
-                {
-                    tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
-                    instantiatedNodes.Add(data.puzzle[i].b);
+                    if (!instantiatedNodes.Contains(data.puzzle[i].b))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(data.puzzle[i].b);
+                    }
                 }
 
             }

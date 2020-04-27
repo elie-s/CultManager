@@ -1,40 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CultManager.HexagonalGrid;
 
 namespace CultManager
 {
-    public class SegmentBehaviour : MonoBehaviour
+    public abstract class SegmentBehaviour : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer sRenderer = default;
-        [SerializeField] private Color[] bloodTypeColor = new Color[3];
-        [SerializeField] private Color[] bloodTypeColorDisable = new Color[3];
-        [SerializeField] private Sprite[] sprites = default;
-        [SerializeField] private PuzzleData data = default;
+        
+        [SerializeField] protected Sprite[] sprites = default;
+        [SerializeField] protected PuzzleData data = default;
 
-        private PuzzleSegment segment;
-        private bool selected = false;
+        protected PuzzleSegment segment;
+        protected bool selected = false;
 
-        public void Init(Segment _segment, float _scale)
-        {
-            sRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-            segment = new PuzzleSegment(_segment);
-            SetRotation();
-            transform.localScale = Vector3.one * _scale;
-            SetColor();
-        }
+        public virtual void Init(PuzzleSegment _segment, float _scale) { }
 
-        public void Init(PuzzleSegment _segment, float _scale)
-        {
-            sRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
-            segment = _segment;
-            SetRotation();
-            transform.localScale = Vector3.one * _scale;
-            SetColor();
-        }
-
-        private void SetRotation()
+        protected void SetRotation()
         {
             if (segment.a.x == segment.b.x + 1)
             {
@@ -53,10 +34,7 @@ namespace CultManager
             }
         }
 
-        private void SetColor()
-        {
-            sRenderer.color = selected ? bloodTypeColor[(int)segment.type - 1] : bloodTypeColorDisable[(int)segment.type - 1];
-        }
+        protected virtual void SetColor() { }
 
         public void Select(bool _value)
         {

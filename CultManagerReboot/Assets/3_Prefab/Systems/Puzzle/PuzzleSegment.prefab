@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033448831061021989}
-  - component: {fileID: 1001033245191995267}
+  - component: {fileID: 4007905835081724721}
   - component: {fileID: 889315632425446803}
   m_Layer: 0
   m_Name: PuzzleSegment
@@ -177,7 +177,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1001033245191995267
+--- !u!114 &4007905835081724721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,18 +186,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7298722069946417272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c19b7458b75714998178e96ff3823b, type: 3}
+  m_Script: {fileID: 11500000, guid: 93093f335f816ba46830acc19a0085fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sRenderer: {fileID: 6969481020714482653}
-  bloodTypeColor:
-  - {r: 0.30980393, g: 0, b: 0.05490196, a: 1}
-  - {r: 0.972549, g: 0, b: 0.17254902, a: 1}
-  - {r: 0.5882353, g: 0.12941177, b: 0.19215687, a: 1}
-  bloodTypeColorDisable:
-  - {r: 0.468, g: 0.468, b: 0.468, a: 1}
-  - {r: 0.972549, g: 0.972549, b: 0.972549, a: 1}
-  - {r: 0.667, g: 0.667, b: 0.667, a: 1}
   sprites:
   - {fileID: 21300000, guid: fc4580a6b1f0fc14a88f54bb1095ef16, type: 3}
   - {fileID: 21300000, guid: 7bbce533b0ee6464b9853cc261e0d058, type: 3}
@@ -206,6 +197,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aa80e9ff8d245d442bb6bf88315ca044, type: 3}
   - {fileID: 21300000, guid: 9063a07d535d6a340a605e44340d2dd2, type: 3}
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
+  sRenderer: {fileID: 6969481020714482653}
+  bloodTypeColor:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  bloodTypeColorDisable:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &889315632425446803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   onAreaClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1001033245191995267}
+      - m_Target: {fileID: 0}
         m_MethodName: InverSelection
         m_Mode: 1
         m_Arguments:
