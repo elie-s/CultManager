@@ -8,16 +8,16 @@ namespace CultManager
     [System.Serializable]
     public class BloodBank
     {
-        public BloodGroup bloodGroup;
+        public BloodType bloodGroup;
         public IntGauge gauge;
 
-        public BloodBank(BloodGroup _bloodGroup, IntGauge _gauge)
+        public BloodBank(BloodType _bloodGroup, IntGauge _gauge)
         {
             bloodGroup = _bloodGroup;
             gauge = _gauge;
         }
 
-        public void SetBloodGroup(BloodGroup _bloodGroup)
+        public void SetBloodGroup(BloodType _bloodGroup)
         {
             bloodGroup = _bloodGroup;
         }

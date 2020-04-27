@@ -60,6 +60,28 @@ namespace CultManager
             display?.DisplayPuzzle(scale);
         }
 
+
+        /*public bool ValidateConnections()
+        {
+            int ;
+            for (int i = 0; i < data.puzzle.Count; i++)
+            {
+                if (data.puzzle[i].selected)
+                {
+                    PuzzleSegment current = data.puzzle[i];
+                }                
+                int ctr = 0;
+                for (int j = 0; j < data.puzzle.Count; j++)
+                {
+                    if (current.IsConnected(data.puzzle[j]))
+                    {
+                        ctr++;
+                    }
+                }
+                if()
+            }
+        }*/
+
         private void OnDrawGizmosSelected()
         {
             if(data.puzzle != null)

@@ -11,6 +11,7 @@ namespace CultManager
         [SerializeField] private Color[] bloodTypeColor = new Color[3];
         [SerializeField] private Color[] bloodTypeColorDisable = new Color[3];
         [SerializeField] private Sprite[] sprites = default;
+        [SerializeField] private PuzzleData data = default;
 
         private PuzzleSegment segment;
         private bool selected = false;
@@ -47,7 +48,7 @@ namespace CultManager
             }
             else if (segment.a.x == segment.b.x - 1)
             {
-                if (segment.a.y == segment.b.y ) transform.localEulerAngles = Vector3.forward * 90;
+                if (segment.a.y == segment.b.y) transform.localEulerAngles = Vector3.forward * 90;
                 if (segment.a.y == segment.b.y - 1) transform.localEulerAngles = Vector3.forward * 150;
             }
         }
@@ -60,12 +61,60 @@ namespace CultManager
         public void Select(bool _value)
         {
             selected = _value;
+            segment.selected = _value;
             SetColor();
         }
 
         public void InverSelection()
         {
-            Select(!selected);
+            if (segment.canBeSelected)
+            {
+                Select(!selected);
+                ToggleNeighbours();
+            }
+            else
+            {
+                CheckFirstSelection();
+            }
         }
+
+        public void ToggleNeighbours()
+        {
+            for (int i = 0; i < data.puzzle.Count; i++)
+            {
+                if (data.puzzle[i].IsConnected(segment) && !data.puzzle[i].IsSegment(segment.segment))
+                {
+                    if (segment.selected)
+                    {
+                        data.puzzle[i].EnableSegment();
+                    }
+                    else
+                    {
+                        data.puzzle[i].DisableSegment();
+                    }
+                    
+                }
+            }
+        }
+
+        public void CheckFirstSelection()
+        {
+            int ctr = 0;
+            for (int i = 0; i < data.puzzle.Count; i++)
+            {
+                if (data.puzzle[i].selected)
+                {
+                    ctr++;
+                }
+            }
+            if (ctr == 0)
+            {
+                segment.canBeSelected = true;
+                Select(!selected);
+                ToggleNeighbours();
+            }
+        }
+
+
     }
 }
