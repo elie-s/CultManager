@@ -10,8 +10,9 @@ namespace CultManager
     {
         public Segment segment;
         public BloodType type;
-        public bool enabled;
+        public bool selected;
         public bool patternSegment;
+        public bool canBeSelected;
 
         public Node a => segment.a;
         public Node b => segment.b;
@@ -20,13 +21,29 @@ namespace CultManager
         {
             segment = _segment;
             type = _type;
-            enabled = _enabled;
+            selected = _enabled;
             patternSegment = false;
+            canBeSelected = false;
         }
 
         public void SetAsPatternSegment()
         {
             patternSegment = true;
+        }
+
+        public void EnableSegment()
+        {
+            canBeSelected = true;
+        }
+        
+        public void DisableSegment()
+        {
+            canBeSelected = false;
+        }
+
+        public void ToggleSegmentState()
+        {
+            canBeSelected = !canBeSelected;
         }
 
         public bool IsSegment(Segment _segment)
