@@ -8,20 +8,35 @@ namespace CultManager
 {
     public class DemonBookUI : MonoBehaviour
     {
-        [Header("Display")]
+        [Header("Demon Book Panel")]
         [SerializeField] private GameObject panel;
+        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private DemonData data;
+
+        [Header("Demon Page Display")]
+        [SerializeField] private GameObject demonPage;
+        [SerializeField] private GameObject puzzleGroupParent;
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
-        [SerializeField] private DemonData data;
-        [SerializeField] private PuzzleDisplay display;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private PuzzleDisplay demonPagedisplay;
+        [SerializeField] private int currentIndex = 0;
+        [SerializeField] private int demonPagePuzzleScale;
+
+
+        [Header("Summary Page Display")]
+        [SerializeField] private GameObject summaryPage;
+        [SerializeField] private GameObject puzzleGroupPrefab;
+        [SerializeField] private int numberOfItemsPerPage;
+        [SerializeField] private int summaryPagePuzzleScale;
+
 
         [Header("Display Sprites")]
         [SerializeField] private Sprite starActive;
         [SerializeField] private Sprite starInActive;
+        [SerializeField] private Sprite buttonActive;
+        [SerializeField] private Sprite buttonInactive;
 
-        [SerializeField]private int currentIndex = 0;
-        [SerializeField]private int puzzleScale;
+
 
         public void Left()
         {
@@ -37,7 +52,7 @@ namespace CultManager
 
         public void Right()
         {
-            if (currentIndex < data.demons.Count-1)
+            if (currentIndex < data.demons.Count - 1)
             {
                 currentIndex++;
             }
@@ -49,13 +64,28 @@ namespace CultManager
 
         private void Update()
         {
-            //DisplayCurrent();
+
         }
 
-        public void DisplayCurrent()
+        public void Start()
         {
-            display.DisplayPuzzle(puzzleScale);
-            display.HighlightShape(data.demons[currentIndex].segments);
+            
+        }
+
+        public void SortByLoot()
+        {
+
+        }
+
+        public void SortByTime()
+        {
+
+        }
+
+        public void DisplayDemonPage()
+        {
+            demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
+            demonPagedisplay.HighlightShape(data.demons[currentIndex].segments);
             if (data.demons[currentIndex].isStarred)
             {
                 starImage.sprite = starActive;
@@ -65,6 +95,33 @@ namespace CultManager
                 starImage.sprite = starInActive;
             }
         }
+
+        public void DisplaySummary(Demon[] demons)
+        {
+            List<Demon> spawnDemons = new List<Demon>();
+            int numberOfPages = (demons.Length / numberOfItemsPerPage);
+            Debug.Log("Pages " + numberOfPages);
+            for (int i = 0; i < demons.Length; i++)
+            {
+                spawnDemons.Add(demons[i]);
+                if (i % numberOfItemsPerPage == 0)
+                {
+                    Debug.Log("New Page " + i);
+                    GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
+                    PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
+                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                    spawnDemons.Clear();
+                }
+            }
+            if (spawnDemons.Count > 0)
+            {
+                GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
+                PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
+                group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                spawnDemons.Clear();
+            }
+        }
+
 
         public void ToggleStar()
         {
@@ -77,6 +134,7 @@ namespace CultManager
             {
                 GameManager.currentPanel = thisPanelName;
                 panel.SetActive(true);
+                DisplaySummary(data.demons.ToArray());
             }
         }
 

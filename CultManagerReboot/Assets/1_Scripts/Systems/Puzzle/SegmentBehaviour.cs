@@ -11,7 +11,7 @@ namespace CultManager
         [SerializeField] protected PuzzleData data = default;
 
         public PuzzleSegment segment { get; protected set; }
-        protected bool selected = false;
+        [SerializeField]protected bool selected = false;
 
         public virtual void Init(PuzzleSegment _segment, float _scale) { }
 
