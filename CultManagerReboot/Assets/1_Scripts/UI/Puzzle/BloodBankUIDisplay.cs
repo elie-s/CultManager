@@ -9,7 +9,9 @@ namespace CultManager
     public class BloodBankUIDisplay : MonoBehaviour
     {
         [SerializeField] private BloodBankData data = default;
+        [SerializeField] private PuzzeManager puzzle;
         [SerializeField] private Image[] BloodBars;
+        [SerializeField] private GameObject hud;
 
 
         private void Update()
@@ -22,6 +24,22 @@ namespace CultManager
             {
                 BloodBars[i].fillAmount = data.bloodBanks[i].gauge.ratio;
             }
+        }
+
+        public void Open()
+        {
+            hud.SetActive(true);
+        }
+
+        public void Close()
+        {
+            hud.SetActive(false);
+        }
+
+        public void Summon()
+        {
+            Debug.Log("Willsummon");
+            puzzle.SummonIt();
         }
     }
 }

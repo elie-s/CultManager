@@ -1,6 +1,8 @@
 ﻿using CultManager.HexagonalGrid;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -9,22 +11,53 @@ namespace CultManager
     [System.Serializable]
     public class Demon
     {
-        public string demonName;
-        public Pattern pattern;
+        public Segment[] segments;
         public bool isStarred;
         public int spriteIndex;
 
-        public Demon(string _demonName,Pattern _pattern,bool _isStarred,int _spriteIndex)
+        public float patternAccuracy;
+        public int lootBonus;
+        public DateTime spawnTime;
+
+        public Demon(Segment[] _segments,int _lootBonus)
         {
-            demonName = _demonName;
-            pattern = _pattern;
-            isStarred = _isStarred;
-            spriteIndex = _spriteIndex;
+            segments = _segments;
+            isStarred = false;
+            spriteIndex = 0;
+
+            lootBonus = _lootBonus;
         }
+
 
         public void ToggleStar()
         {
             isStarred = !isStarred;
+        }
+
+        public void SetSpawnTime()
+        {
+            spawnTime = System.DateTime.Now;
+        }
+
+        public void ComputePatternAccuracy(Segment[] patternSegments)
+        {
+            int ctr = 0;
+            for (int i = 0; i < patternSegments.Length; i++)
+            {
+                for (int j = 0; j < segments.Length; j++)
+                {
+                    if (patternSegments[i].Equals(segments[j]))
+                    {
+                        ctr++;
+                    }
+                }
+            }
+            patternAccuracy = (float)ctr / patternSegments.Length;
+        }
+
+        public void AddPattern(Segment[] _segments)
+        {
+            segments = _segments;
         }
     }
 }

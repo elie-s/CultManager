@@ -27,7 +27,7 @@ namespace CultManager
 
             for (int i = 0; i < data.puzzle.Count; i++)
             {
-                Debug.Log(i+"/"+segments.Length);
+                //Debug.Log(i+"/"+segments.Length);
                 segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent).GetComponent<SegmentBehaviour>();
                 segments[i].Init(data.puzzle[i], _scale);
 

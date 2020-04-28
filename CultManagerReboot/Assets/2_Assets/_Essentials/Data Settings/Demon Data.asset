@@ -13,21 +13,207 @@ MonoBehaviour:
   m_Name: Demon Data
   m_EditorClassIdentifier: 
   demons:
-  - demonName: APPLE
-    pattern:
-      segments: []
-      startAtCenter: 0
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 2
+        y: 2
+        slice: 1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
     isStarred: 0
     spriteIndex: 0
-  - demonName: BALL
-    pattern:
-      segments: []
-      startAtCenter: 0
+    patternAccuracy: 0.1
+    lootBonus: 10
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 2
+        y: 2
+        slice: 1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    - a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -1
+        y: 0
+        slice: 5
     isStarred: 0
     spriteIndex: 0
-  - demonName: CAT
-    pattern:
-      segments: []
-      startAtCenter: 0
+    patternAccuracy: 0.4
+    lootBonus: 10
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: -2
+        slice: 3
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    - a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    - a:
+        x: -4
+        y: 0
+        slice: 5
+      b:
+        x: -3
+        y: 0
+        slice: 5
+    - a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -3
+        y: 0
+        slice: 5
+    - a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -2
+        y: 1
+        slice: 5
+    - a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: -1
+        y: 1
+        slice: 5
+    - a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -1
+        y: 1
+        slice: 5
+    - a:
+        x: -1
+        y: 1
+        slice: 5
+      b:
+        x: -2
+        y: 1
+        slice: 5
     isStarred: 0
     spriteIndex: 0
+    patternAccuracy: 1
+    lootBonus: 10
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: -2
+        slice: 3
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    isStarred: 0
+    spriteIndex: 0
+    patternAccuracy: 0.3
+    lootBonus: 10

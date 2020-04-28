@@ -8,16 +8,25 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
+        [SerializeField] private DemonData demonData = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings;
         [SerializeField] private PatternGenerationSettings patternSettings;
 
         private Pattern gridConstruction;
+        [SerializeField]private List<Segment> patternSegments;
 
         private void Start()
         {
             if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
+            else Generate();
+            ClearSelection();
+        }
+
+        public void ClearSelection()
+        {
+            data.ClearSelections();
         }
 
         [ContextMenu("Generate")]
@@ -61,26 +70,45 @@ namespace CultManager
         }
 
 
-        /*public bool ValidateConnections()
+        public bool ValidatePattern()
         {
-            int ;
+            int ctr = 0;
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 if (data.puzzle[i].selected)
                 {
-                    PuzzleSegment current = data.puzzle[i];
-                }                
-                int ctr = 0;
-                for (int j = 0; j < data.puzzle.Count; j++)
-                {
-                    if (current.IsConnected(data.puzzle[j]))
-                    {
-                        ctr++;
-                    }
+                    patternSegments.Add(data.puzzle[i].segment);
+                    Debug.Log(data.puzzle[i]);
+                    ctr++;
                 }
-                if()
+
             }
-        }*/
+            return (ctr > 2);  
+        }
+
+        public void SummonIt()
+        {
+            if (ValidatePattern())
+            {
+                AddPattern();
+                ClearSelection();
+            }
+            else
+            {
+                Debug.Log("SorryBoi");
+                ClearSelection();
+            }
+        }
+
+        public void AddPattern()
+        {
+            Demon current = new Demon(patternSegments.ToArray(),10);
+            current.ComputePatternAccuracy(data.GatherPatternSegments());
+            current.SetSpawnTime();
+            demonData.demons.Add(current);
+            ClearSelection();
+        }
+
 
         private void OnDrawGizmosSelected()
         {

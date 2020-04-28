@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &545642032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1666608827206791543, guid: 8ae32200db25eda45b9e9521af91f36e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666608825355874829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35702c1cc7d0f64587b5a51118aeec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &696006044 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1666608826039797649, guid: 8ae32200db25eda45b9e9521af91f36e,
@@ -139,6 +151,7 @@ GameObject:
   - component: {fileID: 1119127560}
   - component: {fileID: 1119127559}
   - component: {fileID: 1119127558}
+  - component: {fileID: 1119127562}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -226,6 +239,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1119127562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119127557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb82687b6b817a749884def72c61d557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onKeyDownA:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownZ:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownE:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownR:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownT:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownY:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownU:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownI:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownO:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownP:
+    m_PersistentCalls:
+      m_Calls: []
+  onKeyDownSpace:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 545642032}
+        m_MethodName: DisplayPuzzle
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 50
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1285691901
 GameObject:
   m_ObjectHideFlags: 0

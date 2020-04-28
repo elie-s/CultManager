@@ -11,6 +11,7 @@ namespace CultManager
         [SerializeField] private Transform starPoint;
         [SerializeField] private Transform endPoint;
         [SerializeField] private LerpCurve lerpCurve;
+        [SerializeField] private PuzzleDisplay display;
 
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private RectTransform Togglebutton;
@@ -50,6 +51,7 @@ namespace CultManager
                         break;
                 }
             }
+            Display();
         }
 
 
@@ -98,6 +100,11 @@ namespace CultManager
                     startMove = true;
                 }
             } 
+        }
+
+        public void Display()
+        {
+            display.DisplayPuzzle(50f);
         }
     }
 }

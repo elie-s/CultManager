@@ -6,7 +6,7 @@ namespace CultManager
 {
     public abstract class SegmentBehaviour : MonoBehaviour
     {
-        
+
         [SerializeField] protected Sprite[] sprites = default;
         [SerializeField] protected PuzzleData data = default;
 
@@ -51,7 +51,7 @@ namespace CultManager
 
         public void InverSelection()
         {
-            Debug.Log("t");
+            //Debug.Log("t");
             if (segment.canBeSelected)
             {
                 Select(!selected);
@@ -75,9 +75,12 @@ namespace CultManager
                     }
                     else
                     {
-                        data.puzzle[i].DisableSegment();
+                        if (!data.puzzle[i].selected)
+                        {
+                            data.puzzle[i].DisableSegment();
+                        }
                     }
-                    
+
                 }
             }
         }

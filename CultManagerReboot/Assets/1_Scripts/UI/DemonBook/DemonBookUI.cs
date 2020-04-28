@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private DemonData data;
+        [SerializeField] private PuzzleDisplay display;
         [SerializeField] private CurrentPanel thisPanelName;
 
         [Header("Display Sprites")]
@@ -20,6 +21,7 @@ namespace CultManager
         [SerializeField] private Sprite starInActive;
 
         [SerializeField]private int currentIndex = 0;
+        [SerializeField]private int puzzleScale;
 
         public void Left()
         {
@@ -29,13 +31,13 @@ namespace CultManager
             }
             else
             {
-                currentIndex = data.demons.Length;
+                currentIndex = data.demons.Count;
             }
         }
 
         public void Right()
         {
-            if (currentIndex < data.demons.Length-1)
+            if (currentIndex < data.demons.Count-1)
             {
                 currentIndex++;
             }
@@ -47,11 +49,13 @@ namespace CultManager
 
         private void Update()
         {
-            DisplayCurrent();
+            //DisplayCurrent();
         }
 
         public void DisplayCurrent()
         {
+            display.DisplayPuzzle(puzzleScale);
+            display.HighlightShape(data.demons[currentIndex].segments);
             if (data.demons[currentIndex].isStarred)
             {
                 starImage.sprite = starActive;
