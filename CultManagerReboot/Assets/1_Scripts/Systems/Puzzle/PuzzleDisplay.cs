@@ -87,5 +87,13 @@ namespace CultManager
                 Destroy(gameObject);
             }
         }
+
+        public void UnselectAll()
+        {
+            foreach (SegmentBehaviour segment in segments)
+            {
+                segment.Select(false);
+            }
+        }
     }
 }

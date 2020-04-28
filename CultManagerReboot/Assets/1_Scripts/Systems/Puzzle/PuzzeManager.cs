@@ -27,6 +27,7 @@ namespace CultManager
         public void ClearSelection()
         {
             data.ClearSelections();
+            display.UnselectAll();
         }
 
         [ContextMenu("Generate")]
