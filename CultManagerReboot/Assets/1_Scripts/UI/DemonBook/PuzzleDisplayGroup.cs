@@ -16,7 +16,7 @@ namespace CultManager
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
-                    Destroy(transform.GetChild(i));
+                    Destroy(transform.GetChild(i).gameObject);
                 }
             }
             for (int i = demons.Length-1; i >=0; i--)

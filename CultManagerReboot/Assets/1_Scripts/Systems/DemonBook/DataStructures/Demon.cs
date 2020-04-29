@@ -29,6 +29,11 @@ namespace CultManager
         }
 
 
+        public void SetRandomLoot()
+        {
+            lootBonus = Mathf.RoundToInt(UnityEngine.Random.Range(0, 100));
+        }
+
         public void ToggleStar()
         {
             isStarred = !isStarred;

@@ -19,201 +19,137 @@ MonoBehaviour:
         y: 0
         slice: -1
       b:
-        x: 1
-        y: 1
-        slice: 1
-    - a:
-        x: 2
-        y: 2
-        slice: 1
-      b:
-        x: 1
-        y: 1
-        slice: 1
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    isStarred: 0
-    spriteIndex: 0
-    patternAccuracy: 0.1
-    lootBonus: 10
-  - segments:
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: 1
-        y: 1
-        slice: 1
-    - a:
-        x: 2
-        y: 2
-        slice: 1
-      b:
-        x: 1
-        y: 1
-        slice: 1
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
         x: -1
-        y: 0
-        slice: 5
-    - a:
-        x: -2
-        y: 0
-        slice: 5
-      b:
-        x: -1
-        y: 0
-        slice: 5
-    isStarred: 0
-    spriteIndex: 0
-    patternAccuracy: 0.4
-    lootBonus: 10
-  - segments:
+        y: -1
+        slice: 4
     - a:
         x: 0
         y: 0
         slice: -1
       b:
         x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: -2
-        slice: 3
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: -1
-        y: 0
-        slice: 5
-    - a:
-        x: -2
-        y: 0
-        slice: 5
-      b:
-        x: -1
-        y: 0
-        slice: 5
-    - a:
-        x: -4
-        y: 0
-        slice: 5
-      b:
-        x: -3
-        y: 0
-        slice: 5
-    - a:
-        x: -2
-        y: 0
-        slice: 5
-      b:
-        x: -3
-        y: 0
-        slice: 5
-    - a:
-        x: -2
-        y: 0
-        slice: 5
-      b:
-        x: -2
         y: 1
-        slice: 5
-    - a:
-        x: 0
-        y: 2
         slice: 0
-      b:
-        x: -1
-        y: 1
-        slice: 5
-    - a:
-        x: -2
-        y: 0
-        slice: 5
-      b:
-        x: -1
-        y: 1
-        slice: 5
-    - a:
-        x: -1
-        y: 1
-        slice: 5
-      b:
-        x: -2
-        y: 1
-        slice: 5
-    isStarred: 0
-    spriteIndex: 0
-    patternAccuracy: 1
-    lootBonus: 10
-  - segments:
     - a:
         x: 0
         y: 0
         slice: -1
       b:
         x: 1
-        y: 1
-        slice: 1
-    - a:
-        x: 0
         y: 0
-        slice: -1
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: -2
-        slice: 3
-      b:
-        x: 0
-        y: -1
-        slice: 3
-    - a:
-        x: 0
-        y: 0
-        slice: -1
-      b:
-        x: -1
-        y: 0
-        slice: 5
+        slice: 2
     isStarred: 0
     spriteIndex: 0
     patternAccuracy: 0.3
-    lootBonus: 10
+    lootBonus: 7
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: -1
+        slice: 4
+    - a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -1
+        y: -1
+        slice: 4
+    - a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -2
+        y: -3
+        slice: 3
+    isStarred: 0
+    spriteIndex: 0
+    patternAccuracy: 0.2
+    lootBonus: 19
+  - segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 0
+        slice: 2
+    - a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 1
+        y: 0
+        slice: 2
+    - a:
+        x: 4
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: 0
+        slice: 2
+    - a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: 0
+        slice: 2
+    isStarred: 0
+    spriteIndex: 0
+    patternAccuracy: 0.3
+    lootBonus: 91
+  - segments:
+    - a:
+        x: 0
+        y: 4
+        slice: 0
+      b:
+        x: 0
+        y: 3
+        slice: 0
+    - a:
+        x: 0
+        y: 4
+        slice: 0
+      b:
+        x: -1
+        y: 3
+        slice: 5
+    - a:
+        x: -2
+        y: 2
+        slice: 5
+      b:
+        x: -1
+        y: 3
+        slice: 5
+    - a:
+        x: 2
+        y: 4
+        slice: 0
+      b:
+        x: 1
+        y: 4
+        slice: 0
+    - a:
+        x: 0
+        y: 3
+        slice: 0
+      b:
+        x: 1
+        y: 4
+        slice: 0
+    isStarred: 0
+    spriteIndex: 0
+    patternAccuracy: 0
+    lootBonus: 65

@@ -106,8 +106,18 @@ namespace CultManager
             Demon current = new Demon(patternSegments.ToArray(),10);
             current.ComputePatternAccuracy(data.GatherPatternSegments());
             current.SetSpawnTime();
+            current.SetRandomLoot();
             demonData.demons.Add(current);
+            Debugging(current);
             ClearSelection();
+            patternSegments.Clear();
+        }
+
+        public void Debugging(Demon instance)
+        {
+            Debug.Log("Demon Time" + instance.spawnTime);
+            Debug.Log("Demon Loot" + instance.lootBonus);
+            Debug.Log("Demon Segments" + instance.segments.Length);
         }
 
 
