@@ -16,7 +16,7 @@ namespace CultManager
 
         [Header("Demon Page Display")]
         [SerializeField] private GameObject demonPage;
-        
+
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private PuzzleDisplay demonPagedisplay;
@@ -29,6 +29,8 @@ namespace CultManager
         [SerializeField] private GameObject pageNumberParent;
         [SerializeField] private GameObject puzzleGroupPrefab;
         [SerializeField] private GameObject pageNumberPrefab;
+        [SerializeField] private Image[] buttons;
+        [SerializeField] private Image summaryStarImage;
         [SerializeField] private int numberOfItemsPerPage;
         [SerializeField] private int summaryPagePuzzleScale;
 
@@ -54,13 +56,14 @@ namespace CultManager
             }
             else
             {
-                currentDemonIndex = result.Length-1;
+                currentDemonIndex = result.Length - 1;
             }
+            DisplayDemonPage();
         }
 
         public void Right()
         {
-            if (currentDemonIndex < result.Length-1)
+            if (currentDemonIndex < result.Length - 1)
             {
                 currentDemonIndex++;
             }
@@ -68,14 +71,12 @@ namespace CultManager
             {
                 currentDemonIndex = 0;
             }
+            DisplayDemonPage();
         }
 
         private void Update()
         {
-            if (demonPage.activeSelf)
-            {
-                DisplayDemonPage();
-            }
+
         }
 
         public void Start()
@@ -83,7 +84,7 @@ namespace CultManager
             OpenSummaryPage();
         }
 
-        
+
 
         public void OpenDemonPage()
         {
@@ -93,8 +94,17 @@ namespace CultManager
 
         public void DisplayThisDemon(int index)
         {
-            currentDemonIndex = index;
+            if (favouritesActive)
+            {
+                ReturnFavouriteIndex(index);
+            }
+            else
+            {
+                currentDemonIndex = index;
+            }
+
             OpenDemonPage();
+            DisplayDemonPage();
         }
 
 
@@ -124,7 +134,7 @@ namespace CultManager
             for (int i = 0; i < pages.Count; i++)
             {
                 Debug.Log(i + " " + pages[i].transform.GetSiblingIndex());
-                if ((i+1) == pageNum)
+                if ((i + 1) == pageNum)
                 {
                     pages[i].SetActive(true);
                 }
@@ -141,32 +151,80 @@ namespace CultManager
             if (favouritesActive)
             {
                 DisplaySummary(GatherFavourites());
+                summaryStarImage.sprite = starActive;
+                ButtonFeedback(buttons.Length);
             }
             else
             {
                 DemonTimeSort();
+                summaryStarImage.sprite = starInActive;
             }
-            
+
         }
 
         public void LootSort()
         {
             DisplaySummary(SortByLoot());
+            ButtonFeedback(0);
+            if (favouritesActive)
+            {
+                favouritesActive = false;
+                summaryStarImage.sprite = starInActive;
+            }
         }
 
         public void DemonTimeSort()
         {
             DisplaySummary(SortByTime());
+            ButtonFeedback(1);
+            if (favouritesActive)
+            {
+                favouritesActive = false;
+                summaryStarImage.sprite = starInActive;
+            }
         }
 
         public void DemonSegmentSort()
         {
             DisplaySummary(SortBySegments());
+            ButtonFeedback(2);
+            if (favouritesActive)
+            {
+                favouritesActive = false;
+                summaryStarImage.sprite = starInActive;
+            }
+        }
+
+        public void ButtonFeedback(int index)
+        {
+            if (index < buttons.Length)
+            {
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    if (i == index)
+                    {
+                        buttons[i].sprite = buttonActive;
+                    }
+                    else
+                    {
+                        buttons[i].sprite = buttonInactive;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < buttons.Length; i++)
+                {
+                    buttons[i].sprite = buttonInactive;
+                }
+            }
+
         }
 
         public Demon[] GatherFavourites()
         {
-            List<Demon> temp=new List<Demon>();
+            result = data.demons.ToArray();
+            List<Demon> temp = new List<Demon>();
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i].isStarred)
@@ -177,8 +235,24 @@ namespace CultManager
             return temp.ToArray();
         }
 
+        public void ReturnFavouriteIndex(int index)
+        {
+            result = data.demons.ToArray();
+            Demon[] temp = GatherFavourites();
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (result[i] == temp[index])
+                {
+                    currentDemonIndex = i;
+                    break;
+                }
+            }
+        }
+
+
         public Demon[] SortByLoot()
-        { 
+        {
+            result = data.demons.ToArray();
             Demon temp;
             for (int i = 0; i < result.Length; i++)
             {
@@ -242,7 +316,7 @@ namespace CultManager
 
             int numberOfPages = 0;
 
-            for (int i = demons.Length-1; i >= 0; i--)
+            for (int i = demons.Length - 1; i >= 0; i--)
             {
                 spawnDemons.Add(demons[i]);
                 if (i % numberOfItemsPerPage == 0)
@@ -290,6 +364,7 @@ namespace CultManager
         public void ToggleStar()
         {
             data.demons[currentDemonIndex].ToggleStar();
+            DisplayDemonPage();
         }
         [ContextMenu("Open")]
         public void Open()
@@ -312,9 +387,9 @@ namespace CultManager
             }
         }
 
-        
 
-        
+
+
     }
 }
 

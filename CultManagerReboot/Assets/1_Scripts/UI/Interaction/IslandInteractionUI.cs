@@ -11,7 +11,14 @@ namespace CultManager
 
         private void Update()
         {
-            returnButton.SetActive(!CameraController.isAtOrigin);
+            if (GameManager.currentPanel == CurrentPanel.None && GameManager.currentIsland != CurrentIsland.Origin)
+            {
+                returnButton.SetActive(true);
+            }
+            else
+            {
+                returnButton.SetActive(false);
+            }
         }
     }
 }

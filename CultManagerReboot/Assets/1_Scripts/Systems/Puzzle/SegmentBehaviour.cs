@@ -9,6 +9,7 @@ namespace CultManager
 
         [SerializeField] protected Sprite[] sprites = default;
         [SerializeField] protected PuzzleData data = default;
+        [SerializeField] protected BloodBankData bloodData = default;
 
         public PuzzleSegment segment { get; protected set; }
         [SerializeField]protected bool selected = false;
@@ -51,11 +52,18 @@ namespace CultManager
 
         public void InverSelection()
         {
-            //Debug.Log("t");
             if (segment.canBeSelected)
             {
                 Select(!selected);
                 ToggleNeighbours();
+                if (selected)
+                {
+                    bloodData.Decrease(segment.type, 10);
+                }
+                else
+                {
+                    bloodData.Increase(segment.type, 10);
+                }
             }
             else
             {
@@ -78,6 +86,7 @@ namespace CultManager
                         if (!data.puzzle[i].selected)
                         {
                             data.puzzle[i].DisableSegment();
+
                         }
                     }
 
@@ -100,6 +109,14 @@ namespace CultManager
                 segment.canBeSelected = true;
                 Select(!selected);
                 ToggleNeighbours();
+                if (selected)
+                {
+                    bloodData.Decrease(segment.type, 10);
+                }
+                else
+                {
+                    bloodData.Increase(segment.type, 10);
+                }
             }
         }
 
