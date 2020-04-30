@@ -19,6 +19,7 @@ namespace CultManager
         {
             if (!SaveManager.saveLoaded)
             {
+                Debug.Log("Reset");
                 data.Reset();
             }
         }
@@ -59,6 +60,12 @@ namespace CultManager
         {
             Debug.Log("Willsummon");
             puzzle.SummonIt();
+        }
+
+        [ContextMenu("Increase Blood")]
+        public void AddBlood()
+        {
+            data.Increase(10);
         }
     }
 }

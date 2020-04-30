@@ -19,21 +19,21 @@ namespace CultManager
         public void Reset()
         {
             bloodBanks = new BloodBank[3];
-            IntGauge intGauge = new IntGauge(90, 100, false);
+            IntGauge[] intGauge = new IntGauge[3];
             for (int i = 0; i < bloodBanks.Length; i++)
             {
-                bloodBanks[i] = new BloodBank((BloodType)i,intGauge);
+                bloodBanks[i] = new BloodBank((BloodType)i, intGauge[i]);
+                bloodBanks[i].gauge = new IntGauge(0, 100, false);
             }
         }
 
-        public void Decrease(BloodType bloodType,int amount)
+        public void Decrease(BloodType bloodType, int amount)
         {
-            Debug.Log("Decrease ");
             for (int i = 0; i < bloodBanks.Length; i++)
             {
                 if (bloodBanks[i].bloodGroup == bloodType)
                 {
-                    Debug.Log("Decrease " + amount);
+                    Debug.Log("Decreased Blood " + bloodType+" "+amount);
                     bloodBanks[i].DecrementGauge(amount);
                 }
             }
@@ -41,16 +41,33 @@ namespace CultManager
 
         public void Increase(BloodType bloodType, int amount)
         {
-            Debug.Log("Increase ");
             for (int i = 0; i < bloodBanks.Length; i++)
             {
                 if (bloodBanks[i].bloodGroup == bloodType)
                 {
-                    Debug.Log("Increase " + amount);
+                    Debug.Log("Increased Blood " + bloodType + " " + amount);
                     bloodBanks[i].IncrementGauge(amount);
                 }
             }
         }
+
+        public void Increase(int amount)
+        {
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                Debug.Log("Increase " + i);
+                bloodBanks[i].IncrementGauge(amount);
+            }
+        }
+
+        public void Decrease(int amount)
+        {
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                bloodBanks[i].DecrementGauge(amount);
+            }
+        }
+
 
         public void SetLevel(int _level)
         {

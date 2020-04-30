@@ -112,10 +112,12 @@ namespace CultManager
                 if (selected)
                 {
                     bloodData.Decrease(segment.type, 10);
+                    Debug.Log("Segment blood " + segment.type);
                 }
                 else
                 {
                     bloodData.Increase(segment.type, 10);
+                    Debug.Log("Segment blood " + segment.type);
                 }
             }
         }
