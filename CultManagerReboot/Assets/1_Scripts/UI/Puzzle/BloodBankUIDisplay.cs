@@ -19,7 +19,6 @@ namespace CultManager
         {
             if (!SaveManager.saveLoaded)
             {
-                Debug.Log("Reset");
                 data.Reset();
             }
         }
@@ -33,7 +32,6 @@ namespace CultManager
             for (int i = 0; i < data.bloodBanks.Length; i++)
             {
                 BloodBars[i].fillAmount = (float)data.bloodBanks[i].gauge.value/ (float)data.bloodBanks[i].gauge.max;
-                Debug.Log((float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max);
             }
         }
 
@@ -50,6 +48,8 @@ namespace CultManager
         {
             if (GameManager.currentPanel == thisPanelName)
             {
+                puzzle.ClearSelection();
+                puzzle.FailedPattern();
                 GameManager.currentPanel = CurrentPanel.None;
                 camControl.TransitionToOrigin();
                 hud.SetActive(false);
@@ -58,7 +58,6 @@ namespace CultManager
 
         public void Summon()
         {
-            Debug.Log("Willsummon");
             puzzle.SummonIt();
         }
 

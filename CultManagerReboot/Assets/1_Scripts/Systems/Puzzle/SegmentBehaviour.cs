@@ -9,7 +9,7 @@ namespace CultManager
 
         [SerializeField] protected Sprite[] sprites = default;
         [SerializeField] protected PuzzleData data = default;
-        [SerializeField] protected BloodBankData bloodData = default;
+        
 
         public PuzzleSegment segment { get; protected set; }
         [SerializeField]protected bool selected = false;
@@ -50,77 +50,7 @@ namespace CultManager
             SetColor();
         }
 
-        public void InverSelection()
-        {
-            if (segment.canBeSelected)
-            {
-                Select(!selected);
-                ToggleNeighbours();
-                if (selected)
-                {
-                    bloodData.Decrease(segment.type, 10);
-                }
-                else
-                {
-                    bloodData.Increase(segment.type, 10);
-                }
-            }
-            else
-            {
-                CheckFirstSelection();
-            }
-        }
-
-        public void ToggleNeighbours()
-        {
-            for (int i = 0; i < data.puzzle.Count; i++)
-            {
-                if (data.puzzle[i].IsConnected(segment) && !data.puzzle[i].IsSegment(segment.segment))
-                {
-                    if (segment.selected)
-                    {
-                        data.puzzle[i].EnableSegment();
-                    }
-                    else
-                    {
-                        if (!data.puzzle[i].selected)
-                        {
-                            data.puzzle[i].DisableSegment();
-
-                        }
-                    }
-
-                }
-            }
-        }
-
-        public void CheckFirstSelection()
-        {
-            int ctr = 0;
-            for (int i = 0; i < data.puzzle.Count; i++)
-            {
-                if (data.puzzle[i].selected)
-                {
-                    ctr++;
-                }
-            }
-            if (ctr == 0)
-            {
-                segment.canBeSelected = true;
-                Select(!selected);
-                ToggleNeighbours();
-                if (selected)
-                {
-                    bloodData.Decrease(segment.type, 10);
-                    Debug.Log("Segment blood " + segment.type);
-                }
-                else
-                {
-                    bloodData.Increase(segment.type, 10);
-                    Debug.Log("Segment blood " + segment.type);
-                }
-            }
-        }
+       
 
 
     }

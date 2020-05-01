@@ -27,14 +27,88 @@ namespace CultManager
             }
         }
 
+        public bool CanDecrease(BloodType bloodType, int amount)
+        {
+            int usage = 0;
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                if (bloodType != BloodType.AB)
+                {
+                    if (bloodBanks[i].bloodGroup == bloodType)
+                    {
+                        if (bloodBanks[i].gauge.value >= amount)
+                        {
+                            usage += amount;
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    if (bloodBanks[i].bloodGroup == BloodType.A|| bloodBanks[i].bloodGroup == BloodType.B)
+                    {
+                        if (bloodBanks[i].gauge.value >= amount / 2)
+                        {
+                            usage += amount / 2;
+                        }
+                            
+                    }
+                }
+                
+            }
+            return (usage == amount);
+        }
+
+        public bool CanIncrease(BloodType bloodType, int amount)
+        {
+            int usage = 0;
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                Debug.Log(bloodBanks[i].gauge.amountLeft + " " + amount);
+                if (bloodType != BloodType.AB)
+                {
+                    if (bloodBanks[i].bloodGroup == bloodType)
+                    {
+                        if (bloodBanks[i].gauge.amountLeft >= amount)
+                        {
+                            usage += amount;
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (bloodBanks[i].bloodGroup == BloodType.A || bloodBanks[i].bloodGroup == BloodType.B)
+                    {
+                        if (bloodBanks[i].gauge.amountLeft >= amount / 2)
+                        {
+                            usage += amount / 2;
+                        }
+
+                    }
+                }
+
+            }
+            return (usage == amount);
+        }
+
         public void Decrease(BloodType bloodType, int amount)
         {
             for (int i = 0; i < bloodBanks.Length; i++)
             {
-                if (bloodBanks[i].bloodGroup == bloodType)
+                if (bloodType != BloodType.AB)
                 {
-                    Debug.Log("Decreased Blood " + bloodType+" "+amount);
-                    bloodBanks[i].DecrementGauge(amount);
+                    if (bloodBanks[i].bloodGroup == bloodType)
+                    {
+                        bloodBanks[i].DecrementGauge(amount);
+                    }
+                }
+                else
+                {
+                    if (bloodBanks[i].bloodGroup == BloodType.A || bloodBanks[i].bloodGroup == BloodType.B)
+                    {
+                        bloodBanks[i].DecrementGauge(amount / 2);
+                    }
                 }
             }
         }
@@ -43,10 +117,19 @@ namespace CultManager
         {
             for (int i = 0; i < bloodBanks.Length; i++)
             {
-                if (bloodBanks[i].bloodGroup == bloodType)
+                if (bloodType != BloodType.AB)
                 {
-                    Debug.Log("Increased Blood " + bloodType + " " + amount);
-                    bloodBanks[i].IncrementGauge(amount);
+                    if (bloodBanks[i].bloodGroup == bloodType)
+                    {
+                        bloodBanks[i].IncrementGauge(amount);
+                    }
+                }
+                else
+                {
+                    if (bloodBanks[i].bloodGroup == BloodType.A || bloodBanks[i].bloodGroup == BloodType.B)
+                    {
+                        bloodBanks[i].IncrementGauge(amount / 2);
+                    }
                 }
             }
         }
@@ -55,7 +138,6 @@ namespace CultManager
         {
             for (int i = 0; i < bloodBanks.Length; i++)
             {
-                Debug.Log("Increase " + i);
                 bloodBanks[i].IncrementGauge(amount);
             }
         }
