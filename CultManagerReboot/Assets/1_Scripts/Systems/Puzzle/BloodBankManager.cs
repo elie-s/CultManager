@@ -9,7 +9,6 @@ namespace CultManager
     {
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private BloodBank[] tempBanks;
-        [SerializeField] private int tempA, tempB, tempO;
 
         private void Start()
         {
@@ -106,36 +105,12 @@ namespace CultManager
             EmptyTempBanks();
         }
 
-        void AddTempBlood(BloodType type, int amt)
-        {
-            switch (type)
-            {
-                case BloodType.O:
-                    {
-                        tempO += amt;
-                    }
-                    break;
-                case BloodType.A:
-                    {
-                        tempA += amt;
-                    }
-                    break;
-                case BloodType.B:
-                    {
-                        tempB += amt;
-                    }
-                    break;
-                case BloodType.AB:
-                    {
-                        tempA += amt/2;
-                        tempB += amt/2;
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
 
+        [ContextMenu("Increase Blood")]
+        public void AddBlood()
+        {
+            data.Increase(10);
+        }
 
     }
 }

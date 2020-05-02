@@ -11,6 +11,7 @@ namespace CultManager
         public int spriteIndex { get; private set; }
         public bool occupied { get; set; }
         public CultistTraits traits { get; private set; }
+        public BloodType blood { get; private set; }
 
         public Cultist(ulong _id, string _cultistName, int _spriteIndex)
         {
@@ -19,6 +20,7 @@ namespace CultManager
             spriteIndex = _spriteIndex;
             RandomAge();
             RandomTraits();
+            RandomBloodType();
             occupied = false;
         }
 
@@ -42,6 +44,11 @@ namespace CultManager
             }
 
             age = value;
+        }
+
+        public void RandomBloodType()
+        {
+            blood = (BloodType)Mathf.RoundToInt(Random.Range(0, 3));
         }
 
         public void RandomTraits()

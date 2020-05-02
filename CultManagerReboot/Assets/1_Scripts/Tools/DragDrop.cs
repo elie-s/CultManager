@@ -48,7 +48,7 @@ namespace CultManager
             {
                 Vector3 mousePos;
                 mousePos = Input.mousePosition;
-                mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+                mousePos = cam.ScreenToWorldPoint(mousePos);
 
                 startPosX = mousePos.x - this.transform.localPosition.x;
                 startPosY = mousePos.y - this.transform.localPosition.y;

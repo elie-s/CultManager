@@ -64,7 +64,6 @@ namespace CultManager
             int usage = 0;
             for (int i = 0; i < bloodBanks.Length; i++)
             {
-                Debug.Log(bloodBanks[i].gauge.amountLeft + " " + amount);
                 if (bloodType != BloodType.AB)
                 {
                     if (bloodBanks[i].bloodGroup == bloodType)

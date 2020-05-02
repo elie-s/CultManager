@@ -8,8 +8,8 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
-        [SerializeField] private DemonData demonData = default;
         [SerializeField] private BloodBankManager bloodManager = default;
+        [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings;
@@ -21,8 +21,16 @@ namespace CultManager
 
         private void Start()
         {
-            if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
-            else Generate();
+            if (SaveManager.saveLoaded)
+            {
+                display?.DisplayPuzzle(scale);
+            }
+            else
+            {
+                Generate();
+            }
+            //if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
+            //else Generate();
             ClearSelection();
         }
 
@@ -112,11 +120,7 @@ namespace CultManager
 
         public void AddPattern()
         {
-            Demon current = new Demon(patternSegments.ToArray(),10);
-            current.ComputePatternAccuracy(data.GatherPatternSegments());
-            current.SetSpawnTime();
-            current.SetRandomLoot();
-            demonData.demons.Add(current);
+            demonManager.CreateNewDemon(1, patternSegments.ToArray());
             ClearSelection();
             patternSegments.Clear();
         }

@@ -61,11 +61,7 @@ namespace CultManager
             puzzle.SummonIt();
         }
 
-        [ContextMenu("Increase Blood")]
-        public void AddBlood()
-        {
-            data.Increase(10);
-        }
+        
     }
 }
 

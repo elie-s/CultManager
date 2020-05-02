@@ -47,7 +47,16 @@ namespace CultManager
         public BloodBank[] bloodBanks;
         public int level;
 
-        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData, PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,BloodBankData _bloodBankData)
+        //Demon Data
+        public Demon[] demons;
+        public Spawn[] spawns;
+        public int demonIdIndex;
+        public int spawnCount;
+
+
+        public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData,
+            PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,
+            BloodBankData _bloodBankData,DemonData _demonData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -76,6 +85,12 @@ namespace CultManager
 
             bloodBanks = _bloodBankData.bloodBanks;
             level = _bloodBankData.level;
+
+            demons = _demonData.demons.ToArray();
+            spawns = _demonData.spawns.ToArray();
+            demonIdIndex = _demonData.idIndex;
+            spawnCount = _demonData.spawnCount;
+
         }
     }
 }

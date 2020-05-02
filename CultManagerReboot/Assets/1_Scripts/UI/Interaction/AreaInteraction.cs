@@ -26,6 +26,7 @@ namespace CultManager
             {
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
+                    col.enabled = true;
                     if (Input.GetMouseButtonDown(0))
                     {
                         Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -35,9 +36,22 @@ namespace CultManager
                         }
                     }
                 }
+                else
+                {
+                    DisableCollider();
+                }
                 
             }
-            
+            else
+            {
+                DisableCollider();
+            }
+
+        }
+
+        void DisableCollider()
+        {
+            col.enabled = false;
         }
     }
 }
