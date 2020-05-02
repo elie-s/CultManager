@@ -10,6 +10,7 @@ namespace CultManager
         [SerializeField] private PuzzleData data = default;
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private DemonManager demonManager = default;
+        [SerializeField] private AltarManager altarManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings;
@@ -32,6 +33,11 @@ namespace CultManager
             //if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
             //else Generate();
             ClearSelection();
+        }
+
+        public void ResetCult(int level)
+        {
+            Generate();
         }
 
         public void ClearSelection()
@@ -120,7 +126,15 @@ namespace CultManager
 
         public void AddPattern()
         {
-            demonManager.CreateNewDemon(1, patternSegments.ToArray());
+            if (!altarManager.isComplete())
+            {
+                demonManager.CreateNewDemon(1, patternSegments.ToArray());
+            }
+            else
+            {
+                demonManager.CreateNewPersistentDemon(1);
+            }
+            
             ClearSelection();
             patternSegments.Clear();
         }

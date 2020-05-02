@@ -29,6 +29,12 @@ namespace CultManager
                 data.Reset(100);
             } 
         }
+
+        public void ResetCult(int level)
+        {
+            int max = 100;
+            data.ResetPoliceData(max);
+        }
     }
 }
 

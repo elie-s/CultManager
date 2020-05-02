@@ -24,6 +24,11 @@ namespace CultManager
             spawnCount = 0;
         }
 
+        public void ResetDemonData(int level)
+        {
+            Reset();
+        }
+
 
         public void LoadSave(Save _save)
         {
@@ -33,7 +38,7 @@ namespace CultManager
             spawnCount = _save.spawnCount;
         }
 
-        public void CreateDemon(int durationInHours, Segment[] segments)
+        public Spawn CreateDemon(int durationInHours, Segment[] segments)
         {
             Spawn spawn = new Spawn(idIndex, durationInHours);
             Demon demon = new Demon(idIndex, segments);
@@ -41,22 +46,38 @@ namespace CultManager
             AddDemon(demon);
             AddSpawn(spawn);
 
-            spawnCount++;
             idIndex++;
+            return spawn;
+        }
+
+
+        public int ReturnLoot(int id)
+        {
+            int loot = 0;
+            for (int i = 0; i < demons.Count; i++)
+            {
+                if (id == demons[i].id)
+                {
+                    loot = demons[i].lootBonus;
+                }
+            }
+            return loot;
         }
 
 
         public void RemoveSpawn(Spawn spawn)
         {
             spawns.Remove(spawn);
+            spawnCount--;
         }
 
-        public void AddSpawn(Spawn spawn)
+        void AddSpawn(Spawn spawn)
         {
             spawns.Add(spawn);
+            spawnCount++;
         }
 
-        public void AddDemon(Demon demon)
+        void AddDemon(Demon demon)
         {
             demons.Add(demon);
         }

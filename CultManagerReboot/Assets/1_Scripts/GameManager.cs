@@ -14,6 +14,14 @@ namespace CultManager
         [SerializeField] private PoliceManager policeManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
 
+        [SerializeField] private AltarManager altarManager = default;
+        [SerializeField] private BloodBankManager bloodManager = default;
+        [SerializeField] private PuzzeManager puzzeManager = default;
+        [SerializeField] private DemonManager demonManager = default;
+        [SerializeField] private NoteTabPanelBehavior noteTabManager = default;
+
+
+
         public static CurrentIsland currentIsland;
         public static CurrentPanel currentPanel;
 
@@ -77,6 +85,16 @@ namespace CultManager
             Application.Quit();
         }
 
+        public void ResetCult(int level)
+        {
+            cultManager.ResetCult(level);
+            policeManager.ResetCult(level);
+            moneyManager.ResetCult(level);
+            puzzeManager.ResetCult(level);
+
+            bloodManager.ResetCult(level);
+            demonManager.ResetCult(level);
+        }
     }
 }
 

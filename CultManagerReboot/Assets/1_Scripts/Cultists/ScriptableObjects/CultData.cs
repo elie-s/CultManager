@@ -20,6 +20,13 @@ namespace CultManager
             maxCandidatesCount = 30;
         }
 
+        public void ResetCultData(int level)
+        {
+            cultists = new List<Cultist>();
+            candidatesCount = 10;
+            maxCandidatesCount = 30;
+        }
+
 
         public void ToggleOccupy()
         {

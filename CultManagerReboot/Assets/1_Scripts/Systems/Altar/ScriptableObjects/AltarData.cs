@@ -25,6 +25,12 @@ namespace CultManager
             altarCompletion = false;
         }
 
+        public void ResetAltarData(int numberOfAltarParts)
+        {
+            availableCultists = 0;
+            altarCompletion = false;
+        }
+
         public void IncreaseAvailableCultists(int _value)
         {
             availableCultists += _value;

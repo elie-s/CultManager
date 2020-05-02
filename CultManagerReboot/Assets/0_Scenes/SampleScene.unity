@@ -470,6 +470,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8ee2b1ee6fce57a4da6c05d88c638b24, type: 2}
+  persistentData: {fileID: 11400000, guid: ab958d8d674bc6640b5efc743534555a, type: 2}
+  spawnPrefab: {fileID: 1291530614637407577, guid: 1c09f623e0b10b645a1256df98a738d7,
+    type: 3}
+  persistentDemonPrefab: {fileID: 519313156704779299, guid: 10781c2f2bc7b3842a24d2ee54816533,
+    type: 3}
+  money: {fileID: 2001917036}
 --- !u!224 &597759201 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 712986878647974631, guid: d4a5f8da429358b43bd0a76d22ad8bf0,
@@ -856,6 +862,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   bloodManager: {fileID: 74884041}
   demonManager: {fileID: 549938590}
+  altarManager: {fileID: 235637589}
   display: {fileID: 818602608}
   scale: 1
   settings:

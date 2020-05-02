@@ -34,6 +34,11 @@ namespace CultManager
         {
             Reset(_save.moneyValue);
         }
+
+        public void ResetMoneyData(int level)
+        {
+            Reset();
+        }
     }
 }
 

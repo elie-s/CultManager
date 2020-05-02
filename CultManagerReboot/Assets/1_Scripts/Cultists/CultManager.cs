@@ -16,6 +16,11 @@ namespace CultManager
 
         private bool useSave = false;
 
+        public void ResetCult(int level)
+        {
+            data.ResetCultData(level);
+        }
+
         void Update()
         {
             currentCandidatesDebug = data.candidatesCount;

@@ -27,6 +27,11 @@ namespace CultManager
             }
         }
 
+        public void ResetBloodBankData(int level)
+        {
+            Reset();
+        }
+
         public bool CanDecrease(BloodType bloodType, int amount)
         {
             int usage = 0;

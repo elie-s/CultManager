@@ -36,6 +36,11 @@ namespace CultManager
         {
             gauge = new IntGauge(_save.policeCurrentValue, _save.policeMaxValue, false);
         }
+
+        public void ResetPoliceData(int _max)
+        {
+            gauge = new IntGauge(0, _max, false);
+        }
     }
 }
 

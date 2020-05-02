@@ -19,6 +19,7 @@ namespace CultManager
             id = _id;
             durationInHours = _durationInHours;
             ResetSpawnTime();
+            Debug.Log(spawnTime);
         }
 
         public void ResetSpawnTime()

@@ -53,10 +53,13 @@ namespace CultManager
         public int demonIdIndex;
         public int spawnCount;
 
+        //Persistent Demon Data
+        public PersistentDemon[] persistentDemons;
+        public int persistentdemonIdIndex;
 
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData,
             PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,
-            BloodBankData _bloodBankData,DemonData _demonData)
+            BloodBankData _bloodBankData,DemonData _demonData,PersistentDemonData _persistentDemonData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -90,6 +93,9 @@ namespace CultManager
             spawns = _demonData.spawns.ToArray();
             demonIdIndex = _demonData.idIndex;
             spawnCount = _demonData.spawnCount;
+
+            persistentDemons = _persistentDemonData.persistentDemons.ToArray();
+            persistentdemonIdIndex = _persistentDemonData.idIndex;
 
         }
     }

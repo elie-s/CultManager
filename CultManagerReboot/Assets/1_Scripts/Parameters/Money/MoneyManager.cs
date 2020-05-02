@@ -25,5 +25,10 @@ namespace CultManager
                 data.Reset();
             } 
         }
+
+        public void ResetCult(int level)
+        {
+            data.ResetMoneyData(level);
+        }
     }
 }

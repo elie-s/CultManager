@@ -33,6 +33,10 @@ namespace CultManager
             assignedCultists.SetMax(altarData.availableCultists);
         }
 
+        public bool isComplete()
+        {
+            return (altarData.altarCompletion);
+        }
 
         public void Buy(int _amount)
         {
@@ -79,7 +83,6 @@ namespace CultManager
                 }
             }
             //assignedCultists.Increment(result);
-            Debug.Log("Result "+result);
             return result;
         }
 
