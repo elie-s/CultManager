@@ -22,12 +22,9 @@ namespace CultManager
             data.Set(_value);
         }
 
-        public void InitializeData()
+        public void ResetData()
         {
-            if (!SaveManager.saveLoaded)
-            {
-                data.Reset(100);
-            } 
+            data.Reset(100);
         }
 
         public void ResetCult(int level)

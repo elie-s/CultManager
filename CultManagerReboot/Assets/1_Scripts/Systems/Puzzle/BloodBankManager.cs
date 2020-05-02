@@ -117,6 +117,11 @@ namespace CultManager
             data.ResetBloodBankData(level);
         }
 
+        public void ResetData()
+        {
+            data.Reset();
+        }
+
     }
 }
 

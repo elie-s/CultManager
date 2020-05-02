@@ -77,7 +77,7 @@ namespace CultManager
             policeMaxValue = _policeData.max;
             policeCurrentValue = _policeData.value;
 
-            altarParts = _altarData.altarParts;
+            altarParts = _altarData.altarParts.ToArray();
             availableCultists = _altarData.availableCultists;
             altarCompletion = _altarData.altarCompletion;
             lastBuildTimeReference = _altarData.lastBuildTimeReference;

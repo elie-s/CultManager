@@ -9,20 +9,34 @@ namespace CultManager
     {
         [Header("Altar Data")]
         [SerializeField] private AltarData altarData = default;
-        [SerializeField] public AltarPartBehavior[] altarPartBehaviors;
+        [SerializeField] private AltarPartData[] altarPartDatas = default;
+        
 
         [Header("Cult Parameters")]
         [SerializeField] private CultData cult = default;
         [SerializeField] private MoneyManager moneyManager;
+        [SerializeField] private PuzzeManager puzzleManager;
+
+        [Header("New Addition")]
+        [SerializeField] public GameObject altarPartPrefab;
 
         public IntGauge assignedCultists;
 
-        List<GameObject> altarParts;
+
+        public void ResetCult(int level)
+        {
+            altarData.ResetAltarData();
+            CreateNewAltarParts(altarPartDatas);
+        }
+
+        public void ResetData()
+        {
+            altarData.ResetAltarData();
+            CreateNewAltarParts(altarPartDatas);
+        }
 
         void Start()
         {
-            altarParts = gameObject.GatherAllChildrenInList();
-            altarPartBehaviors = gameObject.GatherBehaviorInArray<AltarPartBehavior>();
             altarData.SetAvailableCultists(cult.cultists.Count);
             assignedCultists = new IntGauge(0, altarData.availableCultists,false);
         }
@@ -33,28 +47,93 @@ namespace CultManager
             assignedCultists.SetMax(altarData.availableCultists);
         }
 
+        public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
+        {
+            for (int i = 0; i < _altarPartDatas.Length; i++)
+            {
+                AltarPart current = altarData.CreateNewAltarPart(_altarPartDatas[i].name);
+                GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
+                AltarPartBehavior behavior = instance.GetComponent<AltarPartBehavior>();
+                behavior.Spawn(current, this, _altarPartDatas[i].maxCultists, _altarPartDatas[i].maxBuildPoints);
+                altarData.AddAltarPart(current);
+            } 
+        }
+
+        public void InitAltarParts()
+        {
+            for (int i = 0; i < altarData.altarParts.Count; i++)
+            {
+                AltarPart current = altarData.altarParts[i];
+                GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
+                instance.GetComponent<AltarPartBehavior>().Init(current, this);
+            }
+        }
+
+        public System.DateTime ReturnLastTimeReference()
+        {
+            return altarData.lastBuildTimeReference;
+        }
+
+        public void ResetTimeReference()
+        {
+            altarData.ResetBuildTimeReference();
+        }
+
+
         public bool isComplete()
         {
             return (altarData.altarCompletion);
         }
 
-        public void Buy(int _amount)
+        public void Buy(AltarPart _altar)
         {
-            moneyManager.Decrease(_amount);
+            int cost = 0;
+            for (int i = 0; i < altarPartDatas.Length; i++)
+            {
+                if (_altar.altarPartName.Equals(altarPartDatas[i].name))
+                {
+                    cost = altarPartDatas[i].cost;
+                }
+            }
+            if (cost > 0)
+            {
+                if (moneyManager.value >= cost)
+                {
+                    moneyManager.Decrease(cost);
+                    _altar.Buy();
+                }
+            }
+        }
+
+        public AltarPartData ReturnAltarPartData(AltarPart _altar)
+        {
+            AltarPartData result = ScriptableObject.CreateInstance<AltarPartData>();
+            for (int i = 0; i < altarPartDatas.Length; i++)
+            {
+                if (_altar.altarPartName.Equals(altarPartDatas[i].name))
+                {
+                    result = altarPartDatas[i];
+                }
+            }
+            return result;
         }
 
         public void AltarCompletion()
         {
-
             int ctr = 0;
-            for (int i = 0; i < altarPartBehaviors.Length; i++)
+            for (int i = 0; i < altarData.altarParts.Count; i++)
             {
-                if (altarPartBehaviors[i].altarPart.currentBuildPoints.ratio == 1)
+                if (altarData.altarParts[i].currentBuildPoints.ratio == 1)
                 {
                     ctr++;
                 }
             }
-            altarData.altarCompletion = (ctr == altarPartBehaviors.Length);
+            altarData.altarCompletion = (ctr == altarData.altarParts.Count);
+
+            if (altarData.altarCompletion)
+            {
+                puzzleManager.CompletedAltar();
+            }
 
         }
 
@@ -62,16 +141,13 @@ namespace CultManager
         {
             int result = 0;
             
-            /*if (_amountAsked <= assignedCultists.amountLeft) result = _amountAsked;
-            else result = assignedCultists.amountLeft;*/
-
             for (int i = 0; i < assignedCultists.amountLeft; i++)
             {
                 if (result < _amountAsked)
                 {
+                    Debug.Log(i + " " + cult.cultists[i].occupied);
                     if (!cult.cultists[i].occupied)
                     {
-                        Debug.Log("Result " + result);
                         cult.cultists[i].ToggleOccupy();
                         assignedCultists.Increment(1);
                         result++;
@@ -82,15 +158,15 @@ namespace CultManager
                     break;
                 }
             }
-            //assignedCultists.Increment(result);
+            
             return result;
+            
         }
 
         public void UnassignWorkers(int _amount)
         {
-            //assignedCultists.Decrement(_amount);
             int ctr = 0;
-            for (int i = 0; i < assignedCultists.amountLeft; i++)
+            for (int i = 0; i < assignedCultists.value; i++)
             {
                 if (ctr < _amount)
                 {

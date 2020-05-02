@@ -59,15 +59,10 @@ namespace CultManager
             }
         }
 
-        public void InitalizeData()
+        public void ResetData()
         {
-            useSave = SaveManager.saveLoaded;
-
-            if (!useSave /*&& (data.cultists == null || data.cultists.Count == 0)*/)
-            {
-                data.Reset();
-                SetTestCultists(settings.testCultistsAmount);
-            }
+            data.Reset();
+            //SetTestCultists(settings.testCultistsAmount);
         }
 
         public void DecreaseCandidates()

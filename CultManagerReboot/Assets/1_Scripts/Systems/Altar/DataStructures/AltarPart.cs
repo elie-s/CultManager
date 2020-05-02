@@ -9,46 +9,52 @@ namespace CultManager
     public class AltarPart
     {
         public string altarPartName;
-        public int assignedCultists;
         public bool isBought;
+        public IntGauge assignedCultists;
         public IntGauge currentBuildPoints;
 
-        public AltarPart(string _altarPartName,int _assignedCultists, IntGauge _currentBuildPoints,bool _isBought)
+        public AltarPart(string _altarPartName)
         {
             altarPartName = _altarPartName;
-            assignedCultists = _assignedCultists;
-            currentBuildPoints = _currentBuildPoints;
-            isBought = _isBought;
+            isBought = false;
         }
 
         public void Buy()
         {
             isBought = true;
-            Debug.Log("Bought !");
         }
 
-        public void IncreaseAssignedCultists(int _value)
+        public void InitAssignedCultists(int _min, int _max, bool _startFull = true)
         {
-            assignedCultists += _value;
+            assignedCultists = new IntGauge(_min, _max, _startFull);
         }
 
-        public void DecreaseAssignedCultists(int _value)
+        public void IncrementAssignedCultists(int _value)
         {
-            assignedCultists -= _value;
+            assignedCultists.Increment(_value);
         }
 
-        public void ResetAssignedCultists()
+        public void DecrementAssignedCultists(int _value)
         {
-            assignedCultists = 0;
+            assignedCultists.Decrement(_value);
         }
 
-        public void ResetAssignedCultists(int _value)
+        public void SetAssignedCultists()
         {
-            assignedCultists = _value;
+            assignedCultists.SetValue();
         }
 
+        public void SetAssignedCultists(int _value)
+        {
+            assignedCultists.SetValue(_value);
+        }
 
-        public void Init(int _min, int _max, bool _startFull = true)
+        public void SetMaxAssignedCultists(int _value)
+        {
+            assignedCultists.SetMax(_value);
+        }
+
+        public void InitBuildPoints(int _min, int _max, bool _startFull = true)
         {
             currentBuildPoints = new IntGauge(_min, _max, _startFull);
         }

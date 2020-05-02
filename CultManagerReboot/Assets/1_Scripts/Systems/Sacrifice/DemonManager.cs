@@ -13,17 +13,19 @@ namespace CultManager
         [SerializeField] private GameObject spawnPrefab = default;
         [SerializeField] private GameObject persistentDemonPrefab = default;
         [SerializeField] private MoneyManager money = default;
+        [SerializeField] private GameManager game = default;
 
 
 
         private void Start()
         {
-            if (!SaveManager.saveLoaded)
-            {
-                data.Reset();
-                persistentData.Reset();
-            }
             InitSpawns();
+        }
+
+        public void ResetData()
+        {
+            data.Reset();
+            persistentData.Reset();
         }
 
         public void ResetCult(int level)
@@ -44,6 +46,14 @@ namespace CultManager
             GameObject instance = Instantiate(persistentDemonPrefab, transform.position, Quaternion.identity, transform);
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
 
+            Invoke("ResetCultProgress", 10f);
+
+        }
+
+        [ContextMenu("Reset Progress")]
+        void ResetCultProgress()
+        {
+            game.ResetCult(1);
         }
 
         public void KillSpawn(Spawn spawn)

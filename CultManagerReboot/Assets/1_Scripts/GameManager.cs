@@ -34,10 +34,25 @@ namespace CultManager
         {
             currentIsland = CurrentIsland.Origin;
             saveManager?.Loadgame();
-            cultManager?.InitalizeData();
             influenceManager?.InitializeData();
-            policeManager?.InitializeData();
-            moneyManager?.InitializeData();
+
+            if (!SaveManager.saveLoaded)
+            {
+                cultManager.ResetData();
+                policeManager.ResetData();
+                moneyManager.ResetData();
+                puzzeManager.ResetData();
+
+                bloodManager.ResetData();
+                demonManager.ResetData();
+                altarManager.ResetData();
+            }
+
+            else
+            {
+                altarManager.InitAltarParts();
+                puzzeManager.LoadData();
+            }
         }
 
         void Update()
@@ -94,6 +109,7 @@ namespace CultManager
 
             bloodManager.ResetCult(level);
             demonManager.ResetCult(level);
+            altarManager.ResetCult(level);
         }
     }
 }

@@ -16,23 +16,27 @@ namespace CultManager
         [SerializeField] private PatternGenerationSettings[] settings;
         [SerializeField] private PatternGenerationSettings patternSettings;
 
+        [SerializeField] private bool altarComplete;
+        [SerializeField] private SpriteRenderer background;
+
         private Pattern gridConstruction;
         [SerializeField]private List<Segment> patternSegments;
 
 
         private void Start()
         {
-            if (SaveManager.saveLoaded)
-            {
-                display?.DisplayPuzzle(scale);
-            }
-            else
-            {
-                Generate();
-            }
-            //if (data.puzzle != null && data.puzzle.Count > 0) display?.DisplayPuzzle(scale);
-            //else Generate();
+            background.color = new Color(1, 1, 1, 1);
+        }
+
+        public void LoadData()
+        {
+            display?.DisplayPuzzle(scale);
             ClearSelection();
+        }
+
+        public void ResetData()
+        {
+            Generate();
         }
 
         public void ResetCult(int level)
@@ -49,6 +53,12 @@ namespace CultManager
         public void FailedPattern()
         {
             bloodManager.FailedPattern();
+        }
+
+        public void CompletedAltar()
+        {
+            altarComplete = true;
+            background.color = new Color(1, 0, 0, 1);
         }
 
         [ContextMenu("Generate")]
@@ -126,7 +136,7 @@ namespace CultManager
 
         public void AddPattern()
         {
-            if (!altarManager.isComplete())
+            if (altarComplete)
             {
                 demonManager.CreateNewDemon(1, patternSegments.ToArray());
             }

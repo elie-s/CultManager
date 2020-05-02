@@ -476,6 +476,7 @@ MonoBehaviour:
   persistentDemonPrefab: {fileID: 519313156704779299, guid: 10781c2f2bc7b3842a24d2ee54816533,
     type: 3}
   money: {fileID: 2001917036}
+  game: {fileID: 23170187}
 --- !u!224 &597759201 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 712986878647974631, guid: d4a5f8da429358b43bd0a76d22ad8bf0,
@@ -879,6 +880,8 @@ MonoBehaviour:
     shapeSegments: 10
     startAtCenter: 1
     mode: 0
+  altarComplete: 0
+  background: {fileID: 2084946334}
   patternSegments: []
 --- !u!4 &818602610
 Transform:
@@ -1563,6 +1566,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7856119887289877978}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1909438659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6286151945449382042, guid: e42dcf1d04bb43547a20111446f82f83,
+    type: 3}
+  m_PrefabInstance: {fileID: 6286151947310037966}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef5f0dc3abd0854ebbe440a9ec5945f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2001917036 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8352891812592969683, guid: f0ea7065b8b854b44963b55d257d4442,
@@ -1929,7 +1944,7 @@ PrefabInstance:
     - target: {fileID: 798708874607789051, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: m_Name
-      value: Altar
+      value: AltarManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d506f42fab5b1d478b6502b616713aa, type: 3}
@@ -2123,6 +2138,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1574680397873183339, guid: 84b9bbbe044272b4086be98734813c63,
+        type: 3}
+      propertyPath: persistentDemonData
+      value: 
+      objectReference: {fileID: 11400000, guid: ab958d8d674bc6640b5efc743534555a,
+        type: 2}
     - target: {fileID: 1574680397873183348, guid: 84b9bbbe044272b4086be98734813c63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3833,6 +3854,31 @@ PrefabInstance:
       propertyPath: moneyManager
       value: 
       objectReference: {fileID: 2001917036}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: altarManager
+      value: 
+      objectReference: {fileID: 235637589}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: bloodManager
+      value: 
+      objectReference: {fileID: 74884041}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: puzzeManager
+      value: 
+      objectReference: {fileID: 818602609}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: demonManager
+      value: 
+      objectReference: {fileID: 549938590}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: noteTabManager
+      value: 
+      objectReference: {fileID: 1909438659}
     - target: {fileID: 5356637368522100529, guid: 3226607ab569c144ca0c783e89f4aa11,
         type: 3}
       propertyPath: m_Name

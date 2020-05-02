@@ -13,23 +13,29 @@ MonoBehaviour:
   m_Name: AltarData
   m_EditorClassIdentifier: 
   altarParts:
-  - altarPartName: 
-    assignedCultists: 0
+  - altarPartName: Part1
     isBought: 1
+    assignedCultists:
+      _value: 0
+      _max: 5
     currentBuildPoints:
       _value: 100
       _max: 100
-  - altarPartName: 
-    assignedCultists: 0
+  - altarPartName: Part2
     isBought: 1
+    assignedCultists:
+      _value: 1
+      _max: 10
     currentBuildPoints:
-      _value: 600
+      _value: 82
       _max: 600
-  - altarPartName: 
-    assignedCultists: 0
-    isBought: 1
+  - altarPartName: Part3
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 25
     currentBuildPoints:
-      _value: 2500
+      _value: 0
       _max: 2500
-  availableCultists: 80
-  altarCompletion: 1
+  availableCultists: 3
+  altarCompletion: 0

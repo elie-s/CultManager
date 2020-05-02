@@ -10,9 +10,8 @@ namespace CultManager
     public class AltarPanelBehavior : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private AltarManager altarManager;
         [SerializeField] private AltarData altarData;
-        [SerializeField] private AltarPartData[] altarPartDatas;
+        [SerializeField] private AltarManager altarManager;
         [SerializeField] private CurrentPanel thisPanelName;
 
         [Header("Display")]
@@ -23,9 +22,9 @@ namespace CultManager
         [SerializeField] private Image cultistsBar;
         [SerializeField] private TMP_Text costText;
 
-        private AltarPart altarPart;
+        private AltarPart altarPart=>altarData.altarParts[currentId];
+        private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);
         private int currentId;
-        private AltarPartData currentAltarPartData => altarPartDatas[currentId];
 
         private void Start()
         {
@@ -33,6 +32,7 @@ namespace CultManager
             if (GameManager.currentPanel == thisPanelName)
                 Display();
         }
+
 
         private void Update()
         {
@@ -47,7 +47,7 @@ namespace CultManager
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
                 altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;
-                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists/ currentAltarPartData.maxCultists),Time.deltaTime);
+                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists.value),Time.deltaTime);
             }
             else
             {
@@ -63,15 +63,14 @@ namespace CultManager
             altarPartImage.sprite = currentAltarPartData.altarSprite;
             altarPartBar.sprite = currentAltarPartData.altarSprite;
             costText.text = currentAltarPartData.cost.ToString();
-            altarPart = currentAltarPartData.Init(altarData);
 
             altarPartBar.fillAmount = altarPart.currentBuildPoints.ratio;
-            cultistsBar.fillAmount = (float)(altarPart.assignedCultists / currentAltarPartData.maxCultists);
+            cultistsBar.fillAmount = altarPart.assignedCultists.ratio;
         }
 
         public void BuyButton()
         {
-            altarManager.altarPartBehaviors[currentId].BuyButton();
+            altarManager.Buy(altarPart);
         }
 
         public void CloseButton()
@@ -96,7 +95,7 @@ namespace CultManager
 
         public void Next()
         {
-            if (currentId < (altarPartDatas.Length - 1))
+            if (currentId < (altarData.altarParts.Count - 1))
             {
                 currentId += 1;
             }
@@ -115,7 +114,7 @@ namespace CultManager
             }
             else
             {
-                currentId =altarPartDatas.Length;
+                currentId = altarData.altarParts.Count;
             }
             SetCurrentAltarPart();
         }

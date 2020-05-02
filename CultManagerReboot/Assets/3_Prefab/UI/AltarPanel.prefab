@@ -774,12 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a14434e7c216f745bf7d14af3e0e0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  altarManager: {fileID: 0}
   altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
-  altarPartDatas:
-  - {fileID: 11400000, guid: 733e8953f4ee6af42b778a2dbce1f376, type: 2}
-  - {fileID: 11400000, guid: ee3f085dec50c144db47acf0b0bfe2ac, type: 2}
-  - {fileID: 11400000, guid: a6a2eeca376302c45a00a23f76c8ff55, type: 2}
+  altarManager: {fileID: 0}
   thisPanelName: 3
   Panel: {fileID: 5040759309414862080}
   buyButton: {fileID: 1311935254673782448}

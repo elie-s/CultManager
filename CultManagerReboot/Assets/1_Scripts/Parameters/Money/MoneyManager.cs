@@ -7,6 +7,7 @@ namespace CultManager
     public class MoneyManager : MonoBehaviour
     {
         [SerializeField] private MoneyData data = default;
+        public int value => (int)data.value;
 
         public void Increase(int _value)
         {
@@ -18,12 +19,9 @@ namespace CultManager
             data.Decrease((uint)_value);
         }
 
-        public void InitializeData()
+        public void ResetData()
         {
-            if (!SaveManager.saveLoaded)
-            {
-                data.Reset();
-            } 
+            data.Reset();
         }
 
         public void ResetCult(int level)

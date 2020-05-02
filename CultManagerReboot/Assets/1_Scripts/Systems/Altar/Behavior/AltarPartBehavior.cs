@@ -11,43 +11,37 @@ namespace CultManager
         [SerializeField] AltarManager altarManager = default;
 
         [Header("Altar Data")]
-        public AltarPartData altarPartData;
-        public AltarData altarData;
-        public AltarPart altarPart => altarData.altarParts[altarPartData.altarPartIndex];
+        public AltarPart altarPart;
             
-
-        [Header("Cult Parameters")]
-        [SerializeField] private CultData cult = default;
-        [SerializeField] private MoneyData money = default;
 
         private bool isBuilding;
 
         private void Start()
         {
-            if (!SaveManager.saveLoaded)
-            {
-                altarPart.Init(0, altarPartData.maxBuildPoints, false);
-            }
-            else
-            {
-                UpdateBuildProgress();
-            }
         }
 
-        [ContextMenu("BuyAltarPart")]
-        public void BuyButton()
+
+        public void Spawn(AltarPart _altar, AltarManager _manager, int _maxCultists, int _maxBuildPoints)
         {
-            if (money.value >= altarPartData.cost)
-            {
-                altarManager.Buy(altarPartData.cost);
-                altarPart.Buy();
-            }
+            altarPart = _altar;
+            altarManager = _manager;
+            altarPart.InitBuildPoints(0,_maxBuildPoints,false);
+            altarPart.InitAssignedCultists(0, _maxCultists, false);
+        }
+
+
+        public void Init(AltarPart _altar,AltarManager _manager)
+        {
+            altarPart = _altar;
+            altarManager = _manager;
+            if(altarPart.isBought)
+            UpdateBuildProgress();
         }
 
         public void UpdateBuildProgress()
         {
-            System.TimeSpan timeSpan = System.DateTime.Now - altarData.lastBuildTimeReference;
-            int buildPointsToAdd = Mathf.FloorToInt((int)timeSpan.TotalSeconds *altarPart.assignedCultists);
+            System.TimeSpan timeSpan = System.DateTime.Now - altarManager.ReturnLastTimeReference();
+            int buildPointsToAdd = Mathf.FloorToInt((int)timeSpan.TotalSeconds *altarPart.assignedCultists.value);
             altarPart.IncrementBuildPoints(buildPointsToAdd);
         }
 
@@ -63,24 +57,24 @@ namespace CultManager
                         //Debug.Log("Building");
                         if (altarPart.currentBuildPoints.ratio < 1f)
                         {
-                            StartCoroutine(SimulateBuilding(altarPart.assignedCultists));
-                            altarData.ResetBuildTimeReference();
+                            StartCoroutine(SimulateBuilding(altarPart.assignedCultists.value));
+                            altarManager.ResetTimeReference();
                         }
                     }
                 }
                 else
                 {
                     altarManager.AltarCompletion();
-                    altarManager.UnassignWorkers(altarPart.assignedCultists);
-                    altarPart.ResetAssignedCultists();
+                    altarManager.UnassignWorkers(altarPart.assignedCultists.value);
+                    altarPart.SetAssignedCultists();
                 }
             }
         }
 
         void AssignCultists()
         {
-            altarPart.IncreaseAssignedCultists(altarManager.AssignWorkers(altarPartData.maxCultists - altarPart.assignedCultists));
-            Debug.Log((altarPartData.maxCultists - altarPart.assignedCultists));
+            altarPart.IncrementAssignedCultists(altarManager.AssignWorkers(altarPart.assignedCultists.amountLeft));
+            Debug.Log(altarPart.assignedCultists.amountLeft);
         }
 
         IEnumerator SimulateBuilding(int cultistsNum)
@@ -89,11 +83,6 @@ namespace CultManager
             altarPart.IncrementBuildPoints(cultistsNum);
             yield return new WaitForSecondsRealtime(1);
             isBuilding = false;
-        }
-
-        public void Test()
-        {
-            Debug.Log("SOXCESS");
         }
     }
 }

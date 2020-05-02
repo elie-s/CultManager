@@ -16,14 +16,6 @@ namespace CultManager
         [TextArea(2, 6)]
         public string description;
         public Sprite altarSprite;
-
-        AltarPart currentAltarPart;
-
-        public AltarPart Init(AltarData altarData)
-        {
-            currentAltarPart = altarData.altarParts[altarPartIndex];
-            return currentAltarPart;
-        }
     }
 }
 
