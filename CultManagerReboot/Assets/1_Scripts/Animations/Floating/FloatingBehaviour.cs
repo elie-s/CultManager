@@ -14,8 +14,12 @@ namespace CultManager
 
         private Transform transformToUse => floatingObject ? floatingObject : transform;
 
+        private Vector2 startPos;
+
         private void Start()
         {
+            startPos = transform.position;
+
             if(playOnStart) Float();
         }
 
@@ -34,7 +38,9 @@ namespace CultManager
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.magenta;
-            Gizmos.DrawLine(transform.position, transform.position + Vector3.up * settings.span);
+
+            if(Application.isPlaying) Gizmos.DrawLine(startPos, startPos + Vector2.up * settings.span);
+            else Gizmos.DrawLine(transform.position, transform.position + Vector3.up * settings.span);
         }
 
     }

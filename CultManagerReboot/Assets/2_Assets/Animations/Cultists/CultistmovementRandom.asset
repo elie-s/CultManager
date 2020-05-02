@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e626f821329d646aa52db0dfdce475, type: 3}
-  m_Name: Animation
+  m_Script: {fileID: 11500000, guid: 27c8149063b0aa846918c836d298a353, type: 3}
+  m_Name: CultistmovementRandom
   m_EditorClassIdentifier: 
   curve:
     serializedVersion: 2
@@ -18,12 +18,12 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -0.003922131
-      outSlope: -0.003922131
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 3
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.6013289
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
@@ -36,4 +36,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animationDuration: 4
