@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CultManager
 {
-    [CreateAssetMenu(menuName = "CultManager/Juicy/FloatingSettings")]
+    [CreateAssetMenu(menuName = "CultManager/Animations/FloatingSettings")]
     public class FloatingSettings : ScriptableObject
     {
         public float span = 1.0f;
@@ -13,7 +13,7 @@ namespace CultManager
 
         public IEnumerator Play(Transform _transform)
         {
-            Iteration iteration = new Iteration(set.animationDuration/2.0f, set.curve);
+            Iteration iteration = new Iteration(set.animationDuration / 2.0f, set.curve);
 
             Vector2 startPos = _transform.position;
             Vector2 endPos = startPos + Vector2.up * span;
@@ -26,7 +26,7 @@ namespace CultManager
             }
 
             _transform.position = endPos;
-            iteration = new Iteration(set.animationDuration, set.curve);
+            iteration = new Iteration(set.animationDuration / 2.0f, set.curve);
 
             while (iteration.isBelowOne)
             {
@@ -53,7 +53,7 @@ namespace CultManager
             }
 
             _transform.localPosition = endPos;
-            iteration = new Iteration(set.animationDuration, set.curve);
+            iteration = new Iteration(set.animationDuration / 2.0f, set.curve);
 
             while (iteration.isBelowOne)
             {
