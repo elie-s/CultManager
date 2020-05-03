@@ -10,17 +10,18 @@ namespace CultManager
         [SerializeField] private Camera cam = default;
         [SerializeField] private UnityEvent onTransitionStart = default;
         [SerializeField] private UnityEvent onTransitionEnd = default;
+        [SerializeField] private CameraTarget origin = default;
         [SerializeField] private CameraTarget[] targets = default;
         [SerializeField] private CameraControllerSettings settings = default;
 
+
         public static bool isAtOrigin;
 
-        private CameraTarget origin;
         private bool locked;
 
         private void OnEnable()
         {
-            InitCam();
+            //InitCam();
             isAtOrigin = true;
         }
 
@@ -69,13 +70,13 @@ namespace CultManager
 
             while (iteration.isBelowOne)
             {
-                cam.transform.localPosition = Vector2.Lerp(startPosition, _target.position, iteration.curveEvaluation);
+                cam.transform.localPosition = Vector2.Lerp(startPosition, _target.waypoint.position, iteration.curveEvaluation);
                 cam.orthographicSize = Mathf.Lerp(startSize, _target.size, iteration.curveEvaluation);
 
                 yield return iteration.YieldIncrement();
             }
 
-            cam.transform.localPosition = _target.position;
+            cam.transform.localPosition = _target.waypoint.position;
             cam.orthographicSize = _target.size;
             locked = false;
             onTransitionEnd.Invoke();

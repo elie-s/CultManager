@@ -7,18 +7,18 @@ namespace CultManager
     [System.Serializable]
     public struct CameraTarget
     {
-        public Vector2 position;
+        public Transform waypoint;
         public float size;
 
-        public CameraTarget(Vector2 _position, float _size)
+        public CameraTarget(Transform _position, float _size)
         {
-            position = _position;
+            waypoint = _position;
             size = _size;
         }
 
         public CameraTarget(Camera _cam)
         {
-            position = _cam.transform.localPosition;
+            waypoint = _cam.transform;
             size = _cam.orthographicSize;
         }
     }

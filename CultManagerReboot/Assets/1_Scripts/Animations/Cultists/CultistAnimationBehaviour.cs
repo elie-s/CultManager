@@ -76,6 +76,8 @@ namespace CultManager
 
         private Vector2 GetNewPos()
         {
+            if (!platform) return transform.localPosition;
+
             Vector2 result = default;
 
             do

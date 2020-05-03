@@ -7,7 +7,7 @@ namespace CultManager
     {
         //[SerializeField] private DebugInstance debug = default;
         [SerializeField] private GameManager gameManager = default;
-        //[SerializeField] private CultistSpawner spawner = default;
+        [SerializeField] private CultistsDisplayer cultistsDisplayer = default;
         [SerializeField] private CultData data = default;
         [SerializeField] private int currentCandidatesDebug = 0;
         [SerializeField] private CultSettings settings = default;
@@ -15,6 +15,11 @@ namespace CultManager
 
 
         private bool useSave = false;
+
+        private void Start()
+        {
+            cultistsDisplayer?.DisplayNewCultists(data.cultists.ToArray());
+        }
 
         public void ResetCult(int level)
         {
@@ -50,13 +55,14 @@ namespace CultManager
             foreach (Cultist cultist in _cultists)
             {
                 data.AddCultist(cultist);
-                //spawner?.SpawnNewCultist();
             }
 
             if (useSave)
             {
                 gameManager.SaveGame();
             }
+
+            cultistsDisplayer?.DisplayNewCultists(_cultists);
         }
 
         public void ResetData()
