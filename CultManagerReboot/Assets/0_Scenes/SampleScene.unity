@@ -1437,7 +1437,7 @@ PrefabInstance:
     - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
       propertyPath: useMouse
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
@@ -2939,18 +2939,6 @@ MonoBehaviour:
   lerpValue: 0
   lerpSpeed: 0.15
   toLerp: 0
---- !u!114 &1616811577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4180281346566004004, guid: e3125edfe5c2a3c4082e58d52238ea20,
-    type: 3}
-  m_PrefabInstance: {fileID: 1693679172912823071}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf7d5ba27cac1468fdb5419855d954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1616811578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8632523938509658024, guid: e3125edfe5c2a3c4082e58d52238ea20,
