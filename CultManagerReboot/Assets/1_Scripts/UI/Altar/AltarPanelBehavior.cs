@@ -16,6 +16,7 @@ namespace CultManager
 
         [Header("Display")]
         [SerializeField] private GameObject Panel;
+        [SerializeField] private GameObject demonPanel;
         [SerializeField] private GameObject buyButton;
         [SerializeField] private Image altarPartImage;
         [SerializeField] private Image altarPartBar;
@@ -90,10 +91,10 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None)
             {
                 GameManager.currentPanel = thisPanelName;
+                demonPanel.SetActive(altarData.altarCompletion);
                 Panel.SetActive(true);
                 SetCurrentAltarPart();
             }
-            
         }
 
         public void Next()
@@ -120,6 +121,12 @@ namespace CultManager
                 currentId = altarData.altarParts.Count-1;
             }
             SetCurrentAltarPart();
+        }
+
+        public void DemonSummon()
+        {
+            CloseButton();
+            altarManager.DemonSummon();
         }
 
     }

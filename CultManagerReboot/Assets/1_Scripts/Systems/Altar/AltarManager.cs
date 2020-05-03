@@ -16,6 +16,8 @@ namespace CultManager
         [SerializeField] private CultData cult = default;
         [SerializeField] private MoneyManager moneyManager;
         [SerializeField] private PuzzeManager puzzleManager;
+        [SerializeField] private BloodBankUIDisplay bloodBankUI;
+        [SerializeField] private CameraController controller;
 
         [Header("New Addition")]
         [SerializeField] public GameObject altarPartPrefab;
@@ -45,11 +47,6 @@ namespace CultManager
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
             assignedCultists.SetMax(altarData.availableCultists);
-
-            if (altarData.altarCompletion)
-            {
-                puzzleManager.CompletedAltar();
-            }
         }
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
@@ -62,6 +59,13 @@ namespace CultManager
                 behavior.Spawn(current, this, _altarPartDatas[i].maxCultists, _altarPartDatas[i].maxBuildPoints);
                 altarData.AddAltarPart(current);
             } 
+        }
+
+        public void DemonSummon()
+        {
+            puzzleManager.CompletedAltar();
+            controller.Transition(4);
+            bloodBankUI.Open();
         }
 
         public void InitAltarParts()

@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: AltarData
   m_EditorClassIdentifier: 
   altarParts:
-  - altarPartName: Part1
-    isBought: 1
+  - altarPartName: 1_Legs
+    isBought: 0
     assignedCultists:
       _value: 0
       _max: 5
     currentBuildPoints:
-      _value: 100
+      _value: 0
       _max: 100
-  - altarPartName: Part2
-    isBought: 1
+  - altarPartName: 2_Belly
+    isBought: 0
     assignedCultists:
-      _value: 1
+      _value: 0
       _max: 10
     currentBuildPoints:
-      _value: 82
-      _max: 600
-  - altarPartName: Part3
+      _value: 0
+      _max: 400
+  - altarPartName: 3_Shoulder
     isBought: 0
     assignedCultists:
       _value: 0
@@ -37,5 +37,29 @@ MonoBehaviour:
     currentBuildPoints:
       _value: 0
       _max: 2500
-  availableCultists: 3
+  - altarPartName: 4_Wing1
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 50
+    currentBuildPoints:
+      _value: 0
+      _max: 15000
+  - altarPartName: 5_Wing2
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 80
+    currentBuildPoints:
+      _value: 0
+      _max: 40000
+  - altarPartName: 6_Head
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 100
+    currentBuildPoints:
+      _value: 0
+      _max: 90000
+  availableCultists: 0
   altarCompletion: 0

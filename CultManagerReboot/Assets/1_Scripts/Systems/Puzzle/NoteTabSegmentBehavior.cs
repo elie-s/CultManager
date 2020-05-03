@@ -11,9 +11,14 @@ namespace CultManager
         [SerializeField] private Color[] selectionColors = default;
         [SerializeField] private int index=0;
 
-        private NoteTabPanelBehavior panelBehavior;
+        [SerializeField]private NoteTabPanelBehavior panelBehavior;
 
         private Color currentColor => selectionColors[index];
+
+        private void Start()
+        {
+            panelBehavior = FindObjectOfType<NoteTabPanelBehavior>();
+        }
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
@@ -28,6 +33,7 @@ namespace CultManager
         protected override void SetColor()
         {
             UIRenderer.color = currentColor;
+            //panelBehavior.SetIndex(segment.segment, index);
         }
 
         public void ToggleSelction()
@@ -41,6 +47,7 @@ namespace CultManager
                 index = 0;
             }
             SetColor();
+            
         }
     }
 }

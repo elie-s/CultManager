@@ -20,6 +20,7 @@ namespace CultManager
         private void Start()
         {
             InitSpawns();
+            InitPersistent();
         }
 
         public void ResetData()

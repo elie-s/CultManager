@@ -21,6 +21,9 @@ namespace CultManager
         [SerializeField] private NoteTabPanelBehavior noteTabManager = default;
 
 
+        [SerializeField] private ResetScreen reset = default;
+
+
 
         public static CurrentIsland currentIsland;
         public static CurrentPanel currentPanel;
@@ -100,8 +103,17 @@ namespace CultManager
             Application.Quit();
         }
 
+        [ContextMenu("Reset Cult")]
+
+        public void ResetThisCult()
+        {
+            ResetCult(0);
+        }
+
         public void ResetCult(int level)
         {
+            reset.ActivateReset();
+
             cultManager.ResetCult(level);
             policeManager.ResetCult(level);
             moneyManager.ResetCult(level);

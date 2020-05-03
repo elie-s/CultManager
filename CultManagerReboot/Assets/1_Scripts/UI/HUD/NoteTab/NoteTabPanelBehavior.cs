@@ -27,10 +27,43 @@ namespace CultManager
         void Start()
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
+            if (data.noteTabSegments.Count != puzzle.puzzle.Count)
+            {
+                SetNoteTabSegments();
+            }
         }
 
         public void SetNoteTabSegments()
         {
+            for (int i = 0; i < puzzle.puzzle.Count; i++)
+            {
+                NoteTabSegment segment = new NoteTabSegment(puzzle.puzzle[i].segment, 0);
+                data.AddSegment(segment);
+            }
+        }
+
+        public void SetIndex(Segment segment,int index)
+        {
+            for (int i = 0; i < data.noteTabSegments.Count; i++)
+            {
+                if (data.noteTabSegments[i].segment.Equals(segment))
+                {
+                    data.noteTabSegments[i].SetColorIndex(index);
+                }
+            }
+        }
+
+        public int GetIndex(Segment segment)
+        {
+            int index = 0;
+            for(int i = 0; i < data.noteTabSegments.Count; i++)
+            {
+                if (data.noteTabSegments[i].segment.Equals(segment))
+                {
+                    index = data.noteTabSegments[i].colorIndex;
+                }
+            }
+            return index;
         }
 
         // Update is called once per frame
@@ -127,6 +160,7 @@ namespace CultManager
         public void Display()
         {
             display.DisplayPuzzle(50f);
+            
         }
 
 
