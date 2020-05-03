@@ -658,6 +658,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2468974105333482010}
   - component: {fileID: 827821500734421165}
+  - component: {fileID: 4944184079848147677}
+  - component: {fileID: 7865159136979746164}
   m_Layer: 0
   m_Name: WaitingCandidates
   m_TagString: Untagged
@@ -673,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7160433361434335263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 3.25, z: 0}
+  m_LocalPosition: {x: -0.75, y: 3.111, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3614222731466229901}
@@ -713,6 +715,62 @@ MonoBehaviour:
   - {fileID: 3984239213376978939}
   - {fileID: 1400824436524936845}
   data: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+--- !u!114 &4944184079848147677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160433361434335263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  col: {fileID: 7865159136979746164}
+  onAreaClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: StartRecruitment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  reqdPanel: 0
+  reqdIsland: 1
+--- !u!61 &7865159136979746164
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160433361434335263}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.6798748, y: 0.43058252}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.4857955, y: 1.7755681}
+    newSize: {x: 35, y: 25.002441}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43589664, y: 0.7366791}
+  m_EdgeRadius: 0
 --- !u!1 &7601074057788348141
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,8 +952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7734288337918836915}
   - component: {fileID: 7734288337918836912}
-  - component: {fileID: 7734288337918836926}
-  - component: {fileID: 7734288337918836913}
   m_Layer: 0
   m_Name: RenderGraphicRecruitment
   m_TagString: Untagged
@@ -967,62 +1023,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7734288337918836926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7734288337918836914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  col: {fileID: 7734288337918836913}
-  onAreaClicked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartRecruitment
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  reqdPanel: 0
-  reqdIsland: 1
---- !u!61 &7734288337918836913
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7734288337918836914}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.4258822, y: 0.43058252}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.4857955, y: 1.7755681}
-    newSize: {x: 35, y: 25.002441}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9438818, y: 0.7366791}
-  m_EdgeRadius: 0
 --- !u!1 &8058673636097122961
 GameObject:
   m_ObjectHideFlags: 0

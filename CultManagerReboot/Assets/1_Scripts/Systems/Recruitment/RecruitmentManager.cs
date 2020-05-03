@@ -48,14 +48,15 @@ namespace CultManager
         public void NextCard()
         {
             cardMovement.ResetValues();
+            if(currentCandidate==null)
             currentCandidate = CreateCandidate();
             Sprite sprite = settings.cultistThumbnails[currentCandidate.cultist.spriteIndex];
             string name = currentCandidate.cultist.cultistName;
             int age = currentCandidate.cultist.age;
             int policeValue = currentCandidate.policeValue;
             int moneyValue = currentCandidate.moneyValue;
-            CultistTraits traits = currentCandidate.cultist.traits;
-            cardDisplay.Display(sprite, name, age, policeValue, moneyValue,traits);
+            BloodType type = currentCandidate.cultist.blood;
+            cardDisplay.Display(sprite, name, age, policeValue, moneyValue,type);
         }
 
         private void UpdateCult()

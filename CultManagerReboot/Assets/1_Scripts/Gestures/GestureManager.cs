@@ -59,7 +59,7 @@ namespace CultManager
                     Gesture.DeltaMovement = movement - Gesture.Movement;
                     Gesture.Movement = movement;
 
-                    Debug.Log("mvt: " + Gesture.DeltaMovement.x);
+                    //Debug.Log("mvt: " + Gesture.DeltaMovement.x);
                 }
 
                 oldPos = AdjustedViewportRatioPosition(Input.mousePosition);

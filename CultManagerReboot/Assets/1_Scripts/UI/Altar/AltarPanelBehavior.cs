@@ -21,6 +21,7 @@ namespace CultManager
         [SerializeField] private Image altarPartBar;
         [SerializeField] private Image cultistsBar;
         [SerializeField] private TMP_Text costText;
+        [SerializeField] private TMP_Text cultistsText;
 
         private AltarPart altarPart=>altarData.altarParts[currentId];
         private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);
@@ -47,7 +48,8 @@ namespace CultManager
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
                 altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;
-                cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists.value),Time.deltaTime);
+                //cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists.value),Time.deltaTime);
+                cultistsText.text = altarPart.assignedCultists.value.ToString();
             }
             else
             {
@@ -65,7 +67,8 @@ namespace CultManager
             costText.text = currentAltarPartData.cost.ToString();
 
             altarPartBar.fillAmount = altarPart.currentBuildPoints.ratio;
-            cultistsBar.fillAmount = altarPart.assignedCultists.ratio;
+            //cultistsBar.fillAmount = altarPart.assignedCultists.ratio;
+            cultistsText.text = altarPart.assignedCultists.value.ToString();
         }
 
         public void BuyButton()
@@ -114,7 +117,7 @@ namespace CultManager
             }
             else
             {
-                currentId = altarData.altarParts.Count;
+                currentId = altarData.altarParts.Count-1;
             }
             SetCurrentAltarPart();
         }

@@ -23,6 +23,7 @@ namespace CultManager
         void Start()
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
+            
         }
 
         // Update is called once per frame
@@ -51,15 +52,16 @@ namespace CultManager
                         break;
                 }
             }
-            Display();
+            
         }
 
 
         public void LerpMovement(Transform initial, Transform target)
         {
-            if (Vector2.Distance(transform.position, target.position) > 5f)
+            if (Vector2.Distance(transform.position, target.position) > 1f)
             {
-                rectTransform.position = Vector2.Lerp(transform.position, target.position, lerpCurve.lerpCurve.Evaluate(lerpCurve.lerpValue)*Time.deltaTime);
+                rectTransform.position = Vector2.Lerp(transform.position, target.position,Time.deltaTime);
+                //lerpCurve.lerpCurve.Evaluate(lerpCurve.lerpValue) * Time.deltaTime
             }
             else
             {
@@ -84,6 +86,7 @@ namespace CultManager
 
                         case "right":
                             {
+                                Display();
                                 direction = "left";
                                 GameManager.currentPanel = thisPanelName;
                             }

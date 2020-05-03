@@ -141,21 +141,16 @@ namespace CultManager
         {
             int result = 0;
             
-            for (int i = 0; i < assignedCultists.amountLeft; i++)
+            for (int i = 0; i < altarData.availableCultists; i++)
             {
                 if (result < _amountAsked)
                 {
-                    Debug.Log(i + " " + cult.cultists[i].occupied);
                     if (!cult.cultists[i].occupied)
                     {
                         cult.cultists[i].ToggleOccupy();
                         assignedCultists.Increment(1);
                         result++;
                     }
-                }
-                else
-                {
-                    break;
                 }
             }
             
@@ -166,7 +161,7 @@ namespace CultManager
         public void UnassignWorkers(int _amount)
         {
             int ctr = 0;
-            for (int i = 0; i < assignedCultists.value; i++)
+            for (int i = 0; i < altarData.availableCultists; i++)
             {
                 if (ctr < _amount)
                 {
@@ -176,10 +171,6 @@ namespace CultManager
                         assignedCultists.Decrement(1);
                         ctr++;
                     }
-                }
-                else
-                {
-                    break;
                 }
             }
         }
