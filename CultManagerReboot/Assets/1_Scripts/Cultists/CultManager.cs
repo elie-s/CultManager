@@ -81,6 +81,21 @@ namespace CultManager
             data.AddCandidateToCount();
         }
 
+        public void RemoveCutlist(Cultist _cultist)
+        {
+            data.RemoveCultist(_cultist);
+        }
+
+        public void GetToSacrifice()
+        {
+            cultistsDisplayer.DisplaySacrificeCultists(data.cultists.ToArray());
+        }
+
+        public void QuitSacrifice()
+        {
+            cultistsDisplayer.RemoveSacrificeCultists(data.cultists.ToArray());
+        }
+
         [ContextMenu("Reset Cult List")]
         private void ResetCultistList()
         {

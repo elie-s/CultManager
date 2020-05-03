@@ -10,6 +10,7 @@ namespace CultManager
         [SerializeField] private CultData data = default;
         [SerializeField] private GameObject cultistPrefab = default;
         [SerializeField] private IslandManager[] islandManagers = default;
+        [SerializeField] private SacrificeIslandManager sacrificeIslandManager = default;
 
         [ContextMenu("Display Cultists")]
         public void DisplayCultists()
@@ -63,6 +64,19 @@ namespace CultManager
             {
                 islandManagers[0].SpawnCultists(toDisplay.ToArray(), cultistPrefab);
             }
+        }
+
+        public void DisplaySacrificeCultists(Cultist[] _cultists)
+        {
+            sacrificeIslandManager.SpawnCultists(_cultists, cultistPrefab);
+        }
+
+        public void RemoveSacrificeCultists(Cultist[] _cultists)
+        {
+            foreach (Cultist cultist in _cultists)
+            {
+                sacrificeIslandManager.RemoveCultist(cultist);
+            }   
         }
 
         public void RemoveCultists(Cultist[] _cultist)

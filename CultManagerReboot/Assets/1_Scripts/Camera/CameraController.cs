@@ -38,11 +38,28 @@ namespace CultManager
             StartCoroutine(TransitionRoutine(_target));
         }
 
+        public void SetTo(CameraTarget _target)
+        {
+            if (locked) return;
+
+            StartCoroutine(SetWithDelay(_target));
+        }
+
         public void Transition(int _index)
         {
             if (GameManager.currentPanel == CurrentPanel.None )
             {
                 Transition(targets[_index]);
+                GameManager.currentIsland = (CurrentIsland)(_index + 1);
+                isAtOrigin = false;
+            }
+        }
+
+        public void SetTo(int _index)
+        {
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                SetTo(targets[_index]);
                 GameManager.currentIsland = (CurrentIsland)(_index + 1);
                 isAtOrigin = false;
             }
@@ -56,7 +73,16 @@ namespace CultManager
                 GameManager.currentIsland = (CurrentIsland)(0);
                 isAtOrigin = true;
             }
-            
+        }
+
+        public void SetToOrigin()
+        {
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                SetTo(origin);
+                GameManager.currentIsland = (CurrentIsland)(0);
+                isAtOrigin = true;
+            }
         }
 
         private IEnumerator TransitionRoutine(CameraTarget _target)
@@ -78,6 +104,22 @@ namespace CultManager
 
             cam.transform.localPosition = _target.waypoint.position;
             cam.orthographicSize = _target.size;
+            locked = false;
+            onTransitionEnd.Invoke();
+        }
+
+        private IEnumerator SetWithDelay(CameraTarget _target)
+        {
+            locked = true;
+            onTransitionStart.Invoke();
+
+            yield return new WaitForSeconds(settings.transitionDuration / 2.0f);
+
+            cam.transform.localPosition = _target.waypoint.position;
+            cam.orthographicSize = _target.size;
+
+            yield return new WaitForSeconds(settings.transitionDuration / 2.0f);
+
             locked = false;
             onTransitionEnd.Invoke();
         }
