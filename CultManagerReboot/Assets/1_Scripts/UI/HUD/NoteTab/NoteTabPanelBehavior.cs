@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CultManager.HexagonalGrid;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace CultManager
 {
     public class NoteTabPanelBehavior : MonoBehaviour
     {
+        [SerializeField] private NoteTabData data = default;
         [SerializeField] private Transform starPoint;
         [SerializeField] private Transform endPoint;
         [SerializeField] private LerpCurve lerpCurve;
@@ -108,6 +110,10 @@ namespace CultManager
         public void Display()
         {
             display.DisplayPuzzle(50f);
+        }
+
+        public void SetIcon(Segment segment,int index)
+        {
         }
     }
 }

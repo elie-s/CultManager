@@ -10,6 +10,13 @@ namespace CultManager
         [SerializeField] private BloodBankManager bloodManager;
         [SerializeField] private int cultistBloodValue = 10;
 
+        private void OnEnable()
+        {
+            if (bloodManager == null)
+            {
+                bloodManager = FindObjectOfType<BloodBankManager>();
+            }
+        }
 
         void AddCultistBlood(Cultist _cultist)
         {

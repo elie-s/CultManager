@@ -11,40 +11,40 @@ namespace CultManager
         [SerializeField] public CameraController controller;
         [SerializeField] private int index = 0;
 
+        [SerializeField] private bool isRunning;
+
         private void Update()
         {
-            //currentIsland = GameManager.currentIsland;
+            currentIsland = GameManager.currentIsland;
             //index = (int)currentIsland - 1;
-            if (Gesture.Movement.magnitude > 0.5f)
+
+            if (GameManager.currentIsland != CurrentIsland.Origin && GameManager.currentIsland != CurrentIsland.SummonArea && !isRunning)
             {
-
-                if (GameManager.currentIsland != CurrentIsland.Origin && GameManager.currentIsland != CurrentIsland.SummonArea)
-                {
-                    index = (int)GameManager.currentIsland - 1;
-                    ChangeIsland();
-                }
+                index = (int)GameManager.currentIsland - 1;
+                ChangeIsland();
             }
-
-
         }
 
         void ChangeIsland()
         {
             if (Gesture.DeltaMovement.y > 0.05f)
             {
+                isRunning = true;
                 if (index > 0)
                 {
                     controller.Transition(index--);
                 }
                 else
                 {
-                    controller.Transition(2);
+                    controller.Transition(3);
                 }
+                Invoke("FlipBool", 0.25f);
 
             }
             else if (Gesture.DeltaMovement.y < -0.05f)
             {
-                if (index < 2)
+                isRunning = true;
+                if (index < 3)
                 {
                     controller.Transition(index++);
                 }
@@ -52,6 +52,15 @@ namespace CultManager
                 {
                     controller.Transition(0);
                 }
+                Invoke("FlipBool", 0.25f);
+            }
+        }
+
+        void FlipBool()
+        {
+            if (isRunning)
+            {
+                isRunning = false;
             }
         }
     }

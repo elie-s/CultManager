@@ -9,22 +9,17 @@ namespace CultManager
     [System.Serializable]
     public class NoteTabSegment
     {
-        public float[] node1= new float[2];
-        public float[] node2= new float[2];
-        public int iconIndex;
+        public Segment segment;
+        public int colorIndex;
 
-        public NoteTabSegment(Segment _segment, int _iconIndex)
+        public NoteTabSegment(Segment _segment, int _colorIndex)
         {
-            node1[0] = _segment.a.x;
-            node1[1] = _segment.a.y;
-            node2[0] = _segment.b.x;
-            node2[1] = _segment.b.y;
-            iconIndex = _iconIndex;
+            colorIndex = _colorIndex;
         }
 
-        public void SetIconIndex(int _iconIndex)
+        public void SetColorIndex(int _colorIndex)
         {
-            iconIndex = _iconIndex;
+            colorIndex = _colorIndex;
         }
     }
 }

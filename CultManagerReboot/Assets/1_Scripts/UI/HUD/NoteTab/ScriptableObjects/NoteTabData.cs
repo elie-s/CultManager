@@ -19,6 +19,21 @@ namespace CultManager
             }
         }
 
+        public void AddSegment(NoteTabSegment noteTabSegment)
+        {
+            noteTabSegments.Add(noteTabSegment);
+        }
+
+        public void RemoveSegment(NoteTabSegment noteTabSegment)
+        {
+            noteTabSegments.Remove(noteTabSegment);
+        }
+
+        public void Reset()
+        {
+            noteTabSegments.Clear();
+        }
+
 
         public void LoadSave(Save _save)
         {

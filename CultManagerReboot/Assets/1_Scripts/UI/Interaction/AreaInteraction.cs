@@ -12,8 +12,13 @@ namespace CultManager
         [SerializeField] private Collider2D col;
         [SerializeField] private UnityEvent onAreaClicked = default;
 
-        public CurrentPanel reqdPanel=CurrentPanel.None; 
-        public CurrentIsland reqdIsland=CurrentIsland.All; 
+        public static bool isUsed;
+
+        [SerializeField] private bool current;
+        [SerializeField] private bool local;
+
+        public CurrentPanel reqdPanel = CurrentPanel.None;
+        public CurrentIsland reqdIsland = CurrentIsland.All;
 
         private void OnEnable()
         {
@@ -22,17 +27,23 @@ namespace CultManager
 
         void Update()
         {
-            if (GameManager.currentIsland == CurrentIsland.All || GameManager.currentIsland==reqdIsland)
+            current = isUsed;
+            if (GameManager.currentIsland == CurrentIsland.All || GameManager.currentIsland == reqdIsland)
             {
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
+
+
                     col.enabled = true;
                     if (Input.GetMouseButtonDown(0))
                     {
                         Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                        if (col.OverlapPoint(worldPos))
+                        if (col.OverlapPoint(worldPos) && !isUsed)
                         {
+                            local = true;
+                            isUsed = true;
                             onAreaClicked.Invoke();
+                            Invoke("FlipBool", 0.25f);
                         }
                     }
                 }
@@ -40,7 +51,7 @@ namespace CultManager
                 {
                     DisableCollider();
                 }
-                
+
             }
             else
             {
@@ -52,6 +63,15 @@ namespace CultManager
         void DisableCollider()
         {
             col.enabled = false;
+        }
+
+        void FlipBool()
+        {
+            if (isUsed)
+            {
+                isUsed = false;
+            }
+            local = false;
         }
     }
 }

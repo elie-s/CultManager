@@ -10,9 +10,10 @@ namespace CultManager
         All = -1,
         Origin =0,
         RecruitmentIsland=1,
-        AltarIsland=2,
-        PuzzleIsland=3,
-        SummonArea=4,
+        SacrificeIsland=2,
+        AltarIsland=3,
+        PuzzleIsland=4,
+        SummonArea=5,
     }
     public enum CurrentPanel
     {

@@ -422,6 +422,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleDisplayUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1666608827206791543, guid: 8ae32200db25eda45b9e9521af91f36e,
+        type: 3}
+      propertyPath: segmentPrefab
+      value: 
+      objectReference: {fileID: 7954144254086272377, guid: f48785823139a7543a2212629db1fd78,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae32200db25eda45b9e9521af91f36e, type: 3}
 --- !u!224 &9017270751677061872 stripped
