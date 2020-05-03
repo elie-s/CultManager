@@ -57,8 +57,12 @@ namespace CultManager
 
         public void CompletedAltar()
         {
-            altarComplete = true;
-            background.color = new Color(1, 0, 0, 1);
+            if (!altarComplete)
+            {
+                altarComplete = true;
+                background.color = new Color(1, 0, 0, 1);
+            }
+            
         }
 
         [ContextMenu("Generate")]
@@ -138,11 +142,11 @@ namespace CultManager
         {
             if (altarComplete)
             {
-                demonManager.CreateNewDemon(1, patternSegments.ToArray());
+                demonManager.CreateNewPersistentDemon(1);
             }
             else
             {
-                demonManager.CreateNewPersistentDemon(1);
+                demonManager.CreateNewDemon(1, patternSegments.ToArray());
             }
             
             ClearSelection();

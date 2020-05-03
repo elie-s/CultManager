@@ -23,6 +23,7 @@ namespace CultManager
         AltarPanel = 3,
         PuzzlePanel = 4,
         DemonBook = 5,
+        HotKeys=6,
     }
 }
 

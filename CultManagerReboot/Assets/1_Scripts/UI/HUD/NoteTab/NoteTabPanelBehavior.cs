@@ -10,6 +10,7 @@ namespace CultManager
     public class NoteTabPanelBehavior : MonoBehaviour
     {
         [SerializeField] private NoteTabData data = default;
+        [SerializeField] private PuzzleData puzzle = default;
         [SerializeField] private Transform starPoint;
         [SerializeField] private Transform endPoint;
         [SerializeField] private LerpCurve lerpCurve;
@@ -26,6 +27,10 @@ namespace CultManager
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
             
+        }
+
+        public void SetNoteTabSegments()
+        {
         }
 
         // Update is called once per frame
@@ -112,9 +117,7 @@ namespace CultManager
             display.DisplayPuzzle(50f);
         }
 
-        public void SetIcon(Segment segment,int index)
-        {
-        }
+
     }
 }
 

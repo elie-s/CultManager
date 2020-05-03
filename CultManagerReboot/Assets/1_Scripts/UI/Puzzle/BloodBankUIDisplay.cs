@@ -15,8 +15,13 @@ namespace CultManager
         [SerializeField] private Image[] BloodBars;
         [SerializeField] private GameObject hud;
 
+        [SerializeField] private Image transition;
+        [SerializeField] private float lerpValue;
+        [SerializeField] private bool toLerp;
+
         private void Start()
         {
+            transition.gameObject.SetActive(false);
             if (!SaveManager.saveLoaded)
             {
                 data.Reset();
@@ -26,6 +31,11 @@ namespace CultManager
         private void Update()
         {
             Display();
+
+            if (toLerp)
+            {
+                TransitionScreen();
+            }
         }
         void Display()
         {
@@ -40,6 +50,10 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None)
             {
                 GameManager.currentPanel = thisPanelName;
+                transition.gameObject.SetActive(true);
+                transition.color = new Color(0, 0, 0, 1);
+                lerpValue = 0;
+                toLerp = true;
                 hud.SetActive(true);
             }
         }
@@ -48,11 +62,19 @@ namespace CultManager
         {
             if (GameManager.currentPanel == thisPanelName)
             {
+                GameManager.currentPanel = CurrentPanel.None;
+                transition.color = new Color(0, 0, 0, 1);
+                lerpValue = 0;
+                toLerp = true;
                 puzzle.ClearSelection();
                 puzzle.FailedPattern();
-                GameManager.currentPanel = CurrentPanel.None;
                 camControl.TransitionToOrigin();
                 hud.SetActive(false);
+
+                if (!toLerp)
+                {
+                    transition.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -61,7 +83,23 @@ namespace CultManager
             puzzle.SummonIt();
         }
 
-        
+
+        public void TransitionScreen()
+        {
+            if (lerpValue < 1)
+            {
+                transition.raycastTarget = true;
+                lerpValue += 0.6f * Time.deltaTime;
+                float a = Mathf.SmoothStep(1, 0, lerpValue);
+                transition.color = new Color(0, 0, 0, a);
+            }
+            else
+            {
+                transition.raycastTarget = false;
+                toLerp = false;
+            }
+            
+        }
     }
 }
 

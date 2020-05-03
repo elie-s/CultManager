@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7633088976329611759
+--- !u!1 &5848587440197987199
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 577457566509435322}
-  - component: {fileID: 8985069528318497721}
-  - component: {fileID: 1828285358226170000}
+  - component: {fileID: 3573714414904134006}
+  - component: {fileID: 8538328561231045941}
+  - component: {fileID: 5892891853750727900}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &577457566509435322
+  m_IsActive: 0
+--- !u!224 &3573714414904134006
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633088976329611759}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 5848587440197987199}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -34,38 +34,38 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 784, y: 743}
-  m_SizeDelta: {x: 720, y: 1480}
+  m_AnchoredPosition: {x: 0, y: 829}
+  m_SizeDelta: {x: 750, y: 1800}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8985069528318497721
+--- !u!222 &8538328561231045941
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633088976329611759}
+  m_GameObject: {fileID: 5848587440197987199}
   m_CullTransparentMesh: 0
---- !u!114 &1828285358226170000
+--- !u!114 &5892891853750727900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633088976329611759}
+  m_GameObject: {fileID: 5848587440197987199}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c62295d1123d50348bea7133a4b59002, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a70c6656d09912d408a496d3b6adb1d9, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -175,7 +175,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7856119886277470058}
-  - {fileID: 577457566509435322}
+  - {fileID: 3573714414904134006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -201,10 +201,13 @@ MonoBehaviour:
   puzzle: {fileID: 0}
   camControl: {fileID: 0}
   BloodBars:
+  - {fileID: 7856119886946408837}
   - {fileID: 7856119886791836542}
   - {fileID: 7856119885813461482}
-  - {fileID: 7856119886946408837}
   hud: {fileID: 7856119886277470069}
+  transition: {fileID: 5892891853750727900}
+  lerpValue: 0
+  toLerp: 0
 --- !u!1 &7856119885813461492
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7856119886277470058
 RectTransform:
   m_ObjectHideFlags: 0

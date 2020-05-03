@@ -45,6 +45,11 @@ namespace CultManager
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
             assignedCultists.SetMax(altarData.availableCultists);
+
+            if (altarData.altarCompletion)
+            {
+                puzzleManager.CompletedAltar();
+            }
         }
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
@@ -129,11 +134,6 @@ namespace CultManager
                 }
             }
             altarData.altarCompletion = (ctr == altarData.altarParts.Count);
-
-            if (altarData.altarCompletion)
-            {
-                puzzleManager.CompletedAltar();
-            }
 
         }
 
