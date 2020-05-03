@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dd0d9b2727fdc48aab220735c031f8, type: 3}
+  m_Name: 4_Wing1
+  m_EditorClassIdentifier: 
+  altarPartName: 
+  altarPartIndex: 3
+  maxCultists: 50
+  maxBuildPoints: 15000
+  cost: 1500
+  description: 
+  altarSprite: {fileID: 21300000, guid: 5dadbdcb7e9a4124d96cafa5cbb3bc80, type: 3}

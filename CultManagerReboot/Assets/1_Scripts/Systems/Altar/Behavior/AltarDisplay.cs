@@ -34,7 +34,7 @@ namespace CultManager
                 }
                 else
                 {
-                    altarParts[i].color = new Color(0, 0, 0, 1f);
+                    altarParts[i].color = new Color(0, 0, 0, 0f);
                 }
             }
         }

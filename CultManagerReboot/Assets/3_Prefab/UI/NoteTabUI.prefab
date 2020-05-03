@@ -87,6 +87,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef5f0dc3abd0854ebbe440a9ec5945f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3405a0d4ed99f66428dc13344d505c70, type: 2}
+  puzzle: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   starPoint: {fileID: 6286151946892975709}
   endPoint: {fileID: 6286151946377583277}
   lerpCurve: {fileID: 11400000, guid: c5f8891f26ec8234d9f293eeefb675ac, type: 2}

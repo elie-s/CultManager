@@ -45,11 +45,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
   altarPartDatas:
-  - {fileID: 11400000, guid: 733e8953f4ee6af42b778a2dbce1f376, type: 2}
-  - {fileID: 11400000, guid: ee3f085dec50c144db47acf0b0bfe2ac, type: 2}
-  - {fileID: 11400000, guid: a6a2eeca376302c45a00a23f76c8ff55, type: 2}
+  - {fileID: 11400000, guid: d305d09eb2b4d9d4d96c39c96b88e544, type: 2}
+  - {fileID: 11400000, guid: 5b805626e01c24948851ea7d9b5610b4, type: 2}
+  - {fileID: 11400000, guid: 6d537a5c57bf30e468fd9a390e333097, type: 2}
+  - {fileID: 11400000, guid: 83b5ad6a819e44b4a8770ade6c8e3cae, type: 2}
+  - {fileID: 11400000, guid: ee9ccb8dc832f46499fb5796101065d2, type: 2}
+  - {fileID: 11400000, guid: 366dfc2aab52a6c4699fd2b499c6e92f, type: 2}
   cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   moneyManager: {fileID: 0}
+  puzzleManager: {fileID: 0}
   altarPartPrefab: {fileID: 2765430510471640573, guid: 4995290e98f6df54d85bdf1677f19429,
     type: 3}
   assignedCultists:

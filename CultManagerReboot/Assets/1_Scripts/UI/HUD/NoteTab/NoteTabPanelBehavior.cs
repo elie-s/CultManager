@@ -20,13 +20,13 @@ namespace CultManager
         [SerializeField] private RectTransform Togglebutton;
 
         [SerializeField] private CurrentPanel thisPanelName;
+        CurrentPanel temp = CurrentPanel.None;
 
         private bool startMove;
-        private string direction="right";
+        private string direction = "right";
         void Start()
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-            
         }
 
         public void SetNoteTabSegments()
@@ -36,6 +36,8 @@ namespace CultManager
         // Update is called once per frame
         void Update()
         {
+            EnableButton();
+
             if (startMove)
             {
                 switch (direction)
@@ -59,15 +61,26 @@ namespace CultManager
                         break;
                 }
             }
-            
+
         }
 
+        public void EnableButton()
+        {
+            if (GameManager.currentPanel == CurrentPanel.PuzzlePanel || GameManager.currentPanel == CurrentPanel.DemonBook || GameManager.currentPanel == thisPanelName)
+            {
+                Togglebutton.gameObject.SetActive(true);
+            }
+            else
+            {
+                Togglebutton.gameObject.SetActive(false);
+            }
+        }
 
         public void LerpMovement(Transform initial, Transform target)
         {
             if (Vector2.Distance(transform.position, target.position) > 1f)
             {
-                rectTransform.position = Vector2.Lerp(transform.position, target.position,Time.deltaTime);
+                rectTransform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
                 //lerpCurve.lerpCurve.Evaluate(lerpCurve.lerpValue) * Time.deltaTime
             }
             else
@@ -80,36 +93,35 @@ namespace CultManager
         {
             if (!startMove)
             {
-                if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == thisPanelName)
+                switch (direction)
                 {
-                    switch (direction)
-                    {
-                        case "left":
-                            {
-                                direction = "right";
-                                GameManager.currentPanel = CurrentPanel.None;
-                            }
-                            break;
+                    case "left":
+                        {
+                            direction = "right";
+                            GameManager.currentPanel = temp;
+                        }
+                        break;
 
-                        case "right":
-                            {
-                                Display();
-                                direction = "left";
-                                GameManager.currentPanel = thisPanelName;
-                            }
-                            break;
+                    case "right":
+                        {
+                            Display();
+                            direction = "left";
+                            temp = GameManager.currentPanel;
+                            GameManager.currentPanel = thisPanelName;
+                        }
+                        break;
 
-                        default:
-                            {
-                                direction = "right";
-                                GameManager.currentPanel = CurrentPanel.None;
-                            }
-                            break;
-                    }
-                    Togglebutton.localScale = new Vector3(-Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-                    startMove = true;
+                    default:
+                        {
+                            direction = "right";
+                            GameManager.currentPanel = temp;
+                        }
+                        break;
                 }
-            } 
+                Togglebutton.localScale = new Vector3(-Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
+                startMove = true;
+            }
+
         }
 
         public void Display()
