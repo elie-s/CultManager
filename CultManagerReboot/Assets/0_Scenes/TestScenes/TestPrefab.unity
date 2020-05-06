@@ -919,12 +919,12 @@ PrefabInstance:
     - target: {fileID: 3626976746166801066, guid: 7999c95c0f0267348a4c85fdc1413b07,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.86719435
+      value: 0.343
       objectReference: {fileID: 0}
     - target: {fileID: 3626976746166801066, guid: 7999c95c0f0267348a4c85fdc1413b07,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27305737
+      value: -1.666
       objectReference: {fileID: 0}
     - target: {fileID: 3626976746166801066, guid: 7999c95c0f0267348a4c85fdc1413b07,
         type: 3}
@@ -988,12 +988,12 @@ PrefabInstance:
     - target: {fileID: 1569919478680330960, guid: a6b5ac6e23ce2884ba8e365360215bc1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.86719435
+      value: -1.423
       objectReference: {fileID: 0}
     - target: {fileID: 1569919478680330960, guid: a6b5ac6e23ce2884ba8e365360215bc1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27305737
+      value: -1.973
       objectReference: {fileID: 0}
     - target: {fileID: 1569919478680330960, guid: a6b5ac6e23ce2884ba8e365360215bc1,
         type: 3}
@@ -1053,6 +1053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestNewIsland02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365741198954215628, guid: 30ba0396cd6a49943863a75c0552af05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8577946206077207958, guid: 30ba0396cd6a49943863a75c0552af05,
         type: 3}
