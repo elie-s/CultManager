@@ -27,7 +27,7 @@ namespace CultManager
             nameAndAgeText.text = _cultistName + " " + _cultistAge.ToString();
             moneyText.text = _moneyValue.ToString();
             bloodGroupText.text = _blood.ToString();
-            //policeText.text = _policeValue.ToString();
+            policeText.text = _policeValue.ToString();
             /*for (int i = 0; i < traits.Length; i++)
             {
                 if (_cultistTraits.HasFlag((CultistTraits)Mathf.Pow(2, i)))

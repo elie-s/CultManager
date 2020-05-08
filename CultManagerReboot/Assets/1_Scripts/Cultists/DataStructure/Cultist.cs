@@ -10,6 +10,8 @@ namespace CultManager
         public int age { get; private set; }
         public int spriteIndex { get; private set; }
         public bool occupied { get; set; }
+        public bool isInvestigator { get; set; }
+        public bool detected { get; set; }
         public CultistTraits traits { get; private set; }
         public BloodType blood { get; private set; }
 

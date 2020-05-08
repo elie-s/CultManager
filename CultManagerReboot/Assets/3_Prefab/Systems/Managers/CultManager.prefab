@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  cultistsDisplayer: {fileID: 0}
   data: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   currentCandidatesDebug: 0
   settings: {fileID: 11400000, guid: accd4a7d28381324381d14c193e9d9ff, type: 2}
   cultists: []
+  allowInfiltration: 0
+  rateOfInfiltration: 100

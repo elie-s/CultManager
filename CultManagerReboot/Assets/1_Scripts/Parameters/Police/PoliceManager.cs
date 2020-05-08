@@ -6,7 +6,33 @@ namespace CultManager
 {
     public class PoliceManager : MonoBehaviour
     {
+        [SerializeField] private CultManager cult;
+        [SerializeField] private MoneyManager money;
+        [SerializeField] private InfluenceManager influence;
+
+        public CultData cultData;
         public PoliceData data;
+        public int investigationLevel;
+
+        public int invetigatorCount;
+        public int moneyDeduction;
+        public int influenceDeduction;
+
+        private System.DateTime nextHourTime;
+
+        private void Start()
+        {
+            nextHourTime = System.DateTime.Now;
+        }
+
+        public void InitAysnchValues()
+        {
+            System.TimeSpan timeSpan = System.DateTime.Now - data.lastHourReference;
+            int numberOfHours = (int)(timeSpan.Minutes);
+            Debug.Log(numberOfHours);
+            ChargePenalty(numberOfHours);
+        }
+
         public void Incerment(int _value)
         {
             data.Increment(_value);
@@ -32,6 +58,133 @@ namespace CultManager
             int max = 100;
             data.ResetPoliceData(max);
         }
+
+        private void Update()
+        {
+            LevelUpdate();
+            HourCheck();
+            invetigatorCount = GatherInvestigators();
+        }
+
+        public void LevelUpdate()
+        {
+            if (data.value >= 0 && data.value < 30)
+            {
+                investigationLevel = 0;
+                StopInfiltration();
+            }
+            else if (data.value >= 30 && data.value < 50)
+            {
+                investigationLevel = 1;
+                StartInfiltration();
+            }
+            else if (data.value >= 50 && data.value < 80)
+            {
+                investigationLevel = 2;
+                StartInfiltration();
+            }
+            else if (data.value >= 80 && data.value < 100)
+            {
+                investigationLevel = 3;
+                StartInfiltration();
+            }
+            else if (data.value >= 100)
+            {
+                investigationLevel = 4;
+                StartInfiltration();
+            }
+        }
+
+        public void HourCheck()
+        {
+            if (System.DateTime.Now > nextHourTime)
+            {
+                data.lastHourReference = System.DateTime.Now;
+                nextHourTime = System.DateTime.Now+System.TimeSpan.FromMinutes(1f);
+                Debug.Log(nextHourTime);
+                ChargePenalty(1);
+            }
+        }
+
+        public void ChargePenalty(int hours)
+        {
+            switch (investigationLevel)
+            {
+                case 2:
+                    {
+                        DeductMoney(hours);
+                    }
+                    break;
+                case 3:
+                    {
+                        DeductMoney(hours);
+                        DeductInfluence(hours);
+                    }
+                    break;
+                case 4:
+                    {
+                        DeductMoney(hours);
+                        DeductInfluence(hours);
+                        CultSiezed();
+                    }
+                    break;
+            }
+        }
+
+        public int GatherInvestigators()
+        {
+            int ctr = 0;
+            for (int i = 0; i < cultData.cultists.Count; i++)
+            {
+                if (cultData.cultists[i].isInvestigator)
+                {
+                    ctr++;
+                }
+            }
+            return ctr;
+        }
+
+        public void StartInfiltration()
+        {
+            cult.allowInfiltration = true;
+        }
+
+        public void StopInfiltration()
+        {
+            cult.allowInfiltration = false;
+        }
+
+        public void DeductMoney(int hours)
+        {
+            int penalty = moneyDeduction * invetigatorCount * hours;
+            if (money.value <= penalty)
+            {
+                money.Decrease(penalty);
+            }
+            else
+            {
+                money.ResetValue(0);
+            }
+        }
+
+        public void DeductInfluence(int hours)
+        {
+            int penalty = influenceDeduction * invetigatorCount * hours;
+            if (influence.value <= penalty)
+            {
+                influence.Decrease(penalty);
+            }
+            else
+            {
+                influence.ResetValue(0);
+            }
+        }
+
+        public void CultSiezed()
+        {
+            Debug.Log("Cult Siezed");
+        }
+
     }
 }
 

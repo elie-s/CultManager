@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 namespace CultManager
@@ -9,8 +10,10 @@ namespace CultManager
     public class PoliceData : ScriptableObject, ILoadable
     {
         private IntGauge gauge;
+        public DateTime lastHourReference;
         public int value => gauge.value;
         public int max => gauge.max;
+        public float ratio => gauge.ratio;
 
         public void Increment(int _value)
         {
@@ -35,11 +38,22 @@ namespace CultManager
         public void LoadSave(Save _save)
         {
             gauge = new IntGauge(_save.policeCurrentValue, _save.policeMaxValue, false);
+            SetHourReference(_save.lastHourReference);
         }
 
         public void ResetPoliceData(int _max)
         {
             gauge = new IntGauge(0, _max, false);
+        }
+
+        public void SetHourReference()
+        {
+            lastHourReference = DateTime.Now;
+        }
+
+        public void SetHourReference(DateTime _lastHourReference)
+        {
+            lastHourReference = _lastHourReference;
         }
     }
 }

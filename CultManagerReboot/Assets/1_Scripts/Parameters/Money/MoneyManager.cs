@@ -19,6 +19,11 @@ namespace CultManager
             data.Decrease((uint)_value);
         }
 
+        public void ResetValue(int _value)
+        {
+            data.Reset((uint)_value);
+        }
+
         public void ResetData()
         {
             data.Reset();

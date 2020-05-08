@@ -10,6 +10,27 @@ namespace CultManager
         [SerializeField] private CultManager cultManager = default;
 
         private float candidatesFrequency => (float)data.value / 100.0f * 60f;
+        public int value => (int)data.value;
+
+        public void Increase(int _value)
+        {
+            data.Increase((uint)_value);
+        }
+
+        public void Decrease(int _value)
+        {
+            data.Decrease((uint)_value);
+        }
+
+        public void ResetValue(int _value)
+        {
+            data.Reset((uint)_value);
+        }
+
+        public void ResetData()
+        {
+            data.Reset();
+        }
 
         void Update()
         {

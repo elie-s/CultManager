@@ -96,6 +96,7 @@ MonoBehaviour:
   rectTransform: {fileID: 6286151945449382047}
   Togglebutton: {fileID: 6286151946934022448}
   thisPanelName: 1
+  puzzleScale: 75
 --- !u!1 &6286151946259393249
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ PrefabInstance:
     - target: {fileID: 1666608826039797649, guid: 8ae32200db25eda45b9e9521af91f36e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -42
       objectReference: {fileID: 0}
     - target: {fileID: 1666608826039797649, guid: 8ae32200db25eda45b9e9521af91f36e,
         type: 3}
@@ -387,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 1666608826039797649, guid: 8ae32200db25eda45b9e9521af91f36e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -84
       objectReference: {fileID: 0}
     - target: {fileID: 1666608826039797649, guid: 8ae32200db25eda45b9e9521af91f36e,
         type: 3}

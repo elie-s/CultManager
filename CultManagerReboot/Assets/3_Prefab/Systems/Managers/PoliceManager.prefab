@@ -43,4 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a394828292cc4b44ba5db660d9c1409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cult: {fileID: 0}
+  money: {fileID: 0}
+  influence: {fileID: 0}
+  cultData: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   data: {fileID: 11400000, guid: 25eb68aa1b236824c969cf7c33f41083, type: 2}
+  investigationLevel: 0
+  invetigatorCount: 0
+  moneyDeduction: 0
+  influenceDeduction: 0

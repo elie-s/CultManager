@@ -11,7 +11,7 @@ namespace CultManager
 
         [SerializeField] private CultData data=default;
 
-        int currentCandidates => data.candidatesCount;
+        int currentCandidates;
 
         private void Start()
         {
@@ -19,7 +19,12 @@ namespace CultManager
 
         private void Update()
         {
-            DisplayCandidates(currentCandidates);
+            if (currentCandidates != data.candidatesCount)
+            {
+                currentCandidates = data.candidatesCount;
+                DisplayCandidates(currentCandidates);
+            }
+            
         }
 
         public void DisplayCandidates(int amount)

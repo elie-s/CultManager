@@ -6,12 +6,18 @@ namespace CultManager
     public class CultManager : MonoBehaviour
     {
         //[SerializeField] private DebugInstance debug = default;
+
+        [Header("Cult Parameters")]
         [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultistsDisplayer cultistsDisplayer = default;
         [SerializeField] private CultData data = default;
         [SerializeField] private int currentCandidatesDebug = 0;
         [SerializeField] private CultSettings settings = default;
         [SerializeField] Cultist[] cultists;
+
+        [Header("Infiltration Mode")]
+        public bool allowInfiltration;
+        public int rateOfInfiltration;
 
 
         private bool useSave = false;
@@ -46,6 +52,13 @@ namespace CultManager
             string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)] + " " + settings.cultistLastNames[Random.Range(0, settings.cultistLastNames.Length)];
 
             Cultist result = data.CreateCultist(cultistName, sprite);
+
+            if (allowInfiltration)
+            {
+                result.isInvestigator = ChanceOfInfiltration();
+                Debug.Log("aDDED "+result.isInvestigator);
+                
+            }
 
             return result;
         }
@@ -106,6 +119,11 @@ namespace CultManager
         private void DebugCultist0()
         {
             Debug.Log(data.cultists[0]);
+        }
+
+        public bool ChanceOfInfiltration()
+        {
+            return ((int)Random.Range(1, 100) <= rateOfInfiltration);
         }
     }
 }

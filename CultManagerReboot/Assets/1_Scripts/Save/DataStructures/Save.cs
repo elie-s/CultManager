@@ -30,6 +30,7 @@ namespace CultManager
         //Police Data
         public int policeMaxValue;
         public int policeCurrentValue;
+        public DateTime lastHourReference;
 
         //Altar Data
         public AltarPart[] altarParts;
@@ -76,6 +77,7 @@ namespace CultManager
 
             policeMaxValue = _policeData.max;
             policeCurrentValue = _policeData.value;
+            lastHourReference = _policeData.lastHourReference;
 
             altarParts = _altarData.altarParts.ToArray();
             availableCultists = _altarData.availableCultists;

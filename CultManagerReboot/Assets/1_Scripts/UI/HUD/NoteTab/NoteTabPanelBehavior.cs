@@ -20,6 +20,8 @@ namespace CultManager
         [SerializeField] private RectTransform Togglebutton;
 
         [SerializeField] private CurrentPanel thisPanelName;
+
+        [SerializeField] private int puzzleScale;
         CurrentPanel temp = CurrentPanel.None;
 
         private bool startMove;
@@ -159,7 +161,7 @@ namespace CultManager
 
         public void Display()
         {
-            display.DisplayPuzzle(50f);
+            display.DisplayPuzzle(puzzleScale);
             
         }
 

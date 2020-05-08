@@ -55,6 +55,7 @@ namespace CultManager
             {
                 altarManager.InitAltarParts();
                 puzzeManager.LoadData();
+                policeManager.InitAysnchValues();
             }
         }
 
