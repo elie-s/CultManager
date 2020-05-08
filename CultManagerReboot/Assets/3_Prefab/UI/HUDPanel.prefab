@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44, y: 604}
+  m_AnchoredPosition: {x: -108, y: -95}
   m_SizeDelta: {x: 204.9, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6955215669565893848
@@ -184,7 +184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219, y: 693}
+  m_AnchoredPosition: {x: 155, y: -11}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6955215669570955492
@@ -259,8 +259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219, y: 604}
-  m_SizeDelta: {x: 204.9, y: 250}
+  m_AnchoredPosition: {x: 155, y: -95}
+  m_SizeDelta: {x: 204.90002, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6955215669969680923
 CanvasRenderer:
@@ -351,6 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveManager: {fileID: 0}
+  influence: {fileID: 11400000, guid: aa1827376dc0cec488921a699f71bde2, type: 2}
+  police: {fileID: 11400000, guid: 25eb68aa1b236824c969cf7c33f41083, type: 2}
   influenceBar: {fileID: 6955215670497817749}
   policeBar: {fileID: 6955215669172234855}
   cultistsText: {fileID: 6955215670995649797}
@@ -756,7 +758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: 693}
+  m_AnchoredPosition: {x: -192, y: -11}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6955215670830914340

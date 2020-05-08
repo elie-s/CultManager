@@ -11,6 +11,8 @@ namespace CultManager
     {
         [Header("Reference")]
         [SerializeField] private SaveManager saveManager;
+        [SerializeField] private InfluenceData influence;
+        [SerializeField] private PoliceData police;
         
         [Header("Display")]
         [SerializeField] private Image influenceBar;
@@ -26,7 +28,7 @@ namespace CultManager
         public void Display()
         {
             influenceBar.fillAmount = Mathf.Lerp(influenceBar.fillAmount,(float)saveManager.currentInfluenceDebug / 100f,Time.deltaTime);
-            policeBar.fillAmount = Mathf.Lerp(policeBar.fillAmount,(float)saveManager.currentPoliceDebug / 100f,Time.deltaTime);
+            policeBar.fillAmount = Mathf.Lerp(policeBar.fillAmount,police.ratio,Time.deltaTime);
             cultistsText.text = saveManager.currentCultistsDebug.ToString();
             moneyText.text = saveManager.currentMoneyDebug.ToString();
         }

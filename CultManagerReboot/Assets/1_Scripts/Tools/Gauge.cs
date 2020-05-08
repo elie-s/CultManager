@@ -66,6 +66,13 @@ public class IntGauge
         _value = _startFull ? _max : _min;
     }
 
+    public IntGauge(int _min, int _max, int _val)
+    {
+        min = _min;
+        this._max = _max;
+        _value = _val;
+    }
+
     public IntGauge(IntGauge intGauge)
     {
         min = intGauge.min;

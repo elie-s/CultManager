@@ -9,7 +9,7 @@ namespace CultManager
     {
         [SerializeField] private GameObject[] candidates;
 
-        [SerializeField] private CultData data=default;
+        [SerializeField] private CultManager cult;
 
         int currentCandidates;
 
@@ -19,9 +19,9 @@ namespace CultManager
 
         private void Update()
         {
-            if (currentCandidates != data.candidatesCount)
+            if (currentCandidates != cult.currentCandidatesDebug)
             {
-                currentCandidates = data.candidatesCount;
+                currentCandidates = cult.currentCandidatesDebug;
                 DisplayCandidates(currentCandidates);
             }
             

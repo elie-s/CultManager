@@ -11,7 +11,7 @@ namespace CultManager
         [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultistsDisplayer cultistsDisplayer = default;
         [SerializeField] private CultData data = default;
-        [SerializeField] private int currentCandidatesDebug = 0;
+        [SerializeField] public int currentCandidatesDebug = 0;
         [SerializeField] private CultSettings settings = default;
         [SerializeField] Cultist[] cultists;
 

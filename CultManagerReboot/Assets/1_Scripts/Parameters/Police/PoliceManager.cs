@@ -50,12 +50,12 @@ namespace CultManager
 
         public void ResetData()
         {
-            data.Reset(100);
+            data.Reset(1000);
         }
 
         public void ResetCult(int level)
         {
-            int max = 100;
+            int max = 1000;
             data.ResetPoliceData(max);
         }
 
@@ -64,31 +64,32 @@ namespace CultManager
             LevelUpdate();
             HourCheck();
             invetigatorCount = GatherInvestigators();
+            Debug.Log(data.ratio);
         }
 
         public void LevelUpdate()
         {
-            if (data.value >= 0 && data.value < 30)
+            if (data.ratio >= 0f && data.ratio < 0.3f)
             {
                 investigationLevel = 0;
                 StopInfiltration();
             }
-            else if (data.value >= 30 && data.value < 50)
+            else if (data.ratio >= 0.3f && data.ratio < 0.5f)
             {
                 investigationLevel = 1;
                 StartInfiltration();
             }
-            else if (data.value >= 50 && data.value < 80)
+            else if (data.ratio >= 0.5f && data.ratio < 0.8f)
             {
                 investigationLevel = 2;
                 StartInfiltration();
             }
-            else if (data.value >= 80 && data.value < 100)
+            else if (data.ratio >= 0.8f && data.ratio < 1f)
             {
                 investigationLevel = 3;
                 StartInfiltration();
             }
-            else if (data.value >= 100)
+            else if (data.ratio >= 1f)
             {
                 investigationLevel = 4;
                 StartInfiltration();
@@ -157,7 +158,7 @@ namespace CultManager
         public void DeductMoney(int hours)
         {
             int penalty = moneyDeduction * invetigatorCount * hours;
-            if (money.value <= penalty)
+            if (money.value >= penalty)
             {
                 money.Decrease(penalty);
             }
@@ -170,7 +171,7 @@ namespace CultManager
         public void DeductInfluence(int hours)
         {
             int penalty = influenceDeduction * invetigatorCount * hours;
-            if (influence.value <= penalty)
+            if (influence.value >= penalty)
             {
                 influence.Decrease(penalty);
             }

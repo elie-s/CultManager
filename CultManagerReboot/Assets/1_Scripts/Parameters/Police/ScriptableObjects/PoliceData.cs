@@ -37,7 +37,7 @@ namespace CultManager
 
         public void LoadSave(Save _save)
         {
-            gauge = new IntGauge(_save.policeCurrentValue, _save.policeMaxValue, false);
+            gauge = new IntGauge(0, _save.policeMaxValue, _save.policeCurrentValue);
             SetHourReference(_save.lastHourReference);
         }
 
