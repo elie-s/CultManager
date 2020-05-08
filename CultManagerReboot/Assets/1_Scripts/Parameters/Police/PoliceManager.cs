@@ -14,7 +14,7 @@ namespace CultManager
         public PoliceData data;
         public int investigationLevel;
 
-        public int invetigatorCount;
+        public int investigatorCount;
         public int moneyDeduction;
         public int influenceDeduction;
 
@@ -28,9 +28,9 @@ namespace CultManager
         public void InitAysnchValues()
         {
             System.TimeSpan timeSpan = System.DateTime.Now - data.lastHourReference;
-            int numberOfHours = (int)(timeSpan.Minutes);
-            Debug.Log(numberOfHours);
+            int numberOfHours = (int)(timeSpan.Hours);
             ChargePenalty(numberOfHours);
+            DecreasePoliceValue(numberOfHours);
         }
 
         public void Incerment(int _value)
@@ -63,8 +63,7 @@ namespace CultManager
         {
             LevelUpdate();
             HourCheck();
-            invetigatorCount = GatherInvestigators();
-            Debug.Log(data.ratio);
+            investigatorCount = GatherInvestigators();
         }
 
         public void LevelUpdate()
@@ -101,8 +100,7 @@ namespace CultManager
             if (System.DateTime.Now > nextHourTime)
             {
                 data.lastHourReference = System.DateTime.Now;
-                nextHourTime = System.DateTime.Now+System.TimeSpan.FromMinutes(1f);
-                Debug.Log(nextHourTime);
+                nextHourTime = System.DateTime.Now+System.TimeSpan.FromHours(1f);
                 ChargePenalty(1);
             }
         }
@@ -157,7 +155,7 @@ namespace CultManager
 
         public void DeductMoney(int hours)
         {
-            int penalty = moneyDeduction * invetigatorCount * hours;
+            int penalty = moneyDeduction * investigatorCount * hours;
             if (money.value >= penalty)
             {
                 money.Decrease(penalty);
@@ -170,7 +168,7 @@ namespace CultManager
 
         public void DeductInfluence(int hours)
         {
-            int penalty = influenceDeduction * invetigatorCount * hours;
+            int penalty = influenceDeduction * investigatorCount * hours;
             if (influence.value >= penalty)
             {
                 influence.Decrease(penalty);
@@ -184,6 +182,12 @@ namespace CultManager
         public void CultSiezed()
         {
             Debug.Log("Cult Siezed");
+        }
+
+
+        public void DecreasePoliceValue(int hours)
+        {
+            Decrement(hours*8);
         }
 
     }

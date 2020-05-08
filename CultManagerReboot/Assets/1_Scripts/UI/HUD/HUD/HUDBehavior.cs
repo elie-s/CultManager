@@ -10,9 +10,10 @@ namespace CultManager
     public class HUDBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] private SaveManager saveManager;
         [SerializeField] private InfluenceData influence;
+        [SerializeField] private CultData cult;
         [SerializeField] private PoliceData police;
+        [SerializeField] private MoneyData money;
         
         [Header("Display")]
         [SerializeField] private Image influenceBar;
@@ -27,10 +28,10 @@ namespace CultManager
 
         public void Display()
         {
-            influenceBar.fillAmount = Mathf.Lerp(influenceBar.fillAmount,(float)saveManager.currentInfluenceDebug / 100f,Time.deltaTime);
+            influenceBar.fillAmount = Mathf.Lerp(influenceBar.fillAmount,influence.ratio,Time.deltaTime);
             policeBar.fillAmount = Mathf.Lerp(policeBar.fillAmount,police.ratio,Time.deltaTime);
-            cultistsText.text = saveManager.currentCultistsDebug.ToString();
-            moneyText.text = saveManager.currentMoneyDebug.ToString();
+            cultistsText.text = cult.cultists.Count.ToString();
+            moneyText.text = money.value.ToString();
         }
     }
 }

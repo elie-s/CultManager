@@ -9,27 +9,27 @@ namespace CultManager
         public InfluenceData data;
         [SerializeField] private CultManager cultManager = default;
 
-        private float candidatesFrequency => (float)data.value / 100.0f * 60f;
-        public int value => (int)data.value;
+        private float candidatesFrequency => data.value / 100.0f * 60f;
+        public int value => data.value;
 
         public void Increase(int _value)
         {
-            data.Increase((uint)_value);
+            data.Increment(_value);
         }
 
         public void Decrease(int _value)
         {
-            data.Decrease((uint)_value);
+            data.Decrement(_value);
         }
 
         public void ResetValue(int _value)
         {
-            data.Reset((uint)_value);
+            data.Set(_value);
         }
 
         public void ResetData()
         {
-            data.Reset();
+            data.ResetData(100);
         }
 
         void Update()
@@ -40,12 +40,12 @@ namespace CultManager
         [ContextMenu("ForedReset")]
         public void ForcedReset()
         {
-            data.Reset();
+            data.ResetData(100);
         }
 
         public void InitializeData()
         {
-            if (!SaveManager.saveLoaded) data.Reset();
+            if (!SaveManager.saveLoaded) data.ResetData(100);
         }
 
         private void CandidatesHandler()

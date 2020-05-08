@@ -9,29 +9,41 @@ namespace CultManager
     [CreateAssetMenu(menuName = "CultManager/Parameters/InfluenceData")]
     public class InfluenceData : ScriptableObject, ILoadable
     {
-        public uint value { get; private set; }
-        public DateTime lastCandidateTimeReference { get; private set; }
+        public IntGauge gauge;
+        public int value => gauge.value;
+        public int max => gauge.max;
+        public float ratio => gauge.ratio;
 
-        public void Increase(uint _value)
+        public DateTime lastCandidateTimeReference;
+
+        public void Increment(int _value)
         {
-            value += _value;
+            gauge.Increment(_value);
         }
 
-        public void Decrease(uint _value)
+        public void Decrement(int _value)
         {
-            value -= _value;
+            gauge.Decrement(_value);
         }
 
-        public void Reset()
+        public void Set(int _value)
         {
-            value = 100;
+            gauge.SetValue(_value);
+        }
+
+        public void Reset(int _max)
+        {
+            gauge = new IntGauge(0, _max,true);
+            gauge.SetValue(_max);
+        }
+
+
+        public void ResetData(int _max)
+        {
+            Reset(_max);
             ResetCandidateTimeReference();
         }
 
-        public void Reset(uint _value)
-        {
-            value = _value;
-        }
 
         public void ResetCandidateTimeReference()
         {
@@ -45,8 +57,8 @@ namespace CultManager
 
         public void LoadSave(Save _save)
         {
-            Reset(_save.influenceValue);
             ResetCandidateTimeReference(_save.influenceCandidateTimeReference);
+            gauge = new IntGauge(0, _save.influenceMaxValue, _save.influenceCurrentValue);
         }
     }
 }

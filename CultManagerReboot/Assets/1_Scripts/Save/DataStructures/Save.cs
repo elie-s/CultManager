@@ -21,7 +21,8 @@ namespace CultManager
         public int maxCandidatesCount;
 
         //Influence Data
-        public uint influenceValue;
+        public int influenceMaxValue;
+        public int influenceCurrentValue;
         public DateTime influenceCandidateTimeReference;
 
         //MoneyData
@@ -70,7 +71,8 @@ namespace CultManager
             candidatesCount = _cultData.candidatesCount;
             maxCandidatesCount = _cultData.maxCandidatesCount;
 
-            influenceValue = _influenceData.value;
+            influenceCurrentValue = _influenceData.value;
+            influenceMaxValue = _influenceData.max;
             influenceCandidateTimeReference = _influenceData.lastCandidateTimeReference;
 
             moneyValue = _moneyData.value;

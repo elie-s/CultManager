@@ -350,9 +350,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e882b18f2879fbc4d973cdc2196b91fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveManager: {fileID: 0}
   influence: {fileID: 11400000, guid: aa1827376dc0cec488921a699f71bde2, type: 2}
+  cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   police: {fileID: 11400000, guid: 25eb68aa1b236824c969cf7c33f41083, type: 2}
+  money: {fileID: 11400000, guid: 725344e8f3ae05541832d01648f003db, type: 2}
   influenceBar: {fileID: 6955215670497817749}
   policeBar: {fileID: 6955215669172234855}
   cultistsText: {fileID: 6955215670995649797}
