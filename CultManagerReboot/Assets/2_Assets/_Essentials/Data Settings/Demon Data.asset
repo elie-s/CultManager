@@ -12,4 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaef8f615d134bd4dbbda8e83c624f9c, type: 3}
   m_Name: Demon Data
   m_EditorClassIdentifier: 
-  demons: []
+  demons:
+  - id: 0
+    segments:
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    - a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: -1
+        slice: 4
+    isStarred: 0
+    spriteIndex: 0
+    patternAccuracy: 0
+    lootBonus: 77
+    modifier:
+      system: 1
+      effect: 1
+      modifierName: PoliceModifier
+      value: 0.1
+      description: This makes the police lazy ass
+  spawns:
+  - id: 0
+    durationInHours: 1
+  idIndex: 1
+  spawnCount: 1

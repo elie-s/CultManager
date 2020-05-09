@@ -133,7 +133,6 @@ namespace CultManager
         {
             for (int i = 0; i < pages.Count; i++)
             {
-                Debug.Log(i + " " + pages[i].transform.GetSiblingIndex());
                 if ((i + 1) == pageNum)
                 {
                     pages[i].SetActive(true);
@@ -277,7 +276,7 @@ namespace CultManager
             {
                 for (int j = i + 1; j < result.Length; j++)
                 {
-                    if (result[i].spawnTime > result[j].spawnTime)
+                    if (result[i].deathTime > result[j].deathTime)
                     {
                         temp = result[i];
                         result[i] = result[j];

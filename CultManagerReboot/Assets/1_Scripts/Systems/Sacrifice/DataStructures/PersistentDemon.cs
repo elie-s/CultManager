@@ -11,6 +11,8 @@ namespace CultManager
         public int id;
         public int spriteIndex;
 
+        public Modifier modifier;
+
         public PersistentDemon(int _id, int _spriteIndex)
         {
             id = _id;

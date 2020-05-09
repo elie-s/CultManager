@@ -13,13 +13,15 @@ namespace CultManager
         public DateTime spawnTime;
         public int durationInHours;
 
+        public Modifier[] modifiers;
 
-        public Spawn(int _id,int _durationInHours)
+
+        public Spawn(int _id,int _durationInHours,Modifier[] _modifiers)
         {
             id = _id;
             durationInHours = _durationInHours;
+            modifiers = _modifiers;
             ResetSpawnTime();
-            Debug.Log(spawnTime);
         }
 
         public void ResetSpawnTime()
@@ -30,7 +32,8 @@ namespace CultManager
         public bool CheckDeath()
         {
             TimeSpan timeSpan = DateTime.Now - spawnTime;
-            return (timeSpan.TotalMinutes > (durationInHours * 60));
+            return (timeSpan.Minutes >= (durationInHours*60));
+            
         }
 
     }

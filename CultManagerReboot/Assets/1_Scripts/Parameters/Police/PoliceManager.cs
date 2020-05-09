@@ -10,8 +10,12 @@ namespace CultManager
         [SerializeField] private MoneyManager money;
         [SerializeField] private InfluenceManager influence;
 
+        [SerializeField] private ModifierReference reference;
+
+
         public CultData cultData;
         public PoliceData data;
+
         public int investigationLevel;
 
         public int investigatorCount;
@@ -19,6 +23,9 @@ namespace CultManager
         public int influenceDeduction;
 
         private System.DateTime nextHourTime;
+
+        /*[Header("Modifier")]
+        public float PoliceModifer;*/
 
         private void Start()
         {
@@ -28,19 +35,21 @@ namespace CultManager
         public void InitAysnchValues()
         {
             System.TimeSpan timeSpan = System.DateTime.Now - data.lastHourReference;
-            int numberOfHours = (int)(timeSpan.Hours);
+            int numberOfHours = (int)(timeSpan.Minutes);
             ChargePenalty(numberOfHours);
             DecreasePoliceValue(numberOfHours);
         }
 
         public void Incerment(int _value)
         {
-            data.Increment(_value);
+            float temp = _value * (1 + reference.storage.PoliceIncrementModifier);
+            data.Increment(Mathf.RoundToInt(temp));
         }
 
         public void Decrement(int _value)
         {
-            data.Decrement(_value);
+            float temp = _value * (1 + reference.storage.PoliceDecrementModifier);
+            data.Decrement(Mathf.RoundToInt(temp));
         }
 
         public void Set(int _value)
@@ -100,7 +109,7 @@ namespace CultManager
             if (System.DateTime.Now > nextHourTime)
             {
                 data.lastHourReference = System.DateTime.Now;
-                nextHourTime = System.DateTime.Now+System.TimeSpan.FromHours(1f);
+                nextHourTime = System.DateTime.Now+System.TimeSpan.FromMinutes(1f);
                 ChargePenalty(1);
             }
         }

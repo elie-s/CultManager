@@ -8,6 +8,7 @@ namespace CultManager
     public class RecruitmentManager : MonoBehaviour
     {
         [SerializeField] private CultData data = default;
+        [SerializeField] private ModifierReference reference = default;
         [SerializeField] private CultSettings settings = default;
         [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultManager cultManager = default;
@@ -24,8 +25,10 @@ namespace CultManager
         private Candidate CreateCandidate()
         {
             Cultist cultist = cultManager.CreateRandomCultist();
-            int money = Random.Range(0, 101);
-            int police = Random.Range(0, 101);
+            float tempMoney = (1 + reference.storage.RecruitmentMoneyModifier);
+            float tempPolice = (1 + reference.storage.RecruitmentPoliceModifier);
+            int money = Mathf.RoundToInt(Random.Range(0, 101) * tempMoney);
+            int police = Mathf.RoundToInt(Random.Range(0, 101) * tempPolice);
 
             return new Candidate(cultist, police, money);
         }
@@ -95,7 +98,7 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None)
             {
                 GameManager.currentPanel = thisPanelName;
-                Debug.Log("Candidates are " + data.candidatesCount);
+                //Debug.Log("Candidates are " + data.candidatesCount);
                 StartCoroutine(DelayedAction(EnableCard, 0.3f));
                 SetCard();
             }

@@ -15,6 +15,10 @@ namespace CultManager
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private GameManager game = default;
 
+        [SerializeField] private EffectsManager effects;
+
+        private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
+
 
 
         private void Start()
@@ -36,9 +40,11 @@ namespace CultManager
 
         public void CreateNewDemon(int durationInHours, Segment[] segments)
         {
-            Spawn spawn=data.CreateDemon(durationInHours, segments);
+            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length));
             GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
-            instance.GetComponent<SpawnBehavior>().Init(spawn,this);
+            instance.GetComponent<SpawnBehavior>().Init(spawn, this);
+            spawns.Add(instance.GetComponent<SpawnBehavior>());
+            effects.UpdateModifiers();
         }
 
         public void CreateNewPersistentDemon(int spriteIndex)
@@ -46,6 +52,7 @@ namespace CultManager
             PersistentDemon persistent = persistentData.CreatePersistentDemon(spriteIndex);
             GameObject instance = Instantiate(persistentDemonPrefab, transform.position, Quaternion.identity, transform);
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
+            effects.UpdateModifiers();
 
             Invoke("ResetCultProgress", 10f);
 
@@ -60,11 +67,29 @@ namespace CultManager
         public void KillSpawn(Spawn spawn)
         {
             data.RemoveSpawn(spawn);
+            KillSpawnInstance(spawn);
+            effects.UpdateModifiers();
         }
 
         public void ReturnLoot(Spawn spawn)
         {
             data.ReturnLoot(spawn.id);
+        }
+
+        public void KillSpawnInstance(Spawn spawn)
+        {
+            SpawnBehavior current;
+            data.RemoveSpawn(spawn);
+            for (int i = 0; i < spawns.Count; i++)
+            {
+                if (spawns[i].spawn == spawn)
+                {
+                    current = spawns[i];
+                    Destroy(spawns[i].gameObject);
+                    spawns.Remove(spawns[i]);
+                    break;
+                }
+            }
         }
 
 
@@ -76,6 +101,8 @@ namespace CultManager
                 {
                     GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
                     instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this);
+                    spawns.Add(instance.GetComponent<SpawnBehavior>());
+                    effects.UpdateModifiers();
                 }
             }
         }
@@ -88,6 +115,7 @@ namespace CultManager
                 {
                     GameObject instance = Instantiate(persistentDemonPrefab, transform.position, Quaternion.identity, transform);
                     instance.GetComponent<PersistentDemonBehavior>().Init(persistentData.persistentDemons[i], this);
+                    effects.UpdateModifiers();
                 }
             }
         }

@@ -9,14 +9,14 @@ namespace CultManager
     {
         public Spawn spawn;
         public DemonManager manager;
+        private bool dead;
 
 
         private void Update()
         {
-            Debug.Log(spawn.CheckDeath());
-            Debug.Log("Spawn Time " + spawn.spawnTime);
-            if (spawn.CheckDeath())
+            if (spawn.CheckDeath() && !dead)
             {
+                dead = true;
                 manager.ReturnLoot(spawn);
                 manager.KillSpawn(spawn);
             }

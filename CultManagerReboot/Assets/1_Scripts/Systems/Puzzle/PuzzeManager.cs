@@ -156,7 +156,7 @@ namespace CultManager
 
         public void Debugging(Demon instance)
         {
-            Debug.Log("Demon Time" + instance.spawnTime);
+            Debug.Log("Demon Time" + instance.deathTime);
             Debug.Log("Demon Loot" + instance.lootBonus);
             Debug.Log("Demon Segments" + instance.segments.Length);
         }

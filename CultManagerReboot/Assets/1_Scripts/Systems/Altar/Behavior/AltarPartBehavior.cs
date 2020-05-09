@@ -74,7 +74,7 @@ namespace CultManager
         void AssignCultists()
         {
             altarPart.IncrementAssignedCultists(altarManager.AssignWorkers(altarPart.assignedCultists.amountLeft));
-            Debug.Log(altarPart.assignedCultists.amountLeft);
+            //Debug.Log(altarPart.assignedCultists.amountLeft);
         }
 
         IEnumerator SimulateBuilding(int cultistsNum)

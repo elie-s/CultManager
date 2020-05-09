@@ -71,7 +71,6 @@ namespace CultManager
 
         public void SaveGame()
         {
-            Debug.Log("SAVED BOI");
             saveManager.SaveGame();
         }
 

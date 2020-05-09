@@ -38,16 +38,31 @@ namespace CultManager
             spawnCount = _save.spawnCount;
         }
 
-        public Spawn CreateDemon(int durationInHours, Segment[] segments)
+        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier)
         {
-            Spawn spawn = new Spawn(idIndex, durationInHours);
-            Demon demon = new Demon(idIndex, segments);
+            Spawn spawn = new Spawn(idIndex, durationInHours,modifier);
+
+            System.DateTime deathTime = System.DateTime.Now+System.TimeSpan.FromHours(durationInHours);
+            Demon demon = new Demon(idIndex, segments, deathTime);
 
             AddDemon(demon);
             AddSpawn(spawn);
 
             idIndex++;
             return spawn;
+        }
+
+        public Demon ReturnDemonForSpawn(Spawn spawn)
+        {
+            Demon current = new Demon();
+            for (int i = 0; i < demons.Count; i++)
+            {
+                if (demons[i].id == spawn.id)
+                {
+                    current = demons[i];
+                }
+            }
+            return current;
         }
 
 

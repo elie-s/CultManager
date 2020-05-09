@@ -18,18 +18,22 @@ namespace CultManager
 
         public float patternAccuracy;
         public int lootBonus;
-        public DateTime spawnTime;
+        public DateTime deathTime;
 
-        public Demon(int _id,Segment[] _segments)
+
+        public Demon(int _id, Segment[] _segments,DateTime _deathTime)
         {
             id = _id;
             segments = _segments;
             isStarred = false;
             spriteIndex = 0;
-            SetSpawnTime();
             SetRandomLoot();
         }
 
+        public Demon()
+        {
+
+        }
 
         public void SetRandomLoot()
         {
@@ -39,11 +43,6 @@ namespace CultManager
         public void ToggleStar()
         {
             isStarred = !isStarred;
-        }
-
-        public void SetSpawnTime()
-        {
-            spawnTime = System.DateTime.Now;
         }
 
         public void ComputePatternAccuracy(Segment[] patternSegments)

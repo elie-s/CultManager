@@ -10,6 +10,7 @@ namespace CultManager
     public class PoliceData : ScriptableObject, ILoadable
     {
         private IntGauge gauge;
+        //public int PoliceRecoveryModifier;
         public DateTime lastHourReference;
         public int value => gauge.value;
         public int max => gauge.max;

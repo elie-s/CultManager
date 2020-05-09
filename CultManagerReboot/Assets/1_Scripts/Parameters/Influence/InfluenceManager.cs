@@ -12,6 +12,8 @@ namespace CultManager
         private float candidatesFrequency => data.value / 100.0f * 60f;
         public int value => data.value;
 
+        
+
         public void Increase(int _value)
         {
             data.Increment(_value);

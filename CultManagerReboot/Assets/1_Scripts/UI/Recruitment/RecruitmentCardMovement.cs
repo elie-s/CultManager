@@ -62,7 +62,7 @@ namespace CultManager
             while (Gesture.Touching)
             {
                 lerpValue += Gesture.DeltaMovement.x * settings.slideMultiplier;
-                Debug.Log(Gesture.DeltaMovement.x);
+                //Debug.Log(Gesture.DeltaMovement.x);
 
                 yield return new WaitForFixedUpdate();
 
@@ -92,7 +92,7 @@ namespace CultManager
 
         private IEnumerator ExitRoutine()
         {
-            Debug.Log("Exiting");
+            //Debug.Log("Exiting");
             isExiting = true;
 
             while (Mathf.Abs(lerpValue) < 1.0f)
