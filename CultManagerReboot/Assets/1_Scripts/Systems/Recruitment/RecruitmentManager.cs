@@ -35,6 +35,7 @@ namespace CultManager
 
         public void Kept()
         {
+            Debug.Log("Candidate Kept");
             UpdateCult();
             currentCandidate = null;
             cultManager.DecreaseCandidates();
@@ -43,6 +44,7 @@ namespace CultManager
 
         public void Left()
         {
+            Debug.Log("Candidate Left");
             currentCandidate = null;
             cultManager.DecreaseCandidates();
             SetCard();
@@ -51,8 +53,8 @@ namespace CultManager
         public void NextCard()
         {
             cardMovement.ResetValues();
-            if(currentCandidate==null)
-            currentCandidate = CreateCandidate();
+            if(currentCandidate==null) currentCandidate = CreateCandidate();
+
             Sprite sprite = settings.cultistThumbnails[currentCandidate.cultist.spriteIndex];
             string name = currentCandidate.cultist.cultistName;
             int age = currentCandidate.cultist.age;
