@@ -15,7 +15,7 @@ namespace CultManager
 
         public CultData cultData;
         public PoliceData data;
-
+        public int value => data.value;
         public int investigationLevel;
 
         public int investigatorCount;
@@ -24,8 +24,6 @@ namespace CultManager
 
         private System.DateTime nextHourTime;
 
-        /*[Header("Modifier")]
-        public float PoliceModifer;*/
 
         private void Start()
         {

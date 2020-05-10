@@ -24,6 +24,7 @@ namespace CultManager
         PuzzlePanel = 4,
         DemonBook = 5,
         HotKeys=6,
+        PolicePanel=7,
     }
 }
 
