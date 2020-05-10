@@ -14,6 +14,8 @@ namespace CultManager
 
         public IEnumerator DieRoutine(Vector2 _endPos, System.Action<Cultist> _callback)
         {
+            GetComponent<CultistAnimationBehaviour>().Stop();
+
             Iteration iteration = new Iteration(duration);
             Vector2 startPos = transform.position;
 

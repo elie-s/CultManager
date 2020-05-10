@@ -97,6 +97,7 @@ namespace CultManager
         public void RemoveCutlist(Cultist _cultist)
         {
             data.RemoveCultist(_cultist);
+            cultistsDisplayer.RemoveCultists(_cultist);
         }
 
         public void GetToSacrifice()

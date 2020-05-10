@@ -79,7 +79,7 @@ namespace CultManager
             }   
         }
 
-        public void RemoveCultists(Cultist[] _cultist)
+        public void RemoveCultists(params Cultist[] _cultist)
         {
             foreach (IslandManager island in islandManagers)
             {
