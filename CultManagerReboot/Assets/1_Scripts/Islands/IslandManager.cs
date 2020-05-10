@@ -22,7 +22,7 @@ namespace CultManager
 
             for (int i = 0; i < _cultists.Length; i++)
             {
-                cultists.Add(_cultists[i], platforms[i % platforms.Length].SpawnCultist(_prefab, cultistParent, true));
+                cultists.Add(_cultists[i], platforms[i % platforms.Length].SpawnCultist(_prefab, cultistParent, _cultists[i], true));
             }
         }
 

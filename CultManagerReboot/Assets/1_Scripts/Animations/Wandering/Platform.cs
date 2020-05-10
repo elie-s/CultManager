@@ -14,11 +14,11 @@ namespace CultManager
         public Vector2 leftBorder => transform.position - Vector3.left * span / 2.0f + Vector3.right * shift;
         public Vector2 rightBorder => transform.position - Vector3.right * span / 2.0f + Vector3.right * shift;
 
-        public GameObject SpawnCultist(GameObject _prefab, Transform _parent, bool _spawnAtOrigin)
+        public GameObject SpawnCultist(GameObject _prefab, Transform _parent, Cultist _cultist, bool _spawnAtOrigin)
         {
             Vector2 pos = _spawnAtOrigin ? (Vector2)transform.position : Evaluate(Random.value);
             GameObject gObject = Instantiate(_prefab, pos, Quaternion.identity, _parent);
-            gObject.GetComponent<CultistAnimationBehaviour>().Init(this);
+            gObject.GetComponent<CultistAnimationBehaviour>().Init(this, _cultist);
 
             return gObject;
         }

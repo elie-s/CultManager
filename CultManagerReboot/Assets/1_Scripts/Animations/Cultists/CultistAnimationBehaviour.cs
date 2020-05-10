@@ -10,6 +10,8 @@ namespace CultManager
         [SerializeField] private CultistAnimationState state = default;
         [SerializeField, DrawScriptable] private CultistAnimationSettings settings = default;
 
+        public Cultist cultist { get; private set; }
+
         private void OnEnable()
         {
             StartCoroutine(BehavioursRoutine());
@@ -20,10 +22,11 @@ namespace CultManager
             Stop();   
         }
 
-        public void Init(Platform _platform)
+        public void Init(Platform _platform, Cultist _cultist)
         {
             platform = _platform;
             platform.RegisterCultist();
+            cultist = _cultist;
         }
 
         public void OnDestroy()

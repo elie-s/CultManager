@@ -33,13 +33,13 @@ namespace CultManager
                     case BloodType.none:
                         break;
                     case BloodType.O:
-                        cultists.Add(_cultists[i], oPlatform.SpawnCultist(_prefab, cultistParent, true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], oPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.A:
-                        cultists.Add(_cultists[i], aPlatform.SpawnCultist(_prefab, cultistParent, true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], aPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.B:
-                        cultists.Add(_cultists[i], bPlatform.SpawnCultist(_prefab, cultistParent, true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], bPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.AB:
                         break;
