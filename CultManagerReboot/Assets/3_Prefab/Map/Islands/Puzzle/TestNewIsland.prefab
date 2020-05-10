@@ -1082,6 +1082,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: FountainIsland
       objectReference: {fileID: 0}
+    - target: {fileID: 8177583329206417485, guid: 89e633ff00dfd45488e1f268d32e5200,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177583329206417485, guid: 89e633ff00dfd45488e1f268d32e5200,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177583329206417485, guid: 89e633ff00dfd45488e1f268d32e5200,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.403
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177583329206417485, guid: 89e633ff00dfd45488e1f268d32e5200,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e633ff00dfd45488e1f268d32e5200, type: 3}
 --- !u!4 &4478789682403706874 stripped
@@ -1105,12 +1125,12 @@ PrefabInstance:
     - target: {fileID: 8225219211576672120, guid: fa9b7c8c98ea1114fb38862798d1ba93,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.078
+      value: -0.081
       objectReference: {fileID: 0}
     - target: {fileID: 8225219211576672120, guid: fa9b7c8c98ea1114fb38862798d1ba93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.676
+      value: -0.726
       objectReference: {fileID: 0}
     - target: {fileID: 8225219211576672120, guid: fa9b7c8c98ea1114fb38862798d1ba93,
         type: 3}
