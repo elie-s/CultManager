@@ -20,6 +20,8 @@ namespace CultManager
         public int lootBonus;
         public DateTime deathTime;
 
+        public string description;
+
 
         public Demon(int _id, Segment[] _segments,DateTime _deathTime)
         {

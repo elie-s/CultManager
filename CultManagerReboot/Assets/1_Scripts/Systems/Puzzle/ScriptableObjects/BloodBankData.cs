@@ -23,13 +23,53 @@ namespace CultManager
             for (int i = 0; i < bloodBanks.Length; i++)
             {
                 bloodBanks[i] = new BloodBank((BloodType)i, intGauge[i]);
-                bloodBanks[i].gauge = new IntGauge(0, 100, false);
+                bloodBanks[i].gauge = new IntGauge(0, 40, false);
             }
         }
 
         public void ResetBloodBankData(int level)
         {
-            Reset();
+            int max = 0;
+            switch (level)
+            {
+                case 1:
+                    {
+                        max = 40;
+                    }
+                    break;
+                case 2:
+                    {
+                        max = 40;
+                    }
+                    break;
+                case 3:
+                    {
+                        max = 50;
+                    }
+                    break;
+                case 4:
+                    {
+                        max = 60;
+                    }
+                    break;
+                case 5:
+                    {
+                        max = 70;
+                    }
+                    break;
+                default:
+                    {
+                        max = 40;
+                    }
+                    break;
+            }
+            bloodBanks = new BloodBank[3];
+            IntGauge[] intGauge = new IntGauge[3];
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                bloodBanks[i] = new BloodBank((BloodType)i, intGauge[i]);
+                bloodBanks[i].gauge = new IntGauge(0, max, false);
+            }
         }
 
         public bool CanDecrease(BloodType bloodType, int amount)

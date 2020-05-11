@@ -19,6 +19,7 @@ namespace CultManager
         public Cultist[] cultists;
         public int candidatesCount;
         public int maxCandidatesCount;
+        public int currentLevel;
 
         //Influence Data
         public int influenceMaxValue;
@@ -73,6 +74,7 @@ namespace CultManager
             cultists = _cultData.cultists.ToArray();
             candidatesCount = _cultData.candidatesCount;
             maxCandidatesCount = _cultData.maxCandidatesCount;
+            currentLevel = _cultData.currentlevel;
 
             influenceCurrentValue = _influenceData.value;
             influenceMaxValue = _influenceData.max;

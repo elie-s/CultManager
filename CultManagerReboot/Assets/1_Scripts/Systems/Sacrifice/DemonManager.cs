@@ -13,7 +13,7 @@ namespace CultManager
         [SerializeField] private GameObject spawnPrefab = default;
         [SerializeField] private GameObject persistentDemonPrefab = default;
         [SerializeField] private MoneyManager money = default;
-        [SerializeField] private GameManager game = default;
+        [SerializeField] private CultManager cult = default;
         [SerializeField] private AltarManager altar = default;
 
         [SerializeField] private EffectsManager effects;
@@ -67,7 +67,7 @@ namespace CultManager
         [ContextMenu("Reset Progress")]
         void ResetCultProgress()
         {
-            game.ResetCult(1);
+            cult.ResetCultProgress();
         }
 
         public void KillSpawn(Spawn spawn)

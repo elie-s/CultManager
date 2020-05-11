@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350558189809505777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08, y: -1.85, z: 0}
+  m_LocalPosition: {x: 0.95, y: -1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5670857192786873231}
@@ -297,13 +297,13 @@ MonoBehaviour:
     size: 5
   targets:
   - waypoint: {fileID: 1793941013652611320}
-    size: 1.5
+    size: 2
   - waypoint: {fileID: 977798934532809945}
     size: 3
   - waypoint: {fileID: 8905413452307391069}
-    size: 2.5
+    size: 3
   - waypoint: {fileID: 6715042626512345281}
-    size: 1.75
+    size: 2
   - waypoint: {fileID: 4129208617260690276}
     size: 10
   settings: {fileID: 11400000, guid: 44c4a979d8cb417408aa05b4a8c84d7a, type: 2}

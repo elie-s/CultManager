@@ -153,7 +153,7 @@ namespace CultManager
             }
             else
             {
-                demonManager.CreateNewDemon(1, patternSegments.ToArray());
+                demonManager.CreateNewDemon(3, patternSegments.ToArray());
             }
             
             ClearSelection();

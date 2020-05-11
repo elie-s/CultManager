@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &232117898150303341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232117898150303331}
+  - component: {fileID: 232117898150303340}
+  m_Layer: 0
+  m_Name: DemonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &232117898150303331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232117898150303341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.103494026, y: -0.03189611, z: -0.64160156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &232117898150303340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232117898150303341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eac907f73f238a4a87df8981c9a4d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 8ee2b1ee6fce57a4da6c05d88c638b24, type: 2}
+  persistentData: {fileID: 11400000, guid: ab958d8d674bc6640b5efc743534555a, type: 2}
+  spawnPrefab: {fileID: 1291530614637407577, guid: 1c09f623e0b10b645a1256df98a738d7,
+    type: 3}
+  persistentDemonPrefab: {fileID: 519313156704779299, guid: 10781c2f2bc7b3842a24d2ee54816533,
+    type: 3}
+  money: {fileID: 0}
+  game: {fileID: 0}
+  altar: {fileID: 0}
+  effects: {fileID: 0}

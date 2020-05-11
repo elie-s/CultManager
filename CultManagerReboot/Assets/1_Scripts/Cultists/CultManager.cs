@@ -27,6 +27,12 @@ namespace CultManager
             cultistsDisplayer?.DisplayNewCultists(data.cultists.ToArray());
         }
 
+        public void ResetCultProgress()
+        {
+            data.UpdateLevel();
+            gameManager.ResetCult(data.currentlevel);
+        }
+
         public void ResetCult(int level)
         {
             data.ResetCultData(level);

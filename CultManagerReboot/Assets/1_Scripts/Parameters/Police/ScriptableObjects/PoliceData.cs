@@ -42,9 +42,36 @@ namespace CultManager
             SetHourReference(_save.lastHourReference);
         }
 
-        public void ResetPoliceData(int _max)
+        public void ResetPoliceData(int level)
         {
-            gauge = new IntGauge(0, _max, false);
+            switch (level)
+            {
+                case 1:
+                    {
+                        gauge = new IntGauge(0, 100, false);
+                    }
+                    break;
+                case 2:
+                    {
+                        gauge = new IntGauge(0, 120, false);
+                    }
+                    break;
+                case 3:
+                    {
+                        gauge = new IntGauge(0, 140, false);
+                    }
+                    break;
+                case 4:
+                    {
+                        gauge = new IntGauge(0, 160, false);
+                    }
+                    break;
+                case 5:
+                    {
+                        gauge = new IntGauge(0, 200, false);
+                    }
+                    break;
+            }
         }
 
         public void SetHourReference()

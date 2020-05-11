@@ -62,8 +62,7 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
-            int max = 1000;
-            data.ResetPoliceData(max);
+            data.ResetPoliceData(level);
         }
 
         private void Update()

@@ -12,19 +12,57 @@ namespace CultManager
         public ulong idIndex { get; private set; }
         public int candidatesCount { get; private set; }
         public int maxCandidatesCount { get; private set; }
+        public int currentlevel;
 
         public void Reset()
         {
             cultists = new List<Cultist>();
             candidatesCount = 10;
-            maxCandidatesCount = 30;
+            maxCandidatesCount = 10;
+            currentlevel = 0;
         }
 
         public void ResetCultData(int level)
         {
             cultists = new List<Cultist>();
-            candidatesCount = 10;
-            maxCandidatesCount = 30;
+            switch (level)
+            {
+                case 1:
+                    {
+                        candidatesCount = 10;
+                        maxCandidatesCount = 15;
+                    }
+                    break;
+                case 2:
+                    {
+                        candidatesCount = 10;
+                        maxCandidatesCount = 16;
+                    }
+                    break;
+                case 3:
+                    {
+                        candidatesCount = 10;
+                        maxCandidatesCount = 18;
+                    }
+                    break;
+                case 4:
+                    {
+                        candidatesCount = 10;
+                        maxCandidatesCount = 20;
+                    }
+                    break;
+                case 5:
+                    {
+                        candidatesCount = 10;
+                        maxCandidatesCount = 25;
+                    }
+                    break;
+            }
+        }
+
+        public void UpdateLevel()
+        {
+            currentlevel++;
         }
 
 
@@ -59,6 +97,7 @@ namespace CultManager
             idIndex = _save.cultIdIndex;
             candidatesCount = _save.candidatesCount;
             maxCandidatesCount = _save.maxCandidatesCount;
+            currentlevel = _save.currentLevel;
         }
 
         public void AddCultist(Cultist _cultist)
