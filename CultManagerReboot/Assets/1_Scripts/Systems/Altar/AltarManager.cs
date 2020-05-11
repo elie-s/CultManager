@@ -23,6 +23,7 @@ namespace CultManager
         [SerializeField] public GameObject altarPartPrefab;
 
         public IntGauge assignedCultists;
+        public int[] workPower;
 
 
         public void ResetCult(int level)
@@ -51,6 +52,7 @@ namespace CultManager
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
         {
+            workPower = new int[_altarPartDatas.Length];
             for (int i = 0; i < _altarPartDatas.Length; i++)
             {
                 AltarPart current = altarData.CreateNewAltarPart(_altarPartDatas[i].name);
@@ -59,6 +61,17 @@ namespace CultManager
                 behavior.Spawn(current, this, _altarPartDatas[i].maxCultists, _altarPartDatas[i].maxBuildPoints);
                 altarData.AddAltarPart(current);
             } 
+        }
+        [ContextMenu("Break Random Altar Part")]
+        public void BreakAltarPart()
+        {
+            int i = Random.Range(0, altarData.altarParts.Count);
+            altarData.BreakAltarPart(altarData.altarParts[i]);
+        }
+
+        public void BreakAltarPart(AltarPart part)
+        {
+            altarData.BreakAltarPart(part);
         }
 
         public void DemonSummon()
@@ -70,12 +83,18 @@ namespace CultManager
 
         public void InitAltarParts()
         {
+            workPower = new int[altarData.altarParts.Count];
             for (int i = 0; i < altarData.altarParts.Count; i++)
             {
                 AltarPart current = altarData.altarParts[i];
                 GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
                 instance.GetComponent<AltarPartBehavior>().Init(current, this);
             }
+        }
+
+        public void UpdateWorkPower(int i,int value)
+        {
+            workPower[i] = value;
         }
 
         public System.DateTime ReturnLastTimeReference()
@@ -139,6 +158,24 @@ namespace CultManager
             }
             altarData.altarCompletion = (ctr == altarData.altarParts.Count);
 
+        }
+
+        public void AddCultistsToAltar(AltarPart part)
+        {
+            if (assignedCultists.amountLeft >= 1 && part.assignedCultists.amountLeft >= 1)
+            {
+                AssignWorkers(1);
+                part.assignedCultists.Increment(1);
+            }
+        }
+
+        public void RemoveCultistsFromAltar(AltarPart part)
+        {
+            if (assignedCultists.max > assignedCultists.value && part.assignedCultists.value >= 1)
+            {
+                UnassignWorkers(1);
+                part.assignedCultists.Decrement(1);
+            }
         }
 
         public int AssignWorkers(int _amountAsked)

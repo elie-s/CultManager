@@ -142,7 +142,14 @@ namespace CultManager
         {
             if (altarComplete)
             {
-                demonManager.CreateNewPersistentDemon(1);
+                if (data.ComputePatternAccuracy(patternSegments.ToArray()) == 1)
+                {
+                    demonManager.CreateNewPersistentDemon(1);
+                }
+                else
+                {
+                    demonManager.BreakRandomAltarPart();
+                }
             }
             else
             {

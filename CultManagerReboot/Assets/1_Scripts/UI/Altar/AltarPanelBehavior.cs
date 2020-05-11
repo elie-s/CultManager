@@ -18,11 +18,16 @@ namespace CultManager
         [SerializeField] private GameObject Panel;
         [SerializeField] private GameObject demonPanel;
         [SerializeField] private GameObject buyButton;
+        [SerializeField] private GameObject costPanel;
+        [SerializeField] private GameObject progressPanel;
         [SerializeField] private Image altarPartImage;
         [SerializeField] private Image altarPartBar;
         [SerializeField] private Image cultistsBar;
         [SerializeField] private TMP_Text costText;
+        [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private TMP_Text cultistsText;
+        [SerializeField] private TMP_Text progressText;
+        [SerializeField] private TMP_Text workPowerText;
 
         private AltarPart altarPart=>altarData.altarParts[currentId];
         private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);
@@ -46,15 +51,22 @@ namespace CultManager
         {
             if (altarPart.isBought)
             {
+                costPanel.SetActive(false);
+                progressPanel.SetActive(true);
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
                 altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;
                 //cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists.value),Time.deltaTime);
-                cultistsText.text = altarPart.assignedCultists.value.ToString();
+                cultistsText.text = altarPart.assignedCultists.value.ToString()+"/"+altarPart.assignedCultists.max.ToString();
+                progressText.text = altarPart.currentBuildPoints.value.ToString() + "/" + altarPart.currentBuildPoints.max.ToString();
+                workPowerText.text = altarManager.workPower[currentId].ToString()+ "/s";
             }
             else
             {
+                costPanel.SetActive(true);
+                progressPanel.SetActive(false);
                 buyButton.SetActive(true);
+                descriptionText.text = currentAltarPartData.description;
                 altarPartImage.color = new Color(0, 0, 0, 1f);
                 altarPartBar.fillAmount = 0f;
             }
@@ -121,6 +133,16 @@ namespace CultManager
                 currentId = altarData.altarParts.Count-1;
             }
             SetCurrentAltarPart();
+        }
+
+        public void IncreaseCultists()
+        {
+            altarManager.AddCultistsToAltar(altarPart);
+        }
+
+        public void DecreaseCultists()
+        {
+            altarManager.RemoveCultistsFromAltar(altarPart);
         }
 
         public void DemonSummon()

@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private GameObject persistentDemonPrefab = default;
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private GameManager game = default;
+        [SerializeField] private AltarManager altar = default;
 
         [SerializeField] private EffectsManager effects;
 
@@ -56,6 +57,11 @@ namespace CultManager
 
             Invoke("ResetCultProgress", 10f);
 
+        }
+
+        public void BreakRandomAltarPart()
+        {
+            altar.BreakAltarPart();
         }
 
         [ContextMenu("Reset Progress")]

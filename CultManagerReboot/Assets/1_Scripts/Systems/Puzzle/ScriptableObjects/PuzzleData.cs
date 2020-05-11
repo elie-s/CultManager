@@ -32,6 +32,23 @@ namespace CultManager
             return result.ToArray();
         }
 
+        public float ComputePatternAccuracy(Segment[] _segments)
+        {
+            Segment[] pattern = GatherPatternSegments();
+            int ctr = 0;
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                for (int j = 0; j < _segments.Length; j++)
+                {
+                    if (pattern[i].Equals(_segments[j]))
+                    {
+                        ctr++;
+                    }
+                }
+            }
+            return (float)ctr / pattern.Length;
+        }
+
 
         public void LoadSave(Save _save)
         {

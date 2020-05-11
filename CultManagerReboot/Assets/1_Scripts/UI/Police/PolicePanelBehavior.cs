@@ -20,7 +20,7 @@ namespace CultManager
         public int moneyPerBribe;
         [SerializeField] private int moneyIncrementValue;
         [SerializeField] private IntGauge bribeChange;
-        private bool isPressed;
+        [SerializeField] private bool isPressed;
 
         [Header("Display Reference")]
         [SerializeField] private GameObject panel;
@@ -81,7 +81,7 @@ namespace CultManager
 
         public void IncreaseMoney()
         {
-            if (money.value >= (moneyDisplay + moneyIncrementValue))
+            if (money.value >= (moneyDisplay + moneyIncrementValue) && police.value>=(moneyIncrementValue/moneyPerBribe))
             {
                 moneyDisplay += moneyIncrementValue;
                 IncreaseBribe(moneyIncrementValue);
@@ -101,7 +101,8 @@ namespace CultManager
         {
             if (!isPressed)
             {
-                police.DecreasePoliceValue(bribeChange.value);
+                police.Decrement(bribeChange.value);
+                money.Decrease(moneyDisplay);
                 ResetValues();
                 giveButtonImage.sprite = settings.giveButtonEnabled;
                 Invoke("ButtonPressed", 0.5f);

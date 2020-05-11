@@ -97,7 +97,7 @@ namespace CultManager
         [ContextMenu("Recruit")]
         public void StartRecruitment()
         {
-            if (GameManager.currentPanel == CurrentPanel.None)
+            if (GameManager.currentPanel == CurrentPanel.None && data.candidatesCount > 0)
             {
                 GameManager.currentPanel = thisPanelName;
                 //Debug.Log("Candidates are " + data.candidatesCount);

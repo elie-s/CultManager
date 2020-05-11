@@ -28,12 +28,10 @@ namespace CultManager
         void Update()
         {
             current = isUsed;
-            if (GameManager.currentIsland == CurrentIsland.All || GameManager.currentIsland == reqdIsland)
+            if (reqdIsland == CurrentIsland.All || GameManager.currentIsland == reqdIsland)
             {
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
-
-
                     col.enabled = true;
                     if (Input.GetMouseButtonDown(0))
                     {

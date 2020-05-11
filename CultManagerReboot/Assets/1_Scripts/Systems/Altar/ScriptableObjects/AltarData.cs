@@ -35,6 +35,11 @@ namespace CultManager
             return current;
         }
 
+        public void BreakAltarPart(AltarPart part)
+        {
+            part.SetBuildPoints();
+        }
+
         public void AddAltarPart(AltarPart altarPart)
         {
             altarParts.Add(altarPart);
