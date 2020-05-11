@@ -1936,6 +1936,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461633309}
   m_CullTransparentMesh: 0
+--- !u!114 &521467005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4180281346566004004, guid: 5d8c1b50142936e42b97e9e7984d4399,
+    type: 3}
+  m_PrefabInstance: {fileID: 979167385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cf7d5ba27cac1468fdb5419855d954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &535556925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1589493146944727796, guid: c85ac8e7ce4907547b76fa0166697aff,
@@ -3790,6 +3802,7 @@ MonoBehaviour:
   - {fileID: 166302857}
   - {fileID: 1139797848}
   - {fileID: 156054272}
+  - {fileID: 521467005}
   sacrificeIslandManager: {fileID: 979167387}
 --- !u!1001 &1549329174
 PrefabInstance:
