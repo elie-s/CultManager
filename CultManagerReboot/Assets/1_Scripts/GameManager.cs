@@ -53,6 +53,7 @@ namespace CultManager
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 altarManager.ResetData();
+                noteTabManager.SetNoteTabSegments();
             }
 
             else

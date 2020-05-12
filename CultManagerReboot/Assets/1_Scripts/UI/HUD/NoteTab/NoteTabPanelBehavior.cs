@@ -29,10 +29,6 @@ namespace CultManager
         void Start()
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-            if (data.noteTabSegments.Count != puzzle.puzzle.Count)
-            {
-                SetNoteTabSegments();
-            }
         }
 
         public void SetNoteTabSegments()

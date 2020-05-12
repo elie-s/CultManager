@@ -38,18 +38,37 @@ namespace CultManager
             spawnCount = _save.spawnCount;
         }
 
-        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier)
+        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int patternSegments)
         {
             Spawn spawn = new Spawn(idIndex, durationInHours,modifier);
 
             System.DateTime deathTime = System.DateTime.Now+System.TimeSpan.FromHours(durationInHours);
             Demon demon = new Demon(idIndex, segments, deathTime);
+            demon.description = SetDescription(segments.Length, patternSegments);
 
             AddDemon(demon);
             AddSpawn(spawn);
 
             idIndex++;
             return spawn;
+        }
+
+        public string SetDescription(int length,int patternSegments)
+        {
+            return ("There are " + patternSegments.ToString() + " pattern segments in a total of " + length.ToString() + " segments");
+        }
+
+        public int FindPatternSegments(PuzzleSegment[] segments)
+        {
+            int ctr = 0;
+            for (int i = 0; i < segments.Length; i++)
+            {
+                if (segments[i].patternSegment)
+                {
+                    ctr++;
+                }
+            }
+            return ctr;
         }
 
         public Demon ReturnDemonForSpawn(Spawn spawn)

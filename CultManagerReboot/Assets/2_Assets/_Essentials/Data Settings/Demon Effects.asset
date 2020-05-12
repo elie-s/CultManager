@@ -12,14 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369f44b13b2a6b74f80783a93a6387c0, type: 3}
   m_Name: Demon Effects
   m_EditorClassIdentifier: 
-  SpawnModifiers:
-  - effect: 8
-    value: 0.5
-    description: Cultists with big money
+  SegmentModifiers:
   - effect: 0
-    value: 0.25
-    description: This makes the police lazy ass
+    value: 0
+    description: 
+  - effect: 1
+    value: 0
+    description: 
+  - effect: 2
+    value: 0
+    description: 
+  PatternSegmentModifiers:
+  - effect: 3
+    value: 0
+    description: 
+  - effect: 4
+    value: 0
+    description: 
   - effect: 5
-    value: -0.1
-    description: Spend less, live more
+    value: 0
+    description: 
   DemonModifiers: []

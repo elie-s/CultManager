@@ -40,13 +40,13 @@ namespace CultManager
 
         public void Incerment(int _value)
         {
-            float temp = _value * (1 + reference.storage.PoliceIncrementModifier);
+            float temp = _value /** (1 + reference.storage.PoliceIncrementModifier)*/;
             data.Increment(Mathf.RoundToInt(temp));
         }
 
         public void Decrement(int _value)
         {
-            float temp = _value * (1 + reference.storage.PoliceDecrementModifier);
+            float temp = _value /** (1 + reference.storage.PoliceDecrementModifier)*/;
             data.Decrement(Mathf.RoundToInt(temp));
         }
 

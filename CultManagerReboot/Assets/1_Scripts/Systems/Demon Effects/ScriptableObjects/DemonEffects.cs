@@ -8,7 +8,8 @@ namespace CultManager
     [CreateAssetMenu(menuName = "CultManager/Demon/DemonEffects")]
     public class DemonEffects : ScriptableObject
     {
-        public Modifier[] SpawnModifiers;
+        public Modifier[] SegmentModifiers;
+        public Modifier[] PatternSegmentModifiers;
         public Modifier[] DemonModifiers;
     }
 }

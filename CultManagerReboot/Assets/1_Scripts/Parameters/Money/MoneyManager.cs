@@ -12,13 +12,13 @@ namespace CultManager
 
         public void Increase(int _value)
         {
-            float temp = _value * (1 + reference.storage.MoneyIncrementModifier);
+            float temp = _value /** (1 + reference.storage.MoneyIncrementModifier)*/;
             data.Increase((uint)Mathf.RoundToInt(temp));
         }
 
         public void Decrease(int _value)
         {
-            float temp = _value * (1 + reference.storage.MoneyDecrementModifier);
+            float temp = _value /** (1 + reference.storage.MoneyDecrementModifier)*/;
             data.Decrease((uint)Mathf.RoundToInt(temp));
         }
 

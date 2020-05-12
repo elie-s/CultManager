@@ -25,8 +25,8 @@ namespace CultManager
         private Candidate CreateCandidate()
         {
             Cultist cultist = cultManager.CreateRandomCultist();
-            float tempMoney = (1 + reference.storage.RecruitmentMoneyModifier);
-            float tempPolice = (1 + reference.storage.RecruitmentPoliceModifier);
+            float tempMoney = (1 /*+ reference.storage.RecruitmentMoneyModifier*/);
+            float tempPolice = (1 /*+ reference.storage.RecruitmentPoliceModifier*/);
             int money = Mathf.RoundToInt(Random.Range(0, 101) * tempMoney);
             int police = Mathf.RoundToInt(Random.Range(0, 101) * tempPolice);
 
