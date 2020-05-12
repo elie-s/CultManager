@@ -10,16 +10,11 @@ namespace CultManager
     {
         public bool save;
         public List<PuzzleSegment> tutorial = new List<PuzzleSegment>();
-        public List<List<PuzzleSegment>> levelOne = new List<List<PuzzleSegment>>();
-        public int levelOneIndex;
-        public List<List<PuzzleSegment>> levelTwo = new List<List<PuzzleSegment>>();
-        public int levelTwoIndex;
-        public List<List<PuzzleSegment>> levelThree = new List<List<PuzzleSegment>>();
-        public int levelThreeIndex;
-        public List<List<PuzzleSegment>> levelFor = new List<List<PuzzleSegment>>();
-        public int levelForIndex;
-        public List<List<PuzzleSegment>> levelFive = new List<List<PuzzleSegment>>();
-        public int levelFiveIndex;
+        public List<PuzzleSegment> levelOne = new List<PuzzleSegment>();
+        public List<PuzzleSegment> levelTwo = new List<PuzzleSegment>();
+        public List<PuzzleSegment> levelThree = new List<PuzzleSegment>();
+        public List<PuzzleSegment> levelFor = new List<PuzzleSegment>();
+        public List<PuzzleSegment> levelFive = new List<PuzzleSegment>();
 
         public void AddPuzzle(Level _level, List<PuzzleSegment> _puzzle)
         {
@@ -29,19 +24,24 @@ namespace CultManager
                     tutorial = _puzzle;
                     break;
                 case Level.One:
-                    levelOne.Add(_puzzle);
+                    levelOne = _puzzle;
+                    Debug.Log("New LevelOne puzzle Added.");
                     break;
                 case Level.Two:
-                    levelTwo.Add(_puzzle);
+                    levelTwo = _puzzle;
+                    Debug.Log("New levelTwo puzzle Added.");
                     break;
                 case Level.Three:
-                    levelThree.Add(_puzzle);
+                    levelThree = _puzzle;
+                    Debug.Log("New levelThree puzzle Added.");
                     break;
                 case Level.For:
-                    levelFor.Add(_puzzle);
+                    levelFor = _puzzle;
+                    Debug.Log("New levelFor puzzle Added. ");
                     break;
                 case Level.Five:
-                    levelFive.Add(_puzzle);
+                    levelFive = _puzzle;
+                    Debug.Log("New levelFive puzzle Added.");
                     break;
                 default:
                     break;
@@ -57,15 +57,15 @@ namespace CultManager
                 case 0:
                     return tutorial;
                 case 1:
-                    return levelOne[levelOneIndex];
+                    return levelOne;
                 case 2:
-                    return levelTwo[levelTwoIndex];
+                    return levelTwo;
                 case 3:
-                    return levelThree[levelThreeIndex];
+                    return levelThree;
                 case 4:
-                    return levelFor[levelForIndex];
+                    return levelFor;
                 case 5:
-                    return levelFive[levelFiveIndex];
+                    return levelFive;
 
                 default:
                     return null;

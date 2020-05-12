@@ -9,7 +9,6 @@ namespace CultManager
         [SerializeField] private PuzzleData puzzleData = default;
         [SerializeField] private PuzzleDisplay displayer = default;
         [SerializeField] private PuzzleDataSet.Level level = PuzzleDataSet.Level.One;
-        [SerializeField] private int index = 0;
         [SerializeField, DrawScriptable] private PuzzleDataSet data = default;
 
         public void SaveCurrentPuzzle()
@@ -26,23 +25,23 @@ namespace CultManager
                     else Debug.LogWarning("No saved tutorial.");
                     break;
                 case PuzzleDataSet.Level.One:
-                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelOne[index]);
+                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelOne);
                     else Debug.LogWarning("No saved levelOne.");
                     break;
                 case PuzzleDataSet.Level.Two:
-                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelTwo[index]);
+                    if (data.levelTwo.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelTwo);
                     else Debug.LogWarning("No saved levelTwo.");
                     break;
                 case PuzzleDataSet.Level.Three:
-                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelThree[index]);
+                    if (data.levelThree.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelThree);
                     else Debug.LogWarning("No saved levelThree.");
                     break;
                 case PuzzleDataSet.Level.For:
-                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelFor[index]);
+                    if (data.levelFor.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelFor);
                     else Debug.LogWarning("No saved levelFor.");
                     break;
                 case PuzzleDataSet.Level.Five:
-                    if (data.levelOne.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelFive[index]);
+                    if (data.levelFive.Count > 0) displayer.DisplayPuzzle(1.0f, data.levelFive);
                     else Debug.LogWarning("No saved levelFive.");
                     break;
                 default:
