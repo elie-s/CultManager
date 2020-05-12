@@ -49,14 +49,14 @@ namespace CultManager
         {
             if (altarPart.isBought)
             {
-                altarManager.UpdateWorkPower(transform.GetSiblingIndex(), workPower);
+                UpdateWorkPower();
                 if (altarPart.currentBuildPoints.ratio < 1f)
                 {
                     if (altarPart.assignedCultists.value > 1)
                     {
                         if (!isBuilding)
                         {
-                            StartCoroutine(SimulateBuilding(altarPart.assignedCultists.value));
+                            StartCoroutine(SimulateBuilding(workPower));
                             altarManager.ResetTimeReference();
                         }
                     }
@@ -80,6 +80,19 @@ namespace CultManager
             }
         }
 
+        void UpdateWorkPower()
+        {
+            if (altarPart.assignedCultists.ratio == 1)
+            {
+                workPower = (int)(altarPart.assignedCultists.value * 1.5f);
+            }
+            else
+            {
+                workPower = altarPart.assignedCultists.value;
+            }
+            altarManager.UpdateWorkPower(transform.GetSiblingIndex(), workPower);
+        }
+
         void AssignCultists()
         {
             altarPart.IncrementAssignedCultists(altarManager.AssignWorkers(altarPart.assignedCultists.amountLeft));
@@ -89,17 +102,7 @@ namespace CultManager
         IEnumerator SimulateBuilding(int cultistsNum)
         {
             isBuilding = true;
-
-            if (cultistsNum == altarPart.assignedCultists.max)
-            {
-                workPower = cultistsNum * 2;
-            }
-            else
-            {
-                workPower = cultistsNum;
-            }
-
-            altarPart.IncrementBuildPoints(cultistsNum * 2);
+            altarPart.IncrementBuildPoints(cultistsNum);
             yield return new WaitForSecondsRealtime(1);
             isBuilding = false;
         }

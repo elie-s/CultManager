@@ -44,18 +44,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
-  altarPartDatas:
-  - {fileID: 11400000, guid: d305d09eb2b4d9d4d96c39c96b88e544, type: 2}
-  - {fileID: 11400000, guid: 5b805626e01c24948851ea7d9b5610b4, type: 2}
-  - {fileID: 11400000, guid: 6d537a5c57bf30e468fd9a390e333097, type: 2}
-  - {fileID: 11400000, guid: 83b5ad6a819e44b4a8770ade6c8e3cae, type: 2}
-  - {fileID: 11400000, guid: ee9ccb8dc832f46499fb5796101065d2, type: 2}
-  - {fileID: 11400000, guid: 366dfc2aab52a6c4699fd2b499c6e92f, type: 2}
+  altarPartSets:
+  - {fileID: 11400000, guid: e332fd8880e56504d80d512e09b9ce3a, type: 2}
+  - {fileID: 11400000, guid: b182840528470934daa78b35c14b4e30, type: 2}
+  - {fileID: 11400000, guid: 6f496f034f0807f4ba9ae27ce09d2c93, type: 2}
+  - {fileID: 11400000, guid: 9bdc1300eb62b2a4ba780ea297dba556, type: 2}
+  - {fileID: 11400000, guid: 952b835630891c0498317ee68cff3cb8, type: 2}
+  display: {fileID: 0}
   cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
   moneyManager: {fileID: 0}
   puzzleManager: {fileID: 0}
+  bloodBankUI: {fileID: 0}
+  controller: {fileID: 0}
   altarPartPrefab: {fileID: 2765430510471640573, guid: 4995290e98f6df54d85bdf1677f19429,
     type: 3}
   assignedCultists:
     _value: 0
     _max: 0
+  workPower: 

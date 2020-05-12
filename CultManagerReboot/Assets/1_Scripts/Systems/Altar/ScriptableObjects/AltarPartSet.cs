@@ -8,6 +8,7 @@ namespace CultManager
     [CreateAssetMenu(menuName = "CultManager/Altar/AltarSet")]
     public class AltarPartSet : ScriptableObject
     {
+        public int level;
         public AltarPartData[] altarPartDatas;
     }
 }

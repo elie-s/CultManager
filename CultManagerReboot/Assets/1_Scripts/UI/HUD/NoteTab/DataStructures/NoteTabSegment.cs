@@ -14,12 +14,14 @@ namespace CultManager
 
         public NoteTabSegment(Segment _segment, int _colorIndex)
         {
+            segment = new Segment(_segment.a, _segment.b);
             colorIndex = _colorIndex;
         }
 
         public void SetColorIndex(int _colorIndex)
         {
             colorIndex = _colorIndex;
+            Debug.Log(colorIndex);
         }
     }
 }

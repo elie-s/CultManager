@@ -812,6 +812,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350680739}
   m_CullTransparentMesh: 0
+--- !u!114 &363704099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2893562235549870731, guid: 8f2cb3c9d18731b40a3bc365b3ad4692,
+    type: 3}
+  m_PrefabInstance: {fileID: 893049474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5e759601858f84e8b417fd96b72bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &414919670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1200,7 @@ MonoBehaviour:
   persistentDemonPrefab: {fileID: 519313156704779299, guid: 10781c2f2bc7b3842a24d2ee54816533,
     type: 3}
   money: {fileID: 2001917036}
-  game: {fileID: 23170187}
+  cult: {fileID: 0}
   altar: {fileID: 0}
   effects: {fileID: 1824266954}
 --- !u!224 &597759201 stripped
@@ -4176,6 +4188,11 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 815012909}
+    - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
+        type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 363704099}
     - target: {fileID: 798708874607789049, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6420,6 +6437,12 @@ PrefabInstance:
       propertyPath: reset
       value: 
       objectReference: {fileID: 1517151659}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: cult
+      value: 
+      objectReference: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227,
+        type: 2}
     - target: {fileID: 5356637368522100529, guid: 3226607ab569c144ca0c783e89f4aa11,
         type: 3}
       propertyPath: m_Name

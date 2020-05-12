@@ -15,6 +15,7 @@ namespace CultManager
         [SerializeField] private CultSettings settings = default;
         [SerializeField] Cultist[] cultists;
 
+
         [Header("Infiltration Mode")]
         public bool allowInfiltration;
         public int rateOfInfiltration;

@@ -12,28 +12,30 @@ namespace CultManager
         [SerializeField] private int index=0;
 
         [SerializeField]private NoteTabPanelBehavior panelBehavior;
+        [SerializeField]private NoteTabData noteTabData;
 
         private Color currentColor => selectionColors[index];
 
-        private void Start()
+        private void OnEnable()
         {
             panelBehavior = FindObjectOfType<NoteTabPanelBehavior>();
         }
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
+            panelBehavior = FindObjectOfType<NoteTabPanelBehavior>();
             UIRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
             segment = _segment;
             SetRotation();
             UIRenderer.rectTransform.localScale = Vector3.one;
             transform.parent.localScale = Vector3.one * _scale;
+            index = panelBehavior.GetIndex(segment.segment);
             SetColor();
         }
 
         protected override void SetColor()
         {
             UIRenderer.color = currentColor;
-            //panelBehavior.SetIndex(segment.segment, index);
         }
 
         public void ToggleSelction()
@@ -47,7 +49,8 @@ namespace CultManager
                 index = 0;
             }
             SetColor();
-            
+            panelBehavior.SetIndex(segment.segment, index);
+
         }
     }
 }

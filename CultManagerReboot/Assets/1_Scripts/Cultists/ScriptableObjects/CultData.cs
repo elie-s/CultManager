@@ -12,14 +12,14 @@ namespace CultManager
         public ulong idIndex { get; private set; }
         public int candidatesCount { get; private set; }
         public int maxCandidatesCount { get; private set; }
-        public int currentlevel;
+        public int currentlevel=1;
 
         public void Reset()
         {
             cultists = new List<Cultist>();
             candidatesCount = 10;
             maxCandidatesCount = 10;
-            currentlevel = 0;
+            currentlevel = 1;
         }
 
         public void ResetCultData(int level)

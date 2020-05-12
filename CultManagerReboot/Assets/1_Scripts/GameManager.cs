@@ -8,6 +8,7 @@ namespace CultManager
     public class GameManager : MonoBehaviour
     {
         [Header("Managers")]
+
         [SerializeField] private SaveManager saveManager = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private InfluenceManager influenceManager = default;
@@ -20,13 +21,15 @@ namespace CultManager
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private NoteTabPanelBehavior noteTabManager = default;
 
+        [Header("Data")]
+        [SerializeField] private CultData cult;
 
         [SerializeField] private ResetScreen reset = default;
 
 
-
         public static CurrentIsland currentIsland;
         public static CurrentPanel currentPanel;
+        public static int currentLevel;
 
         [SerializeField] private CurrentIsland island;
         [SerializeField] private CurrentPanel panel;
@@ -35,6 +38,7 @@ namespace CultManager
 
         private void Awake()
         {
+            currentLevel = cult.currentlevel;
             currentIsland = CurrentIsland.Origin;
             saveManager?.Loadgame();
             influenceManager?.InitializeData();
@@ -61,6 +65,7 @@ namespace CultManager
 
         void Update()
         {
+            currentLevel = cult.currentlevel;
             island = currentIsland;
             panel = currentPanel;
             if (isHome && Input.GetKeyDown(KeyCode.Escape))

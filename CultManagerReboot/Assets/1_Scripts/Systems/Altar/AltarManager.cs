@@ -9,7 +9,9 @@ namespace CultManager
     {
         [Header("Altar Data")]
         [SerializeField] private AltarData altarData = default;
-        [SerializeField] private AltarPartData[] altarPartDatas = default;
+        [SerializeField] private AltarPartSet[] altarPartSets = default;
+        [SerializeField] private AltarDisplay display;
+        private AltarPartSet currentAltarPartSet;
         
 
         [Header("Cult Parameters")]
@@ -29,13 +31,15 @@ namespace CultManager
         public void ResetCult(int level)
         {
             altarData.ResetAltarData();
-            CreateNewAltarParts(altarPartDatas);
+            currentAltarPartSet = altarPartSets[level - 1];
+            CreateNewAltarParts(altarPartSets[level-1].altarPartDatas);
         }
 
         public void ResetData()
         {
             altarData.ResetAltarData();
-            CreateNewAltarParts(altarPartDatas);
+            currentAltarPartSet = altarPartSets[0];
+            CreateNewAltarParts(currentAltarPartSet.altarPartDatas);
         }
 
         void Start()
@@ -60,7 +64,8 @@ namespace CultManager
                 AltarPartBehavior behavior = instance.GetComponent<AltarPartBehavior>();
                 behavior.Spawn(current, this, _altarPartDatas[i].maxCultists, _altarPartDatas[i].maxBuildPoints);
                 altarData.AddAltarPart(current);
-            } 
+            }
+            display.Spawn(_altarPartDatas);
         }
         [ContextMenu("Break Random Altar Part")]
         public void BreakAltarPart()
@@ -90,6 +95,8 @@ namespace CultManager
                 GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
                 instance.GetComponent<AltarPartBehavior>().Init(current, this);
             }
+            currentAltarPartSet = altarPartSets[GameManager.currentLevel-1];
+            display.Spawn(currentAltarPartSet.altarPartDatas);
         }
 
         public void UpdateWorkPower(int i,int value)
@@ -116,11 +123,11 @@ namespace CultManager
         public void Buy(AltarPart _altar)
         {
             int cost = 0;
-            for (int i = 0; i < altarPartDatas.Length; i++)
+            for (int i = 0; i < currentAltarPartSet.altarPartDatas.Length; i++)
             {
-                if (_altar.altarPartName.Equals(altarPartDatas[i].name))
+                if (_altar.altarPartName.Equals(currentAltarPartSet.altarPartDatas[i].name))
                 {
-                    cost = altarPartDatas[i].cost;
+                    cost = currentAltarPartSet.altarPartDatas[i].cost;
                 }
             }
             if (cost > 0)
@@ -136,11 +143,11 @@ namespace CultManager
         public AltarPartData ReturnAltarPartData(AltarPart _altar)
         {
             AltarPartData result = ScriptableObject.CreateInstance<AltarPartData>();
-            for (int i = 0; i < altarPartDatas.Length; i++)
+            for (int i = 0; i < currentAltarPartSet.altarPartDatas.Length; i++)
             {
-                if (_altar.altarPartName.Equals(altarPartDatas[i].name))
+                if (_altar.altarPartName.Equals(currentAltarPartSet.altarPartDatas[i].name))
                 {
-                    result = altarPartDatas[i];
+                    result = currentAltarPartSet.altarPartDatas[i];
                 }
             }
             return result;
@@ -171,6 +178,7 @@ namespace CultManager
 
         public void RemoveCultistsFromAltar(AltarPart part)
         {
+            Debug.Log(part);
             if (assignedCultists.max > assignedCultists.value && part.assignedCultists.value >= 1)
             {
                 UnassignWorkers(1);

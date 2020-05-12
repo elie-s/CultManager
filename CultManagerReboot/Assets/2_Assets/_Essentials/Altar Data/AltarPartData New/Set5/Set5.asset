@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d8aa83cac292545aeef6de95336cd0, type: 3}
+  m_Name: Set5
+  m_EditorClassIdentifier: 
+  level: 5
+  altarPartDatas:
+  - {fileID: 11400000, guid: 3618d0c46b8ff95488510794941fb5b2, type: 2}
+  - {fileID: 11400000, guid: 0cf31e393b9b20640911b046748b674c, type: 2}
+  - {fileID: 11400000, guid: 1e99d0e9b90129440942e9e61031fd50, type: 2}
+  - {fileID: 11400000, guid: df71b7391fe9c774fade0605c5a86c66, type: 2}
+  - {fileID: 11400000, guid: b73b666384ef9fe4997febbd08b6e480, type: 2}

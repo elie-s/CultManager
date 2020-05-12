@@ -37,6 +37,7 @@ namespace CultManager
 
         public void SetNoteTabSegments()
         {
+            data.noteTabSegments.Clear();
             for (int i = 0; i < puzzle.puzzle.Count; i++)
             {
                 NoteTabSegment segment = new NoteTabSegment(puzzle.puzzle[i].segment, 0);
@@ -50,6 +51,7 @@ namespace CultManager
             {
                 if (data.noteTabSegments[i].segment.Equals(segment))
                 {
+                    Debug.Log("Reached123");
                     data.noteTabSegments[i].SetColorIndex(index);
                 }
             }
@@ -57,6 +59,7 @@ namespace CultManager
 
         public int GetIndex(Segment segment)
         {
+            Debug.Log("Reached321");
             int index = 0;
             for(int i = 0; i < data.noteTabSegments.Count; i++)
             {
