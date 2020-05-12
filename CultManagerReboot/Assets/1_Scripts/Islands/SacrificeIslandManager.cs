@@ -88,6 +88,7 @@ namespace CultManager
                 }
 
                 cultists[_cultists[i]].SetCultist(_cultists[i]);
+                cultists[_cultists[i]].GetComponent<InvestigatiorBehavior>().enabled = false;
             }
         }
 
