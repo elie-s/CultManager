@@ -51,6 +51,41 @@ namespace CultManager
             nodes = tmpNodes.ToArray();
         }
 
+        public void DisplayPuzzle(float _scale, List<PuzzleSegment> _data)
+        {
+            ResetNodes();
+            ResetSegments();
+
+            segments = new SegmentBehaviour[_data.Count];
+            List<GameObject> tmpNodes = new List<GameObject>();
+            List<Node> instantiatedNodes = new List<Node>();
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                //Debug.Log(i+"/"+segments.Length);
+                segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(_data[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent).GetComponent<SegmentBehaviour>();
+                segments[i].Init(_data[i], _scale);
+
+                if (nodePrefab)
+                {
+                    if (!instantiatedNodes.Contains(_data[i].a))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(_data[i].a, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(_data[i].a);
+                    }
+
+                    if (!instantiatedNodes.Contains(_data[i].b))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(_data[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(_data[i].b);
+                    }
+                }
+
+            }
+
+            nodes = tmpNodes.ToArray();
+        }
+
         public void HighlightShape(Segment[] _shape)
         {
             foreach (SegmentBehaviour segment in segments)

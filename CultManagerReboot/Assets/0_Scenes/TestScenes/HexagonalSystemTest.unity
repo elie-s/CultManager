@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 1069043170}
   - component: {fileID: 1069043169}
   - component: {fileID: 1069043172}
+  - component: {fileID: 1069043173}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -353,6 +354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
+  bloodManager: {fileID: 0}
+  demonManager: {fileID: 0}
+  altarManager: {fileID: 0}
   display: {fileID: 1069043169}
   scale: 1
   settings:
@@ -369,6 +373,9 @@ MonoBehaviour:
     shapeSegments: 10
     startAtCenter: 1
     mode: 0
+  altarComplete: 0
+  background: {fileID: 0}
+  patternSegments: []
 --- !u!4 &1069043171
 Transform:
   m_ObjectHideFlags: 0
@@ -397,10 +404,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onKeyDownA:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1069043173}
+        m_MethodName: Display
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onKeyDownZ:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1069043173}
+        m_MethodName: SaveCurrentPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onKeyDownE:
     m_PersistentCalls:
       m_Calls: []
@@ -429,7 +458,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1069043170}
-        m_MethodName: Generate2
+        m_MethodName: Generate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -439,6 +468,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1069043173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069043168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5256cc4c49f350459b0189f3e446bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleData: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
+  displayer: {fileID: 1069043169}
+  level: 1
+  index: 0
+  data: {fileID: 11400000, guid: 44b28b8d8d93bb64a9e28c648ff76b5c, type: 2}
 --- !u!1 &1428529827
 GameObject:
   m_ObjectHideFlags: 0
