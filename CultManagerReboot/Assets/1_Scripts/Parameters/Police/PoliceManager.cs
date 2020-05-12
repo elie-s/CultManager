@@ -33,7 +33,7 @@ namespace CultManager
         public void InitAysnchValues()
         {
             System.TimeSpan timeSpan = System.DateTime.Now - data.lastHourReference;
-            int numberOfHours = (int)(timeSpan.Minutes);
+            int numberOfHours = (int)(timeSpan.Hours);
             ChargePenalty(numberOfHours);
             DecreasePoliceValue(numberOfHours);
         }

@@ -22,12 +22,13 @@ namespace CultManager
         [SerializeField] private GameObject progressPanel;
         [SerializeField] private Image altarPartImage;
         [SerializeField] private Image altarPartBar;
-        [SerializeField] private Image cultistsBar;
         [SerializeField] private TMP_Text costText;
+        [SerializeField] private TMP_Text nameText;
         [SerializeField] private TMP_Text descriptionText;
         [SerializeField] private TMP_Text cultistsText;
         [SerializeField] private TMP_Text progressText;
         [SerializeField] private TMP_Text workPowerText;
+        [SerializeField] private TMP_Text elapsedTimeText;
 
         private AltarPart altarPart=>altarData.altarParts[currentId];
         private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);
@@ -56,16 +57,20 @@ namespace CultManager
                 buyButton.SetActive(false);
                 altarPartImage.color = new Color(1, 1, 1, 0.25f);
                 /*altarPartBar.fillAmount = Mathf.Lerp(altarPartBar.fillAmount, altarPart.currentBuildPoints.ratio,Time.deltaTime) ;*/
-                //cultistsBar.fillAmount = Mathf.Lerp(cultistsBar.fillAmount,(float)(altarPart.assignedCultists.value),Time.deltaTime);
                 cultistsText.text = altarPart.assignedCultists.value.ToString()+"/"+altarPart.assignedCultists.max.ToString();
                 progressText.text = altarPart.currentBuildPoints.value.ToString() + "/" + altarPart.currentBuildPoints.max.ToString();
                 workPowerText.text = altarManager.workPower[currentId].ToString()+ "/s";
+                if (altarManager.workPower[currentId] > 0)
+                    elapsedTimeText.text = ((float)(altarPart.currentBuildPoints.amountLeft / altarManager.workPower[currentId])).ToString()+"s";
+                else
+                    elapsedTimeText.text = "0s";
             }
             else
             {
                 costPanel.SetActive(true);
                 progressPanel.SetActive(false);
                 buyButton.SetActive(true);
+                nameText.text = currentAltarPartData.altarPartName;
                 descriptionText.text = currentAltarPartData.description;
                 altarPartImage.color = new Color(0, 0, 0, 1f);
                 altarPartBar.fillAmount = 0f;
@@ -78,9 +83,6 @@ namespace CultManager
             altarPartImage.sprite = currentAltarPartData.altarSprite;
             altarPartBar.sprite = currentAltarPartData.altarSprite;
             costText.text = currentAltarPartData.cost.ToString();
-
-            altarPartBar.fillAmount = altarPart.currentBuildPoints.ratio;
-            //cultistsBar.fillAmount = altarPart.assignedCultists.ratio;
             cultistsText.text = altarPart.assignedCultists.value.ToString();
         }
 
