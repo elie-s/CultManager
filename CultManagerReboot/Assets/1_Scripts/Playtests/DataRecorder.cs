@@ -60,7 +60,7 @@ namespace CultManager
             
             SaveTouchesData(settings.touchPath);
 
-            SaveQuickFeedbacks(settings.quickFeedbacksExtension);
+            SaveQuickFeedbacks(settings.quickFeedbacksPath);
         }
 
         public void SaveGamedata(string _path)
@@ -207,6 +207,8 @@ namespace CultManager
                 {
                     data[touch.fingerId].Add(new TouchData(touch));
                 }
+
+                yield return null;
             }
 
             foreach (List<TouchData> touchDatas in data)

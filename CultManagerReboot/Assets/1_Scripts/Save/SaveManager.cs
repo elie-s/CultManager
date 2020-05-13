@@ -82,6 +82,7 @@ namespace CultManager
             demonData.LoadSave(save);
             persistentDemonData.LoadSave(save);
             modifierReference.LoadSave(save);
+            dataRecorderSettings.LoadSave(save);
 
             saveLoaded = true;
             return true;

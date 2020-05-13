@@ -2808,6 +2808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotKeys
       objectReference: {fileID: 0}
+    - target: {fileID: 5898100052399813862, guid: bab7e9e6b216e914883218add6262555,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5898100052399813863, guid: bab7e9e6b216e914883218add6262555,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4777,7 +4782,7 @@ PrefabInstance:
     - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
       propertyPath: useMouse
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
