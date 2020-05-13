@@ -29,6 +29,8 @@ namespace CultManager
                 if (!useMouse && Input.touchCount != 0) StartCoroutine(TouchRoutine());
                 if (useMouse && Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
             }
+
+            
         }
 
         private IEnumerator MouseRoutine()

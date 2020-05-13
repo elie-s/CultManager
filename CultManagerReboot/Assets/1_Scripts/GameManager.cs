@@ -66,6 +66,9 @@ namespace CultManager
 
         void Update()
         {
+            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
+            if (Gesture.LongTouch) Debug.Log("Longtouch");
+
             currentLevel = cult.currentlevel;
             island = currentIsland;
             panel = currentPanel;

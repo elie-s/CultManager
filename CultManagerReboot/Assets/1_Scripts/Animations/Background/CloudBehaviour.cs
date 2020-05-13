@@ -63,7 +63,7 @@ namespace CultManager
             SetSize();
             SetPos();
 
-            yield return new WaitForSeconds(Random.value * 2.0f);
+            yield return new WaitForSeconds(Random.value * 8.0f);
 
             StartCoroutine(Move());
         }
