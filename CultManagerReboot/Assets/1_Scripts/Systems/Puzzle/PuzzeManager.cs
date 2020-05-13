@@ -60,6 +60,11 @@ namespace CultManager
             bloodManager.FailedPattern();
         }
 
+        public void ResetBanks()
+        {
+            bloodManager.ResetTempBanks();
+        }
+
         public void CompletedAltar()
         {
             if (!altarComplete)
@@ -136,6 +141,7 @@ namespace CultManager
             {
                 AddPattern();
                 ClearSelection();
+                bloodManager.ResetTempBanks();
             }
             else
             {

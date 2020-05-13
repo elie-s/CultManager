@@ -40,8 +40,8 @@ namespace CultManager
 
         private void Awake()
         {
-            currentLevel = cult.currentlevel;
             currentIsland = CurrentIsland.Origin;
+            currentPanel = CurrentPanel.None;
             saveManager?.Loadgame();
             influenceManager?.InitializeData();
 
@@ -60,6 +60,7 @@ namespace CultManager
 
             else
             {
+                currentLevel = cult.currentlevel;
                 altarManager.InitAltarParts();
                 puzzeManager.LoadData();
                 policeManager.InitAysnchValues();

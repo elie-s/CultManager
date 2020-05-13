@@ -33,7 +33,6 @@ namespace CultManager
         public UnityEvent OnCompletion;
 
 
-
         public void ResetCult(int level)
         {
             display.Reset();

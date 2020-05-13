@@ -12,7 +12,7 @@ namespace CultManager
         public ulong idIndex { get; private set; }
         public int candidatesCount { get; private set; }
         public int maxCandidatesCount { get; private set; }
-        public int currentlevel=1;
+        public int currentlevel=0;
 
         public void Reset()
         {
@@ -27,6 +27,12 @@ namespace CultManager
             cultists = new List<Cultist>();
             switch (level)
             {
+                case 0:
+                    {
+                        candidatesCount = 5;
+                        maxCandidatesCount = 15;
+                    }
+                    break;
                 case 1:
                     {
                         candidatesCount = 10;

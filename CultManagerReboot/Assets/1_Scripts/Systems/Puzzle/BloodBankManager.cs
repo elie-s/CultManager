@@ -22,7 +22,7 @@ namespace CultManager
             for (int i = 0; i < tempBanks.Length; i++)
             {
                 tempBanks[i] = new BloodBank((BloodType)i, intGauge[i]);
-                tempBanks[i].gauge = new IntGauge(0, 100, false);
+                tempBanks[i].gauge = new IntGauge(0, data.bloodBanks[i].gauge.max, false);
             }
         }
 
@@ -76,6 +76,11 @@ namespace CultManager
             }
         }
 
+        public void ResetTempBanks()
+        {
+            SetUpTempBloodBanks();
+        }
+
         
 
         public void IncreaseBloodOfType(BloodType blood,int amount)
@@ -104,6 +109,7 @@ namespace CultManager
         {
             EmptyTempBanks();
         }
+
 
 
         [ContextMenu("Increase Blood")]

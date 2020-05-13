@@ -52,7 +52,7 @@ namespace CultManager
                 UpdateWorkPower();
                 if (altarPart.currentBuildPoints.ratio < 1f)
                 {
-                    if (altarPart.assignedCultists.value > 1)
+                    if (altarPart.assignedCultists.value >= 1)
                     {
                         if (!isBuilding)
                         {
