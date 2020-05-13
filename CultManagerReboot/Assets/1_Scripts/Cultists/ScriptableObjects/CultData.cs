@@ -19,7 +19,7 @@ namespace CultManager
             cultists = new List<Cultist>();
             candidatesCount = 10;
             maxCandidatesCount = 10;
-            currentlevel = 1;
+            currentlevel = 0;
         }
 
         public void ResetCultData(int level)

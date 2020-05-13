@@ -40,7 +40,7 @@ namespace CultManager
 
         public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int patternSegments)
         {
-            Spawn spawn = new Spawn(idIndex, durationInHours,modifier);
+            Spawn spawn = new Spawn(idIndex, durationInHours,modifier,((float)patternSegments/segments.Length));
 
             System.DateTime deathTime = System.DateTime.Now+System.TimeSpan.FromHours(durationInHours);
             Demon demon = new Demon(idIndex, segments, deathTime);

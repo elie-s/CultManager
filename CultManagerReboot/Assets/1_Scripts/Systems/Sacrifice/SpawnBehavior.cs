@@ -9,6 +9,9 @@ namespace CultManager
     {
         public Spawn spawn;
         public DemonManager manager;
+
+        [SerializeField] private SpriteRenderer body;
+        [SerializeField] private SpriteRenderer alpha;
         private bool dead;
 
 
@@ -22,10 +25,16 @@ namespace CultManager
             }
         }
 
-        public void Init(Spawn _spawn,DemonManager _manager)
+        public void Init(Spawn _spawn,DemonManager _manager,float accuracy)
         {
             spawn = _spawn;
             manager = _manager;
+            EmptyIt(accuracy);
+        }
+
+        public void EmptyIt(float accuracy)
+        {
+
         }
     }
 }

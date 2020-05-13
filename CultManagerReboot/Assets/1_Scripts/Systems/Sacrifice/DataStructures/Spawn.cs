@@ -12,15 +12,17 @@ namespace CultManager
         public int id;
         public DateTime spawnTime;
         public int durationInHours;
+        public float patternAccuracy;
 
         public Modifier[] modifiers;
 
 
-        public Spawn(int _id,int _durationInHours,Modifier[] _modifiers)
+        public Spawn(int _id,int _durationInHours,Modifier[] _modifiers,float _patternAccuracy)
         {
             id = _id;
             durationInHours = _durationInHours;
             modifiers = _modifiers;
+            patternAccuracy = _patternAccuracy;
             ResetSpawnTime();
         }
 

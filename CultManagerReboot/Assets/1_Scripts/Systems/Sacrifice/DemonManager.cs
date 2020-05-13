@@ -43,7 +43,7 @@ namespace CultManager
         {
             Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments);
             GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
-            instance.GetComponent<SpawnBehavior>().Init(spawn, this);
+            instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy);
             spawns.Add(instance.GetComponent<SpawnBehavior>());
             effects.UpdateModifiers();
         }
@@ -106,7 +106,7 @@ namespace CultManager
                 for (int i = 0; i < data.spawns.Count; i++)
                 {
                     GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
-                    instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this);
+                    instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this, data.spawns[i].patternAccuracy);
                     spawns.Add(instance.GetComponent<SpawnBehavior>());
                     effects.UpdateModifiers();
                 }
