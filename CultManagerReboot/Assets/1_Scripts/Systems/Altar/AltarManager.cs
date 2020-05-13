@@ -203,7 +203,6 @@ namespace CultManager
                 if (_altar.altarPartName.Equals(currentAltarPartSet.altarPartDatas[i].name))
                 {
                     result = currentAltarPartSet.altarPartDatas[i];
-                    Debug.Log(result);
                 }
             }
             return result;
@@ -224,22 +223,23 @@ namespace CultManager
 
         }
 
-        public void AddCultistsToAltar(AltarPart part)
+
+        public void AddCultistsToAltar(AltarPart part, int value)
         {
             if (assignedCultists.amountLeft >= 1 && part.assignedCultists.amountLeft >= 1)
             {
-                AssignWorkers(1);
-                part.assignedCultists.Increment(1);
+                part.assignedCultists.Increment(value);
+                AssignWorkers(value);
             }
         }
 
-        public void RemoveCultistsFromAltar(AltarPart part)
+        public void RemoveCultistsFromAltar(AltarPart part, int value)
         {
             Debug.Log(part);
-            if (assignedCultists.max > assignedCultists.value && part.assignedCultists.value >= 1)
+            if (assignedCultists.max >= assignedCultists.value && part.assignedCultists.value >= 1)
             {
-                UnassignWorkers(1);
-                part.assignedCultists.Decrement(1);
+                part.assignedCultists.Decrement(value);
+                UnassignWorkers(value);
             }
         }
 

@@ -169,12 +169,12 @@ namespace CultManager
 
         public void IncreaseCultists()
         {
-            altarManager.AddCultistsToAltar(altarPart);
+            altarManager.AddCultistsToAltar(altarPart,1);
         }
 
         public void DecreaseCultists()
         {
-            altarManager.RemoveCultistsFromAltar(altarPart);
+            altarManager.RemoveCultistsFromAltar(altarPart,1);
         }
 
         public void DemonSummon()
