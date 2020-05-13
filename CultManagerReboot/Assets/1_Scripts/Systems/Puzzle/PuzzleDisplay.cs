@@ -25,6 +25,8 @@ namespace CultManager
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
 
+            _scale = _scale * (data.puzzle.Count < 4 ? 4 : (data.puzzle.Count < 30 ? 2 : 1));
+
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 //Debug.Log(i+"/"+segments.Length);
@@ -59,6 +61,8 @@ namespace CultManager
             segments = new SegmentBehaviour[_data.Count];
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
+
+            _scale = _scale * (_data.Count < 4 ? 4 : (_data.Count < 30 ? 2 : 1));
 
             for (int i = 0; i < _data.Count; i++)
             {

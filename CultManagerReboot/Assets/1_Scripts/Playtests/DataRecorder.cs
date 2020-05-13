@@ -15,6 +15,7 @@ namespace CultManager
         [SerializeField] private DemonData demons = default;
         [SerializeField] private string separation = ";";
         [SerializeField] private GameObject quickFeedbacksPanel = default;
+        [SerializeField] private SaveSettings saveSettings = default;
         [SerializeField, DrawScriptable] private DataRecorderSettings settings = default;
 
         public static string Separation;
@@ -22,6 +23,7 @@ namespace CultManager
         private List<GestureRecord> gestures = new List<GestureRecord>();
         private List<TouchRecord> touches = new List<TouchRecord>();
         private List<GameDataSet> gamedata = new List<GameDataSet>();
+        private List<QuickFeedback> quickFeedbacks = new List<QuickFeedback>();
 
         private void Awake()
         {
@@ -57,35 +59,64 @@ namespace CultManager
             SaveGamedata(settings.gamedataPath);
             
             SaveTouchesData(settings.touchPath);
+
+            SaveQuickFeedbacks(settings.quickFeedbacksExtension);
         }
 
         public void SaveGamedata(string _path)
         {
             string[] data = GameDataToString();
 
-            if (File.Exists(_path)) File.Delete(_path);
+            int index = 0;
 
-            File.WriteAllLines(_path, data);
+            while (File.Exists(_path.Replace(".tsv","-"+index+".tsv")))
+            {
+                index++;
+            }
+
+            File.WriteAllLines(_path.Replace(".tsv", "-" + index + ".tsv"), data);
         }
 
         public void SaveGesturesData(string _path)
         {
             string data = GesturesDataToString();
 
-            //Debug.Log(data);
+            int index = 0;
 
-            if (File.Exists(_path)) File.Delete(_path);
+            while (File.Exists(_path.Replace(".tsv", "-" + index + ".tsv")))
+            {
+                index++;
+            }
 
-            File.WriteAllText(_path, data);
+            File.WriteAllText(_path.Replace(".tsv", "-" + index + ".tsv"), data);
         }
 
         public void SaveTouchesData(string _path)
         {
             string[] data = TouchesDataToString();
 
-            if (File.Exists(_path)) File.Delete(_path);
+            int index = 0;
 
-            File.WriteAllLines(_path, data);
+            while (File.Exists(_path.Replace(".tsv", "-" + index + ".tsv")))
+            {
+                index++;
+            }
+
+            File.WriteAllLines(_path.Replace(".tsv", "-" + index + ".tsv"), data);
+        }
+
+        public void SaveQuickFeedbacks(string _path)
+        {
+            string[] data = QuickFeedbacksTostrings();
+
+            int index = 0;
+
+            while (File.Exists(_path.Replace(".tsv", "-" + index + ".tsv")))
+            {
+                index++;
+            }
+
+            File.WriteAllLines(_path.Replace(".tsv", "-" + index + ".tsv"), data);
         }
 
         private string[] GameDataToString()
@@ -237,6 +268,21 @@ namespace CultManager
             return result.ToArray();
         }
 
+        public void AddQuickFeedback(int _value)
+        {
+            quickFeedbacks.Add(new QuickFeedback((QuickFeedbackValue)_value, new GameDataSet(money, blood, influence, police, cult, demons)));
+        }
 
+        public string[] QuickFeedbacksTostrings()
+        {
+            List<string> result = new List<string>();
+
+            foreach (QuickFeedback feedback in quickFeedbacks)
+            {
+                result.Add(feedback.ToString());
+            }
+
+            return result.ToArray();
+        }
     }
 }

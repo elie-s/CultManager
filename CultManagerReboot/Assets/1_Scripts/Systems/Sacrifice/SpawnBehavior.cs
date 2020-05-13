@@ -12,6 +12,7 @@ namespace CultManager
 
         [SerializeField] private SpriteRenderer body;
         [SerializeField] private SpriteRenderer alpha;
+        [SerializeField] private Gradient accuracyColor = default;
         private bool dead;
 
 
@@ -29,12 +30,12 @@ namespace CultManager
         {
             spawn = _spawn;
             manager = _manager;
-            EmptyIt(accuracy);
+            ColorIt(accuracy);
         }
 
-        public void EmptyIt(float accuracy)
+        public void ColorIt(float accuracy)
         {
-
+            alpha.color = accuracyColor.Evaluate(accuracy);
         }
     }
 }

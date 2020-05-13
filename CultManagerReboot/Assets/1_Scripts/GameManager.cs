@@ -27,6 +27,7 @@ namespace CultManager
         [SerializeField] private CultData cult;
 
         [SerializeField] private ResetScreen reset = default;
+        [SerializeField] private DataRecorder dataRecorder = default;
 
 
         public static CurrentIsland currentIsland;
@@ -84,6 +85,7 @@ namespace CultManager
         public void SaveGame()
         {
             saveManager.SaveGame();
+            dataRecorder?.SaveData();
         }
 
         private void OnApplicationQuit()

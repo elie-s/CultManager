@@ -12,6 +12,8 @@ namespace CultManager
         public string saveFolder = "Save";
         public string saveName = "save";
         public string saveExtension = "chtulhu";
+
+        public string dataPath => Application.persistentDataPath + "/" + saveFolder + "/" + saveName + "." + saveExtension + version;
     }
 }
 

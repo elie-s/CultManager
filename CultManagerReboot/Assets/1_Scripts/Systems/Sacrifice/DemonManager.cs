@@ -17,6 +17,7 @@ namespace CultManager
         [SerializeField] private AltarManager altar = default;
 
         [SerializeField] private EffectsManager effects;
+        [SerializeField] private Transform[] waypoints = default;
 
         private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
 
@@ -42,7 +43,7 @@ namespace CultManager
         public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments)
         {
             Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments);
-            GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
+            GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy);
             spawns.Add(instance.GetComponent<SpawnBehavior>());
             effects.UpdateModifiers();
@@ -51,7 +52,7 @@ namespace CultManager
         public void CreateNewPersistentDemon(int spriteIndex)
         {
             PersistentDemon persistent = persistentData.CreatePersistentDemon(spriteIndex);
-            GameObject instance = Instantiate(persistentDemonPrefab, transform.position, Quaternion.identity, transform);
+            GameObject instance = Instantiate(persistentDemonPrefab, GetRandomPos(), Quaternion.identity, transform);
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
             effects.UpdateModifiers();
 
@@ -105,7 +106,7 @@ namespace CultManager
             {
                 for (int i = 0; i < data.spawns.Count; i++)
                 {
-                    GameObject instance = Instantiate(spawnPrefab, transform.position, Quaternion.identity, transform);
+                    GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
                     instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this, data.spawns[i].patternAccuracy);
                     spawns.Add(instance.GetComponent<SpawnBehavior>());
                     effects.UpdateModifiers();
@@ -119,11 +120,16 @@ namespace CultManager
             {
                 for (int i = 0; i < persistentData.persistentDemons.Count; i++)
                 {
-                    GameObject instance = Instantiate(persistentDemonPrefab, transform.position, Quaternion.identity, transform);
+                    GameObject instance = Instantiate(persistentDemonPrefab, GetRandomPos(), Quaternion.identity, transform);
                     instance.GetComponent<PersistentDemonBehavior>().Init(persistentData.persistentDemons[i], this);
                     effects.UpdateModifiers();
                 }
             }
+        }
+
+        private Vector2 GetRandomPos()
+        {
+            return waypoints[Random.Range(0, waypoints.Length)].position;
         }
     }
 }
