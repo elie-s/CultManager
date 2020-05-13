@@ -66,7 +66,6 @@ namespace CultManager
         void Start()
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
-            assignedCultists = new IntGauge(0, altarData.availableCultists,false);
         }
 
         void Update()
@@ -77,6 +76,17 @@ namespace CultManager
             {
                 OnCompletion.Invoke();
             }
+        }
+
+        int CheckAssignedCultists()
+        {
+            int ctr = 0;
+            for (int i = 0; i < altarData.altarParts.Count; i++)
+            {
+                ctr += altarData.altarParts[i].assignedCultists.value;
+            }
+            Debug.Log(ctr);
+            return ctr;
         }
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
@@ -91,6 +101,7 @@ namespace CultManager
                 altarData.AddAltarPart(current);
             }
             display.Spawn(_altarPartDatas);
+            assignedCultists = new IntGauge(0, altarData.availableCultists, false);
         }
 
         public void DestroyOldAltarParts()
@@ -143,6 +154,8 @@ namespace CultManager
                 currentAltarPartSet = tutorialSet;
             }
             display.Spawn(currentAltarPartSet.altarPartDatas);
+            assignedCultists = new IntGauge(0, altarData.availableCultists, false);
+            assignedCultists.Increment(CheckAssignedCultists());
         }
 
         public void UpdateWorkPower(int i,int value)
@@ -229,7 +242,8 @@ namespace CultManager
             if (assignedCultists.amountLeft >= 1 && part.assignedCultists.amountLeft >= 1)
             {
                 part.assignedCultists.Increment(value);
-                AssignWorkers(value);
+                assignedCultists.Increment(value);
+                //AssignWorkers(value);
             }
         }
 
@@ -239,7 +253,8 @@ namespace CultManager
             if (assignedCultists.max >= assignedCultists.value && part.assignedCultists.value >= 1)
             {
                 part.assignedCultists.Decrement(value);
-                UnassignWorkers(value);
+                assignedCultists.Decrement(value);
+                //UnassignWorkers(value);
             }
         }
 

@@ -100,12 +100,12 @@ namespace CultManager
                 if (difference > altarPart.assignedCultists.value && difference>0)
                 {
                     altarPart.assignedCultists.Decrement(altarPart.assignedCultists.value);
-                    altarManager.UnassignWorkers(altarPart.assignedCultists.value);
+                    altarManager.assignedCultists.Decrement(altarPart.assignedCultists.value);
                 }
                 else
                 {
                     altarPart.assignedCultists.Decrement(difference);
-                    altarManager.UnassignWorkers(difference);
+                    altarManager.assignedCultists.Decrement(difference);
                 }
                 
             }
