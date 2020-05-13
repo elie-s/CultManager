@@ -30,8 +30,8 @@ namespace CultManager
         [SerializeField] private TMP_Text workPowerText;
         [SerializeField] private TMP_Text elapsedTimeText;
 
-        private AltarPart altarPart=>altarData.altarParts[currentId];
-        private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);
+        private AltarPart altarPart;
+        private AltarPartData currentAltarPartData;
         private int currentId;
 
         private void Start()
@@ -44,8 +44,16 @@ namespace CultManager
 
         private void Update()
         {
+            altarPart = altarData.altarParts[currentId];
+            currentAltarPartData = altarManager.ReturnAltarPartData(altarPart);
+
             if (GameManager.currentPanel == thisPanelName)
                 Display();
+        }
+
+        public void Reset()
+        {
+            
         }
 
         public void Display()

@@ -3154,7 +3154,7 @@ PrefabInstance:
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: altarPartSets.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
@@ -3196,31 +3196,31 @@ PrefabInstance:
         type: 3}
       propertyPath: altarPartSets.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 6d75051faea03da439a2edf3c2813e7e,
+      objectReference: {fileID: 11400000, guid: e332fd8880e56504d80d512e09b9ce3a,
         type: 2}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: altarPartSets.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: e332fd8880e56504d80d512e09b9ce3a,
+      objectReference: {fileID: 11400000, guid: b182840528470934daa78b35c14b4e30,
         type: 2}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: altarPartSets.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: b182840528470934daa78b35c14b4e30,
+      objectReference: {fileID: 11400000, guid: 6f496f034f0807f4ba9ae27ce09d2c93,
         type: 2}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: altarPartSets.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 6f496f034f0807f4ba9ae27ce09d2c93,
+      objectReference: {fileID: 11400000, guid: 9bdc1300eb62b2a4ba780ea297dba556,
         type: 2}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: altarPartSets.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 9bdc1300eb62b2a4ba780ea297dba556,
+      objectReference: {fileID: 11400000, guid: 952b835630891c0498317ee68cff3cb8,
         type: 2}
     - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
@@ -3252,6 +3252,12 @@ PrefabInstance:
       propertyPath: OnCompletion.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 798708874607789048, guid: 7d506f42fab5b1d478b6502b616713aa,
+        type: 3}
+      propertyPath: tutorialSet
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d75051faea03da439a2edf3c2813e7e,
+        type: 2}
     - target: {fileID: 798708874607789049, guid: 7d506f42fab5b1d478b6502b616713aa,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,8 +11,9 @@ namespace CultManager
         [Header("Altar Data")]
         [SerializeField] private AltarData altarData = default;
         [SerializeField] private AltarPartSet[] altarPartSets = default;
+        [SerializeField] private AltarPartSet tutorialSet = default;
         [SerializeField] private AltarDisplay display;
-        private AltarPartSet currentAltarPartSet;
+        [SerializeField] private AltarPartSet currentAltarPartSet;
         
 
         [Header("Cult Parameters")]
@@ -35,15 +36,31 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
+            display.Reset();
             altarData.ResetAltarData();
-            currentAltarPartSet = altarPartSets[level - 1];
+            DestroyOldAltarParts();
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
             CreateNewAltarParts(altarPartSets[level-1].altarPartDatas);
         }
 
         public void ResetData()
         {
             altarData.ResetAltarData();
-            currentAltarPartSet = altarPartSets[0];
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
             CreateNewAltarParts(currentAltarPartSet.altarPartDatas);
         }
 
@@ -76,6 +93,20 @@ namespace CultManager
             }
             display.Spawn(_altarPartDatas);
         }
+
+        public void DestroyOldAltarParts()
+        {
+            if (transform.childCount > 0)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    GameObject current = transform.GetChild(i).gameObject;
+                    Destroy(current);
+                }
+            }
+            
+        }
+
         [ContextMenu("Break Random Altar Part")]
         public void BreakAltarPart()
         {
@@ -110,7 +141,7 @@ namespace CultManager
             }
             else
             {
-                currentAltarPartSet = altarPartSets[GameManager.currentLevel];
+                currentAltarPartSet = tutorialSet;
             }
             display.Spawn(currentAltarPartSet.altarPartDatas);
         }
@@ -158,16 +189,27 @@ namespace CultManager
 
         public AltarPartData ReturnAltarPartData(AltarPart _altar)
         {
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
+
             AltarPartData result = ScriptableObject.CreateInstance<AltarPartData>();
             for (int i = 0; i < currentAltarPartSet.altarPartDatas.Length; i++)
             {
                 if (_altar.altarPartName.Equals(currentAltarPartSet.altarPartDatas[i].name))
                 {
                     result = currentAltarPartSet.altarPartDatas[i];
+                    Debug.Log(result);
                 }
             }
             return result;
         }
+
 
         public void AltarCompletion()
         {
