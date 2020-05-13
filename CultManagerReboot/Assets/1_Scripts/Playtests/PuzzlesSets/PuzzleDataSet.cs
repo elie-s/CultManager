@@ -52,6 +52,8 @@ namespace CultManager
 
         public List<PuzzleSegment> GetPuzzle(int _level)
         {
+            Debug.Log("Puzzle gotten");
+
             switch (_level)
             {
                 case 0:

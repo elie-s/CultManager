@@ -37,16 +37,16 @@ namespace CultManager
 
         public void ResetData()
         {
-            setData.GetPuzzle(0);
+            data.puzzle = setData.GetPuzzle(0);
             display?.DisplayPuzzle(scale);
             //Generate();
         }
 
         public void ResetCult(int level)
         {
-            setData.GetPuzzle(level);
+            data.puzzle = setData.GetPuzzle(level);
             display?.DisplayPuzzle(scale);
-            //Generate();
+            if(level > 5) Generate();
         }
 
         public void ClearSelection()
@@ -108,6 +108,8 @@ namespace CultManager
             }
 
             display?.DisplayPuzzle(scale);
+
+            Debug.Log("Puzzle generated");
         }
 
 

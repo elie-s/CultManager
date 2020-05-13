@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
+  setData: {fileID: 0}
   bloodManager: {fileID: 0}
   demonManager: {fileID: 0}
   altarManager: {fileID: 0}
@@ -482,8 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleData: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   displayer: {fileID: 1069043169}
-  level: 1
-  index: 0
+  level: 0
   data: {fileID: 11400000, guid: 44b28b8d8d93bb64a9e28c648ff76b5c, type: 2}
 --- !u!1 &1428529827
 GameObject:

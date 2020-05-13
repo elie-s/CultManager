@@ -23,7 +23,7 @@ namespace CultManager
 
         protected override void SetColor()
         {
-            sRenderer.color = selected ? bloodTypeColor[(int)segment.type - 1] : bloodTypeColorDisable[(int)segment.type - 1];
+            sRenderer.color = selected ? bloodTypeColor[(int)segment.type] : bloodTypeColorDisable[(int)segment.type];
         }
 
         public void InverSelection()
