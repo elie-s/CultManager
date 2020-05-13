@@ -16,6 +16,7 @@ namespace CultManager
         [Header("Text")]
         public string displayText;
         public RectTransform textPosition;
+        public bool textInActive;
     }
 }
 

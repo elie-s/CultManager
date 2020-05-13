@@ -3890,82 +3890,100 @@ MonoBehaviour:
     maskActive: 1
     displayText: We need to summon a demon! Lets get to the altar
     textPosition: {fileID: 1032795619}
+    textInActive: 0
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Click on the altar to build it....
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Seems like we need money,close the panel for now
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Lets go back to the map to gain money!
     textPosition: {fileID: 289410579}
+    textInActive: 0
   - maskPosition: {fileID: 815435113}
     scaleFactor: 0.6
     maskActive: 1
-    displayText: The Recruitment Island can help us gain some money...
+    displayText: The Office Island can help us gain some money...
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 815435113}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Click on the gate to gain new cultists, they will bring you money!
+    textPosition: {fileID: 1464946889}
+    textInActive: 0
+  - maskPosition: {fileID: 815435113}
+    scaleFactor: 0.6
+    maskActive: 1
+    displayText: ' Accepting cultist will add to your treasure! Swipe right to gain
+      new cultists...'
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 815435113}
     scaleFactor: 0.6
     maskActive: 1
-    displayText: Swipe right to gain new cultists!
-    textPosition: {fileID: 1464946889}
+    displayText: Adding too many cultists can make the police suspicious of you!
+      Swipe left to reject cultists!
+    textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 815435113}
     scaleFactor: 0.6
     maskActive: 1
-    displayText: Swipe left to reject new cultists
-    textPosition: {fileID: 1464946889}
-  - maskPosition: {fileID: 815435113}
-    scaleFactor: 0.6
-    maskActive: 1
-    displayText: Now complete the recruitment return to the map...
-    textPosition: {fileID: 499572061}
+    displayText: Now complete the recruitment...
+    textPosition: {fileID: 289410579}
+    textInActive: 1
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Let's go back to the Altar Island
     textPosition: {fileID: 1032795619}
+    textInActive: 0
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Open the altar, buy it and assign cultists to build it!
     textPosition: {fileID: 1464946889}
+    textInActive: 0
   - maskPosition: {fileID: 166302856}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Summon a presistent demon to upgrade your cult!
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 445687965}
     scaleFactor: 0.8
     maskActive: 1
-    displayText: You can click on each segment to select and then summon, However
-      it seems like you don't have enough blood...
+    displayText: The Summon Pattern has segments that you can fill with blood, you
+      will need blood to do the summoning....
     textPosition: {fileID: 1464946889}
+    textInActive: 0
   - maskPosition: {fileID: 99066497}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Get to the Sacrifice island to gain blood
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 99066497}
     scaleFactor: 0.6
     maskActive: 1
-    displayText: Click on the different platforms to sacrfice and gain blood...
+    displayText: Click on the different platforms to sacrifice and gain blood...
     textPosition: {fileID: 1562771816}
+    textInActive: 0
   - maskPosition: {fileID: 99066497}
     scaleFactor: 0.6
     maskActive: 1
     displayText: Perfect, now gain enough blood and perform a sacrifice!
-    textPosition: {fileID: 1562771816}
+    textPosition: {fileID: 1464946889}
+    textInActive: 0
 --- !u!1 &1122009036
 GameObject:
   m_ObjectHideFlags: 0

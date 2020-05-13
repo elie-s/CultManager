@@ -55,7 +55,7 @@ namespace CultManager
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
             effects.UpdateModifiers();
 
-            Invoke("ResetCultProgress", 10f);
+            ResetCultProgress();
 
         }
 

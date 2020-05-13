@@ -39,6 +39,7 @@ namespace CultManager
 
                     text.text = maskLocations[i].displayText;
                     textObject.position = maskLocations[i].textPosition.position;
+                    textObject.gameObject.SetActive(!maskLocations[i].textInActive);
                 }
                 
             }

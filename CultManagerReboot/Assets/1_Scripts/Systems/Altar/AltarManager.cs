@@ -104,7 +104,14 @@ namespace CultManager
                 GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
                 instance.GetComponent<AltarPartBehavior>().Init(current, this);
             }
-            currentAltarPartSet = altarPartSets[GameManager.currentLevel-1];
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel];
+            }
             display.Spawn(currentAltarPartSet.altarPartDatas);
         }
 
