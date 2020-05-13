@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5dd0d9b2727fdc48aab220735c031f8, type: 3}
+  m_Name: 1_Altar
+  m_EditorClassIdentifier: 
+  altarPartName: Altar
+  altarPartIndex: 0
+  maxCultists: 5
+  maxBuildPoints: 10
+  cost: 1
+  description: This magnificent altar allows you to summon demons of the underworld!
+  altarSprite: {fileID: 21300000, guid: 1eb3091df5d13da4ab3e2bc32fd314a0, type: 3}

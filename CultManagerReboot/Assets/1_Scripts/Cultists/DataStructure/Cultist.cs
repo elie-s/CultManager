@@ -50,7 +50,7 @@ namespace CultManager
 
         public void RandomBloodType()
         {
-            blood = (BloodType)Mathf.RoundToInt(Random.Range(0, 3));
+            blood = (BloodType)Mathf.RoundToInt(Random.Range(0, 2));
         }
 
         public void RandomTraits()

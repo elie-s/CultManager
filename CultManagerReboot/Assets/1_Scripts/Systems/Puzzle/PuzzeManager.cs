@@ -8,6 +8,7 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
+        [SerializeField] private PuzzleDataSet setData = default;
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private AltarManager altarManager = default;
@@ -36,12 +37,16 @@ namespace CultManager
 
         public void ResetData()
         {
-            Generate();
+            setData.GetPuzzle(0);
+            display?.DisplayPuzzle(scale);
+            //Generate();
         }
 
         public void ResetCult(int level)
         {
-            Generate();
+            setData.GetPuzzle(level);
+            display?.DisplayPuzzle(scale);
+            //Generate();
         }
 
         public void ClearSelection()

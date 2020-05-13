@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 
@@ -23,9 +24,13 @@ namespace CultManager
 
         [Header("New Addition")]
         [SerializeField] public GameObject altarPartPrefab;
+        
 
         public IntGauge assignedCultists;
         public int[] workPower;
+
+        public UnityEvent OnCompletion;
+
 
 
         public void ResetCult(int level)
@@ -52,6 +57,10 @@ namespace CultManager
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
             assignedCultists.SetMax(altarData.availableCultists);
+            if (altarData.altarCompletion)
+            {
+                OnCompletion.Invoke();
+            }
         }
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
