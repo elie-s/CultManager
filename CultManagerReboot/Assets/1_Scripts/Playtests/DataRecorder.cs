@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private CultData cult = default;
         [SerializeField] private DemonData demons = default;
         [SerializeField] private string separation = ";";
+        [SerializeField] private GameObject quickFeedbacksPanel = default;
         [SerializeField, DrawScriptable] private DataRecorderSettings settings = default;
 
         public static string Separation;
@@ -235,5 +236,7 @@ namespace CultManager
 
             return result.ToArray();
         }
+
+
     }
 }

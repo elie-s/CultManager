@@ -13,6 +13,13 @@ namespace CultManager
         [SerializeField] private GameObject loading;
 
         [SerializeField] private Image loadingBar;
+        [SerializeField] private SaveManager saveManager = default;
+        [SerializeField] private CultData data = default;
+
+        private void Awake()
+        {
+            saveManager.Loadgame();
+        }
 
         private void Start()
         {
@@ -22,9 +29,9 @@ namespace CultManager
 
         public void StartGame()
         {
-            StartCoroutine(LoadLevel(1));
             title.SetActive(false);
             loading.SetActive(true);
+            StartCoroutine(Delay(0.5f));
         }
 
         IEnumerator LoadLevel(int index)
@@ -37,6 +44,13 @@ namespace CultManager
 
                 yield return null;
             }
+        }
+
+        private IEnumerator Delay(float _delay)
+        {
+            yield return new WaitForSeconds(_delay);
+
+            StartCoroutine(LoadLevel(!SaveManager.saveLoaded || data.currentlevel == 0 ? 1 : 2));
         }
     }
 }

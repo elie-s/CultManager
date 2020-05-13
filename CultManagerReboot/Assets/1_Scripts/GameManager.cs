@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 namespace CultManager
@@ -43,7 +45,7 @@ namespace CultManager
             saveManager?.Loadgame();
             influenceManager?.InitializeData();
 
-            if (!SaveManager.saveLoaded)
+            if (!SaveManager.saveLoaded || cult.currentlevel == 0)
             {
                 cultManager.ResetData();
                 policeManager.ResetData();
@@ -94,7 +96,6 @@ namespace CultManager
             {
                 SaveGame();
             }
-            
         }
 
         public void OnApplicationPause(bool pause)
@@ -102,8 +103,7 @@ namespace CultManager
             if (pause)
             {
                 SaveGame();
-            }
-                
+            }  
         }
 
         public void Quit()
@@ -131,6 +131,16 @@ namespace CultManager
             bloodManager.ResetCult(level);
             demonManager.ResetCult(level);
             altarManager.ResetCult(level);
+
+            saveManager.SaveGame();
+            StartCoroutine(GetToloadingScene());
+        }
+
+        public IEnumerator GetToloadingScene()
+        {
+            yield return new WaitForSeconds(2.0f);
+
+            SceneManager.LoadScene(3);
         }
     }
 }
