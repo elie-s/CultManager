@@ -34,32 +34,32 @@ namespace CultManager
             {
                 case 1:
                     {
-                        max = 40;
+                        max = 80;
                     }
                     break;
                 case 2:
                     {
-                        max = 40;
+                        max = 80;
                     }
                     break;
                 case 3:
                     {
-                        max = 50;
+                        max = 100;
                     }
                     break;
                 case 4:
                     {
-                        max = 60;
+                        max = 120;
                     }
                     break;
                 case 5:
                     {
-                        max = 70;
+                        max = 140;
                     }
                     break;
                 default:
                     {
-                        max = 40;
+                        max = 80;
                     }
                     break;
             }

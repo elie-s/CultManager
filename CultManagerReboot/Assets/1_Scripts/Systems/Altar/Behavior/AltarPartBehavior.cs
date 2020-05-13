@@ -90,6 +90,14 @@ namespace CultManager
             {
                 workPower = altarPart.assignedCultists.value;
             }
+
+            if (altarManager.assignedCultists.value < altarPart.assignedCultists.value)
+            {
+                int difference = altarPart.assignedCultists.value - altarManager.assignedCultists.value;
+                altarManager.UnassignWorkers(difference);
+                altarPart.assignedCultists.Decrement(difference);
+            }
+
             altarManager.UpdateWorkPower(transform.GetSiblingIndex(), workPower);
         }
 
