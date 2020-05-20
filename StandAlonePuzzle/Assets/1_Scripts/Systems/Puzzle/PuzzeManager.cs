@@ -8,7 +8,6 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
-        [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
@@ -19,7 +18,7 @@ namespace CultManager
         [SerializeField] private SpriteRenderer background;
 
         private Pattern gridConstruction;
-        [SerializeField]private List<Segment> patternSegments;
+        [SerializeField] private List<Segment> patternSegments;
 
 
         private void Start()
@@ -44,7 +43,7 @@ namespace CultManager
         {
             Generate();
             display?.DisplayPuzzle(scale);
-            if(level > 5) Generate();
+            if (level > 5) Generate();
         }
 
         public void ClearSelection()
@@ -53,15 +52,6 @@ namespace CultManager
             display.UnselectAll();
         }
 
-        public void FailedPattern()
-        {
-            bloodManager.FailedPattern();
-        }
-
-        public void ResetBanks()
-        {
-            bloodManager.ResetTempBanks();
-        }
 
         public void CompletedAltar()
         {
@@ -70,7 +60,7 @@ namespace CultManager
                 altarComplete = true;
                 background.color = new Color(1, 0, 0, 1);
             }
-            
+
         }
 
         [ContextMenu("Generate")]
@@ -91,7 +81,8 @@ namespace CultManager
             {
                 for (int j = 0; j < pattern.stepSegments[i].Count; j++)
                 {
-                    data.puzzle.Add(new PuzzleSegment(pattern.stepSegments[i][j], (BloodType)(i + 1)));
+                    data.puzzle.Add(new PuzzleSegment(pattern.stepSegments[i][j], (BloodType)(i)));
+                    Debug.Log((BloodType)(i));
                 }
             }
 
@@ -102,7 +93,7 @@ namespace CultManager
             {
                 for (int i = 0; i < pattern.segments.Count; i++)
                 {
-                    if(segment.IsSegment(pattern.segments[i]))
+                    if (segment.IsSegment(pattern.segments[i]))
                     {
                         segment.SetAsPatternSegment();
                         break;
@@ -123,44 +114,44 @@ namespace CultManager
             {
                 if (data.puzzle[i].selected)
                 {
-                    patternSegments.Add(data.puzzle[i].segment);
-                    Debug.Log(data.puzzle[i]);
                     ctr++;
                 }
 
             }
-            return (ctr > 2);  
+            return (ctr > 2);
+        }
+
+        public void GatherCurrentPatternSegments()
+        {
+            patternSegments.Clear();
+            for (int i = 0; i < data.puzzle.Count; i++)
+            {
+                if (data.puzzle[i].selected)
+                {
+                    patternSegments.Add(data.puzzle[i].segment);
+                }
+
+            }
         }
 
         public void SummonIt()
         {
-
-            if (ValidatePattern())
-            {
-                AddPattern();
-                ClearSelection();
-                bloodManager.ResetTempBanks();
-            }
-            else
-            {
-                Debug.Log("SorryBoi");
-                ClearSelection();
-                FailedPattern();
-            }
+            GatherCurrentPatternSegments();
+            AddPattern();
+            ClearSelection();
         }
 
         public void AddPattern()
         {
-                if (data.ComputePatternAccuracy(patternSegments.ToArray()) == 1)
-                {
-                    demonManager.CreateNewPersistentDemon(1);
-                }
-                else
-                {
-                    demonManager.CreateNewDemon(3, patternSegments.ToArray(), data.FindPatternSegments(patternSegments.ToArray()));
-                }
-            
-            
+            if (data.ComputePatternMatchCount(patternSegments.ToArray())==data.GatherPatternSegments().Length)
+            {
+                demonManager.CreateNewPersistentDemon(1);
+            }
+            else
+            {
+                demonManager.CreateNewDemon(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()),data.GatherPatternSegments().Length);
+            }
+
             ClearSelection();
             patternSegments.Clear();
         }
@@ -176,7 +167,7 @@ namespace CultManager
 
         private void OnDrawGizmosSelected()
         {
-            if(data.puzzle != null)
+            if (data.puzzle != null)
             {
                 foreach (PuzzleSegment segment in data.puzzle)
                 {

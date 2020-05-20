@@ -27,7 +27,7 @@ namespace CultManager
 
         private void InitCam()
         {
-            if(cam) origin = new CameraTarget(cam);
+            if (cam) origin = new CameraTarget(cam);
             else origin = new CameraTarget(Camera.main);
         }
 
@@ -47,35 +47,26 @@ namespace CultManager
 
         public void Transition(int _index)
         {
-            if (GameManager.currentPanel == CurrentPanel.None )
-            {
-                Transition(targets[_index]);
-                StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
-                //GameManager.currentIsland = (CurrentIsland)(_index + 1);
-                isAtOrigin = false;
-            }
+            Transition(targets[_index]);
+            StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
+            //GameManager.currentIsland = (CurrentIsland)(_index + 1);
+            isAtOrigin = false;
         }
 
         public void SetTo(int _index)
         {
-            if (GameManager.currentPanel == CurrentPanel.None)
-            {
-                SetTo(targets[_index]);
-                StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
-                //GameManager.currentIsland = (CurrentIsland)(_index + 1);
-                isAtOrigin = false;
-            }
+            SetTo(targets[_index]);
+            StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
+            isAtOrigin = false;
         }
 
         public void TransitionToOrigin()
         {
-            if (GameManager.currentPanel == CurrentPanel.None )
-            {
-                Transition(origin);
-                StartCoroutine(DelaySetIsland((CurrentIsland)(0), 2));
-                //GameManager.currentIsland = (CurrentIsland)(0);
-                isAtOrigin = true;
-            }
+            Debug.Log("to origin");
+            Transition(origin);
+            StartCoroutine(DelaySetIsland((CurrentIsland)(0), 2));
+            //GameManager.currentIsland = (CurrentIsland)(0);
+            isAtOrigin = true;
         }
 
         public void SetToOrigin()

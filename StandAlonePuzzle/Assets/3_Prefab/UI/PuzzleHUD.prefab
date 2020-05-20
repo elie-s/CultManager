@@ -196,7 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40fd8e97bed35e489722eeb731913e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisPanelName: 4
   data: {fileID: 11400000, guid: e4ebab6ae19e00b4c9b10efbbbc7ad74, type: 2}
   puzzle: {fileID: 0}
   camControl: {fileID: 0}
@@ -205,6 +204,7 @@ MonoBehaviour:
   - {fileID: 7856119886791836542}
   - {fileID: 7856119885813461482}
   hud: {fileID: 7856119886277470069}
+  summonButton: {fileID: 7856119886183294598}
   transition: {fileID: 5892891853750727900}
   lerpValue: 0
   toLerp: 0

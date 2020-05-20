@@ -37,9 +37,9 @@ namespace CultManager
             data.ResetDemonData(level);
         }
 
-        public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments)
+        public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
-            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments);
+            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
             GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy);
             spawns.Add(instance.GetComponent<SpawnBehavior>());

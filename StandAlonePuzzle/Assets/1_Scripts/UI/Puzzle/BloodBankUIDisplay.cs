@@ -8,15 +8,16 @@ namespace CultManager
 {
     public class BloodBankUIDisplay : MonoBehaviour
     {
-        [SerializeField] private CurrentPanel thisPanelName;
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private PuzzeManager puzzle;
         [SerializeField] private CameraController camControl;
         [SerializeField] private Image[] BloodBars;
         [SerializeField] private GameObject hud;
+        [SerializeField] private GameObject summonButton;
 
         [SerializeField] private Image transition;
         [SerializeField] private float lerpValue;
+        [SerializeField] private float lerpInterval;
         [SerializeField] private bool toLerp;
 
         private void Start()
@@ -36,47 +37,43 @@ namespace CultManager
             {
                 TransitionScreen();
             }
+
+            summonButton.SetActive((puzzle.ValidatePattern()));
         }
         void Display()
         {
             for (int i = 0; i < data.bloodBanks.Length; i++)
             {
-                BloodBars[i].fillAmount = (float)data.bloodBanks[i].gauge.value/ (float)data.bloodBanks[i].gauge.max;
+                BloodBars[i].fillAmount = (float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max;
             }
         }
 
         public void Open()
         {
-            if (GameManager.currentPanel == CurrentPanel.None)
-            {
-                GameManager.currentPanel = thisPanelName;
-                transition.gameObject.SetActive(true);
-                transition.color = new Color(0, 0, 0, 1);
-                lerpValue = 0;
-                toLerp = true;
-                hud.SetActive(true);
-            }
+            transition.gameObject.SetActive(true);
+            transition.color = new Color(0, 0, 0, 1);
+            lerpValue = 0;
+            lerpInterval = 0.6f;
+            toLerp = true;
+            hud.SetActive(true);
         }
 
         public void Close()
         {
-            if (GameManager.currentPanel == thisPanelName)
-            {
-                GameManager.currentPanel = CurrentPanel.None;
-                transition.color = new Color(0, 0, 0, 1);
-                lerpValue = 0;
-                toLerp = true;
-                puzzle.ClearSelection();
-                puzzle.FailedPattern();
-                camControl.TransitionToOrigin();
-                hud.SetActive(false);
+            transition.color = new Color(0, 0, 0, 1);
+            lerpValue = 0;
+            lerpInterval = 0.6f;
+            toLerp = true;
+            puzzle.ClearSelection();
+            camControl.TransitionToOrigin();
+            hud.SetActive(false);
 
-                if (!toLerp)
-                {
-                    transition.gameObject.SetActive(false);
-                }
+            if (!toLerp)
+            {
+                transition.gameObject.SetActive(false);
             }
         }
+
 
         public void Summon()
         {
@@ -89,7 +86,7 @@ namespace CultManager
             if (lerpValue < 1)
             {
                 transition.raycastTarget = true;
-                lerpValue += 0.6f * Time.deltaTime;
+                lerpValue += lerpInterval * Time.deltaTime;
                 float a = Mathf.SmoothStep(1, 0, lerpValue);
                 transition.color = new Color(0, 0, 0, a);
             }
@@ -98,7 +95,7 @@ namespace CultManager
                 transition.raycastTarget = false;
                 toLerp = false;
             }
-            
+
         }
     }
 }

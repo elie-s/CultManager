@@ -70,7 +70,7 @@ namespace CultManager
         // Update is called once per frame
         void Update()
         {
-            EnableButton();
+            //EnableButton();
 
             if (startMove)
             {

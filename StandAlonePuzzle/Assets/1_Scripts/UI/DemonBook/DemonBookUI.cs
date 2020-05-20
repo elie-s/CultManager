@@ -107,15 +107,17 @@ namespace CultManager
 
             OpenDemonPage();
             DisplayDemonPage();
+
         }
+
 
 
         public void DisplayDemonPage()
         {
-            description.text = data.demons[currentDemonIndex].description;
+            description.text = result[currentDemonIndex].description + "\n"+ "Accuracy=" + result[currentDemonIndex].patternSegments+"/"+ result[currentDemonIndex].totalPatternSegments;
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
-            demonPagedisplay.HighlightShape(data.demons[currentDemonIndex].segments);
-            if (data.demons[currentDemonIndex].isStarred)
+            demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
+            if (result[currentDemonIndex].isStarred)
             {
                 starImage.sprite = starActive;
             }

@@ -9,7 +9,8 @@ namespace CultManager
         [SerializeField] protected SpriteRenderer sRenderer = default;
         [SerializeField] protected Color[] bloodTypeColor = new Color[3];
         [SerializeField] protected Color[] bloodTypeColorDisable = new Color[3];
-        private BloodBankManager bloodManager;
+        [SerializeField] BloodType blood = default;
+
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
@@ -18,7 +19,7 @@ namespace CultManager
             SetRotation();
             transform.localScale = Vector3.one * _scale;
             SetColor();
-            bloodManager = FindObjectOfType<BloodBankManager>();
+            blood = segment.type;
         }
 
         protected override void SetColor()
@@ -30,20 +31,8 @@ namespace CultManager
         {
             if (segment.canBeSelected)
             {
-                if (selected && bloodManager.CanIncrease(segment.type, 10))
-                {
-                    Debug.Log("UnSelected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.IncreaseBloodOfType(segment.type, 10);
-                }
-                else if (!selected && bloodManager.CanDecrease(segment.type, 10))
-                {
-                    Debug.Log("Selected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.DecreaseBloodOfType(segment.type, 10);
-                }
+                Select(!selected);
+                ToggleNeighbours();
             }
             else
             {
@@ -86,12 +75,11 @@ namespace CultManager
             }
             if (ctr == 0)
             {
-                if (!selected && bloodManager.CanDecrease(segment.type, 10))
+                if (!selected)
                 {
                     segment.canBeSelected = true;
                     Select(!selected);
                     ToggleNeighbours();
-                    bloodManager.DecreaseBloodOfType(segment.type, 10);
                 }
             }
         }

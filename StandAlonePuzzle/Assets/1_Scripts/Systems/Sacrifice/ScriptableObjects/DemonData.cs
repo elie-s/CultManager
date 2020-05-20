@@ -38,13 +38,13 @@ namespace CultManager
             spawnCount = _save.spawnCount;
         }
 
-        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int patternSegments)
+        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int _patternSegments,int _totalPatternSegments)
         {
-            Spawn spawn = new Spawn(idIndex, durationInHours,modifier,((float)patternSegments/segments.Length));
+            Spawn spawn = new Spawn(idIndex, durationInHours,modifier,((float)_patternSegments/_totalPatternSegments));
 
             System.DateTime deathTime = System.DateTime.Now+System.TimeSpan.FromHours(durationInHours);
-            Demon demon = new Demon(idIndex, segments, deathTime);
-            demon.description = SetDescription(segments.Length, patternSegments);
+            Demon demon = new Demon(idIndex, segments, deathTime,_patternSegments,_totalPatternSegments);
+            demon.description = SetDescription(segments.Length, _patternSegments,_totalPatternSegments);
 
             AddDemon(demon);
             AddSpawn(spawn);
@@ -53,7 +53,7 @@ namespace CultManager
             return spawn;
         }
 
-        public string SetDescription(int length,int patternSegments)
+        public string SetDescription(int length,int patternSegments,int totalpatternSegments)
         {
             return ("There are " + patternSegments.ToString() + " pattern segments in a total of " + length.ToString() + " segments");
         }
