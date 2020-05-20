@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1574680397873183338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574680397873183348}
+  - component: {fileID: 1574680397873183339}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1574680397873183348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574680397873183338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574680397873183339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574680397873183338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fb995e9d60562448a3de4b7fc72cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cultData: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+  influenceData: {fileID: 11400000, guid: aa1827376dc0cec488921a699f71bde2, type: 2}
+  moneyData: {fileID: 11400000, guid: 725344e8f3ae05541832d01648f003db, type: 2}
+  policeData: {fileID: 11400000, guid: 25eb68aa1b236824c969cf7c33f41083, type: 2}
+  altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
+  noteTabData: {fileID: 11400000, guid: 3405a0d4ed99f66428dc13344d505c70, type: 2}
+  puzzleData: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
+  bloodBankData: {fileID: 11400000, guid: e4ebab6ae19e00b4c9b10efbbbc7ad74, type: 2}
+  demonData: {fileID: 11400000, guid: 8ee2b1ee6fce57a4da6c05d88c638b24, type: 2}
+  persistentDemonData: {fileID: 0}
+  modifierReference: {fileID: 0}
+  dataRecorderSettings: {fileID: 11400000, guid: f20ba841b42c58d42a36776404a65a0c,
+    type: 2}
+  settings: {fileID: 11400000, guid: ed4cbe94aeaf6a849b20436c9013355a, type: 2}
+  currentCultistsDebug: 0
+  currentMoneyDebug: 0
+  currentInfluenceDebug: 0
+  currentPoliceDebug: 0
