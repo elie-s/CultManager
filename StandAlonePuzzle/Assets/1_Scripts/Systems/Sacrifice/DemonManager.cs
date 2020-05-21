@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private GameObject persistentDemonPrefab = default;
 
         [SerializeField] private EffectsManager effects;
+        [SerializeField] private ResetScreen reset;
         [SerializeField] private Transform[] waypoints = default;
 
         private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
@@ -39,21 +40,27 @@ namespace CultManager
 
         public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
+            reset.ActivateSpawn();
+
             Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
             GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy);
             spawns.Add(instance.GetComponent<SpawnBehavior>());
             effects.UpdateModifiers();
+
+            
         }
 
         public void CreateNewPersistentDemon(int spriteIndex)
         {
+            reset.ActivateDemon();
+
             PersistentDemon persistent = persistentData.CreatePersistentDemon(spriteIndex);
             GameObject instance = Instantiate(persistentDemonPrefab, GetRandomPos(), Quaternion.identity, transform);
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
             effects.UpdateModifiers();
-
         }
+
 
 
         public void KillSpawn(Spawn spawn)

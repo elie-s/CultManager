@@ -78,6 +78,7 @@ namespace CultManager
         public void Summon()
         {
             puzzle.SummonIt();
+            Close();
         }
 
 

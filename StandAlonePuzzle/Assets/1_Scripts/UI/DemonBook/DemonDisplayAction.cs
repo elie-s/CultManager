@@ -25,7 +25,6 @@ namespace CultManager
 
         public void DisplayDemonBehavior()
         {
-            Debug.Log("Press");
             demonBook.DisplayThisDemon(index);
         }
     }

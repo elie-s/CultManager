@@ -104,7 +104,7 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
-            reset.ActivateReset();
+            reset.ActivateReset("Congratulations" + "\n" + "You invoked the demon!" + "\n" + "Your new Cult awaits you");
 
             puzzeManager.ResetCult(level);
 
