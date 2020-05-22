@@ -50,7 +50,8 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None )
             {
                 Transition(targets[_index]);
-                GameManager.currentIsland = (CurrentIsland)(_index + 1);
+                StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
+                //GameManager.currentIsland = (CurrentIsland)(_index + 1);
                 isAtOrigin = false;
             }
         }
@@ -60,7 +61,8 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None)
             {
                 SetTo(targets[_index]);
-                GameManager.currentIsland = (CurrentIsland)(_index + 1);
+                StartCoroutine(DelaySetIsland((CurrentIsland)(_index + 1), 2));
+                //GameManager.currentIsland = (CurrentIsland)(_index + 1);
                 isAtOrigin = false;
             }
         }
@@ -70,7 +72,8 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None )
             {
                 Transition(origin);
-                GameManager.currentIsland = (CurrentIsland)(0);
+                StartCoroutine(DelaySetIsland((CurrentIsland)(0), 2));
+                //GameManager.currentIsland = (CurrentIsland)(0);
                 isAtOrigin = true;
             }
         }
@@ -80,7 +83,8 @@ namespace CultManager
             if (GameManager.currentPanel == CurrentPanel.None)
             {
                 SetTo(origin);
-                GameManager.currentIsland = (CurrentIsland)(0);
+                StartCoroutine(DelaySetIsland((CurrentIsland)(0), 2));
+                //GameManager.currentIsland = (CurrentIsland)(0);
                 isAtOrigin = true;
             }
         }
@@ -122,6 +126,16 @@ namespace CultManager
 
             locked = false;
             onTransitionEnd.Invoke();
+        }
+
+        private IEnumerator DelaySetIsland(CurrentIsland _island, int _frameDelay)
+        {
+            for (int i = 0; i < _frameDelay; i++)
+            {
+                yield return null;
+            }
+
+            GameManager.currentIsland = _island;
         }
     }
 }

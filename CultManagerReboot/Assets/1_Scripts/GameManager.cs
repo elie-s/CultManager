@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 
 namespace CultManager
@@ -25,6 +27,7 @@ namespace CultManager
         [SerializeField] private CultData cult;
 
         [SerializeField] private ResetScreen reset = default;
+        [SerializeField] private DataRecorder dataRecorder = default;
 
 
         public static CurrentIsland currentIsland;
@@ -38,12 +41,12 @@ namespace CultManager
 
         private void Awake()
         {
-            currentLevel = cult.currentlevel;
             currentIsland = CurrentIsland.Origin;
+            currentPanel = CurrentPanel.None;
             saveManager?.Loadgame();
             influenceManager?.InitializeData();
 
-            if (!SaveManager.saveLoaded)
+            if (!SaveManager.saveLoaded || cult.currentlevel == 0)
             {
                 cultManager.ResetData();
                 policeManager.ResetData();
@@ -53,10 +56,12 @@ namespace CultManager
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 altarManager.ResetData();
+                noteTabManager.SetNoteTabSegments();
             }
 
             else
             {
+                currentLevel = cult.currentlevel;
                 altarManager.InitAltarParts();
                 puzzeManager.LoadData();
                 policeManager.InitAysnchValues();
@@ -65,6 +70,9 @@ namespace CultManager
 
         void Update()
         {
+            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
+            if (Gesture.LongTouch) Debug.Log("Longtouch");
+
             currentLevel = cult.currentlevel;
             island = currentIsland;
             panel = currentPanel;
@@ -77,6 +85,7 @@ namespace CultManager
         public void SaveGame()
         {
             saveManager.SaveGame();
+            dataRecorder?.SaveData();
         }
 
         private void OnApplicationQuit()
@@ -90,7 +99,6 @@ namespace CultManager
             {
                 SaveGame();
             }
-            
         }
 
         public void OnApplicationPause(bool pause)
@@ -98,8 +106,7 @@ namespace CultManager
             if (pause)
             {
                 SaveGame();
-            }
-                
+            }  
         }
 
         public void Quit()
@@ -127,6 +134,16 @@ namespace CultManager
             bloodManager.ResetCult(level);
             demonManager.ResetCult(level);
             altarManager.ResetCult(level);
+
+            saveManager.SaveGame();
+            StartCoroutine(GetToloadingScene());
+        }
+
+        public IEnumerator GetToloadingScene()
+        {
+            yield return new WaitForSeconds(2.0f);
+
+            SceneManager.LoadScene(3);
         }
     }
 }

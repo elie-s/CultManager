@@ -48,27 +48,27 @@ namespace CultManager
             {
                 case 1:
                     {
-                        gauge = new IntGauge(0, 100, false);
+                        gauge = new IntGauge(0, 1000, false);
                     }
                     break;
                 case 2:
                     {
-                        gauge = new IntGauge(0, 120, false);
+                        gauge = new IntGauge(0, 1200, false);
                     }
                     break;
                 case 3:
                     {
-                        gauge = new IntGauge(0, 140, false);
+                        gauge = new IntGauge(0, 1400, false);
                     }
                     break;
                 case 4:
                     {
-                        gauge = new IntGauge(0, 160, false);
+                        gauge = new IntGauge(0, 1600, false);
                     }
                     break;
                 case 5:
                     {
-                        gauge = new IntGauge(0, 200, false);
+                        gauge = new IntGauge(0, 2000, false);
                     }
                     break;
             }

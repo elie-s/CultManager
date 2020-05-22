@@ -25,6 +25,8 @@ namespace CultManager
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
 
+            _scale = _scale * (data.puzzle.Count < 4 ? 4 : (data.puzzle.Count < 30 ? 2 : 1));
+
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 //Debug.Log(i+"/"+segments.Length);
@@ -43,6 +45,43 @@ namespace CultManager
                     {
                         tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(data.puzzle[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
                         instantiatedNodes.Add(data.puzzle[i].b);
+                    }
+                }
+
+            }
+
+            nodes = tmpNodes.ToArray();
+        }
+
+        public void DisplayPuzzle(float _scale, List<PuzzleSegment> _data)
+        {
+            ResetNodes();
+            ResetSegments();
+
+            segments = new SegmentBehaviour[_data.Count];
+            List<GameObject> tmpNodes = new List<GameObject>();
+            List<Node> instantiatedNodes = new List<Node>();
+
+            _scale = _scale * (_data.Count < 4 ? 4 : (_data.Count < 30 ? 2 : 1));
+
+            for (int i = 0; i < _data.Count; i++)
+            {
+                //Debug.Log(i+"/"+segments.Length);
+                segments[i] = Instantiate(segmentPrefab, Node.WorldPosition(_data[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent).GetComponent<SegmentBehaviour>();
+                segments[i].Init(_data[i], _scale);
+
+                if (nodePrefab)
+                {
+                    if (!instantiatedNodes.Contains(_data[i].a))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(_data[i].a, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(_data[i].a);
+                    }
+
+                    if (!instantiatedNodes.Contains(_data[i].b))
+                    {
+                        tmpNodes.Add(Instantiate(nodePrefab, Node.WorldPosition(_data[i].b, _scale) + (Vector2)parent.position, Quaternion.identity, parent));
+                        instantiatedNodes.Add(_data[i].b);
                     }
                 }
 

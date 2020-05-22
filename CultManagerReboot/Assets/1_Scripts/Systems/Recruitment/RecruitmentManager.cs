@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace CultManager
@@ -22,13 +23,16 @@ namespace CultManager
         public GameObject recruitmentObj;
         private Candidate currentCandidate;
 
+        public UnityEvent OnSelected;
+        public UnityEvent OnRejected;
+
         private Candidate CreateCandidate()
         {
             Cultist cultist = cultManager.CreateRandomCultist();
-            float tempMoney = (1 + reference.storage.RecruitmentMoneyModifier);
-            float tempPolice = (1 + reference.storage.RecruitmentPoliceModifier);
-            int money = Mathf.RoundToInt(Random.Range(0, 101) * tempMoney);
-            int police = Mathf.RoundToInt(Random.Range(0, 101) * tempPolice);
+            float tempMoney = (1 /*+ reference.storage.RecruitmentMoneyModifier*/);
+            float tempPolice = (1 /*+ reference.storage.RecruitmentPoliceModifier*/);
+            int money = Mathf.RoundToInt(Random.Range(1, 101) * tempMoney);
+            int police = Mathf.RoundToInt(Random.Range(1, 101) * tempPolice);
 
             return new Candidate(cultist, police, money);
         }
@@ -40,6 +44,7 @@ namespace CultManager
             currentCandidate = null;
             cultManager.DecreaseCandidates();
             SetCard();
+            OnSelected.Invoke();
         }
 
         public void Left()
@@ -48,6 +53,7 @@ namespace CultManager
             currentCandidate = null;
             cultManager.DecreaseCandidates();
             SetCard();
+            OnRejected.Invoke();
         }
 
         public void NextCard()

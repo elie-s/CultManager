@@ -1,0 +1,912 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b4ac9a70787d649b4f0f9651c8b183, type: 3}
+  m_Name: PuzzleData
+  m_EditorClassIdentifier: 
+  puzzle:
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: 1
+        slice: 0
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: 0
+        y: 1
+        slice: 0
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 4
+        slice: 0
+      b:
+        x: 0
+        y: 3
+        slice: 0
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: 0
+        y: 3
+        slice: 0
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 0
+        slice: 2
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 1
+        y: 0
+        slice: 2
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: 0
+        slice: 2
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: 0
+        slice: 2
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: -1
+        slice: 4
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -1
+        y: -1
+        slice: 4
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: -4
+        slice: 4
+      b:
+        x: -3
+        y: -3
+        slice: 4
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -3
+        y: -3
+        slice: 4
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -2
+        slice: 3
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -4
+        slice: 3
+      b:
+        x: 0
+        y: -3
+        slice: 3
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -2
+        slice: 3
+      b:
+        x: 0
+        y: -3
+        slice: 3
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: 0
+        slice: 5
+      b:
+        x: -3
+        y: 0
+        slice: 5
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -3
+        y: 0
+        slice: 5
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 0
+        slice: -1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 2
+        slice: 1
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    type: 1
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 4
+        slice: 1
+      b:
+        x: 3
+        y: 3
+        slice: 1
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 2
+        slice: 1
+      b:
+        x: 3
+        y: 3
+        slice: 1
+    type: 1
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: -2
+        slice: 2
+      b:
+        x: 1
+        y: -3
+        slice: 2
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -4
+        slice: 3
+      b:
+        x: 1
+        y: -3
+        slice: 2
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: -2
+        slice: 4
+      b:
+        x: -4
+        y: -1
+        slice: 4
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: 0
+        slice: 5
+      b:
+        x: -4
+        y: -1
+        slice: 4
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 4
+        slice: 0
+      b:
+        x: 3
+        y: 4
+        slice: 0
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 4
+        slice: 1
+      b:
+        x: 3
+        y: 4
+        slice: 0
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: -1
+        y: 2
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: 2
+        slice: 5
+      b:
+        x: -1
+        y: 2
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: 1
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 2
+        slice: 1
+      b:
+        x: 3
+        y: 1
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -2
+        y: -3
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -4
+        slice: 3
+      b:
+        x: -2
+        y: -3
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -2
+        slice: 3
+      b:
+        x: -1
+        y: -2
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -1
+        y: -2
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: 0
+        slice: 5
+      b:
+        x: -1
+        y: 1
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: -1
+        y: 1
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 2
+        slice: 1
+      b:
+        x: 2
+        y: 1
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 2
+        y: 1
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: -4
+        slice: 3
+      b:
+        x: -1
+        y: -4
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -4
+        slice: 3
+      b:
+        x: -1
+        y: -4
+        slice: 3
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: 0
+        slice: 5
+      b:
+        x: -3
+        y: 1
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: 2
+        slice: 5
+      b:
+        x: -3
+        y: 1
+        slice: 5
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 4
+        slice: 1
+      b:
+        x: 4
+        y: 3
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 2
+        slice: 1
+      b:
+        x: 4
+        y: 3
+        slice: 1
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -2
+        slice: 4
+      b:
+        x: -3
+        y: -2
+        slice: 4
+    type: 2
+    selected: 0
+    patternSegment: 1
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: -2
+        slice: 4
+      b:
+        x: -3
+        y: -2
+        slice: 4
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 2
+        slice: 0
+      b:
+        x: 1
+        y: 3
+        slice: 0
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 4
+        slice: 0
+      b:
+        x: 1
+        y: 3
+        slice: 0
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 0
+        slice: 2
+      b:
+        x: 2
+        y: -1
+        slice: 2
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: -2
+        slice: 2
+      b:
+        x: 2
+        y: -1
+        slice: 2
+    type: 2
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 4
+        y: 0
+        slice: 2
+      b:
+        x: 3
+        y: -1
+        slice: 2
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: -4
+        slice: 4
+      b:
+        x: -4
+        y: -3
+        slice: 4
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 0
+        y: 4
+        slice: 0
+      b:
+        x: 1
+        y: 4
+        slice: 0
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -1
+        y: 1
+        slice: 5
+      b:
+        x: -1
+        y: 2
+        slice: 5
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 1
+        slice: 1
+      b:
+        x: 3
+        y: 1
+        slice: 1
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -1
+        y: -2
+        slice: 3
+      b:
+        x: -2
+        y: -3
+        slice: 3
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 1
+        y: 2
+        slice: 0
+      b:
+        x: 1
+        y: 1
+        slice: 1
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 1
+        y: -1
+        slice: 2
+      b:
+        x: 0
+        y: -1
+        slice: 3
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -2
+        y: -1
+        slice: 4
+      b:
+        x: -1
+        y: 0
+        slice: 5
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 2
+        y: 3
+        slice: 0
+      b:
+        x: 3
+        y: 4
+        slice: 0
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 1
+        y: -2
+        slice: 2
+      b:
+        x: 1
+        y: -3
+        slice: 2
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -3
+        y: -1
+        slice: 4
+      b:
+        x: -4
+        y: -1
+        slice: 4
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 1
+        y: -3
+        slice: 2
+      b:
+        x: 0
+        y: -3
+        slice: 3
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: -4
+        y: -1
+        slice: 4
+      b:
+        x: -3
+        y: 0
+        slice: 5
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0
+  - segment:
+      a:
+        x: 3
+        y: 4
+        slice: 0
+      b:
+        x: 3
+        y: 3
+        slice: 1
+    type: 3
+    selected: 0
+    patternSegment: 0
+    canBeSelected: 0

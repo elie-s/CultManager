@@ -11,7 +11,7 @@ namespace CultManager
         [SerializeField] private AltarData altarData;
         [SerializeField] private GameObject displayPrefab;
 
-        private List<SpriteRenderer> parts=new List<SpriteRenderer>();
+        [SerializeField]private List<SpriteRenderer> parts=new List<SpriteRenderer>();
         private bool isSpawned;
 
 
@@ -33,6 +33,26 @@ namespace CultManager
                 parts[i].sprite = _altarPartDatas[i].altarSprite;
             }
             isSpawned = true;
+        }
+
+        public void DestroyOldAltarParts()
+        {
+            if (transform.childCount > 0)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    GameObject current = transform.GetChild(i).gameObject;
+                    Destroy(current);
+                }
+            }
+
+        }
+
+        public void Reset()
+        {
+            //isSpawned = false;
+            parts = new List<SpriteRenderer>();
+            DestroyOldAltarParts();
         }
 
         void Display()

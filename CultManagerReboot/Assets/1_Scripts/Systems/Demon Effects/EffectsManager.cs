@@ -72,13 +72,18 @@ namespace CultManager
             reference.storage.RecruitmentPoliceModifier = dictonary[EffectType.RecruitmentPoliceModifier];
         }
 
-        public Modifier[] SetRandomSpawnEffect(int length)
+        public Modifier[] SetRandomSpawnEffect(int length,int patternSegments)
         {
             Modifier[] modifiers = new Modifier[length];
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < length-patternSegments; i++)
             {
                 modifiers[i] = new Modifier();
-                modifiers[i] = DemonEffects.SpawnModifiers[Random.Range(0, DemonEffects.SpawnModifiers.Length)];
+                modifiers[i] = DemonEffects.SegmentModifiers[Random.Range(0, DemonEffects.SegmentModifiers.Length)];
+            }
+            for (int i = length-patternSegments ; i < length; i++)
+            {
+                modifiers[i] = new Modifier();
+                modifiers[i] = DemonEffects.PatternSegmentModifiers[Random.Range(0, DemonEffects.PatternSegmentModifiers.Length)];
             }
             return modifiers;
         }
@@ -89,7 +94,7 @@ namespace CultManager
             for (int i = 0; i < length; i++)
             {
                 modifiers[i] = new Modifier();
-                modifiers[i] = DemonEffects.DemonModifiers[Random.Range(0, DemonEffects.SpawnModifiers.Length)];
+                modifiers[i] = DemonEffects.PatternSegmentModifiers[Random.Range(0, DemonEffects.PatternSegmentModifiers.Length)];
             }
             return modifiers;
         }

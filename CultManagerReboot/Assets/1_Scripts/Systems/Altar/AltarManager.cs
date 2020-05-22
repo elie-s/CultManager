@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 
@@ -10,8 +11,9 @@ namespace CultManager
         [Header("Altar Data")]
         [SerializeField] private AltarData altarData = default;
         [SerializeField] private AltarPartSet[] altarPartSets = default;
+        [SerializeField] private AltarPartSet tutorialSet = default;
         [SerializeField] private AltarDisplay display;
-        private AltarPartSet currentAltarPartSet;
+        [SerializeField] private AltarPartSet currentAltarPartSet;
         
 
         [Header("Cult Parameters")]
@@ -23,35 +25,68 @@ namespace CultManager
 
         [Header("New Addition")]
         [SerializeField] public GameObject altarPartPrefab;
+        
 
         public IntGauge assignedCultists;
         public int[] workPower;
 
+        public UnityEvent OnCompletion;
+
 
         public void ResetCult(int level)
         {
+            display.Reset();
             altarData.ResetAltarData();
-            currentAltarPartSet = altarPartSets[level - 1];
+            DestroyOldAltarParts();
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
             CreateNewAltarParts(altarPartSets[level-1].altarPartDatas);
         }
 
         public void ResetData()
         {
             altarData.ResetAltarData();
-            currentAltarPartSet = altarPartSets[0];
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
             CreateNewAltarParts(currentAltarPartSet.altarPartDatas);
         }
 
         void Start()
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
-            assignedCultists = new IntGauge(0, altarData.availableCultists,false);
         }
 
         void Update()
         {
             altarData.SetAvailableCultists(cult.cultists.Count);
             assignedCultists.SetMax(altarData.availableCultists);
+            if (altarData.altarCompletion)
+            {
+                OnCompletion.Invoke();
+            }
+        }
+
+        int CheckAssignedCultists()
+        {
+            int ctr = 0;
+            for (int i = 0; i < altarData.altarParts.Count; i++)
+            {
+                ctr += altarData.altarParts[i].assignedCultists.value;
+            }
+            Debug.Log(ctr);
+            return ctr;
         }
 
         public void CreateNewAltarParts(AltarPartData[] _altarPartDatas)
@@ -66,7 +101,22 @@ namespace CultManager
                 altarData.AddAltarPart(current);
             }
             display.Spawn(_altarPartDatas);
+            assignedCultists = new IntGauge(0, altarData.availableCultists, false);
         }
+
+        public void DestroyOldAltarParts()
+        {
+            if (transform.childCount > 0)
+            {
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    GameObject current = transform.GetChild(i).gameObject;
+                    Destroy(current);
+                }
+            }
+            
+        }
+
         [ContextMenu("Break Random Altar Part")]
         public void BreakAltarPart()
         {
@@ -95,8 +145,17 @@ namespace CultManager
                 GameObject instance = Instantiate(altarPartPrefab, transform.position, Quaternion.identity, transform);
                 instance.GetComponent<AltarPartBehavior>().Init(current, this);
             }
-            currentAltarPartSet = altarPartSets[GameManager.currentLevel-1];
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
             display.Spawn(currentAltarPartSet.altarPartDatas);
+            assignedCultists = new IntGauge(0, altarData.availableCultists, false);
+            assignedCultists.Increment(CheckAssignedCultists());
         }
 
         public void UpdateWorkPower(int i,int value)
@@ -142,6 +201,15 @@ namespace CultManager
 
         public AltarPartData ReturnAltarPartData(AltarPart _altar)
         {
+            if (GameManager.currentLevel != 0)
+            {
+                currentAltarPartSet = altarPartSets[GameManager.currentLevel - 1];
+            }
+            else
+            {
+                currentAltarPartSet = tutorialSet;
+            }
+
             AltarPartData result = ScriptableObject.CreateInstance<AltarPartData>();
             for (int i = 0; i < currentAltarPartSet.altarPartDatas.Length; i++)
             {
@@ -152,6 +220,7 @@ namespace CultManager
             }
             return result;
         }
+
 
         public void AltarCompletion()
         {
@@ -167,22 +236,25 @@ namespace CultManager
 
         }
 
-        public void AddCultistsToAltar(AltarPart part)
+
+        public void AddCultistsToAltar(AltarPart part, int value)
         {
             if (assignedCultists.amountLeft >= 1 && part.assignedCultists.amountLeft >= 1)
             {
-                AssignWorkers(1);
-                part.assignedCultists.Increment(1);
+                part.assignedCultists.Increment(value);
+                assignedCultists.Increment(value);
+                //AssignWorkers(value);
             }
         }
 
-        public void RemoveCultistsFromAltar(AltarPart part)
+        public void RemoveCultistsFromAltar(AltarPart part, int value)
         {
             Debug.Log(part);
-            if (assignedCultists.max > assignedCultists.value && part.assignedCultists.value >= 1)
+            if (assignedCultists.max >= assignedCultists.value && part.assignedCultists.value >= 1)
             {
-                UnassignWorkers(1);
-                part.assignedCultists.Decrement(1);
+                part.assignedCultists.Decrement(value);
+                assignedCultists.Decrement(value);
+                //UnassignWorkers(value);
             }
         }
 

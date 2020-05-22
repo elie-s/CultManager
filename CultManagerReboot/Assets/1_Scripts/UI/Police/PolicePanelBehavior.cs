@@ -16,8 +16,8 @@ namespace CultManager
         [SerializeField] private CurrentPanel thisPanelName;
 
         [Header("System Parameters")]
-        public int moneyDisplay;
-        public int moneyPerBribe;
+        [SerializeField] private int moneyDisplay;
+        [SerializeField] private int moneyPerBribe;
         [SerializeField] private int moneyIncrementValue;
         [SerializeField] private IntGauge bribeChange;
         [SerializeField] private bool isPressed;
@@ -42,6 +42,7 @@ namespace CultManager
             bribeChange = new IntGauge(0, data.max, false);
             isPressed = false;
             giveButtonImage.sprite = settings.giveButtonDisabled;
+            SetBribeExchangeRate();
         }
 
         [ContextMenu("Open Police UI")]
@@ -62,6 +63,43 @@ namespace CultManager
                 GameManager.currentPanel = CurrentPanel.None;
                 ResetValues();
                 panel.SetActive(false);
+            }
+        }
+
+        void SetBribeExchangeRate()
+        {
+            switch (GameManager.currentLevel)
+            {
+                case 1:
+                    {
+                        moneyPerBribe = 14;
+                        moneyIncrementValue = 70;
+                    }
+                    break;
+                case 2:
+                    {
+                        moneyPerBribe = 16;
+                        moneyIncrementValue = 80;
+                    }
+                    break;
+                case 3:
+                    {
+                        moneyPerBribe = 18;
+                        moneyIncrementValue = 90;
+                    }
+                    break;
+                case 4:
+                    {
+                        moneyPerBribe = 20;
+                        moneyIncrementValue = 100;
+                    }
+                    break;
+                case 5:
+                    {
+                        moneyPerBribe = 24;
+                        moneyIncrementValue = 120;
+                    }
+                    break;
             }
         }
 

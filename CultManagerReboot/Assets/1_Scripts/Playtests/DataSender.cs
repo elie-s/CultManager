@@ -9,15 +9,41 @@ namespace CultManager
 {
     public class DataSender : MonoBehaviour
     {
-        [SerializeField] private DataRecorderSettings recorderSata = default;
+        [SerializeField] private GameManager gameManager = default;
+        [SerializeField] private GameObject panel = default;
+        [SerializeField] private SaveSettings save = default;
+        [SerializeField] private DataRecorderSettings recorderData = default;
         [SerializeField, DrawScriptable] private DataSenderSettings settings = default;
 
         [ContextMenu("Send Data")]
         public void SendData()
         {
-            if (File.Exists(recorderSata.gamedataPath)) SendEmail("[TEST]GameData", "[TEST] Gamedata sent at" + System.DateTime.Now.ToString(), recorderSata.gamedataPath);
-            if (File.Exists(recorderSata.gesturesPath)) SendEmail("[TEST]Gestures", "[TEST] Gestures sent at" + System.DateTime.Now.ToString(), recorderSata.gesturesPath);
-            if (File.Exists(recorderSata.touchPath)) SendEmail("[TEST]Touches", "[TEST] Touches sent at" + System.DateTime.Now.ToString(), recorderSata.touchPath);
+            if (File.Exists(recorderData.gamedataPath)) SendEmail("[TEST]GameData", "[TEST] Gamedata sent at" + System.DateTime.Now.ToString(), recorderData.gamedataPath);
+            if (File.Exists(recorderData.gesturesPath)) SendEmail("[TEST]Gestures", "[TEST] Gestures sent at" + System.DateTime.Now.ToString(), recorderData.gesturesPath);
+            if (File.Exists(recorderData.touchPath)) SendEmail("[TEST]Touches", "[TEST] Touches sent at" + System.DateTime.Now.ToString(), recorderData.touchPath);
+        }
+
+        public void SendAllData()
+        {
+            gameManager.SaveGame();
+
+            string[] files = Directory.GetFiles(recorderData.folder);
+
+            foreach (string file in files)
+            {
+                SendEmail("[" + recorderData.testerName + "] Session n°" + recorderData.currentSession, "File location: " + file, file);
+            }
+
+            SendSave();
+
+            recorderData.currentSession++;
+
+            if (panel) StartCoroutine(DisplayPanel());
+        }
+
+        public void SendSave()
+        {
+            SendEmail("[" + recorderData.testerName + "] Session n°" + recorderData.currentSession, "File location: " + save.dataPath, save.dataPath);
         }
 
         
@@ -51,6 +77,15 @@ namespace CultManager
         private Attachment Attach(string _path)
         {
             return new Attachment(_path);
+        }
+
+        private IEnumerator DisplayPanel()
+        {
+            panel.SetActive(true);
+
+            yield return new WaitForSeconds(3.5f);
+
+            panel.SetActive(false);
         }
     }
 }

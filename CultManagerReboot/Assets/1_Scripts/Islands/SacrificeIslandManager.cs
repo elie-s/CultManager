@@ -15,11 +15,51 @@ namespace CultManager
         [SerializeField] private Transform cultistParent = default;
         [SerializeField] private Transform fountain = default;
 
+        [SerializeField] private int bloodPerCultist;
+
         public Dictionary<Cultist, SacrificedBehaviour> cultists { get; private set; }
 
         private void Awake()
         {
             cultists = new Dictionary<Cultist, SacrificedBehaviour>();
+            SetBloodPerCultist();
+        }
+
+        public void SetBloodPerCultist()
+        {
+            switch (GameManager.currentLevel)
+            {
+                case 1:
+                    {
+                        bloodPerCultist = 10;
+                    }
+                    break;
+                case 2:
+                    {
+                        bloodPerCultist = 15;
+                    }
+                    break;
+                case 3:
+                    {
+                        bloodPerCultist = 20;
+                    }
+                    break;
+                case 4:
+                    {
+                        bloodPerCultist = 25;
+                    }
+                    break;
+                case 5:
+                    {
+                        bloodPerCultist = 35;
+                    }
+                    break;
+                default:
+                    {
+                        bloodPerCultist = 10;
+                    }
+                    break;
+            }
         }
 
         public void SpawnCultists(Cultist[] _cultists, GameObject _prefab)
@@ -48,6 +88,7 @@ namespace CultManager
                 }
 
                 cultists[_cultists[i]].SetCultist(_cultists[i]);
+                cultists[_cultists[i]].GetComponent<InvestigatiorBehavior>().enabled = false;
             }
         }
 
@@ -70,7 +111,7 @@ namespace CultManager
             RemoveCultist(_cultist);
             manager.RemoveCutlist(_cultist);
 
-            blood?.IncreaseBloodOfType(_cultist.blood, 10);
+            blood?.IncreaseBloodOfType(_cultist.blood, bloodPerCultist);
         }
 
         public void RemoveACultist()

@@ -33,20 +33,20 @@ namespace CultManager
         public void InitAysnchValues()
         {
             System.TimeSpan timeSpan = System.DateTime.Now - data.lastHourReference;
-            int numberOfHours = (int)(timeSpan.Minutes);
+            int numberOfHours = (int)(timeSpan.Hours);
             ChargePenalty(numberOfHours);
             DecreasePoliceValue(numberOfHours);
         }
 
         public void Incerment(int _value)
         {
-            float temp = _value * (1 + reference.storage.PoliceIncrementModifier);
+            float temp = _value /** (1 + reference.storage.PoliceIncrementModifier)*/;
             data.Increment(Mathf.RoundToInt(temp));
         }
 
         public void Decrement(int _value)
         {
-            float temp = _value * (1 + reference.storage.PoliceDecrementModifier);
+            float temp = _value /** (1 + reference.storage.PoliceDecrementModifier)*/;
             data.Decrement(Mathf.RoundToInt(temp));
         }
 

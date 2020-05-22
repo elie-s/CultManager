@@ -12,6 +12,7 @@ namespace CultManager
 
         [Header("Altar Data")]
         public AltarPart altarPart;
+        public int maxCultists;
         public int workPower;
 
         private bool isBuilding;
@@ -25,6 +26,7 @@ namespace CultManager
         {
             altarPart = _altar;
             altarManager = _manager;
+            maxCultists = _maxCultists;
             altarPart.InitBuildPoints(0, _maxBuildPoints, false);
             altarPart.InitAssignedCultists(0, _maxCultists, false);
         }
@@ -52,7 +54,7 @@ namespace CultManager
                 UpdateWorkPower();
                 if (altarPart.currentBuildPoints.ratio < 1f)
                 {
-                    if (altarPart.assignedCultists.value > 1)
+                    if (altarPart.assignedCultists.value >= 1)
                     {
                         if (!isBuilding)
                         {
@@ -90,6 +92,24 @@ namespace CultManager
             {
                 workPower = altarPart.assignedCultists.value;
             }
+
+            if (altarManager.assignedCultists.max < altarManager.assignedCultists.value && altarPart.assignedCultists.value>0)
+            {
+                int difference = altarManager.assignedCultists.value - altarManager.assignedCultists.max;
+                Debug.Log(difference);
+                if (difference > altarPart.assignedCultists.value && difference>0)
+                {
+                    altarPart.assignedCultists.Decrement(altarPart.assignedCultists.value);
+                    altarManager.assignedCultists.Decrement(altarPart.assignedCultists.value);
+                }
+                else
+                {
+                    altarPart.assignedCultists.Decrement(difference);
+                    altarManager.assignedCultists.Decrement(difference);
+                }
+                
+            }
+
             altarManager.UpdateWorkPower(transform.GetSiblingIndex(), workPower);
         }
 

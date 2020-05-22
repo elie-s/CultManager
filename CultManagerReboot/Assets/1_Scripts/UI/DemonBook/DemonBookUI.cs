@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 
@@ -20,6 +21,7 @@ namespace CultManager
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private PuzzleDisplay demonPagedisplay;
+        [SerializeField] private  TMP_Text description;
         [SerializeField] private int demonPagePuzzleScale;
 
 
@@ -110,6 +112,7 @@ namespace CultManager
 
         public void DisplayDemonPage()
         {
+            description.text = data.demons[currentDemonIndex].description;
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(data.demons[currentDemonIndex].segments);
             if (data.demons[currentDemonIndex].isStarred)

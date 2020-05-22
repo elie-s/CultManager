@@ -8,6 +8,7 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
+        [SerializeField] private PuzzleDataSet setData = default;
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private AltarManager altarManager = default;
@@ -36,12 +37,16 @@ namespace CultManager
 
         public void ResetData()
         {
-            Generate();
+            data.puzzle = setData.GetPuzzle(0);
+            display?.DisplayPuzzle(scale);
+            //Generate();
         }
 
         public void ResetCult(int level)
         {
-            Generate();
+            data.puzzle = setData.GetPuzzle(level);
+            display?.DisplayPuzzle(scale);
+            if(level > 5) Generate();
         }
 
         public void ClearSelection()
@@ -53,6 +58,11 @@ namespace CultManager
         public void FailedPattern()
         {
             bloodManager.FailedPattern();
+        }
+
+        public void ResetBanks()
+        {
+            bloodManager.ResetTempBanks();
         }
 
         public void CompletedAltar()
@@ -103,6 +113,8 @@ namespace CultManager
             }
 
             display?.DisplayPuzzle(scale);
+
+            Debug.Log("Puzzle generated");
         }
 
 
@@ -129,6 +141,7 @@ namespace CultManager
             {
                 AddPattern();
                 ClearSelection();
+                bloodManager.ResetTempBanks();
             }
             else
             {
@@ -153,7 +166,7 @@ namespace CultManager
             }
             else
             {
-                demonManager.CreateNewDemon(3, patternSegments.ToArray());
+                demonManager.CreateNewDemon(3, patternSegments.ToArray(),data.FindPatternSegments(patternSegments.ToArray()));
             }
             
             ClearSelection();

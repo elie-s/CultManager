@@ -63,7 +63,7 @@ namespace CultManager
             if (allowInfiltration)
             {
                 result.isInvestigator = ChanceOfInfiltration();
-                Debug.Log("aDDED "+result.isInvestigator);
+                Debug.Log("Added "+result.isInvestigator);
                 
             }
 

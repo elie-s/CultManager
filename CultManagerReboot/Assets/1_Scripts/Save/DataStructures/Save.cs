@@ -63,9 +63,13 @@ namespace CultManager
         //Modifier Database
         public ModifierStorage storage;
 
+        //Playtests
+        public int sessionCount;
+        public string testerName;
+
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData,
             PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,
-            BloodBankData _bloodBankData,DemonData _demonData,PersistentDemonData _persistentDemonData,ModifierReference _modifierReference)
+            BloodBankData _bloodBankData,DemonData _demonData,PersistentDemonData _persistentDemonData,ModifierReference _modifierReference, DataRecorderSettings _dataRecorderSettings)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -107,6 +111,9 @@ namespace CultManager
             persistentdemonIdIndex = _persistentDemonData.idIndex;
 
             storage = _modifierReference.storage;
+
+            sessionCount = _dataRecorderSettings.currentSession;
+            testerName = _dataRecorderSettings.testerName;
         }
     }
 }
