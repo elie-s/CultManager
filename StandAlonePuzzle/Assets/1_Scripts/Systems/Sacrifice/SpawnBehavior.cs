@@ -21,6 +21,7 @@ namespace CultManager
         [SerializeField] private float timeInterval;
         [SerializeField] private float speed;
         [SerializeField] private BoxCollider2D area;
+
         [SerializeField] private Vector3 movePosition;
         private bool dead;
         private float waitTime;

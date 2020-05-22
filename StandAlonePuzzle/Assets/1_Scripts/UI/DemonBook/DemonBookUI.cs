@@ -17,7 +17,7 @@ namespace CultManager
 
         [Header("Demon Page Display")]
         [SerializeField] private GameObject demonPage;
-
+        [SerializeField] private SpawnColor spawnColor;
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private PuzzleDisplay demonPagedisplay;
@@ -117,6 +117,7 @@ namespace CultManager
             description.text = result[currentDemonIndex].description + "\n"+ "Accuracy=" + result[currentDemonIndex].patternSegments+"/"+ result[currentDemonIndex].totalPatternSegments;
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
+            spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
             if (result[currentDemonIndex].isStarred)
             {
                 starImage.sprite = starActive;
