@@ -250,6 +250,8 @@ GameObject:
   - component: {fileID: 4348629188385145198}
   - component: {fileID: 4348629188385145199}
   - component: {fileID: 4348629188385145193}
+  - component: {fileID: 3457616511202302347}
+  - component: {fileID: 5105646795605923053}
   m_Layer: 0
   m_Name: CameraController
   m_TagString: Untagged
@@ -285,7 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc13821bf3994bb4dadf1ae8aa346875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 4348629186492382882}
+  worldCam: {fileID: 4348629186492382882}
+  puzzleCam: {fileID: 0}
   onTransitionStart:
     m_PersistentCalls:
       m_Calls: []
@@ -295,17 +298,25 @@ MonoBehaviour:
   origin:
     waypoint: {fileID: 1901811339520553620}
     size: 5
+    island: 0
   targets:
   - waypoint: {fileID: 1793941013652611320}
     size: 2
+    island: 1
   - waypoint: {fileID: 977798934532809945}
-    size: 3
+    size: 2.1
+    island: 2
   - waypoint: {fileID: 8905413452307391069}
-    size: 3
+    size: 2
+    island: 3
   - waypoint: {fileID: 6715042626512345281}
     size: 2
+    island: 4
   - waypoint: {fileID: 4129208617260690276}
     size: 10
+    island: 5
+  debugTopRight: {fileID: 0}
+  debugBottomLeft: {fileID: 0}
   settings: {fileID: 11400000, guid: 44c4a979d8cb417408aa05b4a8c84d7a, type: 2}
 --- !u!114 &4348629188385145193
 MonoBehaviour:
@@ -396,6 +407,60 @@ MonoBehaviour:
   onKeyDownSpace:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3457616511202302347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348629188385145196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e703c188e2270954794e5b06630ab588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipe: {fileID: 11400000, guid: e0d0c48774dd3374bbf41ccfde1d21f5, type: 2}
+  onSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4348629188385145199}
+        m_MethodName: Swipe
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5105646795605923053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348629188385145196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e703c188e2270954794e5b06630ab588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipe: {fileID: 11400000, guid: 1575a3139fc40f3459dfbd900361bf80, type: 2}
+  onSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4348629188385145199}
+        m_MethodName: Swipe
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5905144989418715931
 GameObject:
   m_ObjectHideFlags: 0

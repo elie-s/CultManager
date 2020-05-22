@@ -24,7 +24,7 @@ namespace CultManager
         [SerializeField] private NoteTabPanelBehavior noteTabManager = default;
 
         [Header("Data")]
-        [SerializeField] private CultData cult;
+        [SerializeField] private CultData cult = default;
 
         [SerializeField] private ResetScreen reset = default;
         [SerializeField] private DataRecorder dataRecorder = default;
@@ -34,8 +34,8 @@ namespace CultManager
         public static CurrentPanel currentPanel;
         public static int currentLevel;
 
-        [SerializeField] private CurrentIsland island;
-        [SerializeField] private CurrentPanel panel;
+        [SerializeField] private CurrentIsland island = default;
+        [SerializeField] private CurrentPanel panel = default;
 
         private bool isHome = true;
 

@@ -7,7 +7,6 @@ namespace CultManager
 {
     public class DragDrop : MonoBehaviour
     {
-        [SerializeField] private Camera cam;
         private float startPosX;
         private float startPosY;
         public bool isBeingHeld = false;
@@ -20,7 +19,6 @@ namespace CultManager
 
         private void OnEnable()
         {
-            if (!cam) cam = Camera.main;
             initialPos = transform.position;
         }
 
@@ -30,7 +28,7 @@ namespace CultManager
             {
                 Vector3 mousePos;
                 mousePos = Input.mousePosition;
-                mousePos = cam.ScreenToWorldPoint(mousePos);
+                mousePos = CameraController.CurrentCam.ScreenToWorldPoint(mousePos);
                 this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, 0);
             }
             else
@@ -48,7 +46,7 @@ namespace CultManager
             {
                 Vector3 mousePos;
                 mousePos = Input.mousePosition;
-                mousePos = cam.ScreenToWorldPoint(mousePos);
+                mousePos = CameraController.CurrentCam.ScreenToWorldPoint(mousePos);
 
                 startPosX = mousePos.x - this.transform.localPosition.x;
                 startPosY = mousePos.y - this.transform.localPosition.y;

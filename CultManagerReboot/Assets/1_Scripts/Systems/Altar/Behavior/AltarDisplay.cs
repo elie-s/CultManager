@@ -8,12 +8,11 @@ namespace CultManager
     public class AltarDisplay : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] private AltarData altarData;
-        [SerializeField] private GameObject displayPrefab;
+        [SerializeField] private AltarData altarData = default;
+        [SerializeField] private GameObject displayPrefab = default;
 
-        [SerializeField]private List<SpriteRenderer> parts=new List<SpriteRenderer>();
+        [SerializeField] private List<SpriteRenderer> parts = new List<SpriteRenderer>();
         private bool isSpawned;
-
 
         private void Update()
         {

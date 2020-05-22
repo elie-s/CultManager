@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class SpawnBehavior : MonoBehaviour
@@ -10,8 +10,8 @@ namespace CultManager
         public Spawn spawn;
         public DemonManager manager;
 
-        [SerializeField] private SpriteRenderer body;
-        [SerializeField] private SpriteRenderer alpha;
+        [SerializeField] private SpriteRenderer body = default;
+        [SerializeField] private SpriteRenderer alpha = default;
         [SerializeField] private Gradient accuracyColor = default;
         private bool dead;
 

@@ -8,16 +8,16 @@ namespace CultManager
 {
     public class BloodBankUIDisplay : MonoBehaviour
     {
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private CurrentPanel thisPanelName = default;
         [SerializeField] private BloodBankData data = default;
-        [SerializeField] private PuzzeManager puzzle;
-        [SerializeField] private CameraController camControl;
-        [SerializeField] private Image[] BloodBars;
-        [SerializeField] private GameObject hud;
+        [SerializeField] private PuzzeManager puzzle = default;
+        [SerializeField] private CameraController camControl = default;
+        [SerializeField] private Image[] BloodBars = default;
+        [SerializeField] private GameObject hud = default;
 
-        [SerializeField] private Image transition;
-        [SerializeField] private float lerpValue;
-        [SerializeField] private bool toLerp;
+        [SerializeField] private Image transition = default;
+        [SerializeField] private float lerpValue = default;
+        [SerializeField] private bool toLerp = default;
 
         private void Start()
         {

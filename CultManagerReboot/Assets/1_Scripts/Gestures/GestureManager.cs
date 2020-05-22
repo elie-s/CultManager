@@ -7,7 +7,6 @@ namespace CultManager
 {
     public class GestureManager : Gesture
     {
-        [SerializeField] private Camera playCam = default;
         [SerializeField] private DebugInstance debug = default;
         [SerializeField] private UnityEvent OnQuickTouch = default;
         [SerializeField] private UnityEvent OnDoubleTap = default;
@@ -16,11 +15,7 @@ namespace CultManager
         [SerializeField, DrawScriptable] private GesturesSettings settings = default;
 
         private bool isGettingGesture = false;
-
-        void Start()
-        {
-            if (!playCam) playCam = Camera.main;
-        }
+        private Camera playCam => CameraController.CurrentCam;
 
         void Update()
         {
@@ -30,7 +25,7 @@ namespace CultManager
                 if (useMouse && Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
             }
 
-            
+            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
         }
 
         private IEnumerator MouseRoutine()
@@ -290,6 +285,7 @@ namespace CultManager
                         value = Mathf.InverseLerp(startDistance, settings.pinchMinDistance, distance) * -1;
                         Gesture.PinchDeltaValue = value - Gesture.PinchValue;
                         Gesture.PinchValue = value;
+                        Gesture.PinchMiddlePoint = playCam.ScreenToWorldPoint(Vector3.Lerp(Input.GetTouch(0).position, Input.GetTouch(1).position, 0.5f));
                         break;
                     case MultipleTouchMode.Stretch:
                         value = Mathf.InverseLerp(startDistance, settings.pinchMaxDistance, distance);

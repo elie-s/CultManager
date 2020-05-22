@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class PoliceManager : MonoBehaviour
     {
-        [SerializeField] private CultManager cult;
-        [SerializeField] private MoneyManager money;
-        [SerializeField] private InfluenceManager influence;
+        [SerializeField] private CultManager cult = default;
+        [SerializeField] private MoneyManager money = default;
+        [SerializeField] private InfluenceManager influence = default;
 
-        [SerializeField] private ModifierReference reference;
+        [SerializeField] private ModifierReference reference = default;
 
 
-        public CultData cultData;
-        public PoliceData data;
+        public CultData cultData = default;
+        public PoliceData data = default;
         public int value => data.value;
-        public int investigationLevel;
+        public int investigationLevel = default;
 
-        public int investigatorCount;
-        public int moneyDeduction;
-        public int influenceDeduction;
+        public int investigatorCount = default;
+        public int moneyDeduction = default;
+        public int influenceDeduction = default;
 
         private System.DateTime nextHourTime;
 

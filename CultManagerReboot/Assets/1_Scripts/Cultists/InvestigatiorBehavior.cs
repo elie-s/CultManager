@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class InvestigatiorBehavior : MonoBehaviour
     {
-        [SerializeField] private GameObject photographyPop;
-        [SerializeField] private GameObject notesPop;
-        [SerializeField] private CultistAnimationBehaviour cultistBehavior;
-        [SerializeField] private SpriteRenderer sr;
+        [SerializeField] private GameObject photographyPop = default;
+        [SerializeField] private GameObject notesPop = default;
+        [SerializeField] private CultistAnimationBehaviour cultistBehavior = default;
+        [SerializeField] private SpriteRenderer sr = default;
 
-        [SerializeField] private int frequency;
-        [SerializeField] private int chanceOfInspection=25;
-        [SerializeField] private int durationOfInspection=3;
-        [SerializeField]private float timeToInspect;
-        [SerializeField]bool isInspecting;
-        [SerializeField] bool detected;
+        [SerializeField] private int frequency = default;
+        [SerializeField] private int chanceOfInspection = 25;
+        [SerializeField] private int durationOfInspection = 3;
+        [SerializeField] private float timeToInspect = default;
+        [SerializeField] bool isInspecting = default;
+        [SerializeField] bool detected = default;
 
         private void Update()
         {

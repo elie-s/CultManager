@@ -7,13 +7,13 @@ namespace CultManager
 {
     public class HotKeyManager : MonoBehaviour
     {
-        [SerializeField] private GameObject hotKeyPanel;
-        [SerializeField] private GameObject openButton;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private GameObject hotKeyPanel = default;
+        [SerializeField] private GameObject openButton = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
-        [SerializeField] private BloodBankManager bloodManager;
-        [SerializeField] private MoneyManager moneyManager;
-        [SerializeField] private CultManager cultManager;
+        [SerializeField] private BloodBankManager bloodManager = default;
+        [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private CultManager cultManager = default;
 
 
         private void Start()

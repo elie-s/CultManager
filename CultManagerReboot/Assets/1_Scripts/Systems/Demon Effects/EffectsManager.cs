@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class EffectsManager : MonoBehaviour
     {
-        [SerializeField] private DemonEffects DemonEffects;
-        [SerializeField] private ModifierReference reference;
-        [SerializeField] private DemonData demonData;
+        [SerializeField] private DemonEffects DemonEffects = default;
+        [SerializeField] private ModifierReference reference = default;
+        [SerializeField] private DemonData demonData = default;
 
-        [SerializeField] private PoliceManager police;
-        [SerializeField] private InfluenceManager influence;
-        [SerializeField] private MoneyManager money;
-        [SerializeField] private CultManager recruitment;
+        [SerializeField] private PoliceManager police = default;
+        [SerializeField] private InfluenceManager influence = default;
+        [SerializeField] private MoneyManager money = default;
+        [SerializeField] private CultManager recruitment = default;
 
 
         Dictionary<EffectType, float> dictonary = new Dictionary<EffectType, float>();

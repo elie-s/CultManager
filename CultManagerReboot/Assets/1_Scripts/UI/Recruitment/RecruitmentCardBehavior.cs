@@ -10,15 +10,15 @@ namespace CultManager
     public class RecruitmentCardBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] private RecruitmentManager recruitmentManager;
-        
+        [SerializeField] private RecruitmentManager recruitmentManager = default;
+
 
         [Header("Display")]
-        public Image image;
-        public TMP_Text nameAndAgeText;
-        public TMP_Text moneyText;
-        public TMP_Text policeText;
-        public TMP_Text bloodGroupText;
+        public Image image = default;
+        public TMP_Text nameAndAgeText = default;
+        public TMP_Text moneyText = default;
+        public TMP_Text policeText = default;
+        public TMP_Text bloodGroupText = default;
         public GameObject[] traits= new GameObject[6];
 
         public void Display(Sprite _image, string _cultistName, int _cultistAge, int _policeValue, int _moneyValue, BloodType _blood)

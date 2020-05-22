@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CultManager.HexagonalGrid;
 
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class PuzzeManager : MonoBehaviour
@@ -14,14 +15,14 @@ namespace CultManager
         [SerializeField] private AltarManager altarManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
-        [SerializeField] private PatternGenerationSettings[] settings;
-        [SerializeField] private PatternGenerationSettings patternSettings;
+        [SerializeField] private PatternGenerationSettings[] settings = default;
+        [SerializeField] private PatternGenerationSettings patternSettings = default;
 
-        [SerializeField] private bool altarComplete;
-        [SerializeField] private SpriteRenderer background;
+        [SerializeField] private bool altarComplete = default;
+        [SerializeField] private SpriteRenderer background = default;
 
         private Pattern gridConstruction;
-        [SerializeField]private List<Segment> patternSegments;
+        [SerializeField]private List<Segment> patternSegments = default;
 
 
         private void Start()

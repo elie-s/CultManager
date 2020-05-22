@@ -10,32 +10,32 @@ namespace CultManager
     public class PolicePanelBehavior : MonoBehaviour
     {
         [Header("System Reference")]
-        [SerializeField] private PoliceManager police;
-        [SerializeField] private MoneyManager money;
-        [SerializeField] private PoliceData data;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private PoliceManager police = default;
+        [SerializeField] private MoneyManager money = default;
+        [SerializeField] private PoliceData data = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
         [Header("System Parameters")]
-        [SerializeField] private int moneyDisplay;
-        [SerializeField] private int moneyPerBribe;
-        [SerializeField] private int moneyIncrementValue;
-        [SerializeField] private IntGauge bribeChange;
-        [SerializeField] private bool isPressed;
+        [SerializeField] private int moneyDisplay = default;
+        [SerializeField] private int moneyPerBribe = default;
+        [SerializeField] private int moneyIncrementValue = default;
+        [SerializeField] private IntGauge bribeChange = default;
+        [SerializeField] private bool isPressed = default;
 
         [Header("Display Reference")]
-        [SerializeField] private GameObject panel;
-        [SerializeField] private Image policeBar;
-        [SerializeField] private Image inflitrationImage;
-        [SerializeField] private Image moneyLossImage;
-        [SerializeField] private Image influenceLossImage;
-        [SerializeField] private Image cultistArrestImage;
-        [SerializeField] private Image giveButtonImage;
+        [SerializeField] private GameObject panel = default;
+        [SerializeField] private Image policeBar = default;
+        [SerializeField] private Image inflitrationImage = default;
+        [SerializeField] private Image moneyLossImage = default;
+        [SerializeField] private Image influenceLossImage = default;
+        [SerializeField] private Image cultistArrestImage = default;
+        [SerializeField] private Image giveButtonImage = default;
 
-        [SerializeField] private Transform rotationArrow;
-        [SerializeField] private TMP_Text moneyText;
+        [SerializeField] private Transform rotationArrow = default;
+        [SerializeField] private TMP_Text moneyText = default;
 
         [Header("Sprite Reference")]
-        [SerializeField] private PoliceUISettings settings;
+        [SerializeField] private PoliceUISettings settings = default;
 
         private void Start()
         {

@@ -10,16 +10,16 @@ namespace CultManager
     public class HUDBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] private InfluenceData influence;
-        [SerializeField] private CultData cult;
-        [SerializeField] private PoliceData police;
-        [SerializeField] private MoneyData money;
-        
+        [SerializeField] private InfluenceData influence = default;
+        [SerializeField] private CultData cult = default;
+        [SerializeField] private PoliceData police = default;
+        [SerializeField] private MoneyData money = default;
+
         [Header("Display")]
-        [SerializeField] private Image influenceBar;
-        [SerializeField] private Image policeBar;
-        [SerializeField] private TMP_Text cultistsText;
-        [SerializeField] private TMP_Text moneyText;
+        [SerializeField] private Image influenceBar = default;
+        [SerializeField] private Image policeBar = default;
+        [SerializeField] private TMP_Text cultistsText = default;
+        [SerializeField] private TMP_Text moneyText = default;
 
         private void Update()
         {

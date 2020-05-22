@@ -7,8 +7,8 @@ namespace CultManager
 {
     public class BackgroundDisplay : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer[] backgrounds;
-        [Range(3, 20)] [SerializeField] float timeInterval;
+        [SerializeField] private SpriteRenderer[] backgrounds = default;
+        [Range(3, 20)] [SerializeField] float timeInterval = default;
         private float timeToChange;
         private int backgroundId;
 

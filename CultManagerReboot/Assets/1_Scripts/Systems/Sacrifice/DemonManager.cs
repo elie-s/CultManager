@@ -3,7 +3,7 @@ using CultManager.HexagonalGrid;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class DemonManager : MonoBehaviour
@@ -16,7 +16,7 @@ namespace CultManager
         [SerializeField] private CultManager cult = default;
         [SerializeField] private AltarManager altar = default;
 
-        [SerializeField] private EffectsManager effects;
+        [SerializeField] private EffectsManager effects = default;
         [SerializeField] private Transform[] waypoints = default;
 
         private List<SpawnBehavior> spawns=new List<SpawnBehavior>();

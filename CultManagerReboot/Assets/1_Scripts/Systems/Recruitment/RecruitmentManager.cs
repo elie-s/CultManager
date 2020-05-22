@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class RecruitmentManager : MonoBehaviour
@@ -16,15 +16,15 @@ namespace CultManager
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private PoliceManager police = default;
 
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private CurrentPanel thisPanelName = default;
         [SerializeField] private RecruitmentCardBehavior cardDisplay = default;
         [SerializeField] private RecruitmentCardMovement cardMovement = default;
 
-        public GameObject recruitmentObj;
+        public GameObject recruitmentObj = default;
         private Candidate currentCandidate;
 
-        public UnityEvent OnSelected;
-        public UnityEvent OnRejected;
+        public UnityEvent OnSelected = default;
+        public UnityEvent OnRejected = default;
 
         private Candidate CreateCandidate()
         {

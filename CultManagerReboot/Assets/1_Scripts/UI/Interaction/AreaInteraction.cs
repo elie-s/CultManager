@@ -3,27 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class AreaInteraction : MonoBehaviour
     {
-        [SerializeField] private Camera cam;
-        [SerializeField] private Collider2D col;
+        [SerializeField] private Collider2D col = default;
         [SerializeField] private UnityEvent onAreaClicked = default;
 
         public static bool isUsed;
 
-        [SerializeField] private bool current;
-        [SerializeField] private bool local;
+        [SerializeField] private bool current = default;
+        [SerializeField] private bool local = default;
 
         public CurrentPanel reqdPanel = CurrentPanel.None;
         public CurrentIsland reqdIsland = CurrentIsland.All;
-
-        private void OnEnable()
-        {
-            if (!cam) cam = Camera.main;
-        }
 
         void Update()
         {
@@ -33,9 +27,9 @@ namespace CultManager
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
                     col.enabled = true;
-                    if ( Input.GetMouseButtonDown(0))
+                    if ( /*Input.GetMouseButtonDown(0) || */ Gesture.QuickTouch)
                     {
-                        Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                        Vector3 worldPos = CameraController.CurrentCam.ScreenToWorldPoint(Input.mousePosition);
                         if (col.OverlapPoint(worldPos) && !isUsed)
                         {
                             local = true;

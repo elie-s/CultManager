@@ -4,24 +4,24 @@ using CultManager.HexagonalGrid;
 using UnityEngine.UI;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class NoteTabPanelBehavior : MonoBehaviour
     {
         [SerializeField] private NoteTabData data = default;
         [SerializeField] private PuzzleData puzzle = default;
-        [SerializeField] private Transform starPoint;
-        [SerializeField] private Transform endPoint;
-        [SerializeField] private LerpCurve lerpCurve;
-        [SerializeField] private PuzzleDisplay display;
+        [SerializeField] private Transform starPoint = default;
+        [SerializeField] private Transform endPoint = default;
+        [SerializeField] private LerpCurve lerpCurve = default;
+        [SerializeField] private PuzzleDisplay display = default;
 
-        [SerializeField] private RectTransform rectTransform;
-        [SerializeField] private RectTransform Togglebutton;
+        [SerializeField] private RectTransform rectTransform = default;
+        [SerializeField] private RectTransform Togglebutton = default;
 
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
-        [SerializeField] private int puzzleScale;
+        [SerializeField] private int puzzleScale = default;
         CurrentPanel temp = CurrentPanel.None;
 
         private bool startMove;

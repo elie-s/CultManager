@@ -8,7 +8,7 @@ namespace CultManager
     public class PuzzleDisplayGroup : MonoBehaviour
     {
 
-        [SerializeField]private GameObject puzzleDisplayPrefab;
+        [SerializeField]private GameObject puzzleDisplayPrefab = default;
 
         public void SpawnDisplay(Demon[] demons,int scale)
         {

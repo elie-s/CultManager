@@ -18,6 +18,7 @@ namespace CultManager
         public static float PinchValue { get; protected set; }
         public static float PinchDeltaValue { get; protected set; }
         public static bool Pinching { get; protected set; }
+        public static Vector2 PinchMiddlePoint { get; protected set; }
         public static float RotationValue { get; protected set; }
         public static bool Rotating { get; protected set; }
     }

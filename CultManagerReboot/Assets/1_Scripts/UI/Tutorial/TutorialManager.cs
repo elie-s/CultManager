@@ -10,10 +10,10 @@ namespace CultManager
     public class TutorialManager : MonoBehaviour
     {
         public int tutorialStep = 0;
-        [SerializeField] private GameObject mask;
-        [SerializeField] private RectTransform textObject;
-        [SerializeField] private TMP_Text text;
-        [SerializeField] private MaskLocation[] maskLocations;
+        [SerializeField] private GameObject mask = default;
+        [SerializeField] private RectTransform textObject = default;
+        [SerializeField] private TMP_Text text = default;
+        [SerializeField] private MaskLocation[] maskLocations = default;
 
         private void Start()
         {

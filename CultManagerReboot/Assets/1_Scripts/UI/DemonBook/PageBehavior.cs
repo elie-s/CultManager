@@ -8,9 +8,9 @@ namespace CultManager
 {
     public class PageBehavior : MonoBehaviour
     {
-        public DemonBookUI demonBook;
-        public int pageIndex;
-        [SerializeField] private TMP_Text pageNumText;
+        public DemonBookUI demonBook = default;
+        public int pageIndex = default;
+        [SerializeField] private TMP_Text pageNumText = default;
 
         private void Start()
         {

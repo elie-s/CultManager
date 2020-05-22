@@ -7,12 +7,12 @@ namespace CultManager
 {
     public class SwipesHandler : MonoBehaviour
     {
-        [SerializeField] private SwipeTrigger swipeRight = default;
-        [SerializeField] private UnityEvent onSwipeRight = default;
+        [SerializeField] private SwipeTrigger swipe = default;
+        [SerializeField] private UnityEvent onSwipe = default;
 
         void Start()
         {
-            swipeRight.Play(this, onSwipeRight.Invoke);
+            swipe.Play(this, onSwipe.Invoke);
         }
     }
 }

@@ -4,47 +4,46 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class DemonBookUI : MonoBehaviour
     {
         [Header("Demon Book Panel")]
-        [SerializeField] private GameObject panel;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private GameObject panel = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
         [SerializeField] private int currentDemonIndex = 0;
-        [SerializeField] private DemonData data;
+        [SerializeField] private DemonData data = default;
 
         [Header("Demon Page Display")]
-        [SerializeField] private GameObject demonPage;
+        [SerializeField] private GameObject demonPage = default;
 
-        [SerializeField] private Image demonImage;
-        [SerializeField] private Image starImage;
-        [SerializeField] private PuzzleDisplay demonPagedisplay;
-        [SerializeField] private  TMP_Text description;
-        [SerializeField] private int demonPagePuzzleScale;
+        [SerializeField] private Image demonImage = default;
+        [SerializeField] private Image starImage = default;
+        [SerializeField] private PuzzleDisplay demonPagedisplay = default;
+        [SerializeField] private  TMP_Text description = default;
+        [SerializeField] private int demonPagePuzzleScale = default;
 
 
         [Header("Summary Page Display")]
-        [SerializeField] private GameObject summaryPage;
-        [SerializeField] private GameObject puzzleGroupParent;
-        [SerializeField] private GameObject pageNumberParent;
-        [SerializeField] private GameObject puzzleGroupPrefab;
-        [SerializeField] private GameObject pageNumberPrefab;
-        [SerializeField] private Image[] buttons;
-        [SerializeField] private Image summaryStarImage;
-        [SerializeField] private int numberOfItemsPerPage;
-        [SerializeField] private int summaryPagePuzzleScale;
+        [SerializeField] private GameObject summaryPage = default;
+        [SerializeField] private GameObject puzzleGroupParent = default;
+        [SerializeField] private GameObject pageNumberParent = default;
+        [SerializeField] private GameObject puzzleGroupPrefab = default;
+        [SerializeField] private GameObject pageNumberPrefab = default;
+        [SerializeField] private Image[] buttons = default;
+        [SerializeField] private Image summaryStarImage = default;
+        [SerializeField] private int numberOfItemsPerPage = default;
+        [SerializeField] private int summaryPagePuzzleScale = default;
 
 
         [Header("Display Sprites")]
-        [SerializeField] private Sprite starActive;
-        [SerializeField] private Sprite starInActive;
-        [SerializeField] private Sprite buttonActive;
-        [SerializeField] private Sprite buttonInactive;
-
-        [SerializeField] private Demon[] result;
-        [SerializeField] private List<GameObject> pages;
+        [SerializeField] private Sprite starActive = default;
+        [SerializeField] private Sprite starInActive = default;
+        [SerializeField] private Sprite buttonActive= default;
+        [SerializeField] private Sprite buttonInactive = default;
+        [SerializeField] private Demon[] result = default;
+        [SerializeField] private List<GameObject> pages = default;
 
         private bool favouritesActive;
 

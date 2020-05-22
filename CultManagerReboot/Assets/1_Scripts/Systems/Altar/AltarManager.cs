@@ -12,25 +12,25 @@ namespace CultManager
         [SerializeField] private AltarData altarData = default;
         [SerializeField] private AltarPartSet[] altarPartSets = default;
         [SerializeField] private AltarPartSet tutorialSet = default;
-        [SerializeField] private AltarDisplay display;
-        [SerializeField] private AltarPartSet currentAltarPartSet;
-        
+        [SerializeField] private AltarDisplay display = default;
+        [SerializeField] private AltarPartSet currentAltarPartSet = default;
+
 
         [Header("Cult Parameters")]
         [SerializeField] private CultData cult = default;
-        [SerializeField] private MoneyManager moneyManager;
-        [SerializeField] private PuzzeManager puzzleManager;
-        [SerializeField] private BloodBankUIDisplay bloodBankUI;
-        [SerializeField] private CameraController controller;
+        [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private PuzzeManager puzzleManager = default;
+        [SerializeField] private BloodBankUIDisplay bloodBankUI = default;
+        [SerializeField] private CameraController controller = default;
 
         [Header("New Addition")]
-        [SerializeField] public GameObject altarPartPrefab;
-        
+        [SerializeField] public GameObject altarPartPrefab = default;
 
-        public IntGauge assignedCultists;
-        public int[] workPower;
 
-        public UnityEvent OnCompletion;
+        public IntGauge assignedCultists = default;
+        public int[] workPower = default;
+
+        public UnityEvent OnCompletion = default;
 
 
         public void ResetCult(int level)
