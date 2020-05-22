@@ -108,6 +108,32 @@ namespace CultManager
             }
         }
 
+        public void ShowSymbol(Segment[] _shape)
+        {
+            foreach (SegmentBehaviour segment in segments)
+            {
+                segment.gameObject.SetActive(false);
+
+                for (int i = 0; i < _shape.Length; i++)
+                {
+                    if (segment.segment.IsSegment(_shape[i]))
+                    {
+                        segment.gameObject.SetActive(true);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void EraseSymbol()
+        {
+            foreach (SegmentBehaviour segment in segments)
+            {
+                segment.gameObject.SetActive(true);
+                segment.LocalSelect(false);
+            }
+        }
+
         public void ResetSegments()
         {
             if (segments == null) return;

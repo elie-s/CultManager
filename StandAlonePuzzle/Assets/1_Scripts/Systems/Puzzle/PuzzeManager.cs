@@ -148,9 +148,21 @@ namespace CultManager
         public void SummonIt()
         {
             GatherCurrentPatternSegments();
+            ShowSymbol();
             AddPattern();
             ClearSelection();
             bloodManager.ResetTempBanks();
+        }
+
+        public void ShowSymbol()
+        {
+            GatherCurrentPatternSegments();
+            display.ShowSymbol(patternSegments.ToArray());
+        }
+
+        public void EraseSymbol()
+        {
+            display.EraseSymbol();
         }
 
         public void AddPattern()

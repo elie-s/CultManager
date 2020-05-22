@@ -34,19 +34,29 @@ namespace CultManager
         {
             if (segment.canBeSelected)
             {
-                if (selected && bloodManager.CanIncrease(segment.type, 10))
+                if (selected)
                 {
-                    Debug.Log("UnSelected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.IncreaseBloodOfType(segment.type, 10);
+                    if (bloodManager.CanIncrease(segment.type, 10))
+                    {
+                        Debug.Log("UnSelected");
+                        Select(!selected);
+                        ToggleNeighbours();
+                        bloodManager.IncreaseBloodOfType(segment.type, 10);
+                    }
                 }
-                else if (!selected && bloodManager.CanDecrease(segment.type, 10))
+                else if (!selected)
                 {
-                    Debug.Log("Selected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.DecreaseBloodOfType(segment.type, 10);
+                    if (bloodManager.CanDecrease(segment.type, 10))
+                    {
+                        Debug.Log("Selected");
+                        Select(!selected);
+                        ToggleNeighbours();
+                        bloodManager.DecreaseBloodOfType(segment.type, 10);
+                    }
+                    else
+                    {
+                        bloodManager.InAdequateBloodOfType(segment.type);
+                    }
                 }
             }
             else

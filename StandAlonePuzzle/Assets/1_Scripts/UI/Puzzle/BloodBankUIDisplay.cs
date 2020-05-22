@@ -13,7 +13,7 @@ namespace CultManager
         [SerializeField] private CameraController camControl;
         [SerializeField] private Image[] BloodBars;
         [SerializeField] private GameObject hud;
-        [SerializeField] private GameObject summonButton;
+        [SerializeField] private ButtonInteraction summonButton;
 
         [SerializeField] private Image transition;
         [SerializeField] private float lerpValue;
@@ -38,7 +38,14 @@ namespace CultManager
                 TransitionScreen();
             }
 
-            summonButton.SetActive((puzzle.ValidatePattern()));
+            if (puzzle.ValidatePattern())
+            {
+                summonButton.EnableButton();
+            }
+            else
+            {
+                summonButton.DisableButton();
+            }
         }
         void Display()
         {
@@ -78,7 +85,8 @@ namespace CultManager
 
         public void Summon()
         {
-            puzzle.SummonIt();
+            //puzzle.SummonIt();
+            puzzle.EraseSymbol();
             Close();
         }
 

@@ -123,6 +123,11 @@ namespace CultManager
             data.FillAllBloodBanks();
         }
 
+        public void InAdequateBloodOfType(BloodType blood)
+        {
+
+        }
+
         public void ResetCult(int level)
         {
             data.ResetBloodBankData(level);
