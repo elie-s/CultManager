@@ -2637,7 +2637,7 @@ MonoBehaviour:
   spriteRender:
   - {fileID: 1392522307}
   lerpValue: 0
-  lerpSpeed: 0.207
+  lerpSpeed: 0.15
   toFade: 0
   fadeOver:
     m_PersistentCalls:
@@ -3273,6 +3273,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2528677626883653634, guid: a4cdc401e1e59a7458e00a830dfe88d7,
+        type: 3}
+      propertyPath: m_Name
+      value: Waypoint6
+      objectReference: {fileID: 0}
     - target: {fileID: 4348629188385145196, guid: a4cdc401e1e59a7458e00a830dfe88d7,
         type: 3}
       propertyPath: m_Name
@@ -3332,26 +3337,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
-        type: 3}
-      propertyPath: targets.Array.data[0].size
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
-        type: 3}
-      propertyPath: targets.Array.data[1].size
-      value: 1.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
-        type: 3}
-      propertyPath: targets.Array.data[2].size
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
-        type: 3}
-      propertyPath: targets.Array.data[3].size
-      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6715042626512345281, guid: a4cdc401e1e59a7458e00a830dfe88d7,
         type: 3}

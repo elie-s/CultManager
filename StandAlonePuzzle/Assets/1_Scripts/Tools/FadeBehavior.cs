@@ -43,6 +43,24 @@ namespace CultManager
 
         }
 
+        public void ActivateDelayedFade(int delay)
+        {
+            if (!toFade)
+            {
+                for (int i = 0; i < spriteRender.Length; i++)
+                {
+                    spriteRender[i].color = new Color(spriteRender[i].color.r, spriteRender[i].color.g, spriteRender[i].color.b, 1);
+                }
+                lerpValue = 0;
+                Invoke("EnableFade", delay);
+            }
+        }
+
+        public void EnableFade()
+        {
+            toFade = true;
+        }
+
         public void Fade()
         {
             if (lerpValue < 1)

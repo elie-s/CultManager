@@ -9,6 +9,7 @@ namespace CultManager
     {
         [SerializeField] private PuzzleData data = default;
         [SerializeField] private DemonManager demonManager = default;
+        [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings;
@@ -50,6 +51,16 @@ namespace CultManager
         {
             data.ClearSelections();
             display.UnselectAll();
+        }
+
+        public void FailedPattern()
+        {
+            bloodManager.FailedPattern();
+        }
+
+        public void ResetBanks()
+        {
+            bloodManager.ResetTempBanks();
         }
 
 
@@ -139,6 +150,7 @@ namespace CultManager
             GatherCurrentPatternSegments();
             AddPattern();
             ClearSelection();
+            bloodManager.ResetTempBanks();
         }
 
         public void AddPattern()

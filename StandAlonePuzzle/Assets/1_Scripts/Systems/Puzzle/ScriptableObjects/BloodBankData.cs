@@ -27,6 +27,14 @@ namespace CultManager
             }
         }
 
+        public void FillAllBloodBanks()
+        {
+            for (int i = 0; i < bloodBanks.Length; i++)
+            {
+                bloodBanks[i].IncrementGauge(bloodBanks[i].gauge.max);
+            }
+        }
+
         public void ResetBloodBankData(int level)
         {
             int max = 0;

@@ -28,6 +28,7 @@ namespace CultManager
 
 
         DemonBookUI demonBook;
+        CameraController camControl;
 
 
         private void Update()
@@ -47,6 +48,7 @@ namespace CultManager
 
         public void Init(Spawn _spawn,DemonManager _manager,float accuracy,BoxCollider2D _area,DemonBookUI _demonBook)
         {
+            camControl = FindObjectOfType<CameraController>();
             spawn = _spawn;
             manager = _manager;
             area = _area;
@@ -60,11 +62,19 @@ namespace CultManager
             canMove = true;
         }
 
+        public void ZoomOut()
+        {
+            camControl.TransitionToOrigin();
+            Invoke("DisplayDemonPage", 1f);
+        }
+
         public void DisplayDemonPage()
         {
             demonBook.Open();
             demonBook.DisplayThisDemon(data.demons.Count - 1);
         }
+
+        
 
         public void ColorIt(float accuracy)
         {

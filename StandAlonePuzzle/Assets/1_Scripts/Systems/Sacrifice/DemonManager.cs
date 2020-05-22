@@ -47,7 +47,7 @@ namespace CultManager
         public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
             //reset.ActivateSpawn();
-            worldFade.ActivateFade();
+            worldFade.ActivateDelayedFade(3);
             Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
             GameObject instance = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy,area,demonBook);
@@ -60,7 +60,7 @@ namespace CultManager
         public void CreateNewPersistentDemon(int spriteIndex)
         {
             //reset.ActivateDemon();
-            worldFade.ActivateFade();
+            worldFade.ActivateDelayedFade(3);
             PersistentDemon persistent = persistentData.CreatePersistentDemon(spriteIndex);
             GameObject instance = Instantiate(persistentDemonPrefab, spawnPosition.position, Quaternion.identity, transform);
             instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this,area);

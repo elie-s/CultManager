@@ -11,9 +11,12 @@ namespace CultManager
         [SerializeField] protected Color[] bloodTypeColorDisable = new Color[3];
         [SerializeField] BloodType blood = default;
 
+        private BloodBankManager bloodManager;
+
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
+            bloodManager = FindObjectOfType<BloodBankManager>();
             sRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
             segment = _segment;
             SetRotation();
@@ -31,8 +34,20 @@ namespace CultManager
         {
             if (segment.canBeSelected)
             {
-                Select(!selected);
-                ToggleNeighbours();
+                if (selected && bloodManager.CanIncrease(segment.type, 10))
+                {
+                    Debug.Log("UnSelected");
+                    Select(!selected);
+                    ToggleNeighbours();
+                    bloodManager.IncreaseBloodOfType(segment.type, 10);
+                }
+                else if (!selected && bloodManager.CanDecrease(segment.type, 10))
+                {
+                    Debug.Log("Selected");
+                    Select(!selected);
+                    ToggleNeighbours();
+                    bloodManager.DecreaseBloodOfType(segment.type, 10);
+                }
             }
             else
             {
@@ -75,11 +90,12 @@ namespace CultManager
             }
             if (ctr == 0)
             {
-                if (!selected)
+                if (!selected && bloodManager.CanDecrease(segment.type, 10))
                 {
                     segment.canBeSelected = true;
                     Select(!selected);
                     ToggleNeighbours();
+                    bloodManager.DecreaseBloodOfType(segment.type, 10);
                 }
             }
         }

@@ -56,6 +56,7 @@ namespace CultManager
             lerpInterval = 0.6f;
             toLerp = true;
             hud.SetActive(true);
+            data.FillAllBloodBanks();
         }
 
         public void Close()
@@ -65,7 +66,7 @@ namespace CultManager
             lerpInterval = 0.6f;
             toLerp = true;
             puzzle.ClearSelection();
-            camControl.TransitionToOrigin();
+            camControl.Transition(5);
             hud.SetActive(false);
 
             if (!toLerp)
