@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3437137509352756249}
   - component: {fileID: 2505061271054110505}
+  - component: {fileID: 7113429609351847435}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -51,6 +52,8 @@ MonoBehaviour:
     patternAccuracy: 0
     modifiers: []
   manager: {fileID: 0}
+  spawnFade: {fileID: 7113429609351847435}
+  data: {fileID: 11400000, guid: 8ee2b1ee6fce57a4da6c05d88c638b24, type: 2}
   body: {fileID: 3051925160904224789}
   alpha: {fileID: 1990783797426320927}
   accuracyColor:
@@ -82,6 +85,55 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  canMove: 0
+  timeInterval: 2
+  speed: 2
+  area: {fileID: 0}
+  movePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &7113429609351847435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291530614637407577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87b8e52916538140ba3f8f391cf4208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inverseFade: 1
+  spriteRender:
+  - {fileID: 3051925160904224789}
+  - {fileID: 1990783797426320927}
+  lerpValue: 0
+  lerpSpeed: 0.2
+  toFade: 0
+  fadeOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2505061271054110505}
+        m_MethodName: EnableMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2505061271054110505}
+        m_MethodName: DisplayDemonPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2522317805073175880
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +203,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2043933537
   m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ab31064435f14224ba5eea5de6231593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5169144824167599366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3437137509352756249}

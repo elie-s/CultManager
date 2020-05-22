@@ -145,6 +145,7 @@ namespace CultManager
         {
             if (data.ComputePatternMatchCount(patternSegments.ToArray())==data.GatherPatternSegments().Length)
             {
+                Debug.Log("Demon");
                 demonManager.CreateNewPersistentDemon(1);
             }
             else

@@ -112,7 +112,6 @@ namespace CultManager
             demonManager.ResetCult(level);
 
             saveManager.SaveGame();
-            StartCoroutine(GetToloadingScene());
         }
 
         public IEnumerator GetToloadingScene()
