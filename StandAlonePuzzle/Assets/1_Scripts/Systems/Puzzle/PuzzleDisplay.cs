@@ -92,7 +92,6 @@ namespace CultManager
 
         public void HighlightShape(Segment[] _shape)
         {
-            Debug.Log("Highlighted");
             foreach (SegmentBehaviour segment in segments)
             {
                 segment.LocalSelect(false);

@@ -55,7 +55,8 @@ namespace CultManager
 
         public string SetDescription(int length,int patternSegments,int totalpatternSegments)
         {
-            return ("There are " + patternSegments.ToString() + " pattern segments in a total of " + length.ToString() + " segments");
+            return ("Links used: " + length.ToString() + "\n \n" + "Demon Links used " + patternSegments.ToString() + "\n \n" + "Accuracy: " +
+                patternSegments.ToString() + "/" + totalpatternSegments.ToString());
         }
 
         public int FindPatternSegments(PuzzleSegment[] segments)

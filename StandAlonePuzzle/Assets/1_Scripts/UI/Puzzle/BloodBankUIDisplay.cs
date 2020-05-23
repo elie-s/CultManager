@@ -11,7 +11,9 @@ namespace CultManager
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private PuzzeManager puzzle;
         [SerializeField] private CameraController camControl;
-        [SerializeField] private Image[] BloodBars;
+        [SerializeField] private Image BloodBarA;
+        [SerializeField] private Image BloodBarB;
+        [SerializeField] private Image BloodBarO;
         [SerializeField] private GameObject hud;
         [SerializeField] private ButtonInteraction summonButton;
 
@@ -51,7 +53,25 @@ namespace CultManager
         {
             for (int i = 0; i < data.bloodBanks.Length; i++)
             {
-                BloodBars[i].fillAmount = (float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max;
+                switch (data.bloodBanks[i].bloodGroup)
+                {
+                    case BloodType.O:
+                        {
+                            BloodBarO.fillAmount = (float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max;
+                        }
+                        break;
+                    case BloodType.A:
+                        {
+                            BloodBarA.fillAmount = (float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max;
+                        }
+                        break;
+                    case BloodType.B:
+                        {
+                            BloodBarB.fillAmount = (float)data.bloodBanks[i].gauge.value / (float)data.bloodBanks[i].gauge.max;
+                        }
+                        break;
+                }
+                
             }
         }
 
@@ -73,7 +93,7 @@ namespace CultManager
             lerpInterval = 0.6f;
             toLerp = true;
             puzzle.ClearSelection();
-            camControl.Transition(5);
+            camControl.TransitionToOrigin();
             hud.SetActive(false);
 
             if (!toLerp)
@@ -87,7 +107,18 @@ namespace CultManager
         {
             //puzzle.SummonIt();
             puzzle.EraseSymbol();
-            Close();
+            transition.color = new Color(0, 0, 0, 1);
+            lerpValue = 0;
+            lerpInterval = 0.6f;
+            toLerp = true;
+            puzzle.ClearSelection();
+            camControl.Transition(5);
+            hud.SetActive(false);
+
+            if (!toLerp)
+            {
+                transition.gameObject.SetActive(false);
+            }
         }
 
 

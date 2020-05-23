@@ -9,9 +9,9 @@ namespace CultManager
 {
     public class ButtonInteraction : MonoBehaviour
     {
-        /*[SerializeField] private Sprite disabledSprite;
+        [SerializeField] private Sprite disabledSprite;
         [SerializeField] private Sprite enabledSprite;
-        [SerializeField] private Sprite pressedSprite;*/
+        [SerializeField] private Sprite pressedSprite;
         [SerializeField] private Image buttonImage;
         [SerializeField] private Color disabledColor;
         [SerializeField] private Color enabledColor;
@@ -26,6 +26,7 @@ namespace CultManager
         private void Start()
         {
             isEnabled = false;
+            buttonImage.sprite = disabledSprite;
             buttonImage.color = disabledColor;
         }
 
@@ -34,6 +35,7 @@ namespace CultManager
             if (!isEnabled)
             {
                 isEnabled = true;
+                buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
             }
         }
@@ -43,6 +45,7 @@ namespace CultManager
             if (isEnabled)
             {
                 isEnabled = false;
+                buttonImage.sprite = disabledSprite;
                 buttonImage.color = disabledColor;
             }
         }
@@ -52,6 +55,7 @@ namespace CultManager
             if (isEnabled && !isPressed)
             {
                 isPressed = true;
+                buttonImage.sprite = pressedSprite;
                 buttonImage.color = pressedColor;
                 buttonPressImmideate.Invoke();
 
@@ -65,6 +69,7 @@ namespace CultManager
             {
                 buttonPressDelayed.Invoke();
                 isPressed = false;
+                buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
             }
         }

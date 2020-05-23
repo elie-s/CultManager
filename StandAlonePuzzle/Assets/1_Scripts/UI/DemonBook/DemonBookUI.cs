@@ -35,6 +35,7 @@ namespace CultManager
         [SerializeField] private Image summaryStarImage;
         [SerializeField] private int numberOfItemsPerPage;
         [SerializeField] private int summaryPagePuzzleScale;
+        private int currentPageNumber;
 
 
         [Header("Display Sprites")]
@@ -45,6 +46,7 @@ namespace CultManager
 
         [SerializeField] private Demon[] result;
         [SerializeField] private List<GameObject> pages;
+        [SerializeField] private List<PageBehavior> pageBehaviors;
 
         private bool favouritesActive;
 
@@ -114,7 +116,7 @@ namespace CultManager
 
         public void DisplayDemonPage()
         {
-            description.text = result[currentDemonIndex].description + "\n"+ "Accuracy=" + result[currentDemonIndex].patternSegments+"/"+ result[currentDemonIndex].totalPatternSegments;
+            description.text = result[currentDemonIndex].description;
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
             spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
@@ -137,16 +139,61 @@ namespace CultManager
 
         public void PageActive(int pageNum)
         {
+            currentPageNumber = pageNum;
             for (int i = 0; i < pages.Count; i++)
             {
                 if ((i + 1) == pageNum)
                 {
                     pages[i].SetActive(true);
+                    pageBehaviors[i].HighlightText();
                 }
                 else
                 {
                     pages[i].SetActive(false);
+                    pageBehaviors[i].UnHighlightText();
                 }
+            }
+        }
+
+        public void LeftSwipe()
+        {
+            Debug.Log("Left Swipe");
+            if (demonPage.activeSelf)
+            {
+                Right();
+            }
+            else if (summaryPage.activeSelf)
+            {
+                if (currentPageNumber < pages.Count-1)
+                {
+                    currentPageNumber++;
+                }
+                else
+                {
+                    currentPageNumber = 0;
+                }
+                PageActive(currentPageNumber);
+            }
+        }
+
+        public void RightSwipe()
+        {
+            Debug.Log("Right Swipe");
+            if (demonPage.activeSelf)
+            {
+                Left();
+            }
+            else if (summaryPage.activeSelf)
+            {
+                if (currentPageNumber > 0)
+                {
+                    currentPageNumber--;
+                }
+                else
+                {
+                    currentPageNumber = pages.Count - 1;
+                }
+                PageActive(currentPageNumber);
             }
         }
 
@@ -316,6 +363,7 @@ namespace CultManager
         {
             ClearChildren(puzzleGroupParent.transform);
             ClearChildren(pageNumberParent.transform);
+            pageBehaviors = new List<PageBehavior>();
             List<Demon> spawnDemons = new List<Demon>();
             pages.Clear();
 
@@ -336,6 +384,8 @@ namespace CultManager
 
                     GameObject pageButton = Instantiate(pageNumberPrefab, pageNumberParent.transform.position, Quaternion.identity, pageNumberParent.transform);
                     pageButton.GetComponent<PageBehavior>().InitText(numberOfPages);
+                    pageBehaviors.Add(pageButton.GetComponent<PageBehavior>());
+                    pageButton.GetComponent<PageBehavior>().UnHighlightText();
 
                 }
             }
@@ -350,6 +400,8 @@ namespace CultManager
 
                 GameObject pageButton = Instantiate(pageNumberPrefab, pageNumberParent.transform.position, Quaternion.identity, pageNumberParent.transform);
                 pageButton.GetComponent<PageBehavior>().InitText(++numberOfPages);
+                pageBehaviors.Add(pageButton.GetComponent<PageBehavior>());
+                pageButton.GetComponent<PageBehavior>().UnHighlightText();
             }
             PageActive(1);
         }
