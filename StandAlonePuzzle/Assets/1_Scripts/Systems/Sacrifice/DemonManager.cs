@@ -47,7 +47,6 @@ namespace CultManager
         public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
             //reset.ActivateSpawn();
-            worldFade.ActivateDelayedFade(3);
             Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
             GameObject instance = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy,area,demonBook);

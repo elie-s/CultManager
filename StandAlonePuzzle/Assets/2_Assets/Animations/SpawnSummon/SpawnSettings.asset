@@ -9,17 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6341848747f254daac1bcbd502c17c, type: 3}
-  m_Name: CamSettings1
+  m_Script: {fileID: 11500000, guid: 2100e7854e27de1489e7bacf479bc35e, type: 3}
+  m_Name: SpawnSettings
   m_EditorClassIdentifier: 
-  transitionCurve:
+  fadeShapeDuration: 1
+  fadeShapeAlphaLimit: 0.1
+  fadeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -36,6 +38,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  transitionDuration: 0.5
-  maxZoomValue: 0.3
-  zoomForce: 1
+  delayBeforeCamTransition: 1

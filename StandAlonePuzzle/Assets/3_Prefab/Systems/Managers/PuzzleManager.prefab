@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1410087514839812046}
   - component: {fileID: 1410087514839812045}
   - component: {fileID: 1410087514839812044}
-  - component: {fileID: 1410087514839812043}
+  - component: {fileID: 8628423009080536272}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   demonManager: {fileID: 0}
+  bloodManager: {fileID: 0}
   display: {fileID: 1410087514839812044}
   scale: 1
   settings:
@@ -166,7 +167,7 @@ MonoBehaviour:
   nodePrefab: {fileID: 3536499807150812895, guid: 884bbafb616526c45bb60c3a1f43deb9,
     type: 3}
   parent: {fileID: 1410087514839812046}
---- !u!114 &1410087514839812043
+--- !u!114 &8628423009080536272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,44 +176,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1410087514839812042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb82687b6b817a749884def72c61d557, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cb692d7955722149b755aa3bef2de05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onKeyDownA:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownZ:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownE:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownR:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownT:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownY:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownU:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownI:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownO:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownP:
-    m_PersistentCalls:
-      m_Calls: []
-  onKeyDownSpace:
+  puzzle: {fileID: 1410087514839812044}
+  onHighlightDone:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410087514839812045}
-        m_MethodName: Generate
+      - m_Target: {fileID: 8628423009080536272}
+        m_MethodName: DelayCam
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -222,3 +194,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDelayBeforeCamTransitionDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  settings: {fileID: 11400000, guid: 13806a478252fd9448366bee2b7215b4, type: 2}

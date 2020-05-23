@@ -7,6 +7,7 @@ namespace CultManager
 {
     public enum CurrentIsland
     {
+        Transition = -2,
         All = -1,
         Origin =0,
         RecruitmentIsland=1,

@@ -25,8 +25,15 @@ namespace CultManager
                     yield return null;
                 }
 
+                while (!Gesture.ReleasedMovementTouch)
+                {
+                    yield return null;
+                }
+
                 if (Gesture.Movement.magnitude >= distanceThreshold && Vector2.Angle(Gesture.Movement, direction) < spanAngle) _callback();
+
                 yield return null;
+
             }
         }
 
@@ -36,6 +43,7 @@ namespace CultManager
                 && Gesture.Movement != Vector2.zero
                 && Vector2.Angle(Gesture.Movement, direction) < spanAngle * 2
                 && Gesture.Movement.magnitude < distanceThreshold;
+                
         }
     }
 }

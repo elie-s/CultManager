@@ -12,7 +12,7 @@ namespace CultManager
         [SerializeField] private UnityEvent onSwipeRight = default;
         [SerializeField] private UnityEvent onSwipeLeft = default;
 
-        void Start()
+        void OnEnable()
         {
             if (onSwipeRight != null)
             {
@@ -22,7 +22,11 @@ namespace CultManager
             {
                 swipeLeft.Play(this, onSwipeLeft.Invoke);
             }
-            
+        }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
         }
     }
 }

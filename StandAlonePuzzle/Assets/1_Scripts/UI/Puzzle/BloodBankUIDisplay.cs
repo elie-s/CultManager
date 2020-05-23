@@ -10,21 +10,15 @@ namespace CultManager
     {
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private PuzzeManager puzzle;
-        [SerializeField] private CameraController camControl;
         [SerializeField] private Image BloodBarA;
         [SerializeField] private Image BloodBarB;
         [SerializeField] private Image BloodBarO;
         [SerializeField] private GameObject hud;
         [SerializeField] private ButtonInteraction summonButton;
 
-        [SerializeField] private Image transition;
-        [SerializeField] private float lerpValue;
-        [SerializeField] private float lerpInterval;
-        [SerializeField] private bool toLerp;
 
         private void Start()
         {
-            transition.gameObject.SetActive(false);
             if (!SaveManager.saveLoaded)
             {
                 data.Reset();
@@ -34,11 +28,6 @@ namespace CultManager
         private void Update()
         {
             Display();
-
-            if (toLerp)
-            {
-                TransitionScreen();
-            }
 
             if (puzzle.ValidatePattern())
             {
@@ -77,66 +66,15 @@ namespace CultManager
 
         public void Open()
         {
-            transition.gameObject.SetActive(true);
-            transition.color = new Color(0, 0, 0, 1);
-            lerpValue = 0;
-            lerpInterval = 0.6f;
-            toLerp = true;
+            puzzle.ClearSelection();
             hud.SetActive(true);
             data.FillAllBloodBanks();
         }
 
         public void Close()
         {
-            transition.color = new Color(0, 0, 0, 1);
-            lerpValue = 0;
-            lerpInterval = 0.6f;
-            toLerp = true;
             puzzle.ClearSelection();
-            camControl.TransitionToOrigin();
             hud.SetActive(false);
-
-            if (!toLerp)
-            {
-                transition.gameObject.SetActive(false);
-            }
-        }
-
-
-        public void Summon()
-        {
-            //puzzle.SummonIt();
-            puzzle.EraseSymbol();
-            transition.color = new Color(0, 0, 0, 1);
-            lerpValue = 0;
-            lerpInterval = 0.6f;
-            toLerp = true;
-            puzzle.ClearSelection();
-            camControl.Transition(5);
-            hud.SetActive(false);
-
-            if (!toLerp)
-            {
-                transition.gameObject.SetActive(false);
-            }
-        }
-
-
-        public void TransitionScreen()
-        {
-            if (lerpValue < 1)
-            {
-                transition.raycastTarget = true;
-                lerpValue += lerpInterval * Time.deltaTime;
-                float a = Mathf.SmoothStep(1, 0, lerpValue);
-                transition.color = new Color(0, 0, 0, a);
-            }
-            else
-            {
-                transition.raycastTarget = false;
-                toLerp = false;
-            }
-
         }
     }
 }

@@ -52,9 +52,6 @@ namespace CultManager
 
         void Update()
         {
-            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
-            if (Gesture.LongTouch) Debug.Log("Longtouch");
-
             island = currentIsland;
             panel = currentPanel;
             if (isHome && Input.GetKeyDown(KeyCode.Escape))

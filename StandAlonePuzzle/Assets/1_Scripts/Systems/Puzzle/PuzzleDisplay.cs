@@ -13,7 +13,7 @@ namespace CultManager
         [SerializeField] private GameObject nodePrefab = default;
         [SerializeField] private Transform parent = default;
 
-        private SegmentBehaviour[] segments;
+        public SegmentBehaviour[] segments { get; private set; }
         private GameObject[] nodes;
 
         public void DisplayPuzzle(float _scale)
@@ -158,6 +158,14 @@ namespace CultManager
             foreach (SegmentBehaviour segment in segments)
             {
                 segment.Select(false);
+            }
+        }
+
+        public void ResetInteractions()
+        {
+            foreach (WorldSegmentBehaviour segment in segments)
+            {
+                segment.ResetSegment();
             }
         }
     }

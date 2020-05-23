@@ -7,12 +7,14 @@ namespace CultManager
     public class WorldSegmentBehaviour : SegmentBehaviour
     {
         [SerializeField] protected SpriteRenderer sRenderer = default;
+        [SerializeField] protected SpriteRenderer outline = default;
         [SerializeField] protected Color[] bloodTypeColor = new Color[3];
         [SerializeField] protected Color[] bloodTypeColorDisable = new Color[3];
+        [SerializeField] protected Gradient outlineColor = default;
         [SerializeField] BloodType blood = default;
 
         private BloodBankManager bloodManager;
-
+        private bool isFading;
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
@@ -23,6 +25,51 @@ namespace CultManager
             transform.localScale = Vector3.one * _scale;
             SetColor();
             blood = segment.type;
+        }
+
+        public void ResetSegment()
+        {
+            GetComponent<AreaInteraction>().enabled = true;
+            outline.color = outlineColor.Evaluate(0.0f);
+        }
+
+        public void FadeOutUnselected(float _duration, float _alphaLimit, AnimationCurve _fadeCurve)
+        {
+            GetComponent<AreaInteraction>().enabled = false;
+            if (isFading) return;
+
+            if(!selected)StartCoroutine(FadeOut(_duration, _alphaLimit, _fadeCurve));
+            else StartCoroutine(OutlineRoutine(_duration, _fadeCurve));
+        }
+
+        private IEnumerator FadeOut(float _duration, float _alphaLimit, AnimationCurve _fadeCurve)
+        {
+            Color startColor = sRenderer.color;
+            Color endColor = new Color(startColor.r, startColor.g, startColor.b, _alphaLimit);
+            Iteration iteration = new Iteration(_duration, _fadeCurve);
+
+            while (iteration.isBelowOne)
+            {
+                sRenderer.color = Color.Lerp(startColor, endColor, iteration.curveEvaluation);
+
+                yield return iteration.YieldIncrement();
+            }
+
+            sRenderer.color = endColor;
+        }
+
+        private IEnumerator OutlineRoutine(float _duration, AnimationCurve _fadeCurve)
+        {
+            Iteration iteration = new Iteration(_duration, _fadeCurve);
+
+            while (iteration.isBelowOne)
+            {
+                outline.color = outlineColor.Evaluate(iteration.curveEvaluation);
+
+                yield return iteration.YieldIncrement();
+            }
+
+            outline.color = outlineColor.Evaluate(1.0f);
         }
 
         protected override void SetColor()
