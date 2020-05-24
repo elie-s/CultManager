@@ -112,6 +112,11 @@ namespace CultManager
 
         }
 
+        public void DisplayLastDemon()
+        {
+            Open();
+            DisplayThisDemon(result.Length - 1);
+        }
 
 
         public void DisplayDemonPage()
@@ -443,10 +448,6 @@ namespace CultManager
                 panel.SetActive(false);
             }
         }
-
-
-
-
     }
 }
 
