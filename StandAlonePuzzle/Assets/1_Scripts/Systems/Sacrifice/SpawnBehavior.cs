@@ -43,7 +43,6 @@ namespace CultManager
             {
                 Move();
             }
-
         }
 
         public void Init(Spawn _spawn,DemonManager _manager,float accuracy,BoxCollider2D _area,DemonBookUI _demonBook)

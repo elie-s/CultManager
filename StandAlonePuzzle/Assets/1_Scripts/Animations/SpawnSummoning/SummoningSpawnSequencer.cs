@@ -8,9 +8,13 @@ namespace CultManager
     public class SummoningSpawnSequencer : MonoBehaviour
     {
         [SerializeField] private PuzzleDisplay puzzle = default;
+        [SerializeField] private SpriteRenderer opaqueMask = default;
         [Header("Callbacks")]
         [SerializeField] private UnityEvent onHighlightDone = default;
         [SerializeField] private UnityEvent onDelayBeforeCamTransitionDone = default;
+        [SerializeField] private UnityEvent onSummoningStarts = default;
+        [SerializeField] private UnityEvent onSpawnSummoned = default;
+        [SerializeField] private UnityEvent onSequenceEnd = default;
         [SerializeField, DrawScriptable] private SummoningSpawnSequencerSettings settings = default;
 
         public void HighlightShape() { StartCoroutine(HighlightShapeRoutine()); }
@@ -34,5 +38,38 @@ namespace CultManager
             onDelayBeforeCamTransitionDone.Invoke();
         }
 
+        public void StartSummoning()
+        {
+            onSummoningStarts.Invoke();
+        }
+
+        public void InitOpaqueMask()
+        {
+            opaqueMask.color = settings.spawnAppearingGradient.Evaluate(0.0f);
+        }
+
+        public void FadeOpaqueMask(float _duration)
+        {
+            StartCoroutine(FadeOpaqueMaskRoutine(_duration));
+        }
+
+        private IEnumerator FadeOpaqueMaskRoutine(float _duration)
+        {
+            Iteration iteration = new Iteration(_duration, settings.spawnAppearingCurve);
+
+            while (iteration.isBelowOne)
+            {
+                opaqueMask.color = settings.spawnAppearingGradient.Evaluate(iteration.curveEvaluation);
+
+                yield return iteration.YieldIncrement();
+            }
+
+            opaqueMask.color = settings.spawnAppearingGradient.Evaluate(1.0f);
+        }
+
+        public void OnSpawnSummoned()
+        {
+            onSpawnSummoned.Invoke();
+        }
     }
 }

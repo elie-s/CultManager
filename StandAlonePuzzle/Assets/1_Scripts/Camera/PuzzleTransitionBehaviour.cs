@@ -14,6 +14,8 @@ namespace CultManager
         [SerializeField] private UnityEvent onPuzzleReached = default;
         [SerializeField] private UnityEvent onMidTransitionToIsland = default;
         [SerializeField] private UnityEvent onBackToIsland = default;
+        [SerializeField] private UnityEvent onBackForSummoning = default;
+        [SerializeField] private UnityEvent onZoomOutAfterSummonning = default;
 
         [SerializeField, DrawScriptable] private PuzzleTransitionSettings settings = default;
 
@@ -26,11 +28,11 @@ namespace CultManager
             StartCoroutine(GoToPuzzleRoutine());
         }
 
-        public void GoToIsland()
+        public void GoToIsland(bool _stayFocused)
         {
             if (isTransitionning) return;
 
-            StartCoroutine(GoToIslandRoutine());
+            StartCoroutine(GoToIslandRoutine(_stayFocused));
         }
 
         private IEnumerator GoToPuzzleRoutine()
@@ -46,7 +48,7 @@ namespace CultManager
             while (iteration.isBelowOne)
             {
                 CameraController.CurrentCam.transform.localPosition = Vector2.Lerp(startPos, puzzleLocation.transform.position, iteration.curveEvaluation);
-                controller.SetZoom(Mathf.Lerp(startZoom, 1.0f, iteration.fraction));
+                controller.SetZoom(Mathf.Lerp(startZoom, 1.0f, iteration.fraction), false);
                 controller.SetScreen(settings.fade.Evaluate(settings.fadeCurve.Evaluate(iteration.fraction)));
 
                 yield return iteration.YieldIncrement();
@@ -69,7 +71,7 @@ namespace CultManager
             isTransitionning = false;
         }
 
-        private IEnumerator GoToIslandRoutine()
+        private IEnumerator GoToIslandRoutine(bool _stayFocused)
         {
             GameManager.currentIsland = CurrentIsland.Transition;
             isTransitionning = true;
@@ -90,14 +92,47 @@ namespace CultManager
             while (iteration.isBelowOne)
             {
                 controller.SetScreen(settings.fade.Evaluate(settings.fadeCurve.Evaluate(1.0f - iteration.fraction)));
+                if(!_stayFocused) controller.SetZoom(Mathf.Lerp(1.0f, 0.0f, iteration.fraction), true);
 
                 yield return iteration.YieldIncrement();
             }
 
             onBackToIsland.Invoke();
+            if (_stayFocused)
+            {
+                onBackForSummoning.Invoke();
+            }
+            else
+            {
+                GameManager.currentIsland = CurrentIsland.PuzzleIsland;
+            }
+            isTransitionning = false;
+            controller.AllowControl(!_stayFocused);
+        }
+
+        public void ZoomAfterSummoning(float _delay)
+        {
+            if (isTransitionning) return;
+            StartCoroutine(ZoomOutAfterSummoningRoutine(_delay));
+        }
+
+        private IEnumerator ZoomOutAfterSummoningRoutine(float _delay)
+        {
+            isTransitionning = true;
+            Iteration iteration = new Iteration(settings.transitionDuration);
+
+            yield return new WaitForSeconds(_delay);
+
+            while (iteration.isBelowOne)
+            {
+                controller.SetZoom(Mathf.Lerp(1.0f, 0.0f, iteration.fraction), true);
+
+                yield return iteration.YieldIncrement();
+            }
 
             GameManager.currentIsland = CurrentIsland.PuzzleIsland;
             isTransitionning = false;
+            onZoomOutAfterSummonning.Invoke();
             controller.AllowControl(true);
         }
     }

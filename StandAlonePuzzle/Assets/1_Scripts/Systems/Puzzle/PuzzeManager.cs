@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using CultManager.HexagonalGrid;
 
 namespace CultManager
@@ -21,6 +22,7 @@ namespace CultManager
         private Pattern gridConstruction;
         [SerializeField] private List<Segment> patternSegments;
 
+        private Spawn lastSpawn;
 
         private void Start()
         {
@@ -181,6 +183,15 @@ namespace CultManager
             patternSegments.Clear();
         }
 
+        public void RegisterNewExperiment()
+        {
+            lastSpawn = demonManager.AddNewExperiment(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()), data.GatherPatternSegments().Length);
+        }
+
+        public void SummonExperiment(float _delay)
+        {
+            demonManager.SummonSpawn(lastSpawn).Summon(_delay);
+        }
 
         public void Debugging(Demon instance)
         {

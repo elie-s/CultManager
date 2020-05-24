@@ -56,6 +56,19 @@ namespace CultManager
 
         }
 
+        public Spawn AddNewExperiment(int _durationInHours, Segment[] _segments, int _patternSegments, int _totalPatternSegments)
+        {
+            return data.CreateDemon(_durationInHours, _segments, new Modifier[0], _patternSegments, _totalPatternSegments);
+        }
+
+        public SpawnSummoningBehaviour SummonSpawn(Spawn _spawn)
+        {
+            SpawnSummoningBehaviour behaviour = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform).GetComponent<SpawnSummoningBehaviour>();
+            behaviour.Init(_spawn);
+
+            return behaviour;
+        }
+
         public void CreateNewPersistentDemon(int spriteIndex)
         {
             //reset.ActivateDemon();

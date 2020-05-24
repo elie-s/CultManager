@@ -214,10 +214,14 @@ namespace CultManager
             CurrentCam.orthographicSize = panningArea.camSize;
         }
 
-        public void SetZoom(float _value)
+        public void SetZoom(float _value, bool _move)
         {
+            Vector2 areaPos = panningArea.GetAreaPosition(CurrentCam.transform.localPosition);
+
             panningArea.SetZoom(_value);
             CurrentCam.orthographicSize = panningArea.camSize;
+
+            if (_move) CurrentCam.transform.localPosition = panningArea.WorldFromAreaPosition(areaPos);
         }
 
         public void Zoom()
