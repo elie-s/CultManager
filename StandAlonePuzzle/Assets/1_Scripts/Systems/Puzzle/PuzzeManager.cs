@@ -185,6 +185,7 @@ namespace CultManager
 
         public void RegisterNewExperiment()
         {
+            GatherCurrentPatternSegments();
             lastSpawn = demonManager.AddNewExperiment(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()), data.GatherPatternSegments().Length);
         }
 
