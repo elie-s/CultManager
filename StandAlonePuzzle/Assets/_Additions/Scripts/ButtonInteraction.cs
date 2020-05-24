@@ -20,8 +20,9 @@ namespace CultManager
         [SerializeField] bool isEnabled = false;
         public bool isPressed = false;
 
-        public UnityEvent buttonPressDelayed;
+        public UnityEvent buttonPressOnDisabled;
         public UnityEvent buttonPressImmideate;
+        public UnityEvent buttonPressDelayed;
 
         private void Start()
         {
@@ -60,6 +61,10 @@ namespace CultManager
                 buttonPressImmideate.Invoke();
 
                 Invoke("PressEnd", buttonPressInterval);
+            }
+            else if(!isEnabled)
+            {
+                buttonPressOnDisabled.Invoke();
             }
         }
 

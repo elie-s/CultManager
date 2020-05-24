@@ -348,7 +348,7 @@ namespace CultManager
             {
                 for (int j = i + 1; j < result.Length; j++)
                 {
-                    if (result[i].segments.Length > result[j].segments.Length)
+                    if (result[i].patternSegments > result[j].patternSegments)
                     {
                         temp = result[i];
                         result[i] = result[j];

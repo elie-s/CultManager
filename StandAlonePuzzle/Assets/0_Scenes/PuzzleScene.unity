@@ -1545,6 +1545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7693238751618826524, guid: 39b613fa291eb6d4aa157175dece8746,
+        type: 3}
+      propertyPath: display
+      value: 
+      objectReference: {fileID: 1363684545}
     - target: {fileID: 7693238751618826525, guid: 39b613fa291eb6d4aa157175dece8746,
         type: 3}
       propertyPath: m_Name
@@ -1841,33 +1846,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053970563}
   m_CullTransparentMesh: 0
---- !u!1 &1107662574 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7856119886791836536, guid: d19a2ca58b477724a9691393f74401e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1363684544}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1107662575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1107662574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfe76d02b4d63c49a2fd3fba14dacdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiElement: {fileID: 1107662578}
-  duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: 9f1798c046dc67e4782f2ba39350853d, type: 2}
---- !u!224 &1107662578 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7856119886791836537, guid: d19a2ca58b477724a9691393f74401e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1363684544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1122009036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,16 +2334,6 @@ PrefabInstance:
       propertyPath: buttonPressImmideate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1410087516038144105}
-    - target: {fileID: 1412586016476535490, guid: d19a2ca58b477724a9691393f74401e4,
-        type: 3}
-      propertyPath: buttonPressImmideate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HighlightShape
-      objectReference: {fileID: 0}
-    - target: {fileID: 1412586016476535490, guid: d19a2ca58b477724a9691393f74401e4,
-        type: 3}
-      propertyPath: buttonPressImmideate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1412586016476535490, guid: d19a2ca58b477724a9691393f74401e4,
         type: 3}
       propertyPath: buttonPressDelayed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

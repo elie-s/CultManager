@@ -64,6 +64,50 @@ namespace CultManager
             }
         }
 
+        public void InadequateBloodAnim(BloodType blood)
+        {
+            switch (blood)
+            {
+                case BloodType.O:
+                    {
+                        BloodBarO.GetComponent<UIAnmationController>().NegativeAnimation();
+                    }
+                    break;
+                case BloodType.A:
+                    {
+                        BloodBarA.GetComponent<UIAnmationController>().NegativeAnimation();
+                    }
+                    break;
+                case BloodType.B:
+                    {
+                        BloodBarB.GetComponent<UIAnmationController>().NegativeAnimation();
+                    }
+                    break;
+            }
+        }
+
+        public void BloodUtilizeAnim(BloodType blood)
+        {
+            switch (blood)
+            {
+                case BloodType.O:
+                    {
+                        BloodBarO.GetComponent<UIAnmationController>().PositiveAnimation();
+                    }
+                    break;
+                case BloodType.A:
+                    {
+                        BloodBarA.GetComponent<UIAnmationController>().PositiveAnimation();
+                    }
+                    break;
+                case BloodType.B:
+                    {
+                        BloodBarB.GetComponent<UIAnmationController>().PositiveAnimation();
+                    }
+                    break;
+            }
+        }
+
         public void Open()
         {
             puzzle.ClearSelection();
