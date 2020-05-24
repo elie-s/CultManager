@@ -117,7 +117,7 @@ namespace CultManager
 
         public void Close()
         {
-            puzzle.ClearSelection();
+            //puzzle.ClearSelection();
             hud.SetActive(false);
         }
     }

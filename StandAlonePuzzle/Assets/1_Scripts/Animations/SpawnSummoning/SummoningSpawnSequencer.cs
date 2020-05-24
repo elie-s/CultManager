@@ -71,5 +71,10 @@ namespace CultManager
         {
             onSpawnSummoned.Invoke();
         }
+
+        public void OnSequenceEnd()
+        {
+            onSequenceEnd.Invoke();
+        }
     }
 }
