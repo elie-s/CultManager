@@ -29,7 +29,7 @@ namespace CultManager
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
                     col.enabled = true;
-                    if ( Gesture.QuickTouch)
+                    if (Gesture.QuickTouch)
                     {
                         Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
                         if (col.OverlapPoint(worldPos) && !isUsed)

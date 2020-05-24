@@ -88,6 +88,7 @@ namespace CultManager
                         Debug.Log("UnSelected");
                         Select(!selected);
                         ToggleNeighbours();
+                        
                         bloodManager.IncreaseBloodOfType(segment.type, 10);
                         bloodManager.UseOfBloodOfType(segment.type);
                     }
@@ -99,6 +100,7 @@ namespace CultManager
                         Debug.Log("Selected");
                         Select(!selected);
                         ToggleNeighbours();
+                        //segment.DisableSegment();
                         bloodManager.DecreaseBloodOfType(segment.type, 10);
                         bloodManager.UseOfBloodOfType(segment.type);
                     }
@@ -114,15 +116,19 @@ namespace CultManager
             }
         }
 
+
         public void ToggleNeighbours()
         {
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 if (data.puzzle[i].IsConnected(segment) && !data.puzzle[i].IsSegment(segment.segment))
                 {
-                    if (segment.selected)
+                    if (segment.canBeSelected)
                     {
-                        data.puzzle[i].EnableSegment();
+                        if (!data.puzzle[i].selected)
+                            data.puzzle[i].EnableSegment();
+                        else
+                            data.puzzle[i].DisableSegment();
                     }
                     else
                     {
@@ -156,6 +162,7 @@ namespace CultManager
                         segment.canBeSelected = true;
                         Select(!selected);
                         ToggleNeighbours();
+                        //segment.DisableSegment();
                         bloodManager.DecreaseBloodOfType(segment.type, 10);
                         bloodManager.UseOfBloodOfType(segment.type);
                     }
