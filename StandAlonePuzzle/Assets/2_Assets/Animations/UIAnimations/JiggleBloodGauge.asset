@@ -9,46 +9,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b46ddb583153a47bd52055c62daf94, type: 3}
-  m_Name: LittleGrow
+  m_Script: {fileID: 11500000, guid: 1829b21d23aa3ef4791d1ffdf8952c59, type: 3}
+  m_Name: JiggleBloodGauge
   m_EditorClassIdentifier: 
-  deformationMax: {x: 1, y: 1, z: 1}
-  deformationMin: {x: 1, y: 1, z: 1}
+  direction: {x: 1, y: 0}
   animation:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0.5
-      inSlope: 1.25
-      outSlope: 1.25
+      inSlope: 2.5
+      outSlope: 2.5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.4
+      time: 0.2
       value: 1
-      inSlope: -0.125
-      outSlope: -0.125
+      inSlope: -1.25
+      outSlope: -1.25
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4
+      value: 0
+      inSlope: -0.00000023841858
+      outSlope: -0.00000023841858
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6
+      value: 1
+      inSlope: -0.00000047683716
+      outSlope: -0.00000047683716
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.8
-      value: 0.4
-      inSlope: -0.24999988
-      outSlope: -0.24999988
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.95
-      value: 0.55
-      inSlope: 0.00000011920929
-      outSlope: 0.00000011920929
+      value: 0
+      inSlope: -1.2500001
+      outSlope: -1.2500001
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -56,8 +64,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 0.5
-      inSlope: -1
-      outSlope: -1
+      inSlope: 2.5000002
+      outSlope: 2.5000002
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -65,5 +73,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  forceMax: 2
-  forceMin: 1.5
+  force: 20

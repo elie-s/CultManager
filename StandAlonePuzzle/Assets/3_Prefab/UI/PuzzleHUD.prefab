@@ -158,6 +158,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: ResetInteractions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPuzzleReached:
     m_PersistentCalls:
       m_Calls: []
@@ -284,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119885813461493}
   duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: cbadabf4283ea614294633da91f2fb08, type: 2}
+  uiAnimation: {fileID: 11400000, guid: e94875c03d24d744ab54d2029d753afa, type: 2}
 --- !u!114 &4220360287062661377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,8 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119885813461493}
-  duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: 9f1798c046dc67e4782f2ba39350853d, type: 2}
+  duration: 0.25
+  uiAnimation: {fileID: 11400000, guid: 1070e6fb283b4984c8c6e8aff91b37e9, type: 2}
 --- !u!1 &7856119886183294598
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,29 +440,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 4954242599184725314}
         m_MethodName: Play
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   buttonPressDelayed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7194814598741157057}
-        m_MethodName: Close
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &151582900223775443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,8 +493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886183294599}
-  duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: cbadabf4283ea614294633da91f2fb08, type: 2}
+  duration: 0.4
+  uiAnimation: {fileID: 11400000, guid: cf642add0c25ab942979242a8f28c785, type: 2}
 --- !u!114 &5931729110577049491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886183294599}
   duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: 53f824c3dc856af4daf073e8ac20b49e, type: 2}
+  uiAnimation: {fileID: 11400000, guid: 5edbef87d4a06304282076178764ae5e, type: 2}
 --- !u!1 &7856119886277470069
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +689,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7856119886791836536}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -699,7 +699,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 700}
+  m_AnchoredPosition: {x: -239.14214, y: 685.85785}
   m_SizeDelta: {x: 200, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7856119886791836543
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886791836537}
   duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: cbadabf4283ea614294633da91f2fb08, type: 2}
+  uiAnimation: {fileID: 11400000, guid: e94875c03d24d744ab54d2029d753afa, type: 2}
 --- !u!114 &8553741928038190813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,8 +780,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886791836537}
-  duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: 9f1798c046dc67e4782f2ba39350853d, type: 2}
+  duration: 0.25
+  uiAnimation: {fileID: 11400000, guid: 1070e6fb283b4984c8c6e8aff91b37e9, type: 2}
 --- !u!1 &7856119886946408839
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886946408836}
   duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: cbadabf4283ea614294633da91f2fb08, type: 2}
+  uiAnimation: {fileID: 11400000, guid: e94875c03d24d744ab54d2029d753afa, type: 2}
 --- !u!114 &8512662904969194987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,8 +901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 7856119886946408836}
-  duration: 0.5
-  uiAnimation: {fileID: 11400000, guid: 9f1798c046dc67e4782f2ba39350853d, type: 2}
+  duration: 0.25
+  uiAnimation: {fileID: 11400000, guid: 1070e6fb283b4984c8c6e8aff91b37e9, type: 2}
 --- !u!1 &7856119887046859515
 GameObject:
   m_ObjectHideFlags: 0
