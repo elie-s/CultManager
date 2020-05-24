@@ -9,7 +9,8 @@ namespace CultManager
     public class DemonDisplayAction : MonoBehaviour
     {
         [SerializeField] private DemonBookUI demonBook;
-        [SerializeField] private TMP_Text accuracy;
+        [SerializeField] private TMP_Text goodLinksSummaryText;
+        [SerializeField] private TMP_Text spawnLinksSummaryText;
         public int index;
 
         private void Start()
@@ -18,9 +19,10 @@ namespace CultManager
             index = transform.GetSiblingIndex();
         }
 
-        public void Init(string description)
+        public void Init(int goodLinks,int spawnLinks)
         {
-            accuracy.text = description;
+            goodLinksSummaryText.text = goodLinks.ToString();
+            spawnLinksSummaryText.text = spawnLinks.ToString();
         }
 
         public void DisplayDemonBehavior()

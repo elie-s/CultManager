@@ -26,8 +26,7 @@ namespace CultManager
                 current.DisplayPuzzle(scale);
                 current.HighlightShape(demons[i].segments);
                 DemonDisplayAction demonDisplay = instance.GetComponent<DemonDisplayAction>();
-                string value = demons[i].patternSegments + "/" + demons[i].totalPatternSegments;
-                demonDisplay.Init(value);
+                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length);
 
             }
         }

@@ -21,7 +21,9 @@ namespace CultManager
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private PuzzleDisplay demonPagedisplay;
-        [SerializeField] private  TMP_Text description;
+        [SerializeField] private  TMP_Text goodLinksText;
+        [SerializeField] private  TMP_Text spawnLinksText;
+        [SerializeField] private  TMP_Text totalGoodLinksText;
         [SerializeField] private int demonPagePuzzleScale;
 
 
@@ -121,7 +123,9 @@ namespace CultManager
 
         public void DisplayDemonPage()
         {
-            description.text = result[currentDemonIndex].description;
+            goodLinksText.text = result[currentDemonIndex].patternSegments.ToString();
+            spawnLinksText.text = result[currentDemonIndex].segments.Length.ToString();
+            totalGoodLinksText.text = result[currentDemonIndex].totalPatternSegments.ToString();
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
             spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);

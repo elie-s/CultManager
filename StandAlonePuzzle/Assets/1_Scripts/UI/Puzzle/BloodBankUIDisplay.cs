@@ -120,6 +120,12 @@ namespace CultManager
             //puzzle.ClearSelection();
             hud.SetActive(false);
         }
+
+        public void Clear()
+        {
+            puzzle.ClearSelection();
+            puzzle.FailedPattern();
+        }
     }
 }
 

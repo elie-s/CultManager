@@ -2452,6 +2452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 7856119885604976796, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7856119885604976797, guid: d19a2ca58b477724a9691393f74401e4,
         type: 3}
       propertyPath: m_LocalPosition.x

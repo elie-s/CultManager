@@ -27,8 +27,8 @@ namespace CultManager
 
         private void Start()
         {
-            InitSpawns();
-            InitPersistent();
+            /*InitSpawns();
+            InitPersistent();*/
         }
 
         public void ResetData()
