@@ -5226,7 +5226,7 @@ PrefabInstance:
     - target: {fileID: 8628423009080536272, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: onSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8628423009080536272, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
@@ -5247,6 +5247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8628423009080536272, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa03ffa730d6a14a95936cd0aab7229, type: 3}
