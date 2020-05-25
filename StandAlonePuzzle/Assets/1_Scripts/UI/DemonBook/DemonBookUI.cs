@@ -21,6 +21,7 @@ namespace CultManager
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
         [SerializeField] private PuzzleDisplay demonPagedisplay;
+        [SerializeField] private  TMP_Text exptNumberText;
         [SerializeField] private  TMP_Text goodLinksText;
         [SerializeField] private  TMP_Text spawnLinksText;
         [SerializeField] private  TMP_Text totalGoodLinksText;
@@ -123,6 +124,7 @@ namespace CultManager
 
         public void DisplayDemonPage()
         {
+            exptNumberText.text = "Experiment n" + (result[currentDemonIndex].id+1).ToString();
             goodLinksText.text = result[currentDemonIndex].patternSegments.ToString();
             spawnLinksText.text = result[currentDemonIndex].segments.Length.ToString();
             totalGoodLinksText.text = result[currentDemonIndex].totalPatternSegments.ToString();
@@ -265,10 +267,13 @@ namespace CultManager
                     if (i == index)
                     {
                         buttons[i].sprite = buttonActive;
+                        if(Mathf.Abs(buttons[i].transform.localScale.x)!=1.25f)
+                        buttons[i].transform.localScale = new Vector3(buttons[i].transform.localScale.x*1.25f, 1.25f,1.25f);
                     }
                     else
                     {
                         buttons[i].sprite = buttonInactive;
+                        buttons[i].transform.localScale = new Vector3(1, 1, 1);
                     }
                 }
             }
