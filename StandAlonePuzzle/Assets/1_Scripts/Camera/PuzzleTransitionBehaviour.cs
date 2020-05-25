@@ -9,6 +9,8 @@ namespace CultManager
     {
         [SerializeField] private CameraController controller = default;
         [SerializeField] private Transform puzzleLocation = default;
+        [SerializeField] private RectTransform topElements = default;
+        [SerializeField] private RectTransform bottomElements = default;
         [Header("Events")]
         [SerializeField] private UnityEvent onMidTransitionToPuzzle = default;
         [SerializeField] private UnityEvent onPuzzleReached = default;
@@ -20,6 +22,12 @@ namespace CultManager
         [SerializeField, DrawScriptable] private PuzzleTransitionSettings settings = default;
 
         private bool isTransitionning;
+
+        private void Start()
+        {
+            Debug.Log("top: " + topElements.localPosition);
+            Debug.Log("bot: " + bottomElements.localPosition);
+        }
 
         public void GoToPuzzle()
         {

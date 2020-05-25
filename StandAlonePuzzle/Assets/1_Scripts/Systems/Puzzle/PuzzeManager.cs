@@ -24,11 +24,6 @@ namespace CultManager
 
         private Spawn lastSpawn;
 
-        private void Start()
-        {
-            background.color = new Color(1, 1, 1, 1);
-        }
-
         public void LoadData()
         {
             display?.DisplayPuzzle(scale);

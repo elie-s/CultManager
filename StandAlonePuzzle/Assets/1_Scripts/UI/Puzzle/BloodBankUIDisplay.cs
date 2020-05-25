@@ -115,6 +115,11 @@ namespace CultManager
             data.FillAllBloodBanks();
         }
 
+        public void FillBlood()
+        {
+            data.FillAllBloodBanks();
+        }
+
         public void Close()
         {
             //puzzle.ClearSelection();
