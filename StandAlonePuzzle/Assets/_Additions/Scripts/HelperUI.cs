@@ -11,11 +11,21 @@ namespace CultManager
         [SerializeField] private GameObject[] indicatorPanels;
         public HelperPanel helper;
 
+        [SerializeField] private float growValue;
+        [Range(0, 1), SerializeField] private float growSpeed;
+        [SerializeField] private bool toGrow;
+        [SerializeField] private bool isOpen;
+
         public static HelperPanel currentHelperPanel;
 
         private void Update()
         {
-            currentHelperPanel = helper;
+            SetHelperPanel();
+            helper = currentHelperPanel;
+            if (toGrow)
+            {
+                LerpGrowth(0, 1);
+            }
         }
 
         public void EnableHelper()
@@ -25,8 +35,10 @@ namespace CultManager
 
         public void DisableHelper()
         {
-            helperPanel.SetActive(false);
-            DisableAllIndicators();
+            //helperPanel.SetActive(false);
+            
+            isOpen = false;
+            toGrow = true;
         }
 
         public void DisplayIndicators(int index)
@@ -35,7 +47,13 @@ namespace CultManager
             {
                 if (i == index)
                 {
-                    helperPanel.SetActive(true);
+                    if (!toGrow)
+                    {
+                        helperPanel.SetActive(true);
+                        isOpen = true;
+                        toGrow = true;
+                        growValue = 0;
+                    }
                     indicatorPanels[i].SetActive(true);
                 }
                 else
@@ -52,7 +70,98 @@ namespace CultManager
                 indicatorPanels[i].SetActive(false);
             }
         }
+
+        public void LerpGrowth(float initial, float target)
+        {
+            if (growValue < target)
+            {
+                growValue += growSpeed * Time.deltaTime;
+                float currentScale = Mathf.Lerp(initial, target, growValue);
+                if (!isOpen)
+                {
+                    helperPanel.transform.localScale = new Vector3(1 - currentScale, 1 - currentScale, 1);
+                }
+                else
+                {
+                    helperPanel.transform.localScale = new Vector3(currentScale, currentScale, 1);
+                }
+                
+            }
+            else
+            {
+                toGrow = false;
+                growValue = 0;
+                if (!isOpen)
+                {
+                    DisableAllIndicators();
+                }
+            }
+        }
+
+        public void SetHelperPanel()
+        {
+            
+
+            switch (GameManager.currentPanel)
+            {
+                case CurrentPanel.None:
+                    {
+                        switch (GameManager.currentIsland)
+                        {
+                            case CurrentIsland.Transition:
+                                {
+                                    currentHelperPanel = HelperPanel.None;
+                                }
+                                break;
+                            case CurrentIsland.All:
+                                break;
+                            case CurrentIsland.Origin:
+                                break;
+                            case CurrentIsland.RecruitmentIsland:
+                                break;
+                            case CurrentIsland.SacrificeIsland:
+                                break;
+                            case CurrentIsland.AltarIsland:
+                                break;
+                            case CurrentIsland.PuzzleIsland:
+                                {
+                                    currentHelperPanel = HelperPanel.ExperimentIsland;
+                                }
+                                break;
+                            case CurrentIsland.SummonArea:
+                                break;
+                        }
+                    }
+                    break;
+                case CurrentPanel.NoteTabPanel:
+                    break;
+                case CurrentPanel.RecruitmentPanel:
+                    break;
+                case CurrentPanel.AltarPanel:
+                    break;
+                case CurrentPanel.PuzzlePanel:
+                    break;
+                case CurrentPanel.DemonBook:
+                    {
+                        currentHelperPanel = HelperPanel.DemonSummary;
+                    }
+                    break;
+                case CurrentPanel.HotKeys:
+                    break;
+                case CurrentPanel.PolicePanel:
+                    break;
+                case CurrentPanel.DemonPage:
+                    {
+                        currentHelperPanel = HelperPanel.DemonPage;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
+
+    
 
     public enum HelperPanel
     {

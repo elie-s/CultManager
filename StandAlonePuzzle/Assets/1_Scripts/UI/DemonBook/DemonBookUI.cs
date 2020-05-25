@@ -113,7 +113,7 @@ namespace CultManager
 
             OpenDemonPage();
             DisplayDemonPage();
-
+            GameManager.currentPanel = CurrentPanel.DemonPage;
         }
 
         public void DisplayLastDemon()
@@ -377,6 +377,7 @@ namespace CultManager
 
         public void DisplaySummary(Demon[] demons)
         {
+            if(summaryPage.activeSelf && panel.activeSelf) GameManager.currentPanel = thisPanelName;
             ClearChildren(puzzleGroupParent.transform);
             ClearChildren(pageNumberParent.transform);
             pageBehaviors = new List<PageBehavior>();
@@ -453,7 +454,7 @@ namespace CultManager
         [ContextMenu("Close")]
         public void Close()
         {
-            if (GameManager.currentPanel == thisPanelName)
+            if (GameManager.currentPanel == thisPanelName || GameManager.currentPanel == CurrentPanel.DemonPage)
             {
                 GameManager.currentPanel = CurrentPanel.None;
                 panel.SetActive(false);
