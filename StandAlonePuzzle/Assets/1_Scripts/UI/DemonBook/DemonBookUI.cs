@@ -132,7 +132,7 @@ namespace CultManager
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
             //spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
-            demonImage.sprite = demonsSprites.GetSpawnID(result[currentDemonIndex].demon, (float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
+            demonImage.sprite = demonsSprites.GetSpawnID(result[currentDemonIndex].demon, result[currentDemonIndex].accuracy);
             if (result[currentDemonIndex].isStarred)
             {
                 starImage.sprite = starActive;

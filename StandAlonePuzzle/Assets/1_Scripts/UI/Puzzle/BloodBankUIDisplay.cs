@@ -16,7 +16,6 @@ namespace CultManager
         [SerializeField] private GameObject hud;
         [SerializeField] private ButtonInteraction summonButton;
 
-
         private void Start()
         {
             if (!SaveManager.saveLoaded)
