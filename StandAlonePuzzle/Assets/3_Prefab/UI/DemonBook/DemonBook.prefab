@@ -787,7 +787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 2652852806871249102}
-  duration: 0.5
+  duration: 0.4
   uiAnimation: {fileID: 11400000, guid: b207956f9f228b644829a6c69cd84746, type: 2}
 --- !u!1 &2652852806894711420
 GameObject:
@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c2dd2bf3f93d14468a726b987072568, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e43ad75baa9bb1d45b48a978f3828444, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1230,7 +1230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2652852808265867801
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1340,6 +1340,7 @@ GameObject:
   - component: {fileID: 2652852808470216650}
   - component: {fileID: 2652852808470216651}
   - component: {fileID: 5435660370186801912}
+  - component: {fileID: 528137722}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -1430,6 +1431,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 528137722}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &528137722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2652852808470216653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfe76d02b4d63c49a2fd3fba14dacdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiElement: {fileID: 2652852808470216652}
+  duration: 0.4
+  uiAnimation: {fileID: 11400000, guid: b207956f9f228b644829a6c69cd84746, type: 2}
 --- !u!1 &2652852808673993856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5114946833758922538
 RectTransform:
   m_ObjectHideFlags: 0
