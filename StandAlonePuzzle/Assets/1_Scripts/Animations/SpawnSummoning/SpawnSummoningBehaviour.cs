@@ -6,7 +6,7 @@ namespace CultManager
 {
     public class SpawnSummoningBehaviour : MonoBehaviour
     {
-        [SerializeField] private Sprite[] sprites;
+        [SerializeField] private DemonsSet sprites;
         [SerializeField] private SpriteRenderer sRenderer = default;
         [SerializeField] private SpriteRenderer effectRenderer = default;
         [SerializeField] private AnimationCurve summoningCurve = default;
@@ -24,6 +24,7 @@ namespace CultManager
         {
             spawn = _spawn;
             callback = FindObjectOfType<SummoningSpawnSequencer>().OnSpawnSummoned;
+            sRenderer.sprite = sprites.GetSpawnSprite(spawn.demon, spawn.patternAccuracy);
         }
 
         public void Summon(float _delay)
