@@ -20,14 +20,13 @@ namespace CultManager
 
         public void EnableHelper()
         {
-            helperPanel.SetActive(true);
             DisplayIndicators((int)(currentHelperPanel - 1));
         }
 
         public void DisableHelper()
         {
             helperPanel.SetActive(false);
-            DisplayIndicators((int)(currentHelperPanel - 1));
+            DisableAllIndicators();
         }
 
         public void DisplayIndicators(int index)
@@ -36,12 +35,21 @@ namespace CultManager
             {
                 if (i == index)
                 {
+                    helperPanel.SetActive(true);
                     indicatorPanels[i].SetActive(true);
                 }
                 else
                 {
                     indicatorPanels[i].SetActive(false);
                 }
+            }
+        }
+
+        public void DisableAllIndicators()
+        {
+            for (int i = 0; i < indicatorPanels.Length; i++)
+            {
+                indicatorPanels[i].SetActive(false);
             }
         }
     }
