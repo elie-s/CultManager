@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private CurrentPanel thisPanelName;
         [SerializeField] private int currentDemonIndex = 0;
         [SerializeField] private DemonData data;
+        [SerializeField] private DemonsSet demonsSprites = default;
 
         [Header("Demon Page Display")]
         [SerializeField] private GameObject demonPage;
@@ -130,7 +131,8 @@ namespace CultManager
             totalGoodLinksText.text = result[currentDemonIndex].totalPatternSegments.ToString();
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
-            spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
+            //spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
+            demonImage.sprite = demonsSprites.GetSpawnID(result[currentDemonIndex].demon, (float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
             if (result[currentDemonIndex].isStarred)
             {
                 starImage.sprite = starActive;

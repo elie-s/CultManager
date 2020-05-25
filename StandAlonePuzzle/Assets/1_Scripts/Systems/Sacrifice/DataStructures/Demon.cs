@@ -15,6 +15,7 @@ namespace CultManager
         public Segment[] segments;
         public bool isStarred;
         public int spriteIndex;
+        public DemonName demon;
 
         public int patternSegments;
         public int totalPatternSegments;
@@ -24,7 +25,7 @@ namespace CultManager
         public string description;
 
 
-        public Demon(int _id, Segment[] _segments,DateTime _deathTime,int _patternSegments,int _totalPatternSegments)
+        public Demon(int _id, Segment[] _segments,DateTime _deathTime,int _patternSegments,int _totalPatternSegments, DemonName _demon = DemonName.Demon1)
         {
             id = _id;
             segments = _segments;
@@ -33,6 +34,7 @@ namespace CultManager
             patternSegments = _patternSegments;
             totalPatternSegments = _totalPatternSegments;
             SetRandomLoot();
+            demon = _demon;
         }
 
         public Demon()
