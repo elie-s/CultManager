@@ -1173,6 +1173,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 78052782}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &534352976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1410087514839812044, guid: caa03ffa730d6a14a95936cd0aab7229,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410087516038144104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35702c1cc7d0f64587b5a51118aeec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &535556925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1589493146944727796, guid: c85ac8e7ce4907547b76fa0166697aff,
@@ -2422,6 +2434,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
         type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 1949378521}
@@ -2440,6 +2457,56 @@ PrefabInstance:
       propertyPath: onZoomOutAfterSummonning.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1410087516038144105}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1201088421}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: ClearSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 534352976}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ResetInteractions
+      objectReference: {fileID: 0}
+    - target: {fileID: 2204741619379548255, guid: d19a2ca58b477724a9691393f74401e4,
+        type: 3}
+      propertyPath: onMidTransitionToPuzzle.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3247474925136681226, guid: d19a2ca58b477724a9691393f74401e4,
         type: 3}
       propertyPath: m_AnchorMin.y
