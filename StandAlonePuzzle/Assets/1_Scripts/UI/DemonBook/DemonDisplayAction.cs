@@ -16,13 +16,14 @@ namespace CultManager
         private void Start()
         {
             demonBook = FindObjectOfType<DemonBookUI>();
-            index = transform.GetSiblingIndex();
+            
         }
 
-        public void Init(int goodLinks,int spawnLinks)
+        public void Init(int goodLinks,int spawnLinks,int _pageIndex,int _numberOfItemsPerPage)
         {
             goodLinksSummaryText.text = goodLinks.ToString();
             spawnLinksSummaryText.text = spawnLinks.ToString();
+            index = transform.GetSiblingIndex()+(_pageIndex*_numberOfItemsPerPage);
         }
 
         public void DisplayDemonBehavior()

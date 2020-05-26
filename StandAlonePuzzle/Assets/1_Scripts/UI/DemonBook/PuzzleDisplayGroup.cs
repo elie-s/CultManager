@@ -9,8 +9,13 @@ namespace CultManager
     {
 
         [SerializeField]private GameObject puzzleDisplayPrefab;
+        [SerializeField] private int childIndex;
 
-        public void SpawnDisplay(Demon[] demons,int scale)
+        private void Update()
+        {
+        }
+
+        public void SpawnDisplay(Demon[] demons,int scale,int numberOfItemsPerPage)
         {
             if (transform.childCount > 0)
             {
@@ -26,8 +31,9 @@ namespace CultManager
                 current.DisplayPuzzle(scale);
                 current.HighlightShape(demons[i].segments);
                 DemonDisplayAction demonDisplay = instance.GetComponent<DemonDisplayAction>();
-                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length);
-
+                Debug.Log("Page child index is " + transform.GetSiblingIndex());
+                childIndex= transform.GetSiblingIndex();
+                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length,transform.GetSiblingIndex(),numberOfItemsPerPage);
             }
         }
     }

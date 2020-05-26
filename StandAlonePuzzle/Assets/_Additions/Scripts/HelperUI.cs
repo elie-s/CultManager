@@ -21,6 +21,7 @@ namespace CultManager
         private void Update()
         {
             SetHelperPanel();
+            DisplayIndicators((int)(currentHelperPanel - 1));
             helper = currentHelperPanel;
             if (toGrow)
             {
@@ -28,32 +29,30 @@ namespace CultManager
             }
         }
 
-        public void EnableHelper()
+        public void ToggleHelper()
         {
-            DisplayIndicators((int)(currentHelperPanel - 1));
-        }
-
-        public void DisableHelper()
-        {
-            //helperPanel.SetActive(false);
-            
-            isOpen = false;
-            toGrow = true;
+            if (!isOpen)
+            {
+                if (!toGrow)
+                {
+                    helperPanel.SetActive(true);
+                    isOpen = true;
+                    toGrow = true;
+                }
+            }
+            else
+            {
+                isOpen = false;
+                toGrow = true;
+            }
         }
 
         public void DisplayIndicators(int index)
         {
             for (int i = 0; i < indicatorPanels.Length; i++)
             {
-                if (i == index)
+                if (i == index && helperPanel.activeSelf)
                 {
-                    if (!toGrow)
-                    {
-                        helperPanel.SetActive(true);
-                        isOpen = true;
-                        toGrow = true;
-                        growValue = 0;
-                    }
                     indicatorPanels[i].SetActive(true);
                 }
                 else
@@ -75,7 +74,7 @@ namespace CultManager
         {
             if (growValue < target)
             {
-                growValue += growSpeed * Time.deltaTime;
+                growValue += growSpeed;
                 float currentScale = Mathf.Lerp(initial, target, growValue);
                 if (!isOpen)
                 {
@@ -140,6 +139,9 @@ namespace CultManager
                 case CurrentPanel.AltarPanel:
                     break;
                 case CurrentPanel.PuzzlePanel:
+                    {
+                        currentHelperPanel = HelperPanel.ExperimentArea;
+                    }
                     break;
                 case CurrentPanel.DemonBook:
                     {

@@ -395,7 +395,7 @@ namespace CultManager
                     GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
                     instance.transform.SetAsFirstSibling();
                     PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
-                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, numberOfItemsPerPage);
                     pages.Insert(0, instance);
                     spawnDemons.Clear();
 
@@ -411,7 +411,7 @@ namespace CultManager
                 GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
                 instance.transform.SetAsFirstSibling();
                 PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
-                group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, numberOfItemsPerPage);
                 pages.Insert(0, instance);
                 spawnDemons.Clear();
 
@@ -440,6 +440,13 @@ namespace CultManager
             data.demons[currentDemonIndex].ToggleStar();
             DisplayDemonPage();
         }
+
+        public void RemoveThisDemon()
+        {
+            data.RemoveDemon(result[currentDemonIndex]);
+            OpenSummaryPage();
+        }
+
         [ContextMenu("Open")]
         public void Open()
         {

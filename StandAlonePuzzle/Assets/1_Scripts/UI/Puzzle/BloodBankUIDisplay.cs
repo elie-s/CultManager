@@ -15,6 +15,7 @@ namespace CultManager
         [SerializeField] private Image BloodBarO;
         [SerializeField] private GameObject hud;
         [SerializeField] private ButtonInteraction summonButton;
+        [SerializeField] private CurrentPanel thisPanelName;
 
         private void Start()
         {
@@ -59,7 +60,7 @@ namespace CultManager
                         }
                         break;
                 }
-                
+
             }
         }
 
@@ -109,20 +110,33 @@ namespace CultManager
 
         public void Open()
         {
-            puzzle.ClearSelection();
-            hud.SetActive(true);
-            data.FillAllBloodBanks();
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                GameManager.currentPanel = thisPanelName;
+                //Debug.Log(thisPanelName);
+                puzzle.ClearSelection();
+                hud.SetActive(true);
+                data.FillAllBloodBanks();
+            }
         }
 
         public void FillBlood()
         {
             data.FillAllBloodBanks();
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                GameManager.currentPanel = thisPanelName;
+            }
         }
 
         public void Close()
         {
-            //puzzle.ClearSelection();
-            hud.SetActive(false);
+            if (GameManager.currentPanel == thisPanelName)
+            {
+                GameManager.currentPanel = CurrentPanel.None;
+                //puzzle.ClearSelection();
+                //hud.SetActive(false);
+            }
         }
 
         public void Clear()
