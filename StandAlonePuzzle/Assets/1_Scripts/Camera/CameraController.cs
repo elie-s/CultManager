@@ -74,6 +74,11 @@ namespace CultManager
             screen.color = _color;
         }
 
+        public void SetWorldCamTo(Vector2 _position)
+        {
+            worldCam.transform.localPosition = _position;
+        }
+
         // Transitions //
         private void InitCam()
         {

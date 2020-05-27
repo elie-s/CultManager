@@ -9,6 +9,7 @@ namespace CultManager
     {
         [SerializeField] private CameraController controller = default;
         [SerializeField] private Transform puzzleLocation = default;
+        [SerializeField] private Transform spawnLocation = default;
         [SerializeField] private RectTransform topElements = default;
         [SerializeField] private RectTransform bottomElements = default;
         [Header("Events")]
@@ -41,6 +42,11 @@ namespace CultManager
             if (isTransitionning) return;
 
             StartCoroutine(GoToIslandRoutine(_stayFocused));
+        }
+
+        public void SetCamToSpawnLocation()
+        {
+            controller.SetWorldCamTo((Vector2)spawnLocation.position);
         }
 
         private IEnumerator GoToPuzzleRoutine()
