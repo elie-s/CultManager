@@ -13,83 +13,209 @@ MonoBehaviour:
   m_Name: GenerationSettings
   m_EditorClassIdentifier: 
   set:
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 4
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 4
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 8
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 1
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 8
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 0
+      mode: 2
+    - shapeSegments: 3
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 6
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 0
+      mode: 2
+    - shapeSegments: 3
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 6
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 1
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 3
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 3
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 3
+      startAtCenter: 0
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 8
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 3
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 3
+      startAtCenter: 0
+      mode: 2
+    - shapeSegments: 2
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 8
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 3
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 4
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 4
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 10
       startAtCenter: 0
       mode: 0
-  - puzzleSettings: []
+  - puzzleSettings:
+    - shapeSegments: 3
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 4
+      startAtCenter: 1
+      mode: 2
+    - shapeSegments: 4
+      startAtCenter: 0
+      mode: 2
     demonPattern:
-      shapeSegments: 0
+      shapeSegments: 10
       startAtCenter: 0
       mode: 0
