@@ -13,8 +13,6 @@ namespace CultManager
 
         public void LoadScene()
         {
-            if (File.Exists(save.dataPath)) File.Delete(save.dataPath);
-
             SceneManager.LoadSceneAsync(0);
         }
     }

@@ -70,6 +70,12 @@ namespace CultManager
 
         public void TransitionScene()
         {
+            StartCoroutine(TransitionSceneRoutine(1.0f));
+        }
+
+        public IEnumerator TransitionSceneRoutine(float _delay)
+        {
+            yield return new WaitForSeconds(_delay);
             SceneManager.LoadSceneAsync(1);
         }
 

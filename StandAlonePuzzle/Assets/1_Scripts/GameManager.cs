@@ -37,7 +37,7 @@ namespace CultManager
 
             if (!SaveManager.saveLoaded)
             {
-                puzzeManager.ResetData();
+                puzzeManager.SAResetData();
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 noteTabManager.SetNoteTabSegments();
@@ -108,6 +108,12 @@ namespace CultManager
             demonManager.ResetCult(level);
 
             saveManager.SaveGame();
+        }
+
+        public void StandaloneReset()
+        {
+            puzzeManager.SAResetCult();
+            demonManager.ResetCult(0);
         }
 
         public IEnumerator GetToloadingScene()

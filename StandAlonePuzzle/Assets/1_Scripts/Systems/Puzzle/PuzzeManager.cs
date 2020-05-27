@@ -17,6 +17,7 @@ namespace CultManager
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings;
         [SerializeField] private PatternGenerationSettings patternSettings;
+        [SerializeField] private PuzzleSettingsSet generationSettings = default;
 
         [SerializeField] private bool altarComplete;
         [SerializeField] private SpriteRenderer background;
@@ -42,11 +43,23 @@ namespace CultManager
             //Generate();
         }
 
+        public void SAResetData()
+        {
+            if (!PuzzleSaveManager.puzzleSaveLoaded) puzzleSaveData.ResetData();
+            SAResetCult();
+        }
+
         public void ResetCult(int level)
         {
             Generate();
             display?.DisplayPuzzle(scale);
             if (level > 5) Generate();
+        }
+
+        public void SAResetCult()
+        {
+            SAGenerate();
+            display?.DisplayPuzzle(scale);
         }
 
         public void ClearSelection()
@@ -73,6 +86,53 @@ namespace CultManager
                 altarComplete = true;
                 background.color = new Color(1, 0, 0, 1);
             }
+
+        }
+
+        public void SAGenerate()
+        {
+            PatternGenerationSettings[] puzzleSettings = generationSettings.set[puzzleSaveData.currentIndex].puzzleSettings;
+            PatternGenerationSettings demonPattern = generationSettings.set[puzzleSaveData.currentIndex].demonPattern;
+
+            HexGrid grid = new HexGrid(scale, 1);
+            Pattern pattern = new Pattern(grid, puzzleSettings[0]);
+            data.puzzle = new List<PuzzleSegment>();
+
+            for (int i = 1; i < puzzleSettings.Length; i++)
+            {
+                grid.DoubleGrid();
+                pattern.DoubleSize();
+                pattern.AddToShape(puzzleSettings[i], true);
+            }
+
+            for (int i = 0; i < pattern.stepSegments.Count; i++)
+            {
+                for (int j = 0; j < pattern.stepSegments[i].Count; j++)
+                {
+                    data.puzzle.Add(new PuzzleSegment(pattern.stepSegments[i][j], (BloodType)(i)));
+                    Debug.Log((BloodType)(i));
+                }
+            }
+            puzzleSaveData.AddGeneration(puzzleSettings, data.puzzle.ToArray());
+            grid = new HexGrid(pattern);
+            pattern = new Pattern(grid, demonPattern);
+
+
+            foreach (PuzzleSegment segment in data.puzzle)
+            {
+                for (int i = 0; i < pattern.segments.Count; i++)
+                {
+                    if (segment.IsSegment(pattern.segments[i]))
+                    {
+                        segment.SetAsPatternSegment();
+                        break;
+                    }
+                }
+            }
+
+            display?.DisplayPuzzle(scale);
+
+            Debug.Log("SA Puzzle generated");
 
         }
 

@@ -149,9 +149,13 @@ MonoBehaviour:
     shapeSegments: 10
     startAtCenter: 1
     mode: 0
+  generationSettings: {fileID: 11400000, guid: 8a4ec92d1b9de164b892634580ff8107, type: 2}
   altarComplete: 0
   background: {fileID: 1410087514236053258}
   patternSegments: []
+  onPerfectSpawnSummoned:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1410087514839812044
 MonoBehaviour:
   m_ObjectHideFlags: 0
