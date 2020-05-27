@@ -83,11 +83,6 @@ namespace CultManager
             DisplayDemonPage();
         }
 
-        private void Update()
-        {
-
-        }
-
         public void Start()
         {
             OpenSummaryPage();
@@ -126,13 +121,12 @@ namespace CultManager
 
         public void DisplayDemonPage()
         {
-            exptNumberText.text = "Experiment n" + (result[currentDemonIndex].id+1).ToString();
+            exptNumberText.text = "Experiment #" + (result[currentDemonIndex].id+1).ToString();
             goodLinksText.text = result[currentDemonIndex].patternSegments.ToString();
             spawnLinksText.text = result[currentDemonIndex].segments.Length.ToString();
             totalGoodLinksText.text = result[currentDemonIndex].totalPatternSegments.ToString();
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
             demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
-            //spawnColor.ColorIt((float)result[currentDemonIndex].patternSegments / (float)result[currentDemonIndex].totalPatternSegments);
             demonImage.sprite = demonsSprites.GetSpawnID(result[currentDemonIndex].demon, result[currentDemonIndex].accuracy);
             if (result[currentDemonIndex].isStarred)
             {

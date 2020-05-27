@@ -68,6 +68,7 @@ namespace CultManager
             }
 
             element.anchoredPosition = openPosition.anchoredPosition;
+            moving = false;
         }
 
         private IEnumerator CloseRoutine()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace CultManager
 {
@@ -65,6 +66,11 @@ namespace CultManager
             }
 
             opaqueMask.color = settings.spawnAppearingGradient.Evaluate(1.0f);
+        }
+
+        public void TransitionScene()
+        {
+            SceneManager.LoadSceneAsync(1);
         }
 
         public void OnSpawnSummoned()

@@ -23,6 +23,7 @@ namespace CultManager
 
         private Pattern gridConstruction;
         [SerializeField] private List<Segment> patternSegments;
+        [SerializeField] private UnityEvent onPerfectSpawnSummoned = default;
 
         private Spawn lastSpawn;
 
@@ -190,6 +191,7 @@ namespace CultManager
             lastSpawn = demonManager.AddNewExperiment(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()), data.GatherPatternSegments().Length);
             Demon demon= demonData.ReturnDemonForSpawn(lastSpawn);
             puzzleSaveData.generations[puzzleSaveData.currentIndex - 1].AddAttempt(demon);
+            if (lastSpawn.patternAccuracy == 1.0f) onPerfectSpawnSummoned.Invoke();
         }
 
         public void SummonExperiment(float _delay)
