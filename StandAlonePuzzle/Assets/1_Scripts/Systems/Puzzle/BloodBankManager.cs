@@ -134,10 +134,6 @@ namespace CultManager
             display.BloodUtilizeAnim(blood);
         }
 
-        public void BadLink()
-        {
-            display.BadLinkAnim();
-        }
 
         public void ResetCult(int level)
         {

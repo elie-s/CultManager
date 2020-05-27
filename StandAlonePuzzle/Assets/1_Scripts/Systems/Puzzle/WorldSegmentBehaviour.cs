@@ -174,7 +174,7 @@ namespace CultManager
             }
             else
             {
-                bloodManager.BadLink();
+                bloodManager.InAdequateBloodOfType(segment.type);
             }
         }
     }

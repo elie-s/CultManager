@@ -15,7 +15,6 @@ namespace CultManager
         [SerializeField] private Image BloodBarO;
         [SerializeField] private GameObject hud;
         [SerializeField] private ButtonInteraction summonButton;
-        [SerializeField] private UIAnimator animLocked;
         [SerializeField] private CurrentPanel thisPanelName;
 
         private void Start()
@@ -107,11 +106,6 @@ namespace CultManager
                     }
                     break;
             }
-        }
-
-        public void BadLinkAnim()
-        {
-            animLocked.Play();
         }
 
         public void Open()
