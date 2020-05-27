@@ -18,6 +18,7 @@ namespace CultManager
 
         [Header("Demon Page Display")]
         [SerializeField] private GameObject demonPage;
+        [SerializeField] private GameObject confirmPage;
         [SerializeField] private SpawnColor spawnColor;
         [SerializeField] private Image demonImage;
         [SerializeField] private Image starImage;
@@ -110,10 +111,10 @@ namespace CultManager
             {
                 currentDemonIndex = index;
             }
-
+            GameManager.currentPanel = CurrentPanel.DemonPage;
             OpenDemonPage();
             DisplayDemonPage();
-            GameManager.currentPanel = CurrentPanel.DemonPage;
+            
         }
 
         public void DisplayLastDemon()
@@ -395,7 +396,7 @@ namespace CultManager
                     GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
                     instance.transform.SetAsFirstSibling();
                     PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
-                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, numberOfItemsPerPage);
+                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, i);
                     pages.Insert(0, instance);
                     spawnDemons.Clear();
 
@@ -441,11 +442,23 @@ namespace CultManager
             DisplayDemonPage();
         }
 
+        public void OpenDeletePanel()
+        {
+            confirmPage.SetActive(true);
+        }
+
+        public void CloseDeletePanel()
+        {
+            confirmPage.SetActive(false); 
+        }
+
         public void RemoveThisDemon()
         {
             data.RemoveDemon(result[currentDemonIndex]);
+            CloseDeletePanel();
             OpenSummaryPage();
         }
+
 
         [ContextMenu("Open")]
         public void Open()
@@ -455,6 +468,7 @@ namespace CultManager
                 GameManager.currentPanel = thisPanelName;
                 panel.SetActive(true);
                 DemonTimeSort();
+                CloseDeletePanel();
             }
         }
 

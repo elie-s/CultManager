@@ -7,6 +7,7 @@ namespace CultManager
 {
     public class HelperUI : MonoBehaviour
     {
+        [SerializeField] private GameObject helperButton;
         [SerializeField] private GameObject helperPanel;
         [SerializeField] private GameObject[] indicatorPanels;
         public HelperPanel helper;
@@ -110,11 +111,15 @@ namespace CultManager
                             case CurrentIsland.Transition:
                                 {
                                     currentHelperPanel = HelperPanel.None;
+                                    helperButton.SetActive(false);
                                 }
                                 break;
                             case CurrentIsland.All:
                                 break;
                             case CurrentIsland.Origin:
+                                {
+                                    helperButton.SetActive(false);
+                                }
                                 break;
                             case CurrentIsland.RecruitmentIsland:
                                 break;
@@ -125,6 +130,7 @@ namespace CultManager
                             case CurrentIsland.PuzzleIsland:
                                 {
                                     currentHelperPanel = HelperPanel.ExperimentIsland;
+                                    helperButton.SetActive(true);
                                 }
                                 break;
                             case CurrentIsland.SummonArea:
@@ -133,28 +139,46 @@ namespace CultManager
                     }
                     break;
                 case CurrentPanel.NoteTabPanel:
+                    {
+                        helperButton.SetActive(false);
+                    }
                     break;
                 case CurrentPanel.RecruitmentPanel:
+                    {
+                        helperButton.SetActive(false);
+                    }
                     break;
                 case CurrentPanel.AltarPanel:
+                    {
+                        helperButton.SetActive(false);
+                    }
                     break;
                 case CurrentPanel.PuzzlePanel:
                     {
                         currentHelperPanel = HelperPanel.ExperimentArea;
+                        helperButton.SetActive(true);
                     }
                     break;
                 case CurrentPanel.DemonBook:
                     {
                         currentHelperPanel = HelperPanel.DemonSummary;
+                        helperButton.SetActive(true);
                     }
                     break;
                 case CurrentPanel.HotKeys:
+                    {
+                        helperButton.SetActive(true);
+                    }
                     break;
                 case CurrentPanel.PolicePanel:
+                    {
+                        helperButton.SetActive(true);
+                    }
                     break;
                 case CurrentPanel.DemonPage:
                     {
                         currentHelperPanel = HelperPanel.DemonPage;
+                        helperButton.SetActive(true);
                     }
                     break;
                 default:

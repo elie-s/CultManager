@@ -24,9 +24,9 @@ namespace CultManager
 
         public string description;
 
-        public float accuracy => (float)patternSegments / (float)totalPatternSegments > 0 ?
+        public float accuracy => Mathf.Clamp01((float)patternSegments / (float)totalPatternSegments > 0 ?
                                 (float)patternSegments / (float)totalPatternSegments :
-                                1.0f - ((float)(segments.Length - totalPatternSegments) / (float)segments.Length);
+                                1.0f - ((float)(segments.Length - totalPatternSegments) / (float)segments.Length));
 
 
         public Demon(int _id, Segment[] _segments,DateTime _deathTime,int _patternSegments,int _totalPatternSegments, DemonName _demon = DemonName.Demon1)

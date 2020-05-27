@@ -19,11 +19,11 @@ namespace CultManager
             
         }
 
-        public void Init(int goodLinks,int spawnLinks,int _pageIndex,int _numberOfItemsPerPage)
+        public void Init(int goodLinks,int spawnLinks,int _Index)
         {
             goodLinksSummaryText.text = goodLinks.ToString();
             spawnLinksSummaryText.text = spawnLinks.ToString();
-            index = transform.GetSiblingIndex()+(_pageIndex*_numberOfItemsPerPage);
+            index = _Index;
         }
 
         public void DisplayDemonBehavior()

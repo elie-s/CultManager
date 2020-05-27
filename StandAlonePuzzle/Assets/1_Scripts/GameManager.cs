@@ -38,7 +38,6 @@ namespace CultManager
             if (!SaveManager.saveLoaded)
             {
                 puzzeManager.ResetData();
-
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 noteTabManager.SetNoteTabSegments();

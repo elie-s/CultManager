@@ -172,6 +172,10 @@ namespace CultManager
                     }
                 }
             }
+            else
+            {
+                bloodManager.BadLink();
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace CultManager
         {
         }
 
-        public void SpawnDisplay(Demon[] demons,int scale,int numberOfItemsPerPage)
+        public void SpawnDisplay(Demon[] demons,int scale,int startIndex)
         {
             if (transform.childCount > 0)
             {
@@ -31,9 +31,7 @@ namespace CultManager
                 current.DisplayPuzzle(scale);
                 current.HighlightShape(demons[i].segments);
                 DemonDisplayAction demonDisplay = instance.GetComponent<DemonDisplayAction>();
-                Debug.Log("Page child index is " + transform.GetSiblingIndex());
-                childIndex= transform.GetSiblingIndex();
-                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length,transform.GetSiblingIndex(),numberOfItemsPerPage);
+                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length,startIndex++);
             }
         }
     }

@@ -9,6 +9,8 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
+        [SerializeField] private DemonData demonData = default;
+        [SerializeField] private PuzzleSaveData puzzleSaveData = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private PuzzleDisplay display = default;
@@ -32,8 +34,10 @@ namespace CultManager
 
         public void ResetData()
         {
+            if (!PuzzleSaveManager.puzzleSaveLoaded) puzzleSaveData.ResetData();
             Generate();
             display?.DisplayPuzzle(scale);
+            
             //Generate();
         }
 
@@ -93,9 +97,10 @@ namespace CultManager
                     Debug.Log((BloodType)(i));
                 }
             }
-
+            puzzleSaveData.AddGeneration(settings, data.puzzle.ToArray());
             grid = new HexGrid(pattern);
             pattern = new Pattern(grid, patternSettings);
+            
 
             foreach (PuzzleSegment segment in data.puzzle)
             {
@@ -112,6 +117,7 @@ namespace CultManager
             display?.DisplayPuzzle(scale);
 
             Debug.Log("Puzzle generated");
+            
         }
 
 
@@ -182,6 +188,8 @@ namespace CultManager
         {
             GatherCurrentPatternSegments();
             lastSpawn = demonManager.AddNewExperiment(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()), data.GatherPatternSegments().Length);
+            Demon demon= demonData.ReturnDemonForSpawn(lastSpawn);
+            puzzleSaveData.generations[puzzleSaveData.currentIndex - 1].AddAttempt(demon);
         }
 
         public void SummonExperiment(float _delay)
