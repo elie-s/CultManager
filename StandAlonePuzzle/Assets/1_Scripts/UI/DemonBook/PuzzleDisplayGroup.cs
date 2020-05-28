@@ -15,7 +15,7 @@ namespace CultManager
         {
         }
 
-        public void SpawnDisplay(Demon[] demons,int scale,int startIndex)
+        public void SpawnDisplay(Demon[] demons,float scale,int startIndex)
         {
             if (transform.childCount > 0)
             {

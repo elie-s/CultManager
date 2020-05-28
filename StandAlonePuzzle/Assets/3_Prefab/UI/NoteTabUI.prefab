@@ -1106,7 +1106,8 @@ MonoBehaviour:
   rectTransform: {fileID: 6286151945449382047}
   Togglebutton: {fileID: 6286151946934022448}
   thisPanelName: 1
-  puzzleScale: 60
+  puzzleScale: 0.5
+  lerpValue: 0
 --- !u!1 &6286151946259393249
 GameObject:
   m_ObjectHideFlags: 0

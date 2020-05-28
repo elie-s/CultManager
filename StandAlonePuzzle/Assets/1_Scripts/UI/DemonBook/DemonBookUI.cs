@@ -27,7 +27,7 @@ namespace CultManager
         [SerializeField] private  TMP_Text goodLinksText;
         [SerializeField] private  TMP_Text spawnLinksText;
         [SerializeField] private  TMP_Text totalGoodLinksText;
-        [SerializeField] private int demonPagePuzzleScale;
+        [SerializeField] private float demonPagePuzzleScale;
 
 
         [Header("Summary Page Display")]
@@ -39,7 +39,7 @@ namespace CultManager
         [SerializeField] private Image[] buttons;
         [SerializeField] private Image summaryStarImage;
         [SerializeField] private int numberOfItemsPerPage;
-        [SerializeField] private int summaryPagePuzzleScale;
+        [SerializeField] private float summaryPagePuzzleScale;
         private int currentPageNumber;
 
 

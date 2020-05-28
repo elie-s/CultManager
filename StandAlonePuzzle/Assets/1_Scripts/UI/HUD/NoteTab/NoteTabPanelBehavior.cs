@@ -21,7 +21,7 @@ namespace CultManager
 
         [SerializeField] private CurrentPanel thisPanelName;
 
-        [SerializeField] private int puzzleScale;
+        [SerializeField] private float puzzleScale;
         CurrentPanel temp = CurrentPanel.None;
 
         private string direction = "right";

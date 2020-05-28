@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CultManager.HexagonalGrid;
 
 namespace CultManager
 {
@@ -25,6 +26,8 @@ namespace CultManager
             transform.localScale = Vector3.one * _scale;
             SetColor();
             blood = segment.type;
+
+            transform.localPosition = Node.WorldPosition(segment.b, _scale);
         }
 
         public void ResetSegment()

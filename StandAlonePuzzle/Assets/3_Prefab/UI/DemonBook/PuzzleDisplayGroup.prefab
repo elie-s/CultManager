@@ -58,7 +58,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 125, y: 125}
-  m_Spacing: {x: 50, y: 50}
+  m_Spacing: {x: 50, y: 100}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &4557443792790203757
@@ -75,3 +75,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleDisplayPrefab: {fileID: 7677500411678564034, guid: efc3489ed88c94c4791ce4a59fb0427c,
     type: 3}
+  childIndex: 0
