@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3437137509352756249}
   - component: {fileID: 8599786723416857102}
+  - component: {fileID: 7908013526252023415}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1291530614637407577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2590304807145536307}
   - {fileID: 3208209623993800595}
@@ -208,6 +209,23 @@ MonoBehaviour:
   timeSpawn: 0.6
   timeExit: 0.9545792
   animationDuration: 3
+--- !u!114 &7908013526252023415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291530614637407577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d424177386ebbdc47ac22fecdc1963c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnStart: 1
+  loop: 1
+  playLocal: 1
+  floatingObject: {fileID: 2590304807145536307}
+  settings: {fileID: 11400000, guid: dee326a71eec2cc44a0a993ca222069f, type: 2}
 --- !u!1 &2522317805073175880
 GameObject:
   m_ObjectHideFlags: 0

@@ -115,6 +115,7 @@ namespace CultManager
             puzzeManager.SAResetCult();
             demonManager.ResetCult(0);
             bloodManager.ResetCult(0);
+            noteTabManager.SetNoteTabSegments();
         }
 
         public IEnumerator GetToloadingScene()

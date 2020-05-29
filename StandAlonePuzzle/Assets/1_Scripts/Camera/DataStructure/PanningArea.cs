@@ -18,12 +18,14 @@ namespace CultManager
         public Vector2 span => new Vector2(width, height) / 2.0f;
         public Vector2 bottomLeft => position - span;
         public Vector2 topRight => position + span;
+        public float panningSpeed => baseSpeed / camSize;
 
         private float baseCamSize;
         private float maxZoom;
         private float minSize;
+        private float baseSpeed;
 
-        public PanningArea(CameraTarget _camtarget, float _maxZoom, float _minSize)
+        public PanningArea(CameraTarget _camtarget, float _maxZoom, float _minSize, float _baseSpeed)
         {
             position = _camtarget.waypoint.position;
             baseCamSize = _camtarget.size;
@@ -31,6 +33,7 @@ namespace CultManager
             zoom = 0.0f;
             maxZoom = _maxZoom;
             minSize = _minSize;
+            baseSpeed = _baseSpeed;
         }
 
         public void ZoomIn(float _value)

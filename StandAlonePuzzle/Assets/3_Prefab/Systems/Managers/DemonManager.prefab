@@ -51,10 +51,12 @@ MonoBehaviour:
     type: 3}
   persistentDemonPrefab: {fileID: 519313156704779299, guid: 10781c2f2bc7b3842a24d2ee54816533,
     type: 3}
+  demonBook: {fileID: 0}
   effects: {fileID: 0}
-  reset: {fileID: 0}
+  game: {fileID: 0}
   area: {fileID: 3627701773647436408}
-  spawnPosition: {fileID: 0}
+  spawnPosition: {fileID: 5749959287646273048}
+  worldFade: {fileID: 0}
   waypoints:
   - {fileID: 3571643220391227858}
   - {fileID: 2798613983243378430}
@@ -225,8 +227,39 @@ Transform:
   - {fileID: 1037442070518916133}
   - {fileID: 8444597822460795957}
   - {fileID: 187044027832407647}
+  - {fileID: 5749959287646273048}
   m_Father: {fileID: 232117898150303331}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4822133353059631110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5749959287646273048}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5749959287646273048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822133353059631110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.369, y: 0.468, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8397990967074008970}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4943836603745696510
 GameObject:

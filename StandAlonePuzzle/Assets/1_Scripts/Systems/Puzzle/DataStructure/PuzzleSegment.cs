@@ -55,5 +55,83 @@ namespace CultManager
         {
             return _segment.segment.ConnectedTo(segment);
         }
+
+        public PuzzleSegment[] GetNeighbours(PuzzleSegment[] _segments)
+        {
+            List<PuzzleSegment> results = new List<PuzzleSegment>();
+
+            foreach (PuzzleSegment other in _segments)
+            {
+                if (segment.ConnectedTo(other.segment)) results.Add(other);
+            }
+
+            return results.ToArray();
+        }
+
+        public PuzzleSegment[] GetNeighbours(List<PuzzleSegment> _segments)
+        {
+            List<PuzzleSegment> results = new List<PuzzleSegment>();
+
+            foreach (PuzzleSegment other in _segments)
+            {
+                if (IsConnected(other) && !IsSegment(other.segment)) results.Add(other);
+            }
+
+            return results.ToArray();
+        }
+
+        public PuzzleSegment[] GetSelectedNeighbours(List<PuzzleSegment> _segments)
+        {
+            List<PuzzleSegment> results = new List<PuzzleSegment>();
+
+            foreach (PuzzleSegment other in _segments)
+            {
+                if (IsConnected(other) && !IsSegment(other.segment) && other.selected) results.Add(other);
+            }
+
+            return results.ToArray();
+        }
+
+        public bool IsEndPoint(List<PuzzleSegment> _segments)
+        {
+            PuzzleSegment[] selectedNeighbours = GetSelectedNeighbours(_segments);
+
+            bool aEnd = true;
+            bool bEnd = true;
+
+            foreach (PuzzleSegment other in selectedNeighbours)
+            {
+                if (segment.Equals(other)) continue;
+
+                if (other.segment.ConnectedTo(a)) aEnd = false;
+                if (other.segment.ConnectedTo(b)) bEnd = false;
+
+                if (!aEnd && !bEnd)
+                {
+                    Debug.Log("Isn't Endpoint");
+                    return false;
+                }
+            }
+
+            Debug.Log("Is Endpoint");
+            return true;
+        }
+
+        public void UpdateStatus(List<PuzzleSegment> _segments)
+        {
+            PuzzleSegment[] selectedNeighbours = GetSelectedNeighbours(_segments);
+
+            if (selected)
+            {
+                if (IsEndPoint(_segments)) EnableSegment();
+                else DisableSegment();
+            }
+            else
+            {
+                Debug.Log(selectedNeighbours.Length);
+                if (selectedNeighbours.Length > 0) EnableSegment();
+                else DisableSegment();
+            }
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace CultManager
                         bloodManager.UseOfBloodOfType(segment.type);
                     }
                 }
-                else if (!selected)
+                else
                 {
                     if (bloodManager.CanDecrease(segment.type, 10))
                     {
@@ -120,7 +120,7 @@ namespace CultManager
         }
 
 
-        public void ToggleNeighbours()
+        public void ToggleNeighbours2()
         {
             for (int i = 0; i < data.puzzle.Count; i++)
             {
@@ -143,6 +143,32 @@ namespace CultManager
                     }
 
                 }
+            }
+        }
+
+        public void ToggleNeighbours()
+        {
+            PuzzleSegment[] neighbours = segment.GetNeighbours(data.puzzle);
+
+            foreach (PuzzleSegment neighbour in neighbours)
+            {
+                neighbour.UpdateStatus(data.puzzle);
+            }
+        }
+
+        public void UpdateStatus()
+        {
+            PuzzleSegment[] selectedNeighbours = segment.GetSelectedNeighbours(data.puzzle);
+
+            if(selected)
+            {
+                if (segment.IsEndPoint(data.puzzle)) segment.EnableSegment();
+                else segment.DisableSegment();
+            }
+            else
+            {
+                if(selectedNeighbours.Length > 1) segment.EnableSegment();
+                else segment.DisableSegment();
             }
         }
 

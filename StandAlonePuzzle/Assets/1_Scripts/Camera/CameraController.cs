@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private UnityEvent onTransitionEnd = default;
         [SerializeField] private CameraTarget origin = default;
         [SerializeField] private CameraTarget[] targets = default;
+        [SerializeField] private CameraTarget puzzle = default;
         [SerializeField] private Transform debugTopRight = default;
         [SerializeField] private Transform debugBottomLeft = default;
         [SerializeField, DrawScriptable] private CameraControllerSettings settings = default;
@@ -26,7 +27,10 @@ namespace CultManager
 
         private bool locked;
         public PanningArea panningArea { get; private set; }
+        public PanningArea puzzlePanning;
         private int currentTarget = -1;
+
+        public PanningArea currentPanningArea => CurrentCam == worldCam ? panningArea : puzzlePanning;
 
         private void OnEnable()
         {
@@ -34,11 +38,12 @@ namespace CultManager
             isAtOrigin = true;
             allowControl = true;
             UseWorldCam();
+            puzzlePanning = new PanningArea(puzzle, 5, settings.minWidth, settings.puzzlePanningSpeed);
         }
 
         private void Update()
         {
-            if (!isAtOrigin && allowControl && GameManager.currentPanel == CurrentPanel.None)
+            if (!isAtOrigin && allowControl && (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == CurrentPanel.PuzzlePanel))
             {
                 Zoom();
                 Pan();
@@ -210,13 +215,13 @@ namespace CultManager
         // Zoom //
         private void SetPanningArea(CameraTarget _target)
         {
-            panningArea = new PanningArea(_target, settings.maxZoomValue, settings.minWidth);
+            panningArea = new PanningArea(_target, settings.maxZoomValue, settings.minWidth, settings.panningSpeed);
         }
 
         public void ZoomIn(float _value)
         {
-            panningArea.ZoomIn(_value);
-            CurrentCam.orthographicSize = panningArea.camSize;
+            currentPanningArea.ZoomIn(_value);
+            CurrentCam.orthographicSize = currentPanningArea.camSize;
         }
 
         public void SetZoom(float _value, bool _move)
@@ -233,29 +238,36 @@ namespace CultManager
         {
             if(Gesture.Pinching)
             {
-                Vector2 areaPos = panningArea.GetAreaPosition(CurrentCam.transform.localPosition);
+                Vector2 areaPos = currentPanningArea.GetAreaPosition(CurrentCam.transform.localPosition);
 
                 ZoomIn(Gesture.PinchDeltaValue * settings.zoomForce);
 
-                CurrentCam.transform.localPosition = panningArea.WorldFromAreaPosition(areaPos);
+                CurrentCam.transform.localPosition = currentPanningArea.WorldFromAreaPosition(areaPos);
             }
             else if(Input.mouseScrollDelta.y !=0)
             {
-                Vector2 areaPos = panningArea.GetAreaPosition(CurrentCam.transform.localPosition);
+                Vector2 areaPos = currentPanningArea.GetAreaPosition(CurrentCam.transform.localPosition);
 
-                panningArea.ZoomIn(Input.mouseScrollDelta.y*0.1f * settings.zoomForce);
-                CurrentCam.orthographicSize = panningArea.camSize;
+                currentPanningArea.ZoomIn(Input.mouseScrollDelta.y*0.1f * settings.zoomForce);
+                CurrentCam.orthographicSize = currentPanningArea.camSize;
 
-                CurrentCam.transform.localPosition = panningArea.WorldFromAreaPosition(areaPos);
+                CurrentCam.transform.localPosition = currentPanningArea.WorldFromAreaPosition(areaPos);
             }
+        }
+
+        public void ResetPuzzlePanning()
+        {
+            puzzlePanning = new PanningArea(puzzle, 5, settings.minWidth, settings.puzzlePanningSpeed);
+            puzzleCam.transform.localPosition = (Vector2)puzzle.waypoint.localPosition;
+            puzzleCam.orthographicSize = puzzle.size;
         }
 
         public void Pan()
         {
             if(Gesture.Touching && !Gesture.MultipleTouches)
             {
-                Vector2 newPos = (Vector2)CurrentCam.transform.localPosition - (Gesture.DeltaMovement*settings.panningSpeed);
-                if (panningArea.Contains(newPos))
+                Vector2 newPos = (Vector2)CurrentCam.transform.localPosition - (Gesture.DeltaMovement * currentPanningArea.panningSpeed);
+                if (currentPanningArea.Contains(newPos))
                 {
                     CurrentCam.transform.localPosition = newPos;
                 }

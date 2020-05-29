@@ -39,7 +39,7 @@ namespace CultManager
 
         public void GoToIsland(bool _stayFocused)
         {
-            if (isTransitionning) return;
+            if (isTransitionning || GameManager.currentPanel != CurrentPanel.PuzzlePanel) return;
 
             StartCoroutine(GoToIslandRoutine(_stayFocused));
         }
@@ -83,10 +83,13 @@ namespace CultManager
 
             GameManager.currentIsland = CurrentIsland.PuzzleIsland;
             isTransitionning = false;
+
+            controller.AllowControl(true);
         }
 
         private IEnumerator GoToIslandRoutine(bool _stayFocused)
         {
+            controller.AllowControl(false);
             GameManager.currentIsland = CurrentIsland.Transition;
             isTransitionning = true;
 

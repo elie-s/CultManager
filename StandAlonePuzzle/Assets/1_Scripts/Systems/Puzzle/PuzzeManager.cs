@@ -97,6 +97,7 @@ namespace CultManager
             HexGrid grid = new HexGrid(scale, 1);
             Pattern pattern = new Pattern(grid, puzzleSettings[0]);
             data.puzzle = new List<PuzzleSegment>();
+            data.layers = puzzleSettings.Length;
 
             for (int i = 1; i < puzzleSettings.Length; i++)
             {
@@ -142,6 +143,7 @@ namespace CultManager
             HexGrid grid = new HexGrid(scale, 1);
             Pattern pattern = new Pattern(grid, settings[0]);
             data.puzzle = new List<PuzzleSegment>();
+            data.layers = settings.Length;
 
             for (int i = 1; i < settings.Length; i++)
             {

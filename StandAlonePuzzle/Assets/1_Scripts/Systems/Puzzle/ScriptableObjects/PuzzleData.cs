@@ -10,6 +10,7 @@ namespace CultManager
     public class PuzzleData : ScriptableObject, ILoadable
     {
         public List<PuzzleSegment> puzzle;
+        public int layers;
 
         public void ClearSelections()
         {
@@ -49,10 +50,10 @@ namespace CultManager
             return ctr;
         }
 
-
         public void LoadSave(Save _save)
         {
             puzzle = _save.puzzle.ToList();
+            layers = _save.puzzleLayers;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace CultManager
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
 
-            _scale = _scale * (data.puzzle.Count < 4 ? 4 : (data.puzzle.Count < 30 ? 2 : 1));
+            _scale *= Mathf.Pow(2, 3 - data.layers);
 
             for (int i = 0; i < data.puzzle.Count; i++)
             {
@@ -62,7 +62,7 @@ namespace CultManager
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
 
-            _scale = _scale * (_data.Count < 4 ? 4 : (_data.Count < 30 ? 2 : 1));
+            _scale *= Mathf.Pow(2, 3 - data.layers);
 
 
             for (int i = 0; i < _data.Count; i++)
@@ -100,7 +100,8 @@ namespace CultManager
             List<GameObject> tmpNodes = new List<GameObject>();
             List<Node> instantiatedNodes = new List<Node>();
 
-            _scale = _scale * (data.puzzle.Count < 4 ? 4 : (data.puzzle.Count < 30 ? 2 : 1));
+            //_scale = _scale * (data.puzzle.Count < 4 ? 4 : (data.puzzle.Count < 30 ? 2 : 1));
+            _scale *= Mathf.Pow(2, 3 - data.layers);
 
             for (int i = 0; i < data.puzzle.Count; i++)
             {

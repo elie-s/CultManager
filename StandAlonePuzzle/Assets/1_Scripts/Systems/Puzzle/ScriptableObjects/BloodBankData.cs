@@ -23,7 +23,7 @@ namespace CultManager
             for (int i = 0; i < bloodBanks.Length; i++)
             {
                 bloodBanks[i] = new BloodBank((BloodType)i, intGauge[i]);
-                bloodBanks[i].gauge = new IntGauge(0, 160, false);
+                bloodBanks[i].gauge = new IntGauge(0, 100, false);
             }
         }
 
@@ -42,32 +42,32 @@ namespace CultManager
             {
                 case 1:
                     {
-                        max = 160;
+                        max = 100;
                     }
                     break;
                 case 2:
                     {
-                        max = 160;
+                        max = 100;
                     }
                     break;
                 case 3:
                     {
-                        max = 200;
+                        max = 100;
                     }
                     break;
                 case 4:
                     {
-                        max = 240;
+                        max = 100;
                     }
                     break;
                 case 5:
                     {
-                        max = 280;
+                        max = 100;
                     }
                     break;
                 default:
                     {
-                        max = 160;
+                        max = 100;
                     }
                     break;
             }
