@@ -7135,6 +7135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
+        type: 3}
+      propertyPath: useMouse
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
       propertyPath: m_Name
