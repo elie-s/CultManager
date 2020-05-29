@@ -10897,17 +10897,17 @@ PrefabInstance:
     - target: {fileID: 1410087514236053258, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.4811321
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514236053258, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.4811321
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514236053258, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.4811321
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514236053259, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
@@ -10937,7 +10937,7 @@ PrefabInstance:
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
@@ -10984,11 +10984,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1410087516038144105}
+      objectReference: {fileID: 913773046}
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TransitionScene
+      value: StandaloneReset
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
@@ -11009,15 +11009,65 @@ PrefabInstance:
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1201088421}
+      objectReference: {fileID: 1991590059}
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SAResetCult
+      value: SaveGame
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}
       propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 913773046}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SaveGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1410087516038144105}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: TransitionScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: onPerfectSpawnSummoned.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1410087514839812046, guid: caa03ffa730d6a14a95936cd0aab7229,

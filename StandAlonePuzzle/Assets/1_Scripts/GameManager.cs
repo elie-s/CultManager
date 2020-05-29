@@ -114,6 +114,7 @@ namespace CultManager
         {
             puzzeManager.SAResetCult();
             demonManager.ResetCult(0);
+            bloodManager.ResetCult(0);
         }
 
         public IEnumerator GetToloadingScene()
