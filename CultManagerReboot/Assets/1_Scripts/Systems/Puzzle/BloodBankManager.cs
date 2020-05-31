@@ -7,9 +7,9 @@ namespace CultManager
 {
     public class BloodBankManager : MonoBehaviour
     {
-        [SerializeField] private BloodBankUIDisplay display;
+        [SerializeField] private BloodBankUIDisplay display = default;
         [SerializeField] private BloodBankData data = default;
-        [SerializeField] private BloodBank[] tempBanks;
+        [SerializeField] private BloodBank[] tempBanks = default;
 
         private void Start()
         {

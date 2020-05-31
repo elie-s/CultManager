@@ -7,8 +7,7 @@ namespace CultManager
 {
     public class SpawnColor : MonoBehaviour
     {
-        [SerializeField] private Image body;
-        [SerializeField] private Image alpha;
+        [SerializeField] private Image alpha = default;
         [SerializeField] private Gradient accuracyColor = default;
 
         public void ColorIt(float accuracy)

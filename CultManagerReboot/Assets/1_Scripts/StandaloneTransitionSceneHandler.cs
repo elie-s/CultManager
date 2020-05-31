@@ -9,7 +9,6 @@ namespace CultManager
     public class StandaloneTransitionSceneHandler : MonoBehaviour
     {
         [SerializeField] private string mainSceneIndex = "PuzzleSAScene";
-        [SerializeField] private SaveSettings save = default;
 
         public void LoadScene()
         {

@@ -8,9 +8,9 @@ namespace CultManager
 {
     public class DemonDisplayAction : MonoBehaviour
     {
-        [SerializeField] private DemonBookUI demonBook;
-        [SerializeField] private TMP_Text goodLinksSummaryText;
-        [SerializeField] private TMP_Text spawnLinksSummaryText;
+        [SerializeField] private DemonBookUI demonBook = default;
+        [SerializeField] private TMP_Text goodLinksSummaryText = default;
+        [SerializeField] private TMP_Text spawnLinksSummaryText = default;
         public int index;
 
         private void Start()

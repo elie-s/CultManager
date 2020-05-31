@@ -9,13 +9,13 @@ namespace CultManager
     public class BloodBankUIDisplay : MonoBehaviour
     {
         [SerializeField] private BloodBankData data = default;
-        [SerializeField] private PuzzeManager puzzle;
-        [SerializeField] private Image BloodBarA;
-        [SerializeField] private Image BloodBarB;
-        [SerializeField] private Image BloodBarO;
-        [SerializeField] private GameObject hud;
-        [SerializeField] private ButtonInteraction summonButton;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private PuzzeManager puzzle = default;
+        [SerializeField] private Image BloodBarA = default;
+        [SerializeField] private Image BloodBarB = default;
+        [SerializeField] private Image BloodBarO = default;
+        [SerializeField] private GameObject hud = default;
+        [SerializeField] private ButtonInteraction summonButton = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
         private void Start()
         {

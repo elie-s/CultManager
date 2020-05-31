@@ -10,48 +10,47 @@ namespace CultManager
     public class DemonBookUI : MonoBehaviour
     {
         [Header("Demon Book Panel")]
-        [SerializeField] private GameObject panel;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private GameObject panel = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
         [SerializeField] private int currentDemonIndex = 0;
-        [SerializeField] private DemonData data;
+        [SerializeField] private DemonData data = default;
         [SerializeField] private DemonsSet demonsSprites = default;
 
         [Header("Demon Page Display")]
-        [SerializeField] private GameObject demonPage;
-        [SerializeField] private GameObject confirmPage;
-        [SerializeField] private SpawnColor spawnColor;
-        [SerializeField] private Image demonImage;
-        [SerializeField] private Image starImage;
-        [SerializeField] private PuzzleDisplay demonPagedisplay;
-        [SerializeField] private  TMP_Text exptNumberText;
-        [SerializeField] private  TMP_Text goodLinksText;
-        [SerializeField] private  TMP_Text spawnLinksText;
-        [SerializeField] private  TMP_Text totalGoodLinksText;
-        [SerializeField] private float demonPagePuzzleScale;
+        [SerializeField] private GameObject demonPage = default;
+        [SerializeField] private GameObject confirmPage = default;
+        [SerializeField] private Image demonImage = default;
+        [SerializeField] private Image starImage = default;
+        [SerializeField] private PuzzleDisplay demonPagedisplay = default;
+        [SerializeField] private  TMP_Text exptNumberText = default;
+        [SerializeField] private  TMP_Text goodLinksText = default;
+        [SerializeField] private  TMP_Text spawnLinksText = default;
+        [SerializeField] private  TMP_Text totalGoodLinksText = default;
+        [SerializeField] private float demonPagePuzzleScale = default;
 
 
         [Header("Summary Page Display")]
-        [SerializeField] private GameObject summaryPage;
-        [SerializeField] private GameObject puzzleGroupParent;
-        [SerializeField] private GameObject pageNumberParent;
-        [SerializeField] private GameObject puzzleGroupPrefab;
-        [SerializeField] private GameObject pageNumberPrefab;
-        [SerializeField] private Image[] buttons;
-        [SerializeField] private Image summaryStarImage;
-        [SerializeField] private int numberOfItemsPerPage;
-        [SerializeField] private float summaryPagePuzzleScale;
+        [SerializeField] private GameObject summaryPage = default;
+        [SerializeField] private GameObject puzzleGroupParent = default;
+        [SerializeField] private GameObject pageNumberParent = default;
+        [SerializeField] private GameObject puzzleGroupPrefab = default;
+        [SerializeField] private GameObject pageNumberPrefab = default;
+        [SerializeField] private Image[] buttons = default;
+        [SerializeField] private Image summaryStarImage = default;
+        [SerializeField] private int numberOfItemsPerPage = default;
+        [SerializeField] private float summaryPagePuzzleScale = default;
         private int currentPageNumber;
 
 
         [Header("Display Sprites")]
-        [SerializeField] private Sprite starActive;
-        [SerializeField] private Sprite starInActive;
-        [SerializeField] private Sprite buttonActive;
-        [SerializeField] private Sprite buttonInactive;
+        [SerializeField] private Sprite starActive = default;
+        [SerializeField] private Sprite starInActive = default;
+        [SerializeField] private Sprite buttonActive = default;
+        [SerializeField] private Sprite buttonInactive = default;
 
-        [SerializeField] private Demon[] result;
-        [SerializeField] private List<GameObject> pages;
-        [SerializeField] private List<PageBehavior> pageBehaviors;
+        [SerializeField] private Demon[] result = default;
+        [SerializeField] private List<GameObject> pages = default;
+        [SerializeField] private List<PageBehavior> pageBehaviors = default;
 
         private bool favouritesActive;
 

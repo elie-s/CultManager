@@ -9,10 +9,10 @@ namespace CultManager
     public class FadeBehavior : MonoBehaviour
     {
         public bool inverseFade;
-        [SerializeField] private SpriteRenderer[] spriteRender;
-        [SerializeField] private float lerpValue;
-        [Range(0, 1), SerializeField] private float lerpSpeed;
-        [SerializeField] private bool toFade;
+        [SerializeField] private SpriteRenderer[] spriteRender = default;
+        [SerializeField] private float lerpValue = default;
+        [Range(0, 1), SerializeField] private float lerpSpeed = default;
+        [SerializeField] private bool toFade = default;
 
         public UnityEvent fadeOver;
 

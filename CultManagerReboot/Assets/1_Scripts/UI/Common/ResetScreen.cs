@@ -9,15 +9,15 @@ namespace CultManager
 {
     public class ResetScreen : MonoBehaviour
     {
-        [SerializeField] private Image transition;
-        [SerializeField] private Image sizeableImage;
-        [SerializeField] private TMP_Text displayText;
-        [SerializeField] private float lerpValue;
-        [Range(0,1),SerializeField] private float lerpSpeed;
-        [SerializeField] private bool toLerp;
+        [SerializeField] private Image transition = default;
+        [SerializeField] private Image sizeableImage = default;
+        [SerializeField] private TMP_Text displayText = default;
+        [SerializeField] private float lerpValue = default;
+        [Range(0,1),SerializeField] private float lerpSpeed = default;
+        [SerializeField] private bool toLerp = default;
 
-        [SerializeField] private Sprite spawn;
-        [SerializeField] private Sprite demon;
+        [SerializeField] private Sprite spawn = default;
+        [SerializeField] private Sprite demon = default;
 
         private float currentLerpSpeed;
         private bool isFade;

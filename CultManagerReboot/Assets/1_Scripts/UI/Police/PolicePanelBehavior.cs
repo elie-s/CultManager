@@ -168,7 +168,8 @@ namespace CultManager
         public void Display()
         {
             policeBar.fillAmount = (data.ratio - bribeChange.ratio);
-            rotationArrow.rotation = Quaternion.Euler(0, 0, 90 - ((data.ratio-bribeChange.ratio) * 180f));
+            //rotationArrow.rotation = Quaternion.Euler(0, 0, 90 - ((data.ratio-bribeChange.ratio) * 180f));
+            //rotationArrow.localEulerAngles = Vector3.forward * (90 - (data.ratio - bribeChange.ratio) * 180f);
             moneyText.text = moneyDisplay.ToString();
             UpdateInvestigationDisplay();
         }

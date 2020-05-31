@@ -15,15 +15,15 @@ namespace CultManager
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
-        [SerializeField] private PatternGenerationSettings[] settings;
-        [SerializeField] private PatternGenerationSettings patternSettings;
+        [SerializeField] private PatternGenerationSettings[] settings = default;
+        [SerializeField] private PatternGenerationSettings patternSettings = default;
         [SerializeField] private PuzzleSettingsSet generationSettings = default;
 
-        [SerializeField] private bool altarComplete;
-        [SerializeField] private SpriteRenderer background;
+        [SerializeField] private bool altarComplete = default;
+        [SerializeField] private SpriteRenderer background = default;
 
         private Pattern gridConstruction;
-        [SerializeField] private List<Segment> patternSegments;
+        [SerializeField] private List<Segment> patternSegments = default;
         [SerializeField] private UnityEvent onPerfectSpawnSummoned = default;
 
         private Spawn lastSpawn;

@@ -12,17 +12,16 @@ namespace CultManager
         public FadeBehavior spawnFade;
         public DemonData data=default;
 
-        [SerializeField] private SpriteRenderer body;
-        [SerializeField] private SpriteRenderer alpha;
+        [SerializeField] private SpriteRenderer alpha = default;
         [SerializeField] private Gradient accuracyColor = default;
         
 
         public bool canMove;
-        [SerializeField] private float timeInterval;
-        [SerializeField] private float speed;
-        [SerializeField] private BoxCollider2D area;
+        [SerializeField] private float timeInterval = default;
+        [SerializeField] private float speed = default;
+        [SerializeField] private BoxCollider2D area = default;
 
-        [SerializeField] private Vector3 movePosition;
+        [SerializeField] private Vector3 movePosition = default;
         private bool dead;
         private float waitTime;
 

@@ -6,7 +6,7 @@ namespace CultManager
 {
     public class SpawnSummoningBehaviour : MonoBehaviour
     {
-        [SerializeField] private DemonsSet sprites;
+        [SerializeField] private DemonsSet sprites = default;
         [SerializeField] private SpriteRenderer sRenderer = default;
         [SerializeField] private SpriteRenderer effectRenderer = default;
         [SerializeField] private AnimationCurve summoningCurve = default;

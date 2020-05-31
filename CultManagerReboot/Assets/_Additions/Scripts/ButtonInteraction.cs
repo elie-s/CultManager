@@ -9,14 +9,14 @@ namespace CultManager
 {
     public class ButtonInteraction : MonoBehaviour
     {
-        [SerializeField] private Sprite disabledSprite;
-        [SerializeField] private Sprite enabledSprite;
-        [SerializeField] private Sprite pressedSprite;
-        [SerializeField] private Image buttonImage;
-        [SerializeField] private Color disabledColor;
-        [SerializeField] private Color enabledColor;
-        [SerializeField] private Color pressedColor;
-        [SerializeField] private float buttonPressInterval;
+        [SerializeField] private Sprite disabledSprite = default;
+        [SerializeField] private Sprite enabledSprite = default;
+        [SerializeField] private Sprite pressedSprite = default;
+        [SerializeField] private Image buttonImage = default;
+        [SerializeField] private Color disabledColor = default;
+        [SerializeField] private Color enabledColor = default;
+        [SerializeField] private Color pressedColor = default;
+        [SerializeField] private float buttonPressInterval = default;
         [SerializeField] bool isEnabled = false;
         public bool isPressed = false;
 

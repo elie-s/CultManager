@@ -15,7 +15,7 @@ namespace CultManager
         [SerializeField] BloodType blood = default;
 
         private BloodBankManager bloodManager;
-        private bool isFading;
+        private bool isFading = default;
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {

@@ -11,17 +11,17 @@ namespace CultManager
     {
         [SerializeField] private NoteTabData data = default;
         [SerializeField] private PuzzleData puzzle = default;
-        [SerializeField] private Transform starPoint;
-        [SerializeField] private Transform endPoint;
-        [SerializeField] private LerpCurve lerpCurve;
-        [SerializeField] private PuzzleDisplay display;
+        [SerializeField] private Transform starPoint = default;
+        [SerializeField] private Transform endPoint = default;
+        [SerializeField] private LerpCurve lerpCurve = default;
+        [SerializeField] private PuzzleDisplay display = default;
 
-        [SerializeField] private RectTransform rectTransform;
-        [SerializeField] private RectTransform Togglebutton;
+        [SerializeField] private RectTransform rectTransform = default;
+        [SerializeField] private RectTransform Togglebutton = default;
 
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
-        [SerializeField] private float puzzleScale;
+        [SerializeField] private float puzzleScale = default;
         CurrentPanel temp = CurrentPanel.None;
 
         private string direction = "right";

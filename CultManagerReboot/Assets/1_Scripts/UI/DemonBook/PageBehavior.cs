@@ -10,7 +10,7 @@ namespace CultManager
     {
         public DemonBookUI demonBook;
         public int pageIndex;
-        [SerializeField] private TMP_Text pageNumText;
+        [SerializeField] private TMP_Text pageNumText = default;
 
         private void Start()
         {

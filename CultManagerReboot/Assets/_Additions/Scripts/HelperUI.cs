@@ -7,15 +7,15 @@ namespace CultManager
 {
     public class HelperUI : MonoBehaviour
     {
-        [SerializeField] private GameObject helperButton;
-        [SerializeField] private GameObject helperPanel;
-        [SerializeField] private GameObject[] indicatorPanels;
+        [SerializeField] private GameObject helperButton = default;
+        [SerializeField] private GameObject helperPanel = default;
+        [SerializeField] private GameObject[] indicatorPanels = default;
         public HelperPanel helper;
 
-        [SerializeField] private float growValue;
-        [Range(0, 1), SerializeField] private float growSpeed;
-        [SerializeField] private bool toGrow;
-        [SerializeField] private bool isOpen;
+        [SerializeField] private float growValue = default;
+        [Range(0, 1), SerializeField] private float growSpeed = default;
+        [SerializeField] private bool toGrow = default;
+        [SerializeField] private bool isOpen = default;
 
         public static HelperPanel currentHelperPanel;
 

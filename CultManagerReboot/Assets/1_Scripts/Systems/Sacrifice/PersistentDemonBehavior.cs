@@ -12,10 +12,10 @@ namespace CultManager
         public FadeBehavior spawnFade;
 
         public bool canMove;
-        [SerializeField] private float timeInterval;
-        [SerializeField] private float speed;
-        [SerializeField] private BoxCollider2D area;
-        [SerializeField] private Vector3 movePosition;
+        [SerializeField] private float timeInterval = default;
+        [SerializeField] private float speed = default;
+        [SerializeField] private BoxCollider2D area = default;
+        [SerializeField] private Vector3 movePosition = default;
         private bool dead;
         private float waitTime;
 

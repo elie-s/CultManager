@@ -7,8 +7,8 @@ namespace CultManager
 {
     public class UIAnmationController : MonoBehaviour
     {
-        [SerializeField] UIAnimator positiveAnimation;
-        [SerializeField] UIAnimator negativeAnimation;
+        [SerializeField] UIAnimator positiveAnimation = default;
+        [SerializeField] UIAnimator negativeAnimation = default;
 
         public void PositiveAnimation()
         {

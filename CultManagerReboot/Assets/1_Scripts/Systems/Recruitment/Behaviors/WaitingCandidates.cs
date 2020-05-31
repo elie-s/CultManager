@@ -11,7 +11,7 @@ namespace CultManager
 
         [SerializeField] private CultManager cult = default;
 
-        int currentCandidates;
+        int currentCandidates = 0;
 
         private void Start()
         {

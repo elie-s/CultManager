@@ -13,12 +13,12 @@ namespace CultManager
         [SerializeField] private GameObject spawnPrefab = default;
         [SerializeField] private GameObject persistentDemonPrefab = default;
 
-        [SerializeField] private DemonBookUI demonBook;
-        [SerializeField] private EffectsManager effects;
-        [SerializeField] private GameManager game;
-        [SerializeField] private BoxCollider2D area;
-        [SerializeField] private Transform spawnPosition;
-        [SerializeField] private FadeBehavior worldFade;
+        [SerializeField] private DemonBookUI demonBook = default;
+        [SerializeField] private EffectsManager effects = default;
+        [SerializeField] private GameManager game = default;
+        [SerializeField] private BoxCollider2D area = default;
+        [SerializeField] private Transform spawnPosition = default;
+        [SerializeField] private FadeBehavior worldFade = default;
         [SerializeField] private Transform[] waypoints = default;
 
         private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
