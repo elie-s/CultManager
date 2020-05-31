@@ -18,7 +18,7 @@ namespace CultManager
         public Vector2 span => new Vector2(width, height) / 2.0f;
         public Vector2 bottomLeft => position - span;
         public Vector2 topRight => position + span;
-        public float panningSpeed => baseSpeed / camSize;
+        public float panningSpeed => baseSpeed * (camSize);
 
         private float baseCamSize;
         private float maxZoom;

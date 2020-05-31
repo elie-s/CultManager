@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CultManager.HexagonalGrid
 {
-#pragma warning disable CS0660, CS0661
     [System.Serializable]
     public struct Node : System.IEquatable<Node>
     {

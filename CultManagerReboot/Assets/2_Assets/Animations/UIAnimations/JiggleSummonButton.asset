@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829b21d23aa3ef4791d1ffdf8952c59, type: 3}
+  m_Name: JiggleSummonButton
+  m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
+  animation:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 1.4665321
+      outSlope: 1.4665321
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.16037683
+      value: 0.7351978
+      inSlope: -0.2280252
+      outSlope: -0.2280252
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3770634
+      value: 0.3186
+      inSlope: -0.005211642
+      outSlope: -0.005211642
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.16925938
+    - serializedVersion: 3
+      time: 0.58544666
+      value: 0.8109149
+      inSlope: 0.04583735
+      outSlope: 0.04583735
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18158074
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.85937244
+      value: 0.3594743
+      inSlope: 0.0073388326
+      outSlope: 0.0073388326
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.3274575
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: 0.9992756
+      outSlope: 0.9992756
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  force: 30

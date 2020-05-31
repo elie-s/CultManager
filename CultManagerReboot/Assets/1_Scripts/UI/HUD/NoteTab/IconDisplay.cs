@@ -7,8 +7,8 @@ namespace CultManager
 {
     public class IconDisplay : MonoBehaviour
     {
-        [SerializeField] private NoteTabSettings settings = default;
-        [SerializeField] private GameObject[] iconObjects = default;
+        [SerializeField] private NoteTabSettings settings;
+        [SerializeField] private GameObject[] iconObjects;
 
         private void Start()
         {

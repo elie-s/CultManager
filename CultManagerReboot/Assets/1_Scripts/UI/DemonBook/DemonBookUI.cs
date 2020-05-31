@@ -4,46 +4,54 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
-#pragma warning disable CS0414
+
 namespace CultManager
 {
     public class DemonBookUI : MonoBehaviour
     {
         [Header("Demon Book Panel")]
-        [SerializeField] private GameObject panel = default;
-        [SerializeField] private CurrentPanel thisPanelName = default;
+        [SerializeField] private GameObject panel;
+        [SerializeField] private CurrentPanel thisPanelName;
         [SerializeField] private int currentDemonIndex = 0;
-        [SerializeField] private DemonData data = default;
+        [SerializeField] private DemonData data;
+        [SerializeField] private DemonsSet demonsSprites = default;
 
         [Header("Demon Page Display")]
-        [SerializeField] private GameObject demonPage = default;
-
-        [SerializeField] private Image demonImage = default;
-        [SerializeField] private Image starImage = default;
-        [SerializeField] private PuzzleDisplay demonPagedisplay = default;
-        [SerializeField] private  TMP_Text description = default;
-        [SerializeField] private int demonPagePuzzleScale = default;
+        [SerializeField] private GameObject demonPage;
+        [SerializeField] private GameObject confirmPage;
+        [SerializeField] private SpawnColor spawnColor;
+        [SerializeField] private Image demonImage;
+        [SerializeField] private Image starImage;
+        [SerializeField] private PuzzleDisplay demonPagedisplay;
+        [SerializeField] private  TMP_Text exptNumberText;
+        [SerializeField] private  TMP_Text goodLinksText;
+        [SerializeField] private  TMP_Text spawnLinksText;
+        [SerializeField] private  TMP_Text totalGoodLinksText;
+        [SerializeField] private float demonPagePuzzleScale;
 
 
         [Header("Summary Page Display")]
-        [SerializeField] private GameObject summaryPage = default;
-        [SerializeField] private GameObject puzzleGroupParent = default;
-        [SerializeField] private GameObject pageNumberParent = default;
-        [SerializeField] private GameObject puzzleGroupPrefab = default;
-        [SerializeField] private GameObject pageNumberPrefab = default;
-        [SerializeField] private Image[] buttons = default;
-        [SerializeField] private Image summaryStarImage = default;
-        [SerializeField] private int numberOfItemsPerPage = default;
-        [SerializeField] private int summaryPagePuzzleScale = default;
+        [SerializeField] private GameObject summaryPage;
+        [SerializeField] private GameObject puzzleGroupParent;
+        [SerializeField] private GameObject pageNumberParent;
+        [SerializeField] private GameObject puzzleGroupPrefab;
+        [SerializeField] private GameObject pageNumberPrefab;
+        [SerializeField] private Image[] buttons;
+        [SerializeField] private Image summaryStarImage;
+        [SerializeField] private int numberOfItemsPerPage;
+        [SerializeField] private float summaryPagePuzzleScale;
+        private int currentPageNumber;
 
 
         [Header("Display Sprites")]
-        [SerializeField] private Sprite starActive = default;
-        [SerializeField] private Sprite starInActive = default;
-        [SerializeField] private Sprite buttonActive= default;
-        [SerializeField] private Sprite buttonInactive = default;
-        [SerializeField] private Demon[] result = default;
-        [SerializeField] private List<GameObject> pages = default;
+        [SerializeField] private Sprite starActive;
+        [SerializeField] private Sprite starInActive;
+        [SerializeField] private Sprite buttonActive;
+        [SerializeField] private Sprite buttonInactive;
+
+        [SerializeField] private Demon[] result;
+        [SerializeField] private List<GameObject> pages;
+        [SerializeField] private List<PageBehavior> pageBehaviors;
 
         private bool favouritesActive;
 
@@ -75,11 +83,6 @@ namespace CultManager
             DisplayDemonPage();
         }
 
-        private void Update()
-        {
-
-        }
-
         public void Start()
         {
             OpenSummaryPage();
@@ -103,18 +106,29 @@ namespace CultManager
             {
                 currentDemonIndex = index;
             }
-
+            GameManager.currentPanel = CurrentPanel.DemonPage;
             OpenDemonPage();
             DisplayDemonPage();
+            
+        }
+
+        public void DisplayLastDemon()
+        {
+            Open();
+            DisplayThisDemon(result.Length - 1);
         }
 
 
         public void DisplayDemonPage()
         {
-            description.text = data.demons[currentDemonIndex].description;
+            exptNumberText.text = "Experiment #" + (result[currentDemonIndex].id+1).ToString();
+            goodLinksText.text = result[currentDemonIndex].patternSegments.ToString();
+            spawnLinksText.text = result[currentDemonIndex].segments.Length.ToString();
+            totalGoodLinksText.text = result[currentDemonIndex].totalPatternSegments.ToString();
             demonPagedisplay.DisplayPuzzle(demonPagePuzzleScale);
-            demonPagedisplay.HighlightShape(data.demons[currentDemonIndex].segments);
-            if (data.demons[currentDemonIndex].isStarred)
+            demonPagedisplay.HighlightShape(result[currentDemonIndex].segments);
+            demonImage.sprite = demonsSprites.GetSpawnID(result[currentDemonIndex].demon, result[currentDemonIndex].accuracy);
+            if (result[currentDemonIndex].isStarred)
             {
                 starImage.sprite = starActive;
             }
@@ -133,16 +147,61 @@ namespace CultManager
 
         public void PageActive(int pageNum)
         {
+            currentPageNumber = pageNum;
             for (int i = 0; i < pages.Count; i++)
             {
                 if ((i + 1) == pageNum)
                 {
                     pages[i].SetActive(true);
+                    pageBehaviors[i].HighlightText();
                 }
                 else
                 {
                     pages[i].SetActive(false);
+                    pageBehaviors[i].UnHighlightText();
                 }
+            }
+        }
+
+        public void LeftSwipe()
+        {
+            Debug.Log("Left Swipe");
+            if (demonPage.activeSelf)
+            {
+                Right();
+            }
+            else if (summaryPage.activeSelf)
+            {
+                if (currentPageNumber < pages.Count-1)
+                {
+                    currentPageNumber++;
+                }
+                else
+                {
+                    currentPageNumber = 0;
+                }
+                PageActive(currentPageNumber);
+            }
+        }
+
+        public void RightSwipe()
+        {
+            Debug.Log("Right Swipe");
+            if (demonPage.activeSelf)
+            {
+                Left();
+            }
+            else if (summaryPage.activeSelf)
+            {
+                if (currentPageNumber > 0)
+                {
+                    currentPageNumber--;
+                }
+                else
+                {
+                    currentPageNumber = pages.Count - 1;
+                }
+                PageActive(currentPageNumber);
             }
         }
 
@@ -205,10 +264,13 @@ namespace CultManager
                     if (i == index)
                     {
                         buttons[i].sprite = buttonActive;
+                        if(Mathf.Abs(buttons[i].transform.localScale.x)!=1.25f)
+                        buttons[i].transform.localScale = new Vector3(buttons[i].transform.localScale.x*1.25f, 1.25f,1.25f);
                     }
                     else
                     {
                         buttons[i].sprite = buttonInactive;
+                        buttons[i].transform.localScale = new Vector3(1, 1, 1);
                     }
                 }
             }
@@ -297,7 +359,7 @@ namespace CultManager
             {
                 for (int j = i + 1; j < result.Length; j++)
                 {
-                    if (result[i].segments.Length > result[j].segments.Length)
+                    if (result[i].patternSegments > result[j].patternSegments)
                     {
                         temp = result[i];
                         result[i] = result[j];
@@ -310,8 +372,10 @@ namespace CultManager
 
         public void DisplaySummary(Demon[] demons)
         {
+            if(summaryPage.activeSelf && panel.activeSelf) GameManager.currentPanel = thisPanelName;
             ClearChildren(puzzleGroupParent.transform);
             ClearChildren(pageNumberParent.transform);
+            pageBehaviors = new List<PageBehavior>();
             List<Demon> spawnDemons = new List<Demon>();
             pages.Clear();
 
@@ -326,12 +390,14 @@ namespace CultManager
                     GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
                     instance.transform.SetAsFirstSibling();
                     PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
-                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                    group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, i);
                     pages.Insert(0, instance);
                     spawnDemons.Clear();
 
                     GameObject pageButton = Instantiate(pageNumberPrefab, pageNumberParent.transform.position, Quaternion.identity, pageNumberParent.transform);
                     pageButton.GetComponent<PageBehavior>().InitText(numberOfPages);
+                    pageBehaviors.Add(pageButton.GetComponent<PageBehavior>());
+                    pageButton.GetComponent<PageBehavior>().UnHighlightText();
 
                 }
             }
@@ -340,12 +406,14 @@ namespace CultManager
                 GameObject instance = Instantiate(puzzleGroupPrefab, puzzleGroupParent.transform.position, Quaternion.identity, puzzleGroupParent.transform);
                 instance.transform.SetAsFirstSibling();
                 PuzzleDisplayGroup group = instance.GetComponent<PuzzleDisplayGroup>();
-                group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale);
+                group.SpawnDisplay(spawnDemons.ToArray(), summaryPagePuzzleScale, numberOfItemsPerPage);
                 pages.Insert(0, instance);
                 spawnDemons.Clear();
 
                 GameObject pageButton = Instantiate(pageNumberPrefab, pageNumberParent.transform.position, Quaternion.identity, pageNumberParent.transform);
                 pageButton.GetComponent<PageBehavior>().InitText(++numberOfPages);
+                pageBehaviors.Add(pageButton.GetComponent<PageBehavior>());
+                pageButton.GetComponent<PageBehavior>().UnHighlightText();
             }
             PageActive(1);
         }
@@ -367,6 +435,25 @@ namespace CultManager
             data.demons[currentDemonIndex].ToggleStar();
             DisplayDemonPage();
         }
+
+        public void OpenDeletePanel()
+        {
+            confirmPage.SetActive(true);
+        }
+
+        public void CloseDeletePanel()
+        {
+            confirmPage.SetActive(false); 
+        }
+
+        public void RemoveThisDemon()
+        {
+            data.RemoveDemon(result[currentDemonIndex]);
+            CloseDeletePanel();
+            OpenSummaryPage();
+        }
+
+
         [ContextMenu("Open")]
         public void Open()
         {
@@ -375,22 +462,19 @@ namespace CultManager
                 GameManager.currentPanel = thisPanelName;
                 panel.SetActive(true);
                 DemonTimeSort();
+                CloseDeletePanel();
             }
         }
 
         [ContextMenu("Close")]
         public void Close()
         {
-            if (GameManager.currentPanel == thisPanelName)
+            if (GameManager.currentPanel == thisPanelName || GameManager.currentPanel == CurrentPanel.DemonPage)
             {
                 GameManager.currentPanel = CurrentPanel.None;
                 panel.SetActive(false);
             }
         }
-
-
-
-
     }
 }
 

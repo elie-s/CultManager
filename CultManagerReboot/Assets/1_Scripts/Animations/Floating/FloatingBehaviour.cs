@@ -10,7 +10,7 @@ namespace CultManager
         [SerializeField] private bool loop = default;
         [SerializeField] private bool playLocal = default;
         [SerializeField] private Transform floatingObject = default;
-        [SerializeField, DrawScriptable] private FloatingSettings settings = default;
+        [SerializeField, DrawScriptable] private FloatingSettings settings;
 
         private Transform transformToUse => floatingObject ? floatingObject : transform;
 

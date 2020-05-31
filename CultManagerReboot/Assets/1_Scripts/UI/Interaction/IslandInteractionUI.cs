@@ -7,7 +7,7 @@ namespace CultManager
 {
     public class IslandInteractionUI : MonoBehaviour
     {
-        [SerializeField] private GameObject returnButton = default;
+        [SerializeField] private GameObject returnButton;
 
         private void Update()
         {

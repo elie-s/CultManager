@@ -35,6 +35,25 @@ namespace CultManager
             }
         }
 
+        protected void SetRotation(Transform _transform)
+        {
+            if (segment.a.x == segment.b.x + 1)
+            {
+                if (segment.a.y == segment.b.y + 1) _transform.localEulerAngles = Vector3.forward * -30;
+                if (segment.a.y == segment.b.y) _transform.localEulerAngles = Vector3.forward * -90;
+            }
+            else if (segment.a.x == segment.b.x)
+            {
+                if (segment.a.y == segment.b.y + 1) _transform.localEulerAngles = Vector3.forward * 30;
+                if (segment.a.y == segment.b.y - 1) _transform.localEulerAngles = Vector3.forward * -150;
+            }
+            else if (segment.a.x == segment.b.x - 1)
+            {
+                if (segment.a.y == segment.b.y) _transform.localEulerAngles = Vector3.forward * 90;
+                if (segment.a.y == segment.b.y - 1) _transform.localEulerAngles = Vector3.forward * 150;
+            }
+        }
+
         protected abstract void SetColor();
 
         public void Select(bool _value)

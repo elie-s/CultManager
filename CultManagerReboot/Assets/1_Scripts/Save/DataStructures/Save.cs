@@ -45,6 +45,7 @@ namespace CultManager
 
         //Puzzle Data
         public PuzzleSegment[] puzzle;
+        public int puzzleLayers;
 
         //Blood Bank Data
         public BloodBank[] bloodBanks;
@@ -98,6 +99,7 @@ namespace CultManager
             noteTabSegments = _noteTabData.noteTabSegments.ToArray();
 
             puzzle = _puzzleData.puzzle.ToArray();
+            puzzleLayers = _puzzleData.layers;
 
             bloodBanks = _bloodBankData.bloodBanks;
             level = _bloodBankData.level;

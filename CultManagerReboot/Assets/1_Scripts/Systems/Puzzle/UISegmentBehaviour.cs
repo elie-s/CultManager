@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CultManager.HexagonalGrid;
 
 namespace CultManager
 {
@@ -14,10 +15,11 @@ namespace CultManager
         {
             UIRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
             segment = _segment;
-            SetRotation();
-            UIRenderer.rectTransform.localScale = Vector3.one;
-            transform.parent.localScale = Vector3.one * _scale;
+            SetRotation(UIRenderer.rectTransform);
+            UIRenderer.rectTransform.localScale = Vector3.one * _scale;
             SetColor();
+
+            UIRenderer.rectTransform.anchoredPosition = Node.WorldPosition(segment.b, _scale*90);
         }
 
         protected override void SetColor()

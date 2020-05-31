@@ -1,24 +1,78 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CultManager.HexagonalGrid;
 
 namespace CultManager
 {
     public class WorldSegmentBehaviour : SegmentBehaviour
     {
         [SerializeField] protected SpriteRenderer sRenderer = default;
+        [SerializeField] protected SpriteRenderer outline = default;
         [SerializeField] protected Color[] bloodTypeColor = new Color[3];
         [SerializeField] protected Color[] bloodTypeColorDisable = new Color[3];
+        [SerializeField] protected Gradient outlineColor = default;
+        [SerializeField] BloodType blood = default;
+
         private BloodBankManager bloodManager;
+        private bool isFading;
 
         public override void Init(PuzzleSegment _segment, float _scale)
         {
+            bloodManager = FindObjectOfType<BloodBankManager>();
             sRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
             segment = _segment;
             SetRotation();
             transform.localScale = Vector3.one * _scale;
             SetColor();
-            bloodManager = FindObjectOfType<BloodBankManager>();
+            blood = segment.type;
+
+            transform.localPosition = Node.WorldPosition(segment.b, _scale);
+        }
+
+        public void ResetSegment()
+        {
+            GetComponent<AreaInteraction>().enabled = true;
+            //outline.color = outlineColor.Evaluate(0.0f);
+        }
+
+        public void FadeOutUnselected(float _duration, float _alphaLimit, AnimationCurve _fadeCurve)
+        {
+            GetComponent<AreaInteraction>().enabled = false;
+            if (isFading) return;
+
+            if(!selected)StartCoroutine(FadeOut(_duration, _alphaLimit, _fadeCurve));
+            else StartCoroutine(OutlineRoutine(_duration, _fadeCurve));
+        }
+
+        private IEnumerator FadeOut(float _duration, float _alphaLimit, AnimationCurve _fadeCurve)
+        {
+            Color startColor = sRenderer.color;
+            Color endColor = new Color(startColor.r, startColor.g, startColor.b, _alphaLimit);
+            Iteration iteration = new Iteration(_duration, _fadeCurve);
+
+            while (iteration.isBelowOne)
+            {
+                sRenderer.color = Color.Lerp(startColor, endColor, iteration.curveEvaluation);
+
+                yield return iteration.YieldIncrement();
+            }
+
+            sRenderer.color = endColor;
+        }
+
+        private IEnumerator OutlineRoutine(float _duration, AnimationCurve _fadeCurve)
+        {
+            Iteration iteration = new Iteration(_duration, _fadeCurve);
+
+            while (iteration.isBelowOne)
+            {
+                //outline.color = outlineColor.Evaluate(iteration.curveEvaluation);
+
+                yield return iteration.YieldIncrement();
+            }
+
+            //outline.color = outlineColor.Evaluate(1.0f);
         }
 
         protected override void SetColor()
@@ -30,19 +84,33 @@ namespace CultManager
         {
             if (segment.canBeSelected)
             {
-                if (selected && bloodManager.CanIncrease(segment.type, 10))
+                if (selected)
                 {
-                    Debug.Log("UnSelected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.IncreaseBloodOfType(segment.type, 10);
+                    if (bloodManager.CanIncrease(segment.type, 10))
+                    {
+                        Debug.Log("UnSelected");
+                        Select(!selected);
+                        ToggleNeighbours();
+                        
+                        bloodManager.IncreaseBloodOfType(segment.type, 10);
+                        bloodManager.UseOfBloodOfType(segment.type);
+                    }
                 }
-                else if (!selected && bloodManager.CanDecrease(segment.type, 10))
+                else
                 {
-                    Debug.Log("Selected");
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.DecreaseBloodOfType(segment.type, 10);
+                    if (bloodManager.CanDecrease(segment.type, 10))
+                    {
+                        Debug.Log("Selected");
+                        Select(!selected);
+                        ToggleNeighbours();
+                        //segment.DisableSegment();
+                        bloodManager.DecreaseBloodOfType(segment.type, 10);
+                        bloodManager.UseOfBloodOfType(segment.type);
+                    }
+                    else
+                    {
+                        bloodManager.InAdequateBloodOfType(segment.type);
+                    }
                 }
             }
             else
@@ -51,15 +119,19 @@ namespace CultManager
             }
         }
 
-        public void ToggleNeighbours()
+
+        public void ToggleNeighbours2()
         {
             for (int i = 0; i < data.puzzle.Count; i++)
             {
                 if (data.puzzle[i].IsConnected(segment) && !data.puzzle[i].IsSegment(segment.segment))
                 {
-                    if (segment.selected)
+                    if (segment.canBeSelected)
                     {
-                        data.puzzle[i].EnableSegment();
+                        if (!data.puzzle[i].selected)
+                            data.puzzle[i].EnableSegment();
+                        else
+                            data.puzzle[i].DisableSegment();
                     }
                     else
                     {
@@ -71,6 +143,32 @@ namespace CultManager
                     }
 
                 }
+            }
+        }
+
+        public void ToggleNeighbours()
+        {
+            PuzzleSegment[] neighbours = segment.GetNeighbours(data.puzzle);
+
+            foreach (PuzzleSegment neighbour in neighbours)
+            {
+                neighbour.UpdateStatus(data.puzzle);
+            }
+        }
+
+        public void UpdateStatus()
+        {
+            PuzzleSegment[] selectedNeighbours = segment.GetSelectedNeighbours(data.puzzle);
+
+            if(selected)
+            {
+                if (segment.IsEndPoint(data.puzzle)) segment.EnableSegment();
+                else segment.DisableSegment();
+            }
+            else
+            {
+                if(selectedNeighbours.Length > 1) segment.EnableSegment();
+                else segment.DisableSegment();
             }
         }
 
@@ -86,13 +184,26 @@ namespace CultManager
             }
             if (ctr == 0)
             {
-                if (!selected && bloodManager.CanDecrease(segment.type, 10))
+                if (!selected)
                 {
-                    segment.canBeSelected = true;
-                    Select(!selected);
-                    ToggleNeighbours();
-                    bloodManager.DecreaseBloodOfType(segment.type, 10);
+                    if (bloodManager.CanDecrease(segment.type, 10))
+                    {
+                        segment.canBeSelected = true;
+                        Select(!selected);
+                        ToggleNeighbours();
+                        //segment.DisableSegment();
+                        bloodManager.DecreaseBloodOfType(segment.type, 10);
+                        bloodManager.UseOfBloodOfType(segment.type);
+                    }
+                    else
+                    {
+                        bloodManager.InAdequateBloodOfType(segment.type);
+                    }
                 }
+            }
+            else
+            {
+                bloodManager.InAdequateBloodOfType(segment.type);
             }
         }
     }
