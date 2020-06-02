@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: MortimerStatue
+  m_EditorClassIdentifier: 
+  _demon: 0
+  statuePrefab: {fileID: 4803678039988979498, guid: 8670d22d394aaf94a93b96d8fd24c2a4,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: d534229c6a6066b4390b73d3034ec4f5, type: 2}
+  - {fileID: 11400000, guid: 8aac37336cea3d043ab191a247a57b5a, type: 2}
+  - {fileID: 11400000, guid: 3ce5d7c4190163f4a978b2b93db74add, type: 2}
+  - {fileID: 11400000, guid: ea1eeeaa5153e694dade7380e1d2f244, type: 2}
+  _cost: 100
+  _bought: 1
+  _completed: 1

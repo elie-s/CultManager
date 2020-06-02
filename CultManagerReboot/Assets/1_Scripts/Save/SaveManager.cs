@@ -8,18 +8,17 @@ namespace CultManager
     public class SaveManager : MonoBehaviour
     {
         [Header("Data Sets")]
-        [SerializeField] private CultData cultData = default;
-        [SerializeField] private InfluenceData influenceData = default;
-        [SerializeField] private MoneyData moneyData = default;
-        [SerializeField] private PoliceData policeData = default;
-        [SerializeField] private AltarData altarData = default;
-        [SerializeField] private NoteTabData noteTabData = default;
-        [SerializeField] private PuzzleData puzzleData = default;
         [SerializeField] private BloodBankData bloodBankData = default;
+        [SerializeField] private CultData cultData = default;
         [SerializeField] private DemonData demonData = default;
-        [SerializeField] private PersistentDemonData persistentDemonData = default;
+        [SerializeField] private InfluenceData influenceData = default;
         [SerializeField] private ModifierReference modifierReference = default;
-        [SerializeField] private DataRecorderSettings dataRecorderSettings = default;
+        [SerializeField] private MoneyData moneyData = default;
+        [SerializeField] private NoteTabData noteTabData = default;
+        [SerializeField] private PersistentDemonData persistentDemonData = default;
+        [SerializeField] private PoliceData policeData = default;
+        [SerializeField] private PuzzleData puzzleData = default;
+        [SerializeField] private StatuesData statuesData = default;
         [Header("Settings")]
         [SerializeField] private SaveSettings settings = default;
 
@@ -44,7 +43,7 @@ namespace CultManager
         [ContextMenu("Save")]
         public void SaveGame()
         {
-            Save save = new Save(settings.version, cultData, influenceData, moneyData, policeData, altarData, noteTabData, puzzleData, bloodBankData,demonData, persistentDemonData,modifierReference, dataRecorderSettings);
+            Save save = new Save(settings.version, cultData, influenceData, moneyData, policeData, noteTabData, puzzleData, bloodBankData,demonData, persistentDemonData,modifierReference, statuesData);
 
             if (!Directory.Exists(Application.persistentDataPath + "/" + settings.saveFolder))
             {
@@ -71,18 +70,17 @@ namespace CultManager
             Save save = (Save)binaryFormatter.Deserialize(saveFile);
             saveFile.Close();
 
-            cultData.LoadSave(save);
-            influenceData.LoadSave(save);
-            moneyData.LoadSave(save);
-            policeData.LoadSave(save);
-            altarData.LoadSave(save);
-            noteTabData.LoadSave(save);
-            puzzleData.LoadSave(save);
-            bloodBankData.LoadSave(save);
-            demonData.LoadSave(save);
-            persistentDemonData.LoadSave(save);
-            modifierReference.LoadSave(save);
-            dataRecorderSettings.LoadSave(save);
+            cultData?.LoadSave(save);
+            influenceData?.LoadSave(save);
+            moneyData?.LoadSave(save);
+            policeData?.LoadSave(save);
+            noteTabData?.LoadSave(save);
+            puzzleData?.LoadSave(save);
+            bloodBankData?.LoadSave(save);
+            demonData?.LoadSave(save);
+            persistentDemonData?.LoadSave(save);
+            modifierReference?.LoadSave(save);
+            statuesData?.LoadSave(save);
 
             saveLoaded = true;
             return true;

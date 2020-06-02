@@ -9,13 +9,24 @@ namespace CultManager
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private bool standalonePuzzleMode = false;
         [Header("Managers")]
 
         [SerializeField] private SaveManager saveManager = default;
+        [SerializeField] private CultManager cultManager = default;
+        [SerializeField] private InfluenceManager influenceManager = default;
+        [SerializeField] private PoliceManager policeManager = default;
+        [SerializeField] private MoneyManager moneyManager = default;
+
+        //[SerializeField] private AltarManager altarManager = default;
         [SerializeField] private BloodBankManager bloodManager = default;
         [SerializeField] private PuzzeManager puzzeManager = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private NoteTabPanelBehavior noteTabManager = default;
+        [SerializeField] private StatueManager statueManager = default;
+
+        [Header("Data")]
+        [SerializeField] private CultData cult = default;
 
         [SerializeField] private ResetScreen reset = default;
 
@@ -35,6 +46,25 @@ namespace CultManager
             currentPanel = CurrentPanel.None;
             saveManager?.Loadgame();
 
+            if (standalonePuzzleMode) StandaloneAwake();
+            else NormalAwake();
+        }
+
+        void Update()
+        {
+
+            if(!standalonePuzzleMode) currentLevel = cult.currentlevel;
+            island = currentIsland;
+            panel = currentPanel;
+
+            if (isHome && Input.GetKeyDown(KeyCode.Escape))
+            {
+                Quit();
+            } 
+        }
+
+        private void StandaloneAwake()
+        {
             if (!SaveManager.saveLoaded)
             {
                 puzzeManager.SAResetData();
@@ -42,21 +72,34 @@ namespace CultManager
                 demonManager.ResetData();
                 noteTabManager.SetNoteTabSegments();
             }
-
             else
             {
                 puzzeManager.LoadData();
             }
         }
 
-        void Update()
+        private void NormalAwake()
         {
-            island = currentIsland;
-            panel = currentPanel;
-            if (isHome && Input.GetKeyDown(KeyCode.Escape))
+            if (!SaveManager.saveLoaded)
             {
-                Quit();
-            } 
+                cultManager.ResetData();
+                policeManager.ResetData();
+                moneyManager.ResetData();
+                puzzeManager.ResetData();
+
+                bloodManager.ResetData();
+                demonManager.ResetData();
+                //altarManager.ResetData();
+                noteTabManager.SetNoteTabSegments();
+                statueManager.ResetData();
+            }
+            else
+            {
+                currentLevel = cult.currentlevel;
+                //altarManager.InitAltarParts();
+                puzzeManager.LoadData();
+                policeManager.InitAysnchValues();
+            }
         }
 
         public void SaveGame()
@@ -100,14 +143,19 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
-            reset.ActivateReset("Congratulations" + "\n" + "You invoked the demon!" + "\n" + "Your new Cult awaits you");
+            //reset.ActivateReset();
 
+            cultManager.ResetCult(level);
+            policeManager.ResetCult(level);
+            moneyManager.ResetCult(level);
             puzzeManager.ResetCult(level);
 
             bloodManager.ResetCult(level);
             demonManager.ResetCult(level);
+            //altarManager.ResetCult(level);
 
             saveManager.SaveGame();
+            StartCoroutine(GetToloadingScene());
         }
 
         public void StandaloneReset()
