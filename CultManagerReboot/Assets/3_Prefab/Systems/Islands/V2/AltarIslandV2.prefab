@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 3688347291436332167}
   onAreaClicked:
     m_PersistentCalls:
@@ -92,8 +91,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  current: 0
-  local: 0
   reqdPanel: 0
   reqdIsland: 3
 --- !u!61 &3688347291436332167
@@ -168,6 +165,7 @@ MonoBehaviour:
   altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
   displayPrefab: {fileID: 5500758392649999833, guid: e8f7c865e9aafa7419ef7c6653496e34,
     type: 3}
+  parts: []
 --- !u!1 &5115744512300452995
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 7520479313374201636}
   onAreaClicked:
     m_PersistentCalls:
@@ -418,8 +415,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  current: 0
-  local: 0
   reqdPanel: 0
   reqdIsland: 0
 --- !u!61 &7520479313374201636

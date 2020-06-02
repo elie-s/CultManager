@@ -21,7 +21,7 @@ namespace CultManager
             if (GameManager.currentIsland != CurrentIsland.Origin && GameManager.currentIsland != CurrentIsland.SummonArea && !isRunning)
             {
                 index = (int)GameManager.currentIsland - 1;
-                //ChangeIsland();
+                ChangeIsland();
             }
         }
 

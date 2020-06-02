@@ -125,13 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 159906172005172895}
   onAreaClicked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: StartRecruitment
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -141,8 +140,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  current: 0
-  local: 0
   reqdPanel: 0
   reqdIsland: 1
 --- !u!61 &159906172005172895
@@ -953,7 +950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 3461582659388790509}
   onAreaClicked:
     m_PersistentCalls:
@@ -969,8 +965,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  current: 0
-  local: 0
   reqdPanel: 0
   reqdIsland: 0
 --- !u!61 &3461582659388790509
@@ -1205,7 +1199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 66517979098569777}
   onAreaClicked:
     m_PersistentCalls:
@@ -1221,8 +1214,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  current: 0
-  local: 0
   reqdPanel: 0
   reqdIsland: 1
 --- !u!61 &66517979098569777

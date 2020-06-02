@@ -8,8 +8,8 @@ namespace CultManager
 {
     public class PageBehavior : MonoBehaviour
     {
-        public DemonBookUI demonBook = default;
-        public int pageIndex = default;
+        public DemonBookUI demonBook;
+        public int pageIndex;
         [SerializeField] private TMP_Text pageNumText = default;
 
         private void Start()
@@ -25,6 +25,20 @@ namespace CultManager
         public void PageClick()
         {
             demonBook.PageActive(pageIndex);
+        }
+
+        [ContextMenu("Underline")]
+        public void HighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Underline;
+            pageNumText.fontSize = 28;
+        }
+
+        [ContextMenu("Normalise")]
+        public void UnHighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Normal;
+            pageNumText.fontSize = 22;
         }
     }
 }

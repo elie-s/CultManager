@@ -10,6 +10,7 @@ namespace CultManager
     public class PuzzleData : ScriptableObject, ILoadable
     {
         public List<PuzzleSegment> puzzle;
+        public int layers;
 
         public void ClearSelections()
         {
@@ -32,7 +33,7 @@ namespace CultManager
             return result.ToArray();
         }
 
-        public float ComputePatternAccuracy(Segment[] _segments)
+        public int ComputePatternMatchCount(Segment[] _segments)
         {
             Segment[] pattern = GatherPatternSegments();
             int ctr = 0;
@@ -46,30 +47,13 @@ namespace CultManager
                     }
                 }
             }
-            return (float)ctr / pattern.Length;
-        }
-
-        public int FindPatternSegments(Segment[] segments)
-        {
-            Segment[] pattern = GatherPatternSegments();
-            int ctr = 0;
-            for (int i = 0; i < pattern.Length; i++)
-            {
-                for (int j = 0; j < segments.Length; j++)
-                {
-                    if (pattern[i].Equals(segments[j]))
-                    {
-                        ctr++;
-                    }
-                }
-            }
             return ctr;
         }
-
 
         public void LoadSave(Save _save)
         {
             puzzle = _save.puzzle.ToList();
+            layers = _save.puzzleLayers;
         }
     }
 }

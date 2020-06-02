@@ -3,7 +3,19 @@ guid: e06c7b5b3105e9648975cf27495687e8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - saveManager: {instanceID: 0}
+  - cultManager: {instanceID: 0}
+  - influenceManager: {instanceID: 0}
+  - policeManager: {instanceID: 0}
+  - moneyManager: {instanceID: 0}
+  - altarManager: {instanceID: 0}
+  - bloodManager: {instanceID: 0}
+  - puzzeManager: {instanceID: 0}
+  - demonManager: {instanceID: 0}
+  - noteTabManager: {instanceID: 0}
+  - cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+  - reset: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

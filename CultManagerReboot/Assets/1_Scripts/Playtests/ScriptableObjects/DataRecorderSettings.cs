@@ -45,8 +45,8 @@ namespace CultManager
 
         public void LoadSave(Save _save)
         {
-            currentSession = _save.sessionCount;
-            testerName = _save.testerName;
+            //currentSession = _save.sessionCount;
+            //testerName = _save.testerName;
         }
     }
 }

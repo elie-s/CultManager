@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace CultManager.HexagonalGrid
 {
-#pragma warning disable CS0660, CS0661
     [System.Serializable]
     public struct Node : System.IEquatable<Node>
     {
@@ -194,6 +193,16 @@ namespace CultManager.HexagonalGrid
         public override string ToString()
         {
             return "Node(" + x + ", " + y + ")";
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

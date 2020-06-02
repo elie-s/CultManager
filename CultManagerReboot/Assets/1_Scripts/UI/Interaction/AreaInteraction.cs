@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-#pragma warning disable CS0414
+
 namespace CultManager
 {
     public class AreaInteraction : MonoBehaviour
@@ -13,26 +13,23 @@ namespace CultManager
 
         public static bool isUsed;
 
-        [SerializeField] private bool current = default;
-        [SerializeField] private bool local = default;
-
         public CurrentPanel reqdPanel = CurrentPanel.None;
         public CurrentIsland reqdIsland = CurrentIsland.All;
 
+        private Camera cam => CameraController.CurrentCam;
+
         void Update()
         {
-            current = isUsed;
             if (reqdIsland == CurrentIsland.All || GameManager.currentIsland == reqdIsland)
             {
                 if (GameManager.currentPanel == CurrentPanel.None || GameManager.currentPanel == reqdPanel)
                 {
                     col.enabled = true;
-                    if ( /*Input.GetMouseButtonDown(0) || */ Gesture.QuickTouch)
+                    if (Gesture.QuickTouch)
                     {
-                        Vector3 worldPos = CameraController.CurrentCam.ScreenToWorldPoint(Input.mousePosition);
+                        Vector3 worldPos = cam.ScreenToWorldPoint(Input.mousePosition);
                         if (col.OverlapPoint(worldPos) && !isUsed)
                         {
-                            local = true;
                             isUsed = true;
                             onAreaClicked.Invoke();
                             Invoke("FlipBool", 0.25f);
@@ -63,7 +60,6 @@ namespace CultManager
             {
                 isUsed = false;
             }
-            local = false;
         }
     }
 }
