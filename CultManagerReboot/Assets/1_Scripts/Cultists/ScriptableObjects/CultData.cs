@@ -85,10 +85,15 @@ namespace CultManager
             int ctr = 0;
             for (int i = 0; i < cultists.Count; i++)
             {
-                if (cultists[i].IsOccupied())
+                if (cultists[i].working)
                     ctr++;
             }
             return ctr;
+        }
+
+        public int AvailableCultists()
+        {
+            return cultists.Count - FindOccupied();
         }
 
         public void Initialize()

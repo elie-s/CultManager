@@ -76,7 +76,7 @@ namespace CultManager
             {
                 cultManager.AddCultists(currentCandidate.cultist);
                 police?.Incerment(currentCandidate.policeValue);
-                money?.Increase(currentCandidate.moneyValue);
+                money?.Increase(currentCandidate.moneyValue, 0);
             }
             
         }

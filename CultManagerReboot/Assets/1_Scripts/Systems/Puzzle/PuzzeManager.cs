@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] private PuzzleSaveData puzzleSaveData = default;
         [SerializeField] private DemonManager demonManager = default;
         [SerializeField] private BloodBankManager bloodManager = default;
+        [SerializeField] private MoneyManager resourcesManager = default;
         [SerializeField] private PuzzleDisplay display = default;
         [SerializeField] private float scale = 1.0f;
         [SerializeField] private PatternGenerationSettings[] settings = default;
@@ -254,6 +255,8 @@ namespace CultManager
             Demon demon= demonData.ReturnDemonForSpawn(lastSpawn);
             puzzleSaveData.generations[puzzleSaveData.currentIndex - 1].AddAttempt(demon);
             if (lastSpawn.patternAccuracy == 1.0f) onPerfectSpawnSummoned.Invoke();
+
+            if (demon.patternSegments != 0) resourcesManager?.Increase(0, Mathf.CeilToInt(demon.patternSegments * demon.accuracy));
         }
 
         public void SummonExperiment(float _delay)

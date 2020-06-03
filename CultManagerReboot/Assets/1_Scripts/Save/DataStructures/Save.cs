@@ -28,6 +28,7 @@ namespace CultManager
 
         //MoneyData
         public uint moneyValue;
+        public uint relicValue;
 
         //Police Data
         public int policeMaxValue;
@@ -86,7 +87,8 @@ namespace CultManager
             influenceMaxValue = _influenceData.max;
             influenceCandidateTimeReference = _influenceData.lastCandidateTimeReference;
 
-            moneyValue = _moneyData.value;
+            moneyValue = _moneyData.money;
+            relicValue = _moneyData.relics;
 
             policeMaxValue = _policeData.max;
             policeCurrentValue = _policeData.value;

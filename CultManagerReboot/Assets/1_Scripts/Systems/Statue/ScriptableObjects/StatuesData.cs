@@ -45,8 +45,6 @@ namespace CultManager
                 result.Add(set.Save());
             }
 
-            Debug.Log(result.Count);
-
             return result.ToArray();
         }
 

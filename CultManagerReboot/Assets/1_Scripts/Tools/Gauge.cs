@@ -14,6 +14,7 @@ public class Gauge
     public float ratio => (value - min) / (max - min);
     public float percentage => ratio * 100;
     public bool isFull => ratio == 1.0f;
+    public float toBeFilled => (1.0f - ratio) * max;
 
     public Gauge(float _min, float _max, bool _startFull = true)
     {

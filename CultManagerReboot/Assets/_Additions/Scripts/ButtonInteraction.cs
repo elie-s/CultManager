@@ -13,11 +13,12 @@ namespace CultManager
         [SerializeField] private Sprite enabledSprite = default;
         [SerializeField] private Sprite pressedSprite = default;
         [SerializeField] private Image buttonImage = default;
-        [SerializeField] private Color disabledColor = default;
-        [SerializeField] private Color enabledColor = default;
-        [SerializeField] private Color pressedColor = default;
+        [SerializeField] private Color disabledColor = Color.white;
+        [SerializeField] private Color enabledColor = Color.white;
+        [SerializeField] private Color pressedColor = Color.white;
         [SerializeField] private float buttonPressInterval = default;
         [SerializeField] bool isEnabled = false;
+        [SerializeField] private bool startEnabled = false;
         public bool isPressed = false;
 
         public UnityEvent buttonPressOnDisabled;
@@ -27,6 +28,7 @@ namespace CultManager
         private void Start()
         {
             isEnabled = false;
+            if (startEnabled) EnableButton();
             buttonImage.sprite = disabledSprite;
             buttonImage.color = disabledColor;
         }

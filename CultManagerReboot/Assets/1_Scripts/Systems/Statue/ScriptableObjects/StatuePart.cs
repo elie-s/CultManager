@@ -9,6 +9,9 @@ namespace CultManager
     {
         [SerializeField] private Sprite _completedSprite = default;
         [SerializeField] private Sprite _uncompletedSprite = default;
+        [SerializeField] private Sprite _uiCompletedSprite = default;
+        [SerializeField] private Sprite _uiUncompletedSprite = default;
+        [SerializeField] private string _partName = default;
         [SerializeField] private Gauge _completion = default;
         [SerializeField] private IntGauge _workers = default;
         [SerializeField] private int _moneyCost = default;
@@ -18,11 +21,15 @@ namespace CultManager
 
         public Sprite completedSprite => _completedSprite;
         public Sprite uncompletedSprite => _uncompletedSprite;
+        public Sprite uiCompletedSprite => _uiCompletedSprite;
+        public Sprite uiUncompletedSprite => _uiUncompletedSprite;
+        public string partName => _partName;
         public Gauge completion => _completion;
         public IntGauge workers => _workers;
         public (int money, int relic) cost => (_moneyCost, _relicCost);
         public bool bought => _bought;
         public bool completed => _completed;
+        public float workersForce { get; private set; }
 
         public void Reset()
         {
@@ -42,15 +49,31 @@ namespace CultManager
             return (true, 0, 0);
         }
 
-        public void Build(float _workerForce)
+        public void Buy()
         {
-            if (!bought && !completed) return;
+            _bought = true;
+        }
+
+        public bool Build(float _workerForce, float _delay)
+        {
+            if (!bought && !completed) return false;
 
             float increment = _workerForce * workers.value * (workers.isFull ? 2.0f : 1.0f);
+            workersForce = increment;
 
-            completion.Increment(increment);
+            completion.Increment(increment*_delay);
+
+            bool tmp = _completed;
 
             _completed = completion.isFull;
+
+            return !tmp && _completed;
+        }
+
+        public void Break(float _value)
+        {
+            _completed = false;
+            completion.SetValue(completion.max * (1.0f - _value));
         }
 
 

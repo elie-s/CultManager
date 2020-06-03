@@ -24,12 +24,6 @@ namespace CultManager
 
         private bool isTransitionning;
 
-        private void Start()
-        {
-            Debug.Log("top: " + topElements.localPosition);
-            Debug.Log("bot: " + bottomElements.localPosition);
-        }
-
         public void GoToPuzzle()
         {
             if (isTransitionning) return;

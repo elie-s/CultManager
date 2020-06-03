@@ -44,7 +44,7 @@ namespace CultManager
 
         public void AddMoney()
         {
-            moneyManager.Increase(50);
+            moneyManager.Increase(50, 5);
         }
 
         public void AddBlood(int a)

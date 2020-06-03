@@ -165,11 +165,11 @@ namespace CultManager
             int penalty = moneyDeduction * investigatorCount * hours;
             if (money.value >= penalty)
             {
-                money.Decrease(penalty);
+                money.Decrease(penalty, 0);
             }
             else
             {
-                money.ResetValue(0);
+                money.ResetValue(0, 0);
             }
         }
 

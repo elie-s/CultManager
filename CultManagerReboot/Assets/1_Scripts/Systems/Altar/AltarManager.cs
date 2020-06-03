@@ -193,7 +193,7 @@ namespace CultManager
             {
                 if (moneyManager.value >= cost)
                 {
-                    moneyManager.Decrease(cost);
+                    moneyManager.Decrease(cost, 0);
                     _altar.Buy();
                 }
             }
@@ -266,7 +266,7 @@ namespace CultManager
             {
                 if (result < _amountAsked)
                 {
-                    if (!cult.cultists[i].occupied)
+                    if (!cult.cultists[i].working)
                     {
                         cult.cultists[i].ToggleOccupy();
                         assignedCultists.Increment(1);
@@ -286,9 +286,9 @@ namespace CultManager
             {
                 if (ctr < _amount)
                 {
-                    if (cult.cultists[i].occupied)
+                    if (cult.cultists[i].working)
                     {
-                        cult.cultists[i].occupied = false;
+                        cult.cultists[i].SetWorking(false);
                         assignedCultists.Decrement(1);
                         ctr++;
                     }

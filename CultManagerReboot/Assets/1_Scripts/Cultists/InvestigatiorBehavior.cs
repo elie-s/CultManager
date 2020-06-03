@@ -79,10 +79,7 @@ namespace CultManager
 
         public void Detected()
         {
-            if (isInspecting)
-            {
-                cultistBehavior.cultist.detected = true;
-            }
+            cultistBehavior.cultist.SetDetected(isInspecting);
         }
     }
 }

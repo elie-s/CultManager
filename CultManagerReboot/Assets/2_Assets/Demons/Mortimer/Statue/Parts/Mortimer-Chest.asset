@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _completedSprite: {fileID: 21300000, guid: 093ee036da01294468f681a0cb1e4e84, type: 3}
   _uncompletedSprite: {fileID: 21300000, guid: 1c557c8d6e69e22428233f4d7dbe4b09, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: a4992eec3c771134ab37289e0e9da414, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: c492d4920e2ff61428f0d0b303e912da,
+    type: 3}
+  _partName: Chest
   _completion:
-    _value: 100
-    _max: 100
-  _workers:
     _value: 0
+    _max: 1000000
+  _workers:
+    _value: 1
     _max: 10
   _moneyCost: 100
   _relicCost: 10
-  _bought: 1
-  _completed: 1
+  _bought: 0
+  _completed: 0

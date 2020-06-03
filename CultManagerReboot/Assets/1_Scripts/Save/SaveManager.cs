@@ -35,7 +35,7 @@ namespace CultManager
         private void Update()
         {
             currentCultistsDebug = (int)cultData.cultists.Count;
-            currentMoneyDebug = (int)moneyData.value;
+            currentMoneyDebug = (int)moneyData.money;
             currentPoliceDebug = policeData.value;
             currentInfluenceDebug = (int)influenceData.value;
         }

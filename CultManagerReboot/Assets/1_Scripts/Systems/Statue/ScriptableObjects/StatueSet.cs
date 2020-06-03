@@ -19,11 +19,14 @@ namespace CultManager
         public StatuePart[] parts => _parts;
         public bool bought => _bought;
         public bool completed => _completed;
+        public int index { get; private set; }
+        public StatuePart currentPart => parts[index];
 
         public GameObject Instantiate(Vector3 _worldPos, Transform _parent)
         {
             GameObject statue = GameObject.Instantiate(statuePrefab, _worldPos, Quaternion.identity, _parent);
             statue.GetComponent<StatuePrefabManager>().Init(parts);
+            index = 0;
 
             return statue;
         }
@@ -39,22 +42,25 @@ namespace CultManager
             return (true, 0);
         }
 
-        public void UpdateCompletionPart(float _workerForce, int _index)
+        public bool UpdateCompletionPart(float _workerForce, float _delay, int _index)
         {
-            if (!bought && !completed) return;
+            if (!bought && !completed) return false;
 
-            float increment = _workerForce * parts[_index].workers.value * (parts[_index].workers.isFull ? 2.0f : 1.0f);
-
-            parts[_index].Build(increment);
+            return parts[_index].Build(_workerForce, _delay);
         }
 
-        public void UpdateCompletion(float _workerForce)
+        public void UpdateCompletion(float _workerForce, float _delay, System.Action _onPartCompleted, System.Action _onSetCompleted)
         {
+            bool testPart = false;
+
             for (int i = 0; i < parts.Length; i++)
             {
-                UpdateCompletionPart(_workerForce, i);
+                if (UpdateCompletionPart(_workerForce, _delay, i)) testPart = true; ;
             }
 
+            if (testPart) _onPartCompleted();
+
+            bool tmp = _completed;
             _completed = true;
 
             foreach (StatuePart part in parts)
@@ -65,26 +71,64 @@ namespace CultManager
                     break;
                 }
             }
+
+            if (!tmp && _completed) _onSetCompleted();
+        }
+
+        public int AssignWorkersCurrent(int _amount)
+        {
+            if (!parts[index].bought) return -1;
+
+            int assigned = _amount <= parts[index].workers.amountLeft ? _amount : parts[index].workers.amountLeft;
+            parts[index].workers.Increment(assigned);
+
+            return assigned;
+        }
+
+        public int RemoveWorkersCurrent(int _amount)
+        {
+            if (!parts[index].bought) return -1;
+
+            int removed = _amount <= parts[index].workers.value ? _amount : parts[index].workers.value;
+            parts[index].workers.Decrement(removed);
+
+            return removed;
         }
 
         public int AssignWorkers(int _amount, int _index)
         {
-            if (!parts[_index].bought) return -1;
+            if (!parts[index].bought) return -1;
 
-            int assigned = _amount <= parts[_index].workers.amountLeft ? _amount : parts[_index].workers.amountLeft;
-            parts[_index].workers.Increment(assigned);
+            int assigned = _amount <= parts[index].workers.amountLeft ? _amount : parts[index].workers.amountLeft;
+            parts[index].workers.Increment(assigned);
 
-            return _amount - assigned;
+            return  assigned;
         }
 
         public int RemoveWorkers(int _amount, int _index)
         {
-            if (!parts[_index].bought) return -1;
+            if (!parts[index].bought) return -1;
 
-            int removed = _amount <= parts[_index].workers.value ? _amount : parts[_index].workers.value;
-            parts[_index].workers.Decrement(removed);
+            int removed = _amount <= parts[index].workers.value ? _amount : parts[index].workers.value;
+            parts[index].workers.Decrement(removed);
 
-            return _amount - removed;
+            return removed;
+        }
+
+        public void IncreaseIndex()
+        {
+            index = (index + 1) % parts.Length;
+        }
+
+        public void DecreaseIndex()
+        {
+            index--;
+            index = index < 0 ? parts.Length - 1 : index;
+        }
+
+        public void SetIndex(int _index)
+        {
+            index = Mathf.Clamp(_index, 0, parts.Length - 1);
         }
 
         public void Load(StatueSetSave _save)

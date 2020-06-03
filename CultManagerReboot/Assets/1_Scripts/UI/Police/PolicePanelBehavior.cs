@@ -140,7 +140,7 @@ namespace CultManager
             if (!isPressed)
             {
                 police.Decrement(bribeChange.value);
-                money.Decrease(moneyDisplay);
+                money.Decrease(moneyDisplay, 0);
                 ResetValues();
                 giveButtonImage.sprite = settings.giveButtonEnabled;
                 Invoke("ButtonPressed", 0.5f);
