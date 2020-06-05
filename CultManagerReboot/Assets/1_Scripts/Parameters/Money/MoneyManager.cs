@@ -40,7 +40,7 @@ namespace CultManager
 
         public bool TryBuy(int _money, int _relic)
         {
-            if (_money < data.money || _relic < data.relics) return false;
+            if (_money > data.money || _relic > data.relics) return false;
 
             data.Decrease(_money, _relic);
 

@@ -18,12 +18,12 @@ namespace CultManager
             {
                 if (_accuracy <= (float)i / (float)(spawns.Length - 1))
                 {
-                    Debug.Log(_accuracy + " -> " + i);
+                    //Debug.Log(_accuracy + " -> " + i);
                     return spawns[i];
                 }
             }
 
-            Debug.Log(_accuracy + " -> " + spawns.Length);
+            //Debug.Log(_accuracy + " -> " + spawns.Length);
             return spawns[spawns.Length];
         }
 
@@ -33,12 +33,12 @@ namespace CultManager
             {
                 if (_accuracy <= (float)i / (float)(spawnsID.Length - 1))
                 {
-                    Debug.Log(_accuracy + " -> " + i);
+                    //Debug.Log(_accuracy + " -> " + i);
                     return spawnsID[i];
                 }
             }
 
-            Debug.Log(_accuracy + " -> " + spawnsID.Length);
+            //Debug.Log(_accuracy + " -> " + spawnsID.Length);
             return spawnsID[spawnsID.Length];
         }
     }

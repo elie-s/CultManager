@@ -25,7 +25,7 @@ namespace CultManager
                 if (useMouse && Input.GetMouseButtonDown(0)) StartCoroutine(MouseRoutine());
             }
 
-            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
+            //if (Gesture.QuickTouch) Debug.Log("QuickTouch");
         }
 
         private IEnumerator MouseRoutine()

@@ -22,6 +22,7 @@ namespace CultManager
         private void Start()
         {
             LoadStatue();
+            UpdateAvailabilities();
         }
 
         private void Update()
@@ -41,6 +42,7 @@ namespace CultManager
 
         public void LoadStatue()
         {
+            if (data.currentDemon == DemonName.None) return;
             statue = data.currentStatueSet.Instantiate(statueParent.position, statueParent).GetComponent<StatuePrefabManager>();
         }
 
@@ -70,7 +72,7 @@ namespace CultManager
             return data.currentStatueSet.RemoveWorkersCurrent(_amount);
         }
 
-        public bool TryBuy()
+        public bool TryBuyPart()
         {
             if( moneyManager.TryBuy(data.currentStatueSet.currentPart.cost.money, data.currentStatueSet.currentPart.cost.relic))
             {
@@ -81,13 +83,40 @@ namespace CultManager
             return false;
         }
 
+        public bool TryBuyStatue(DemonName _demon)
+        {
+            if(moneyManager.TryBuy(data.GetStatueSet(_demon).cost, 0))
+            {
+                Debug.Log("m");
+                data.BuyStatue(_demon);
+                return true;
+            }
+
+            Debug.Log("!m: "+ data.GetStatueSet(_demon).cost);
+            return false;
+        }
+
         public void Build()
         {
-            if(data.SecondsFromTimeRef() > 1.0f)
+            if (data.currentDemon == DemonName.None)
+            {
+                data.UpdateTimeRef();
+                return;
+            }
+
+            if (data.SecondsFromTimeRef() > 1.0f)
             {
                 data.currentStatueSet.UpdateCompletion(data.baseWorkForce, data.SecondsFromTimeRef(), onPartCompleted.Invoke, onStatueCompleted.Invoke);
                 data.UpdateTimeRef();
                 statue.UpdateAllPartsSprites();
+            }
+        }
+
+        public void UpdateAvailabilities()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                data.UpdateAvailability((DemonName)i);
             }
         }
 

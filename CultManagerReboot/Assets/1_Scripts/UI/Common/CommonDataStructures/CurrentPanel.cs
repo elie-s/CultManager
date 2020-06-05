@@ -27,6 +27,8 @@ namespace CultManager
         HotKeys=6,
         PolicePanel=7,
         DemonPage=8,
+        DemonTreePanel,
+        DemonStatuePanel,
     }
 }
 

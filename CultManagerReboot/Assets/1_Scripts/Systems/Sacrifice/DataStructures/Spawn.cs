@@ -18,7 +18,7 @@ namespace CultManager
         public Modifier[] modifiers;
 
 
-        public Spawn(int _id,int _durationInHours,Modifier[] _modifiers,float _patternAccuracy, DemonName _demon = DemonName.Demon1)
+        public Spawn(int _id,int _durationInHours,Modifier[] _modifiers,float _patternAccuracy, DemonName _demon = DemonName.None)
         {
             id = _id;
             durationInHours = _durationInHours;

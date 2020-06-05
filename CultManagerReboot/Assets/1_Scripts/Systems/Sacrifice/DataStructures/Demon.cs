@@ -29,7 +29,7 @@ namespace CultManager
                                 (float)totalPatternSegments / (float)segments.Length;
 
 
-        public Demon(int _id, Segment[] _segments,DateTime _deathTime,int _patternSegments,int _totalPatternSegments, DemonName _demon = DemonName.Demon1)
+        public Demon(int _id, Segment[] _segments,DateTime _deathTime,int _patternSegments,int _totalPatternSegments, DemonName _demon = DemonName.None)
         {
             id = _id;
             segments = _segments;

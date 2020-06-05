@@ -108,12 +108,12 @@ namespace CultManager
 
                 if (!aEnd && !bEnd)
                 {
-                    Debug.Log("Isn't Endpoint");
+                    //Debug.Log("Isn't Endpoint");
                     return false;
                 }
             }
 
-            Debug.Log("Is Endpoint");
+            //Debug.Log("Is Endpoint");
             return true;
         }
 
@@ -128,7 +128,7 @@ namespace CultManager
             }
             else
             {
-                Debug.Log(selectedNeighbours.Length);
+                //Debug.Log(selectedNeighbours.Length);
                 if (selectedNeighbours.Length > 0) EnableSegment();
                 else DisableSegment();
             }

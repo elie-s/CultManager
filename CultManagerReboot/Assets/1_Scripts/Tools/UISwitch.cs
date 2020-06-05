@@ -8,27 +8,29 @@ public class UISwitch : MonoBehaviour
 {
     [SerializeField] private Sprite imageA = default;
     [SerializeField] private Sprite imageB = default;
+    [SerializeField] private Sprite imageC = default;
     [SerializeField] private Image image = default;
-    [SerializeField] private Color colorA = default;
-    [SerializeField] private Color colorB = default;
+    [SerializeField] private Color colorA = Color.white;
+    [SerializeField] private Color colorB = Color.white;
+    [SerializeField] private Color colorC = Color.white;
     [SerializeField] private TextMeshProUGUI textField = default;
-
-    public void Switch()
-    {
-        if(image) image.sprite = image.sprite == imageA ? imageB : imageA;
-        if (textField) textField.color = textField.color == colorA ? colorB : colorA;
-    }
 
     public void SetA()
     {
-        image.sprite = imageA;
-        textField.color = colorA;
+        if (image && imageA) image.sprite = imageA;
+        if (textField) textField.color = colorA;
     }
 
     public void SetB()
     {
-        image.sprite = imageB;
-        textField.color = colorB;
+        if (image && imageB) image.sprite = imageB;
+        if (textField) textField.color = colorB;
+    }
+
+    public void SetC()
+    {
+        if (image && imageC) image.sprite = imageC;
+        if (textField) textField.color = colorC;
     }
 
     public void Set(bool _situation)

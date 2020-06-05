@@ -28,7 +28,7 @@ namespace CultManager
 
         public void Display()
         {
-            influenceBar.fillAmount = Mathf.Lerp(influenceBar.fillAmount,influence.ratio,Time.deltaTime);
+            influenceBar.fillAmount = 1.0f;
             policeBar.fillAmount = Mathf.Lerp(policeBar.fillAmount,police.ratio,Time.deltaTime);
             cultistsText.text = cult.cultists.Count.ToString();
             moneyText.text = money.money.ToString();

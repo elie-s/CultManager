@@ -11,16 +11,24 @@ namespace CultManager
         [SerializeField] private GameObject statuePrefab = default;
         [SerializeField] private StatuePart[] _parts = default;
         [SerializeField] private int _cost = 100;
-        [SerializeField] private bool _bought = false;
-        [SerializeField] private bool _completed = false;
+        [SerializeField] private StatueStatus status = StatueStatus.Unavailable;
+        [SerializeField] private int _puzzleSegments = 0;
+        [SerializeField] private int _demonSegments = 0;
+        [SerializeField] private Sprite[] _statue = default;
+        [SerializeField] private string _effectText = default;
 
         public int cost => _cost;
         public DemonName demon => _demon;
         public StatuePart[] parts => _parts;
-        public bool bought => _bought;
-        public bool completed => _completed;
+        public bool available => (int)status > 0;
+        public bool bought => (int)status > 1;
+        public bool completed => (int)status > 2;
         public int index { get; private set; }
         public StatuePart currentPart => parts[index];
+        public int puzzleSegments => _puzzleSegments;
+        public int demonSegments => _demonSegments;
+        public Sprite[] statue => _statue;
+        public string effectText => _effectText;
 
         public GameObject Instantiate(Vector3 _worldPos, Transform _parent)
         {
@@ -31,15 +39,19 @@ namespace CultManager
             return statue;
         }
 
-        public (bool failed, int moneySpent) Buy(int _money)
+        public void Buy()
         {
-            if (_money >= cost)
-            {
-                _bought = true;
-                return (false, cost);
-            }
+            SetStatus(StatueStatus.Bought);
+        }
 
-            return (true, 0);
+        public void SetAvailable()
+        {
+            SetStatus(StatueStatus.Available);
+        }
+
+        private void SetStatus(StatueStatus _status)
+        {
+            if ((int)_status > (int)status) status = _status;
         }
 
         public bool UpdateCompletionPart(float _workerForce, float _delay, int _index)
@@ -60,19 +72,23 @@ namespace CultManager
 
             if (testPart) _onPartCompleted();
 
-            bool tmp = _completed;
-            _completed = true;
+            bool tmp = completed;
+            bool tmpCompleted = true;
 
             foreach (StatuePart part in parts)
             {
                 if (!part.completion.isFull)
                 {
-                    _completed = false;
+                    tmpCompleted = false;
                     break;
                 }
             }
 
-            if (!tmp && _completed) _onSetCompleted();
+            if (!tmp && tmpCompleted)
+            {
+                SetStatus(StatueStatus.Completed);
+                _onSetCompleted();
+            }
         }
 
         public int AssignWorkersCurrent(int _amount)
@@ -133,7 +149,7 @@ namespace CultManager
 
         public void Load(StatueSetSave _save)
         {
-            _bought = _save.boughtValue;
+            SetStatus(StatueStatus.Available);
 
             for (int i = 0; i < parts.Length; i++)
             {
@@ -143,14 +159,14 @@ namespace CultManager
 
         public StatueSetSave Save()
         {
-            return new StatueSetSave(_bought, parts);
+            return new StatueSetSave(status, parts);
         }
 
         public void Reset()
         {
             Debug.Log("reset");
 
-            _bought = false;
+            SetStatus(StatueStatus.Unavailable);
             foreach (StatuePart part in _parts)
             {
                 part.Reset();
@@ -161,12 +177,12 @@ namespace CultManager
     [System.Serializable]
     public struct StatueSetSave
     {
-        public bool boughtValue;
+        public int status;
         public StatuePartSave[] partsSave;
 
-        public StatueSetSave(bool _bought, StatuePart[] _parts)
+        public StatueSetSave(StatueStatus _status, StatuePart[] _parts)
         {
-            boughtValue = _bought;
+            status = (int)_status;
 
             List<StatuePartSave> tmpSave = new List<StatuePartSave>();
 

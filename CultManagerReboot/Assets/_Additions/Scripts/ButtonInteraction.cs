@@ -19,6 +19,7 @@ namespace CultManager
         [SerializeField] private float buttonPressInterval = default;
         [SerializeField] bool isEnabled = false;
         [SerializeField] private bool startEnabled = false;
+        [SerializeField] private bool disableSpriteShifting = false;
         public bool isPressed = false;
 
         public UnityEvent buttonPressOnDisabled;
@@ -28,9 +29,10 @@ namespace CultManager
         private void Start()
         {
             isEnabled = false;
-            if (startEnabled) EnableButton();
-            buttonImage.sprite = disabledSprite;
+            
+            if(!disableSpriteShifting) buttonImage.sprite = disabledSprite;
             buttonImage.color = disabledColor;
+            if (startEnabled) EnableButton();
         }
 
         public void EnableButton()
@@ -38,7 +40,7 @@ namespace CultManager
             if (!isEnabled)
             {
                 isEnabled = true;
-                buttonImage.sprite = enabledSprite;
+                if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
             }
         }
@@ -48,7 +50,7 @@ namespace CultManager
             if (isEnabled)
             {
                 isEnabled = false;
-                buttonImage.sprite = disabledSprite;
+                if (!disableSpriteShifting) buttonImage.sprite = disabledSprite;
                 buttonImage.color = disabledColor;
             }
         }
@@ -58,7 +60,7 @@ namespace CultManager
             if (isEnabled && !isPressed)
             {
                 isPressed = true;
-                buttonImage.sprite = pressedSprite;
+                if (!disableSpriteShifting) buttonImage.sprite = pressedSprite;
                 buttonImage.color = pressedColor;
                 buttonPressImmideate.Invoke();
 
@@ -76,7 +78,7 @@ namespace CultManager
             {
                 buttonPressDelayed.Invoke();
                 isPressed = false;
-                buttonImage.sprite = enabledSprite;
+                if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
             }
         }

@@ -22,8 +22,7 @@ namespace CultManager
         public int currentLevel;
 
         //Influence Data
-        public int influenceMaxValue;
-        public int influenceCurrentValue;
+        public uint influenceCurrentValue;
         public DateTime influenceCandidateTimeReference;
 
         //MoneyData
@@ -69,6 +68,7 @@ namespace CultManager
         public StatueSetSave[] statueSetSaves;
         public int demonName;
         public DateTime statueTimeRef;
+        public int[] demonsBought;
 
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData,
             PoliceData _policeData, NoteTabData _noteTabData, PuzzleData _puzzleData,
@@ -84,7 +84,6 @@ namespace CultManager
             currentLevel = _cultData.currentlevel;
 
             influenceCurrentValue = _influenceData.value;
-            influenceMaxValue = _influenceData.max;
             influenceCandidateTimeReference = _influenceData.lastCandidateTimeReference;
 
             moneyValue = _moneyData.money;
@@ -120,6 +119,7 @@ namespace CultManager
             statueSetSaves = _statueData.SaveSets();
             demonName = (int)_statueData.currentDemon;
             statueTimeRef = _statueData.timeRef;
+            demonsBought = _statueData.DemonsBoughtToIntArray();
         }
     }
 }

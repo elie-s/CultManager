@@ -24,6 +24,8 @@ namespace CultManager
         [SerializeField] private TextMeshProUGUI workersDisplay = default;
         [SerializeField] private ButtonInteraction buyButton = default;
         [Header("GameObjects")]
+        [SerializeField] private GameObject content = default;
+        [SerializeField] private GameObject noDemonPanel = default;
         [SerializeField] private GameObject toBuyUI = default;
         [SerializeField] private GameObject bought = default;
         [SerializeField] private GameObject completed = default;
@@ -40,6 +42,17 @@ namespace CultManager
         [ContextMenu("Update Display")]
         public void UpdateDisplay()
         {
+            if (data.currentDemon == DemonName.None)
+            {
+                content.SetActive(false);
+                noDemonPanel.SetActive(true);
+
+                return;
+            }
+
+            content.SetActive(true);
+            noDemonPanel.SetActive(false);
+
             DisplayBottomPart(currentPart.bought, currentPart.completed);
             partNameDisplay.text = currentPart.partName;
             moneyCostDisplay.text = DisplayNumber(currentPart.cost.money);
@@ -58,17 +71,23 @@ namespace CultManager
 
         public void UpdateTimeLeft()
         {
+            if (data.currentDemon == DemonName.None) return;
+
             timeLeftDisplay.text = DisplayDuration(currentPart.completion.toBeFilled / currentPart.workersForce);
         }
 
         public void UpdateSprite()
         {
+            if (data.currentDemon == DemonName.None) return;
+
             partDisplayMissing.color = new Color(1.0f, 1.0f, 1.0f, 1.0f - currentPart.completion.ratio);
             partDisplayCompleted.color = new Color(1.0f, 1.0f, 1.0f,currentPart.completion.ratio);
         }
 
         public void UpdatePercentage()
         {
+            if (data.currentDemon == DemonName.None) return;
+
             percentage.text = Mathf.RoundToInt(currentPart.completion.percentage)+"%";
         }
 

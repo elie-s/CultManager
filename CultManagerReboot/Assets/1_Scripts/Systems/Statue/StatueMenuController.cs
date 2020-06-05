@@ -20,6 +20,8 @@ namespace CultManager
         [SerializeField] private UnityEvent onCultistAssignementSucceded = default;
         [SerializeField] private UnityEvent onWorkerRemovedFailed = default;
         [SerializeField] private UnityEvent onWorkerRemovedSucceded = default;
+        [SerializeField] private UnityEvent onOpen = default;
+        [SerializeField] private UnityEvent onClose = default;
 
         private StatueSet currentSet => data.currentStatueSet;
 
@@ -33,6 +35,7 @@ namespace CultManager
         {
             menuGO.SetActive(true);
             GameManager.currentPanel = CurrentPanel.AltarPanel;
+            onOpen.Invoke();
         }
 
         [ContextMenu("Close")]
@@ -40,6 +43,7 @@ namespace CultManager
         {
             menuGO.SetActive(false);
             GameManager.currentPanel = CurrentPanel.None;
+            onClose.Invoke();
         }
 
         public void UpdateDisplay()
@@ -103,7 +107,7 @@ namespace CultManager
 
         public void Buy()
         {
-            if (manager.TryBuy()) onBuySucceded.Invoke();
+            if (manager.TryBuyPart()) onBuySucceded.Invoke();
             else onBuyFailed.Invoke();
 
             displayer.UpdateDisplay();

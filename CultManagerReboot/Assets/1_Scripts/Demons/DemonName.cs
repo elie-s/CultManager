@@ -2,16 +2,17 @@
 {
     public enum DemonName
     {
-        Demon1,
-        Demon2,
-        Demon3,
-        Demon4,
-        Demon5,
-        Demon6,
-        Demon7,
-        Demon8,
-        Demon9,
-        Demon10,
+        None =-1,
+        Mortimer,
+        Gmork,
+        Moloch,
+        Debilman,
+        Kotkar,
+        Khortho,
+        Kiram,
+        Balthazar,
+        Otto,
+        Korol,
 
     }
 }

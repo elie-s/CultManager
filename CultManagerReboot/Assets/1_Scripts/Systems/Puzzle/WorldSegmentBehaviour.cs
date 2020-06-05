@@ -88,7 +88,7 @@ namespace CultManager
                 {
                     if (bloodManager.CanIncrease(segment.type, 10))
                     {
-                        Debug.Log("UnSelected");
+                        //Debug.Log("UnSelected");
                         Select(!selected);
                         ToggleNeighbours();
                         
@@ -100,7 +100,7 @@ namespace CultManager
                 {
                     if (bloodManager.CanDecrease(segment.type, 10))
                     {
-                        Debug.Log("Selected");
+                        //Debug.Log("Selected");
                         Select(!selected);
                         ToggleNeighbours();
                         //segment.DisableSegment();
