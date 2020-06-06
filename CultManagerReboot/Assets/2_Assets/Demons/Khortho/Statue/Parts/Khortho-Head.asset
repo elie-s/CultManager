@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Khortho-Head
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 0}
+  _uncompletedSprite: {fileID: 0}
+  _uiCompletedSprite: {fileID: 21300000, guid: c7878c528b5d0334aaf1f3fd20f46189, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: b61f7157458447a42811001698d2a81e,
+    type: 3}
+  _partName: 
+  _completion:
+    _value: 0
+    _max: 0
+  _workers:
+    _value: 0
+    _max: 0
+  _moneyCost: 0
+  _relicCost: 0
+  _bought: 0
+  _completed: 0
