@@ -1928,6 +1928,8 @@ GameObject:
   - component: {fileID: 5200215571183252086}
   - component: {fileID: 5200215571183252087}
   - component: {fileID: 5200215571183252080}
+  - component: {fileID: 321713142161306860}
+  - component: {fileID: 2841850073805672351}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -2002,14 +2004,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: e3b8816dacce8ed4a96d720a10bd5880, type: 3}
+  imageB: {fileID: 21300000, guid: 948260dfe20dc6d48ae19e0b652301e4, type: 3}
+  imageC: {fileID: 21300000, guid: d32762892e0e48148861737a37a37f54, type: 3}
   image: {fileID: 5200215571183252087}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &321713142161306860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571183252082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2841850073805672351}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2841850073805672351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571183252082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215571183252087}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215571237300601
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +5051,8 @@ GameObject:
   - component: {fileID: 5200215571821307907}
   - component: {fileID: 5200215571821307916}
   - component: {fileID: 5200215571821307917}
+  - component: {fileID: 3026213531875714566}
+  - component: {fileID: 6743305152418958600}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -5051,14 +5127,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: 3e6fa49894e66944f8df3833758ffd1d, type: 3}
+  imageB: {fileID: 21300000, guid: fc4947061bc55ac4282554c5d56e5f90, type: 3}
+  imageC: {fileID: 21300000, guid: f1f8e740d44326442943a464663aa9b8, type: 3}
   image: {fileID: 5200215571821307916}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &3026213531875714566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571821307919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6743305152418958600}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6743305152418958600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571821307919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215571821307916}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215571827539350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5301,6 +5449,8 @@ GameObject:
   - component: {fileID: 5200215571848997173}
   - component: {fileID: 5200215571848997174}
   - component: {fileID: 5200215571848997175}
+  - component: {fileID: 6181034544326861328}
+  - component: {fileID: 39925607608603067}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -5375,14 +5525,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: 30486dff44c56e84a8b97d934eae67e6, type: 3}
+  imageB: {fileID: 21300000, guid: 1b1f14148238710469c2d5d4710edba2, type: 3}
+  imageC: {fileID: 21300000, guid: c9473472f1f6bb34a9d57202479281c4, type: 3}
   image: {fileID: 5200215571848997174}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &6181034544326861328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571848997169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 39925607608603067}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &39925607608603067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571848997169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215571848997174}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215571854462326
 GameObject:
   m_ObjectHideFlags: 0
@@ -5891,6 +6113,8 @@ GameObject:
   - component: {fileID: 5200215571934356542}
   - component: {fileID: 5200215571934356543}
   - component: {fileID: 5200215571934356536}
+  - component: {fileID: 5046460414503355195}
+  - component: {fileID: 6383836863164955511}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -5973,6 +6197,78 @@ MonoBehaviour:
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &5046460414503355195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571934356538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6383836863164955511}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6383836863164955511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571934356538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215571934356543}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215571953456504
 GameObject:
   m_ObjectHideFlags: 0
@@ -6132,6 +6428,8 @@ GameObject:
   - component: {fileID: 5200215571961227174}
   - component: {fileID: 5200215571961227175}
   - component: {fileID: 5200215571961227168}
+  - component: {fileID: 8970851600153420393}
+  - component: {fileID: 1786632165413102871}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -6206,14 +6504,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: eebadd89f5af7c74f8bf4cc21bef5ff9, type: 3}
+  imageB: {fileID: 21300000, guid: 4b7a4e3129a376541960d785206ba1c1, type: 3}
+  imageC: {fileID: 21300000, guid: f4de81b3c7b339c46ac2671c808397fe, type: 3}
   image: {fileID: 5200215571961227175}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &8970851600153420393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571961227170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1786632165413102871}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1786632165413102871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215571961227170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215571961227175}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215571977671312
 GameObject:
   m_ObjectHideFlags: 0
@@ -7686,6 +8056,8 @@ GameObject:
   - component: {fileID: 5200215572239586545}
   - component: {fileID: 5200215572239586546}
   - component: {fileID: 5200215572239586547}
+  - component: {fileID: 4896489196958722333}
+  - component: {fileID: 2325204366428386485}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -7760,14 +8132,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: c156af843442f7f48bcaa9520c53406a, type: 3}
+  imageB: {fileID: 21300000, guid: 162247124a02166408a3c6acd6e3d38e, type: 3}
+  imageC: {fileID: 21300000, guid: cfe6999ff94223447ba188fd43274e99, type: 3}
   image: {fileID: 5200215572239586546}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &4896489196958722333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572239586557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2325204366428386485}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &2325204366428386485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572239586557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215572239586546}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215572240835160
 GameObject:
   m_ObjectHideFlags: 0
@@ -8390,6 +8834,8 @@ GameObject:
   - component: {fileID: 5200215572496285222}
   - component: {fileID: 5200215572496285223}
   - component: {fileID: 5200215572496285216}
+  - component: {fileID: 1353822164139137982}
+  - component: {fileID: 8407768355924352481}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -8464,14 +8910,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: a0680beeb12c44c48b28d07f81196e2a, type: 3}
+  imageB: {fileID: 21300000, guid: 1cd8fc6a41c03694ebed6b5c1a28c371, type: 3}
+  imageC: {fileID: 21300000, guid: 51ee70178f22088499c3d97e067aa535, type: 3}
   image: {fileID: 5200215572496285223}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &1353822164139137982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572496285218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8407768355924352481}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &8407768355924352481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572496285218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215572496285223}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215572506824268
 GameObject:
   m_ObjectHideFlags: 0
@@ -8803,6 +9321,8 @@ GameObject:
   - component: {fileID: 5200215572569681677}
   - component: {fileID: 5200215572569681678}
   - component: {fileID: 5200215572569681679}
+  - component: {fileID: 6194474133331535815}
+  - component: {fileID: 172586852610680920}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -8877,14 +9397,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: c9a2befea743383479c6b24dc91219ed, type: 3}
+  imageB: {fileID: 21300000, guid: bef4ee60a161b534eb0940cbb44c6e85, type: 3}
+  imageC: {fileID: 21300000, guid: d9b4bcff607c6724ab5bce0cac9a994e, type: 3}
   image: {fileID: 5200215572569681678}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &6194474133331535815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572569681673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 172586852610680920}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &172586852610680920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572569681673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215572569681678}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215572598893376
 GameObject:
   m_ObjectHideFlags: 0
@@ -9510,6 +10102,8 @@ GameObject:
   - component: {fileID: 5200215572701557295}
   - component: {fileID: 5200215572701557288}
   - component: {fileID: 5200215572701557289}
+  - component: {fileID: 4232257758360100234}
+  - component: {fileID: 7816385594884158319}
   m_Layer: 5
   m_Name: Statue
   m_TagString: Untagged
@@ -9584,14 +10178,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageA: {fileID: 0}
-  imageB: {fileID: 0}
-  imageC: {fileID: 0}
+  imageA: {fileID: 21300000, guid: 744eeca6e5b5b2942914fa7db7c418ec, type: 3}
+  imageB: {fileID: 21300000, guid: 57177536927188e4e8cb1db1ee25e9e0, type: 3}
+  imageC: {fileID: 21300000, guid: 01499282dee3aa143bc43d8ddd0d6c46, type: 3}
   image: {fileID: 5200215572701557288}
   colorA: {r: 1, g: 1, b: 1, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+--- !u!114 &4232257758360100234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572701557291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7816385594884158319}
+          m_MethodName: OnPress
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7816385594884158319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200215572701557291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b72da4e8d88340a0d9c36ee3c8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disabledSprite: {fileID: 0}
+  enabledSprite: {fileID: 0}
+  pressedSprite: {fileID: 0}
+  buttonImage: {fileID: 5200215572701557288}
+  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  enabledColor: {r: 1, g: 1, b: 1, a: 1}
+  pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonPressInterval: 0
+  isEnabled: 0
+  startEnabled: 1
+  disableSpriteShifting: 1
+  isPressed: 0
+  buttonPressOnDisabled:
+    m_PersistentCalls:
+      m_Calls: []
+  buttonPressImmideate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5200215571584333264}
+        m_MethodName: GetToStatue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  buttonPressDelayed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5200215572707657755
 GameObject:
   m_ObjectHideFlags: 0
