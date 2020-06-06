@@ -67,7 +67,7 @@ namespace CultManager
             int policeValue = currentCandidate.policeValue;
             int moneyValue = currentCandidate.moneyValue;
             BloodType type = currentCandidate.cultist.blood;
-            cardDisplay.Display(sprite, name, age, policeValue, moneyValue,type);
+            cardDisplay.Display(sprite, name, policeValue, moneyValue, type);
         }
 
         private void UpdateCult()
