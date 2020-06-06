@@ -19,12 +19,12 @@ MonoBehaviour:
     type: 3}
   _partName: Chest
   _completion:
-    _value: 0
-    _max: 1000000
+    _value: 1000
+    _max: 1000
   _workers:
-    _value: 2
+    _value: 10
     _max: 10
   _moneyCost: 100
-  _relicCost: 0
+  _relicCost: 10
   _bought: 1
-  _completed: 0
+  _completed: 1
