@@ -15,6 +15,7 @@ namespace CultManager
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private PoliceManager police = default;
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         [SerializeField] private CurrentPanel thisPanelName = default;
         [SerializeField] private RecruitmentCardBehavior cardDisplay = default;
@@ -45,6 +46,7 @@ namespace CultManager
             cultManager.DecreaseCandidates();
             SetCard();
             OnSelected.Invoke();
+            uiManager?.UpdateDisplayer();
         }
 
         public void Left()
@@ -54,6 +56,7 @@ namespace CultManager
             cultManager.DecreaseCandidates();
             SetCard();
             OnRejected.Invoke();
+            uiManager?.UpdateDisplayer();
         }
 
         public void NextCard()

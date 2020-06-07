@@ -8,6 +8,7 @@ namespace CultManager
     {
         public InfluenceData data;
         [SerializeField] private CultManager cultManager = default;
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         private float candidatesFrequency => data.value / 100.0f * 60f;
         public int value => (int)data.value;
@@ -17,22 +18,26 @@ namespace CultManager
         public void Increase(int _value)
         {
             data.Increment(_value);
+            uiManager?.UpdateDisplayer();
         }
 
         public void Decrease(int _value)
         {
             data.Decrement(_value);
+            uiManager?.UpdateDisplayer();
         }
 
         public void ResetValue(int _value)
         {
             data.Reset(_value);
+            uiManager?.UpdateDisplayer();
         }
 
         [ContextMenu("Reset")]
         public void ResetData()
         {
             data.ResetData(100);
+            uiManager?.UpdateDisplayer();
         }
 
         void Update()
@@ -44,6 +49,7 @@ namespace CultManager
         public void ForcedReset()
         {
             data.ResetData(100);
+            uiManager?.UpdateDisplayer();
         }
 
         public void InitializeData()

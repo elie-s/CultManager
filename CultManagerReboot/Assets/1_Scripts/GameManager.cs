@@ -17,6 +17,7 @@ namespace CultManager
         [SerializeField] private InfluenceManager influenceManager = default;
         [SerializeField] private PoliceManager policeManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         //[SerializeField] private AltarManager altarManager = default;
         [SerializeField] private BloodBankManager bloodManager = default;
@@ -76,6 +77,8 @@ namespace CultManager
             {
                 puzzeManager.LoadData();
             }
+
+            uiManager?.UpdateDisplayer();
         }
 
         private void NormalAwake()
@@ -100,6 +103,8 @@ namespace CultManager
                 puzzeManager.LoadData();
                 policeManager.InitAysnchValues();
             }
+
+            uiManager?.UpdateDisplayer();
         }
 
         public void SaveGame()

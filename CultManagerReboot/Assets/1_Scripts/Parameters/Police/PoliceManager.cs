@@ -10,7 +10,7 @@ namespace CultManager
         [SerializeField] private CultManager cult = default;
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private InfluenceManager influence = default;
-
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         [SerializeField] private ModifierReference reference = default;
 
@@ -44,27 +44,32 @@ namespace CultManager
         {
             float temp = _value /** (1 + reference.storage.PoliceIncrementModifier)*/;
             data.Increment(Mathf.RoundToInt(temp));
+            uiManager?.UpdateDisplayer();
         }
 
         public void Decrement(int _value)
         {
             float temp = _value /** (1 + reference.storage.PoliceDecrementModifier)*/;
             data.Decrement(Mathf.RoundToInt(temp));
+            uiManager?.UpdateDisplayer();
         }
 
         public void Set(int _value)
         {
             data.Set(_value);
+            uiManager?.UpdateDisplayer();
         }
 
         public void ResetData()
         {
             data.Reset(1000);
+            uiManager?.UpdateDisplayer();
         }
 
         public void ResetCult(int level)
         {
             data.ResetPoliceData(level);
+            uiManager?.UpdateDisplayer();
         }
 
         private void Update()
@@ -110,6 +115,7 @@ namespace CultManager
                 data.lastHourReference = System.DateTime.Now;
                 nextHourTime = System.DateTime.Now+System.TimeSpan.FromMinutes(1f);
                 ChargePenalty(1);
+                uiManager?.UpdateDisplayer();
             }
         }
 

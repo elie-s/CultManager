@@ -26,7 +26,7 @@ namespace CultManager
         public UnityEvent buttonPressImmideate;
         public UnityEvent buttonPressDelayed;
 
-        private void Start()
+        private void Awake()
         {
             isEnabled = false;
             
@@ -39,6 +39,7 @@ namespace CultManager
         {
             if (!isEnabled)
             {
+                Debug.Log(gameObject.name + " button enabled.");
                 isEnabled = true;
                 if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
@@ -49,6 +50,7 @@ namespace CultManager
         {
             if (isEnabled)
             {
+                Debug.Log(gameObject.name + " button disabled.");
                 isEnabled = false;
                 if (!disableSpriteShifting) buttonImage.sprite = disabledSprite;
                 buttonImage.color = disabledColor;

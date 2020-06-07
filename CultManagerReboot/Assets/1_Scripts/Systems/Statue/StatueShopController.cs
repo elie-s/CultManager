@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Contexts;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -91,12 +92,14 @@ namespace CultManager
             onStatueMenuClose.Invoke();
         }
 
+        [ContextMenu("Open")]
         public void Open()
         {
             if (lastPanel == CurrentPanel.DemonTreePanel) OpenDemonTree();
             else if (lastPanel == CurrentPanel.DemonStatuePanel) OpenStatueMenu();
         }
 
+        [ContextMenu("Close")]
         public void Close()
         {
             if (lastPanel == CurrentPanel.DemonTreePanel) CloseDemonTree();

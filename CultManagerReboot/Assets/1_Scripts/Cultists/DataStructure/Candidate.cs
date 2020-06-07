@@ -2,6 +2,7 @@
 
 namespace CultManager
 {
+    [System.Serializable]
     public class Candidate
     {
         public Cultist cultist { get; private set; }

@@ -12,14 +12,9 @@ namespace CultManager
         [SerializeField] private MoneyData money = default;
         [SerializeField] private UIGeneralDisplayer displayer = default;
 
-        // Start is called before the first frame update
-        void Start()
+        public void UpdateDisplayer()
         {
-            UpdateDiplayer();
-        }
-
-        public void UpdateDiplayer()
-        {
+            Debug.Log(influence.value);
             displayer.UpdateDisplay(cult.cultists.Count.Format(), money.money.Format(), influence.value.Format(), money.relics.Format(), police.ratio);
         }
     }
