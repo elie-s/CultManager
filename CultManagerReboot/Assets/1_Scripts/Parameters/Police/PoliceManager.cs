@@ -11,6 +11,7 @@ namespace CultManager
         [SerializeField] private MoneyManager money = default;
         [SerializeField] private InfluenceManager influence = default;
 
+
         [SerializeField] private ModifierReference reference = default;
 
 
