@@ -721,6 +721,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2665859294303540701, guid: d4a5f8da429358b43bd0a76d22ad8bf0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.999939
+      objectReference: {fileID: 0}
     - target: {fileID: 2768909969195779178, guid: d4a5f8da429358b43bd0a76d22ad8bf0,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9331,6 +9336,31 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 658407755}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1314306583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7856119885604976796, guid: d19a2ca58b477724a9691393f74401e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1363684544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1314306584
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314306583}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14eb020542bdabc48868c851b3e61d46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1319594860
 GameObject:
   m_ObjectHideFlags: 0
@@ -9972,7 +10002,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1363684544}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1314306583}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d40fd8e97bed35e489722eeb731913e6, type: 3}
@@ -9990,7 +10020,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1363684544}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1314306583}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fef91fddd671ce40a171fb1a8cbf0b4, type: 3}
@@ -10079,7 +10109,7 @@ PrefabInstance:
     - target: {fileID: 1536617920653454007, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
       propertyPath: useMouse
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2370907327985665865, guid: 2343774a5e1d51c409359070d311ec9b,
         type: 3}
