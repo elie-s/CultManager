@@ -8,7 +8,7 @@ using System;
 namespace CultManager
 {
     [CreateAssetMenu(menuName = "CultManager/Systems/AltarData")]
-    public class AltarData : ScriptableObject, ILoadable
+    public class AltarData : ScriptableObject
     {
         public List<AltarPart> altarParts;
         public int availableCultists;
@@ -89,12 +89,12 @@ namespace CultManager
             lastBuildTimeReference = _dateTime;
         }
 
-        public void LoadSave(Save _save)
-        {
-            SetAvailableCultists(_save.availableCultists);
-            altarParts = _save.altarParts.ToList();
-            ResetBuildTimeReference(_save.lastBuildTimeReference);
-        }
+        //public void LoadSave(Save _save)
+        //{
+        //    SetAvailableCultists(_save.availableCultists);
+        //    altarParts = _save.altarParts.ToList();
+        //    ResetBuildTimeReference(_save.lastBuildTimeReference);
+        //}
     }
 }
 

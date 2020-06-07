@@ -22,12 +22,12 @@ namespace CultManager
         public int currentLevel;
 
         //Influence Data
-        public int influenceMaxValue;
-        public int influenceCurrentValue;
+        public uint influenceCurrentValue;
         public DateTime influenceCandidateTimeReference;
 
         //MoneyData
         public uint moneyValue;
+        public uint relicValue;
 
         //Police Data
         public int policeMaxValue;
@@ -35,16 +35,17 @@ namespace CultManager
         public DateTime lastHourReference;
 
         //Altar Data
-        public AltarPart[] altarParts;
-        public int availableCultists;
-        public bool altarCompletion;
-        public DateTime lastBuildTimeReference;
+        //public AltarPart[] altarParts;
+        //public int availableCultists;
+        //public bool altarCompletion;
+        //public DateTime lastBuildTimeReference;
 
         //Note Tab
         public NoteTabSegment[] noteTabSegments;
 
         //Puzzle Data
         public PuzzleSegment[] puzzle;
+        public int puzzleLayers;
 
         //Blood Bank Data
         public BloodBank[] bloodBanks;
@@ -63,13 +64,15 @@ namespace CultManager
         //Modifier Database
         public ModifierStorage storage;
 
-        //Playtests
-        public int sessionCount;
-        public string testerName;
+        //Statue
+        public StatueSetSave[] statueSetSaves;
+        public int demonName;
+        public DateTime statueTimeRef;
+        public int[] demonsBought;
 
         public Save(int _savingSystemVersion, CultData _cultData, InfluenceData _influenceData, MoneyData _moneyData,
-            PoliceData _policeData, AltarData _altarData,NoteTabData _noteTabData, PuzzleData _puzzleData,
-            BloodBankData _bloodBankData,DemonData _demonData,PersistentDemonData _persistentDemonData,ModifierReference _modifierReference, DataRecorderSettings _dataRecorderSettings)
+            PoliceData _policeData, NoteTabData _noteTabData, PuzzleData _puzzleData,
+            BloodBankData _bloodBankData, DemonData _demonData, PersistentDemonData _persistentDemonData, ModifierReference _modifierReference, StatuesData _statueData)
         {
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
@@ -81,23 +84,24 @@ namespace CultManager
             currentLevel = _cultData.currentlevel;
 
             influenceCurrentValue = _influenceData.value;
-            influenceMaxValue = _influenceData.max;
             influenceCandidateTimeReference = _influenceData.lastCandidateTimeReference;
 
-            moneyValue = _moneyData.value;
+            moneyValue = _moneyData.money;
+            relicValue = _moneyData.relics;
 
             policeMaxValue = _policeData.max;
             policeCurrentValue = _policeData.value;
             lastHourReference = _policeData.lastHourReference;
 
-            altarParts = _altarData.altarParts.ToArray();
-            availableCultists = _altarData.availableCultists;
-            altarCompletion = _altarData.altarCompletion;
-            lastBuildTimeReference = _altarData.lastBuildTimeReference;
+            //altarParts = _altarData.altarParts.ToArray();
+            //availableCultists = _altarData.availableCultists;
+            //altarCompletion = _altarData.altarCompletion;
+            //lastBuildTimeReference = _altarData.lastBuildTimeReference;
 
             noteTabSegments = _noteTabData.noteTabSegments.ToArray();
 
             puzzle = _puzzleData.puzzle.ToArray();
+            puzzleLayers = _puzzleData.layers;
 
             bloodBanks = _bloodBankData.bloodBanks;
             level = _bloodBankData.level;
@@ -112,8 +116,10 @@ namespace CultManager
 
             storage = _modifierReference.storage;
 
-            sessionCount = _dataRecorderSettings.currentSession;
-            testerName = _dataRecorderSettings.testerName;
+            statueSetSaves = _statueData.SaveSets();
+            demonName = (int)_statueData.currentDemon;
+            statueTimeRef = _statueData.timeRef;
+            demonsBought = _statueData.DemonsBoughtToIntArray();
         }
     }
 }

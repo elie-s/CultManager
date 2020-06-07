@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+#pragma warning disable CS0414
 namespace CultManager
 {
     public class DataRecorder : MonoBehaviour

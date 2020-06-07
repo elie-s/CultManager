@@ -26,6 +26,20 @@ namespace CultManager
         {
             demonBook.PageActive(pageIndex);
         }
+
+        [ContextMenu("Underline")]
+        public void HighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Underline;
+            pageNumText.fontSize = 28;
+        }
+
+        [ContextMenu("Normalise")]
+        public void UnHighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Normal;
+            pageNumText.fontSize = 22;
+        }
     }
 }
 

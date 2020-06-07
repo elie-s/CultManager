@@ -9,7 +9,7 @@ namespace CultManager.HexagonalGrid
         [SerializeField] private HexGrid grid = default;
         [SerializeField] private int shapeSegments = 5;
         [SerializeField] private bool startAtCenter = true;
-        [SerializeField] private Pattern.Mode mode;
+        [SerializeField] private Pattern.Mode mode = default;
 
         private Node randomNode = default;
         [SerializeField] private Pattern pattern;

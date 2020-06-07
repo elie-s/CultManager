@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: KhorthoStatue
+  m_EditorClassIdentifier: 
+  _demon: 5
+  statuePrefab: {fileID: 4803678039988979498, guid: 6193e17350710b148b4d893157824f6b,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: 1b6a4f269b8a9544fb09a2b39e99a10a, type: 2}
+  - {fileID: 11400000, guid: bbe07b8f94adb8c41855410040b5b0ae, type: 2}
+  - {fileID: 11400000, guid: 36f6d563754f5554680235da9a600c06, type: 2}
+  - {fileID: 11400000, guid: 9318b945495967847be145710663b071, type: 2}
+  - {fileID: 11400000, guid: 02e665d15e29be14e9da11e456b42530, type: 2}
+  _cost: 2000
+  status: 0
+  _puzzleSegments: 10
+  _demonSegments: 5
+  _statue:
+  - {fileID: 21300000, guid: 8a23e7635d3c6e447a7b38fda860edf2, type: 3}
+  - {fileID: 21300000, guid: 0099624efcf297144a9bb0460b7fb973, type: 3}
+  - {fileID: 21300000, guid: 0099624efcf297144a9bb0460b7fb973, type: 3}
+  - {fileID: 21300000, guid: bf123cbba8f8fc04fa315f2cc425bb42, type: 3}
+  _effectText: 

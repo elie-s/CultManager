@@ -8,31 +8,42 @@ namespace CultManager
     [CreateAssetMenu(menuName = "CultManager/Parameters/MoneyData")]
     public class MoneyData : ScriptableObject, ILoadable
     {
-        public uint value { get; private set; }
+        public uint money { get; private set; }
+        public uint relics { get; private set; }
 
-        public void Increase(uint _value)
+        public void Increase(int _money, int _relic)
         {
-            value += _value;
+            money += (uint)_money;
+            relics += (uint)_relic;
         }
 
-        public void Decrease(uint _value)
+        public void Decrease(int _money, int _relic)
         {
-            value -= _value;
+            money -= (uint)_money;
+            relics -= (uint)_relic;
         }
 
-        public void Reset(uint _value)
+        public void Reset(int _money, int _relic)
         {
-            value = _value;
+            money = (uint)_money;
+            relics = (uint)_relic;
+        }
+
+        public void Reset(uint _money, uint _relic)
+        {
+            money = _money;
+            relics = _relic;
         }
 
         public void Reset()
         {
-            value = 0;
+            money = 0;
+            relics = 0;
         }
 
         public void LoadSave(Save _save)
         {
-            Reset(_save.moneyValue);
+            Reset(_save.moneyValue, _save.relicValue);
         }
 
         public void ResetMoneyData(int level)

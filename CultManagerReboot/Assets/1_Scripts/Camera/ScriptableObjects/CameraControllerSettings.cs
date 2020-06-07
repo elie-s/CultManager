@@ -9,5 +9,11 @@ namespace CultManager
     {
         public AnimationCurve transitionCurve;
         public float transitionDuration;
+        public float maxZoomValue = 1.0f;
+        public float zoomForce = 1.0f;
+        public float panningSpeed = 1.2f;
+        public float puzzlePanningSpeed = 2.0f;
+        public float minWidth = 0.15f;
+        public float allowNavigationSwipeThreshold = 0.1f;
     }
 }

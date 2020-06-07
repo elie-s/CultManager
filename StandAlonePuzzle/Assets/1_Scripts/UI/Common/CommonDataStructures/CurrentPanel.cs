@@ -7,6 +7,7 @@ namespace CultManager
 {
     public enum CurrentIsland
     {
+        Transition = -2,
         All = -1,
         Origin =0,
         RecruitmentIsland=1,
@@ -25,6 +26,7 @@ namespace CultManager
         DemonBook = 5,
         HotKeys=6,
         PolicePanel=7,
+        DemonPage=8,
     }
 }
 

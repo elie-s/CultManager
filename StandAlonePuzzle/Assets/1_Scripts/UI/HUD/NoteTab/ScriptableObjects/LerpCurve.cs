@@ -10,7 +10,7 @@ namespace CultManager
     public class LerpCurve : ScriptableObject
     {
         public AnimationCurve lerpCurve;
-        public float lerpValue;
+        public float lerpSpeed;
 
     }
 }

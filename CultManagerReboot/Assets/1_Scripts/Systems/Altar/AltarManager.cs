@@ -12,25 +12,25 @@ namespace CultManager
         [SerializeField] private AltarData altarData = default;
         [SerializeField] private AltarPartSet[] altarPartSets = default;
         [SerializeField] private AltarPartSet tutorialSet = default;
-        [SerializeField] private AltarDisplay display;
-        [SerializeField] private AltarPartSet currentAltarPartSet;
-        
+        [SerializeField] private AltarDisplay display = default;
+        [SerializeField] private AltarPartSet currentAltarPartSet = default;
+
 
         [Header("Cult Parameters")]
         [SerializeField] private CultData cult = default;
-        [SerializeField] private MoneyManager moneyManager;
-        [SerializeField] private PuzzeManager puzzleManager;
-        [SerializeField] private BloodBankUIDisplay bloodBankUI;
-        [SerializeField] private CameraController controller;
+        [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private PuzzeManager puzzleManager = default;
+        [SerializeField] private BloodBankUIDisplay bloodBankUI = default;
+        [SerializeField] private CameraController controller = default;
 
         [Header("New Addition")]
-        [SerializeField] public GameObject altarPartPrefab;
-        
+        [SerializeField] public GameObject altarPartPrefab = default;
 
-        public IntGauge assignedCultists;
-        public int[] workPower;
 
-        public UnityEvent OnCompletion;
+        public IntGauge assignedCultists = default;
+        public int[] workPower = default;
+
+        public UnityEvent OnCompletion = default;
 
 
         public void ResetCult(int level)
@@ -193,7 +193,7 @@ namespace CultManager
             {
                 if (moneyManager.value >= cost)
                 {
-                    moneyManager.Decrease(cost);
+                    moneyManager.Decrease(cost, 0);
                     _altar.Buy();
                 }
             }
@@ -266,7 +266,7 @@ namespace CultManager
             {
                 if (result < _amountAsked)
                 {
-                    if (!cult.cultists[i].occupied)
+                    if (!cult.cultists[i].working)
                     {
                         cult.cultists[i].ToggleOccupy();
                         assignedCultists.Increment(1);
@@ -286,9 +286,9 @@ namespace CultManager
             {
                 if (ctr < _amount)
                 {
-                    if (cult.cultists[i].occupied)
+                    if (cult.cultists[i].working)
                     {
-                        cult.cultists[i].occupied = false;
+                        cult.cultists[i].SetWorking(false);
                         assignedCultists.Decrement(1);
                         ctr++;
                     }

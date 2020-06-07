@@ -21,11 +21,13 @@ namespace CultManager
 
         [SerializeField] private CurrentPanel thisPanelName;
 
-        [SerializeField] private int puzzleScale;
+        [SerializeField] private float puzzleScale;
         CurrentPanel temp = CurrentPanel.None;
 
-        private bool startMove;
         private string direction = "right";
+
+        [SerializeField] private float lerpValue = 0;
+
         void Start()
         {
             Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
@@ -41,7 +43,7 @@ namespace CultManager
             }
         }
 
-        public void SetIndex(Segment segment,int index)
+        public void SetIndex(Segment segment, int index)
         {
             for (int i = 0; i < data.noteTabSegments.Count; i++)
             {
@@ -57,7 +59,7 @@ namespace CultManager
         {
             Debug.Log("Reached321");
             int index = 0;
-            for(int i = 0; i < data.noteTabSegments.Count; i++)
+            for (int i = 0; i < data.noteTabSegments.Count; i++)
             {
                 if (data.noteTabSegments[i].segment.Equals(segment))
                 {
@@ -70,32 +72,28 @@ namespace CultManager
         // Update is called once per frame
         void Update()
         {
-            EnableButton();
+            //EnableButton();
 
-            if (startMove)
+            switch (direction)
             {
-                switch (direction)
-                {
-                    case "left":
-                        {
-                            LerpMovement(starPoint, endPoint);
-                        }
-                        break;
+                case "left":
+                    {
+                        LerpMovement(starPoint, endPoint);
+                    }
+                    break;
 
-                    case "right":
-                        {
-                            LerpMovement(endPoint, starPoint);
-                        }
-                        break;
+                case "right":
+                    {
+                        LerpMovement(endPoint, starPoint);
+                    }
+                    break;
 
-                    default:
-                        {
-                            direction = "right";
-                        }
-                        break;
-                }
+                default:
+                    {
+                        direction = "right";
+                    }
+                    break;
             }
-
         }
 
         public void EnableButton()
@@ -112,56 +110,52 @@ namespace CultManager
 
         public void LerpMovement(Transform initial, Transform target)
         {
-            if (Vector2.Distance(transform.position, target.position) > 1f)
+            if (lerpValue < 1f)
             {
-                rectTransform.position = Vector2.Lerp(transform.position, target.position, Time.deltaTime);
-                //lerpCurve.lerpCurve.Evaluate(lerpCurve.lerpValue) * Time.deltaTime
-            }
-            else
-            {
-                startMove = false;
+                lerpValue += lerpCurve.lerpSpeed * Time.deltaTime;
+                Vector2 currentPos = Vector2.Lerp(transform.position, target.position, lerpValue);
+                rectTransform.position = currentPos;
             }
         }
 
         public void PanelToggleButton()
         {
-            if (!startMove)
+            switch (direction)
             {
-                switch (direction)
-                {
-                    case "left":
-                        {
-                            direction = "right";
-                            GameManager.currentPanel = temp;
-                        }
-                        break;
+                case "left":
+                    {
+                        direction = "right";
+                        lerpValue = 0;
+                        GameManager.currentPanel = temp;
+                    }
+                    break;
 
-                    case "right":
-                        {
-                            Display();
-                            direction = "left";
-                            temp = GameManager.currentPanel;
-                            GameManager.currentPanel = thisPanelName;
-                        }
-                        break;
+                case "right":
+                    {
+                        Display();
+                        direction = "left";
+                        lerpValue = 0;
+                        temp = GameManager.currentPanel;
+                        GameManager.currentPanel = thisPanelName;
+                    }
+                    break;
 
-                    default:
-                        {
-                            direction = "right";
-                            GameManager.currentPanel = temp;
-                        }
-                        break;
-                }
-                Togglebutton.localScale = new Vector3(-Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-                startMove = true;
+                default:
+                    {
+                        direction = "right";
+                        lerpValue = 0;
+                        GameManager.currentPanel = temp;
+                    }
+                    break;
             }
+            Togglebutton.localScale = new Vector3(-Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
 
         }
 
         public void Display()
         {
             display.DisplayPuzzle(puzzleScale);
-            
+
         }
 
 

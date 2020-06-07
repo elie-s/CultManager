@@ -37,8 +37,7 @@ namespace CultManager
 
             if (!SaveManager.saveLoaded)
             {
-                puzzeManager.ResetData();
-
+                puzzeManager.SAResetData();
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 noteTabManager.SetNoteTabSegments();
@@ -52,9 +51,6 @@ namespace CultManager
 
         void Update()
         {
-            if (Gesture.QuickTouch) Debug.Log("QuickTouch");
-            if (Gesture.LongTouch) Debug.Log("Longtouch");
-
             island = currentIsland;
             panel = currentPanel;
             if (isHome && Input.GetKeyDown(KeyCode.Escape))
@@ -104,7 +100,7 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
-            reset.ActivateReset();
+            reset.ActivateReset("Congratulations" + "\n" + "You invoked the demon!" + "\n" + "Your new Cult awaits you");
 
             puzzeManager.ResetCult(level);
 
@@ -112,7 +108,14 @@ namespace CultManager
             demonManager.ResetCult(level);
 
             saveManager.SaveGame();
-            StartCoroutine(GetToloadingScene());
+        }
+
+        public void StandaloneReset()
+        {
+            puzzeManager.SAResetCult();
+            demonManager.ResetCult(0);
+            bloodManager.ResetCult(0);
+            noteTabManager.SetNoteTabSegments();
         }
 
         public IEnumerator GetToloadingScene()

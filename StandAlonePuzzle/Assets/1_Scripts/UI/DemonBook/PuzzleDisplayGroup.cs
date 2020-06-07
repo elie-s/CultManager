@@ -9,8 +9,13 @@ namespace CultManager
     {
 
         [SerializeField]private GameObject puzzleDisplayPrefab;
+        [SerializeField] private int childIndex;
 
-        public void SpawnDisplay(Demon[] demons,int scale)
+        private void Update()
+        {
+        }
+
+        public void SpawnDisplay(Demon[] demons,float scale,int startIndex)
         {
             if (transform.childCount > 0)
             {
@@ -25,6 +30,8 @@ namespace CultManager
                 PuzzleDisplay current = instance.GetComponent<PuzzleDisplay>();
                 current.DisplayPuzzle(scale);
                 current.HighlightShape(demons[i].segments);
+                DemonDisplayAction demonDisplay = instance.GetComponent<DemonDisplayAction>();
+                demonDisplay.Init(demons[i].patternSegments, demons[i].segments.Length,startIndex++);
             }
         }
     }

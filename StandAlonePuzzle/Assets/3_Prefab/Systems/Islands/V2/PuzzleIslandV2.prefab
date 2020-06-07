@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2525248192383704158}
-  - component: {fileID: 2525248192383704145}
   m_Layer: 0
   m_Name: PuzzleIslandV2
   m_TagString: Untagged
@@ -66,21 +65,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2525248192383704145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2525248192383704144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cf7d5ba27cac1468fdb5419855d954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platforms:
-  - {fileID: 2525248193870324983}
-  cultistParent: {fileID: 2525248192955624454}
 --- !u!1 &2525248192955624473
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2525248193870324982}
-  - component: {fileID: 2525248193870324983}
   m_Layer: 0
   m_Name: Platform1
   m_TagString: Untagged
@@ -142,20 +125,6 @@ Transform:
   m_Father: {fileID: 2525248193957112365}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2525248193870324983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2525248193870324873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1c92b934178b6429d001d202cfad73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  span: 0.88
-  shift: -0.37
 --- !u!1 &2525248193957112364
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,14 +200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  col: {fileID: 0}
+  col: {fileID: 3713126342573971979}
   onAreaClicked:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: Transition
-        m_Mode: 3
+        m_MethodName: GoToPuzzle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -365,7 +333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 4173447097422338376}
   onAreaClicked:
     m_PersistentCalls:
@@ -376,7 +343,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -455,7 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82255385f6797348ab7615b88875368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   col: {fileID: 2669080402519117984}
   onAreaClicked:
     m_PersistentCalls:
@@ -466,7 +432,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

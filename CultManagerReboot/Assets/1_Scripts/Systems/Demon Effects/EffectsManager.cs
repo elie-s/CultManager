@@ -7,14 +7,9 @@ namespace CultManager
 {
     public class EffectsManager : MonoBehaviour
     {
-        [SerializeField] private DemonEffects DemonEffects;
-        [SerializeField] private ModifierReference reference;
-        [SerializeField] private DemonData demonData;
-
-        [SerializeField] private PoliceManager police;
-        [SerializeField] private InfluenceManager influence;
-        [SerializeField] private MoneyManager money;
-        [SerializeField] private CultManager recruitment;
+        [SerializeField] private DemonEffects DemonEffects = default;
+        [SerializeField] private ModifierReference reference = default;
+        [SerializeField] private DemonData demonData = default;
 
 
         Dictionary<EffectType, float> dictonary = new Dictionary<EffectType, float>();

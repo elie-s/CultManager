@@ -10,28 +10,28 @@ namespace CultManager
     public class AltarPanelBehavior : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private AltarData altarData;
-        [SerializeField] private AltarManager altarManager;
-        [SerializeField] private CurrentPanel thisPanelName;
+        [SerializeField] private AltarData altarData = default;
+        [SerializeField] private AltarManager altarManager = default;
+        [SerializeField] private CurrentPanel thisPanelName = default;
 
         [Header("Display")]
-        [SerializeField] private GameObject Panel;
-        [SerializeField] private GameObject demonPanel;
-        [SerializeField] private GameObject buyButton;
-        [SerializeField] private GameObject costPanel;
-        [SerializeField] private GameObject progressPanel;
-        [SerializeField] private GameObject completedPanel;
-        [SerializeField] private Image altarPartImage;
-        [SerializeField] private Image altarPartBar;
-        [SerializeField] private TMP_Text costText;
-        [SerializeField] private TMP_Text nameText;
-        [SerializeField] private TMP_Text descriptionText;
-        [SerializeField] private TMP_Text cultistsText;
-        [SerializeField] private TMP_Text progressText;
-        [SerializeField] private TMP_Text workPowerText;
-        [SerializeField] private TMP_Text elapsedTimeText;
-        [SerializeField] private TMP_Text nameCompletedText;
-        [SerializeField] private TMP_Text descriptionCompletedText;
+        [SerializeField] private GameObject Panel = default;
+        [SerializeField] private GameObject demonPanel = default;
+        [SerializeField] private GameObject buyButton = default;
+        [SerializeField] private GameObject costPanel = default;
+        [SerializeField] private GameObject progressPanel = default;
+        [SerializeField] private GameObject completedPanel = default;
+        [SerializeField] private Image altarPartImage = default;
+        [SerializeField] private Image altarPartBar = default;
+        [SerializeField] private TMP_Text costText = default;
+        [SerializeField] private TMP_Text nameText = default;
+        [SerializeField] private TMP_Text descriptionText = default;
+        [SerializeField] private TMP_Text cultistsText = default;
+        [SerializeField] private TMP_Text progressText = default;
+        [SerializeField] private TMP_Text workPowerText = default;
+        [SerializeField] private TMP_Text elapsedTimeText = default;
+        [SerializeField] private TMP_Text nameCompletedText = default;
+        [SerializeField] private TMP_Text descriptionCompletedText = default;
 
         private AltarPart altarPart=> altarData.altarParts[currentId];
         private AltarPartData currentAltarPartData => altarManager.ReturnAltarPartData(altarPart);

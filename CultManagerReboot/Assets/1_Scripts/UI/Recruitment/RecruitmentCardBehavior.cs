@@ -10,35 +10,56 @@ namespace CultManager
     public class RecruitmentCardBehavior : MonoBehaviour
     {
         [Header("Reference")]
-        [SerializeField] private RecruitmentManager recruitmentManager;
-        
+        [SerializeField] private RecruitmentManager recruitmentManager = default;
+        [SerializeField] private CultData data = default;
+
 
         [Header("Display")]
-        public Image image;
-        public TMP_Text nameAndAgeText;
-        public TMP_Text moneyText;
-        public TMP_Text policeText;
-        public TMP_Text bloodGroupText;
-        public GameObject[] traits= new GameObject[6];
+        [SerializeField] private Image image = default;
+        [SerializeField] private TMP_Text nameText = default;
+        [SerializeField] private TMP_Text moneyText = default;
+        [SerializeField] private TMP_Text policeText = default;
+        [SerializeField] private TextMeshProUGUI remainingCandidates = default;
+        [SerializeField] private UISwitch[] bloodSwitch = default;
 
-        public void Display(Sprite _image, string _cultistName, int _cultistAge, int _policeValue, int _moneyValue, BloodType _blood)
+        public void Display(Sprite _image, string _cultistName, int _policeValue, int _moneyValue, BloodType _blood)
         {
             image.sprite = _image;
-            nameAndAgeText.text = _cultistName + " " + _cultistAge.ToString();
+            nameText.text = _cultistName;
             moneyText.text = _moneyValue.ToString();
-            bloodGroupText.text = _blood.ToString();
             policeText.text = _policeValue.ToString();
-            /*for (int i = 0; i < traits.Length; i++)
+            UpdateBlood(_blood);
+            remainingCandidates.text = data.candidatesCount.ToString();
+        }
+
+        private void UpdateBlood(BloodType _blood)
+        {
+            switch (_blood)
             {
-                if (_cultistTraits.HasFlag((CultistTraits)Mathf.Pow(2, i)))
-                {
-                    traits[i].SetActive(true);
-                }
-                else
-                {
-                    traits[i].SetActive(false);
-                }
-            }*/
+                case BloodType.none:
+                    break;
+
+                case BloodType.O:
+                    bloodSwitch[0].SetC();
+                    bloodSwitch[1].SetC();
+                    break;
+
+                case BloodType.A:
+                    bloodSwitch[0].SetA();
+                    bloodSwitch[1].SetA();
+                    break;
+
+                case BloodType.B:
+                    bloodSwitch[0].SetB();
+                    bloodSwitch[1].SetB();
+                    break;
+
+                case BloodType.AB:
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public void Close()

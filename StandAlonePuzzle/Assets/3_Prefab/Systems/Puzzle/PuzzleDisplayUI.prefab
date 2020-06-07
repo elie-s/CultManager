@@ -33,8 +33,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 15, y: 35}
+  m_SizeDelta: {x: -30, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1666608827206791546
 GameObject:
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
-  segmentPrefab: {fileID: 749465767270544612, guid: 18b168b15505201429f75188fde97f73,
+  segmentPrefab: {fileID: 7954144254086272377, guid: 98dc2e7d48a5b024fab4ecfd06de6260,
     type: 3}
   nodePrefab: {fileID: 0}
   parent: {fileID: 1666608827206791541}

@@ -7,11 +7,11 @@ namespace CultManager
 {
     public class WaitingCandidates : MonoBehaviour
     {
-        [SerializeField] private GameObject[] candidates;
+        [SerializeField] private GameObject[] candidates = default;
 
-        [SerializeField] private CultManager cult;
+        [SerializeField] private CultManager cult = default;
 
-        int currentCandidates;
+        int currentCandidates = 0;
 
         private void Start()
         {

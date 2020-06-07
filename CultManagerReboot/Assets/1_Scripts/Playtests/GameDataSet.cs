@@ -22,7 +22,7 @@ namespace CultManager
 
         public GameDataSet(MoneyData _money, BloodBankData _blood, InfluenceData _influence, PoliceData _police, CultData _cult, DemonData _demons)
         {
-            money = (int) _money.value;
+            money = (int) _money.money;
             bloodA = _blood.bloodBanks[0].gauge.value;
             bloodB = _blood.bloodBanks[1].gauge.value;
             bloodO = _blood.bloodBanks[2].gauge.value;

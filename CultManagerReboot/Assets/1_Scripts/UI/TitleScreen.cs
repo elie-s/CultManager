@@ -10,11 +10,11 @@ namespace CultManager
 {
     public class TitleScreen : MonoBehaviour
     {
-        [SerializeField] private GameObject title;
-        [SerializeField] private GameObject loading;
+        [SerializeField] private GameObject title = default;
+        [SerializeField] private GameObject loading = default;
         [SerializeField] private GameObject registration = default;
 
-        [SerializeField] private Image loadingBar;
+        [SerializeField] private Image loadingBar = default;
         [SerializeField] private SaveManager saveManager = default;
         [SerializeField] private CultData data = default;
 

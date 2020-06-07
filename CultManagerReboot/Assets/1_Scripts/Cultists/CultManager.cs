@@ -62,7 +62,7 @@ namespace CultManager
 
             if (allowInfiltration)
             {
-                result.isInvestigator = ChanceOfInfiltration();
+                result.SetInvestigator( ChanceOfInfiltration());
                 Debug.Log("Added "+result.isInvestigator);
                 
             }
@@ -132,6 +132,13 @@ namespace CultManager
         public bool ChanceOfInfiltration()
         {
             return ((int)Random.Range(1, 100) <= rateOfInfiltration);
+        }
+
+        // Work
+
+        public int CountAvailableCultist()
+        {
+            return data.AvailableCultists();
         }
     }
 }

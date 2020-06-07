@@ -13,6 +13,8 @@ public class Gauge
     public float value => _value;
     public float ratio => (value - min) / (max - min);
     public float percentage => ratio * 100;
+    public bool isFull => ratio == 1.0f;
+    public float toBeFilled => (1.0f - ratio) * max;
 
     public Gauge(float _min, float _max, bool _startFull = true)
     {
@@ -26,6 +28,12 @@ public class Gauge
     {
         _value = Mathf.Clamp(min, min, max);
     }
+
+    public void Reset()
+    {
+        _value = min;
+    }
+
     public void SetValue(float _value)
     {
         this._value = Mathf.Clamp(_value, min, max);
@@ -58,6 +66,7 @@ public class IntGauge
     public int value => _value;
     public float ratio =>(float)(value - min) / (float)(max - min);
     public int amountLeft => max - value;
+    public bool isFull => max == value;
 
     public IntGauge(int _min, int _max, bool _startFull = true)
     {
@@ -84,6 +93,12 @@ public class IntGauge
     {
         _value = Mathf.Clamp(min, min, max);
     }
+
+    public void Reset()
+    {
+        _value = min;
+    }
+
     public void SetValue(int _value)
     {
         _value = Mathf.Clamp(_value, min, max);

@@ -12,11 +12,13 @@ namespace CultManager
         [SerializeField] private PersistentDemonData persistentData = default;
         [SerializeField] private GameObject spawnPrefab = default;
         [SerializeField] private GameObject persistentDemonPrefab = default;
-        [SerializeField] private MoneyManager money = default;
-        [SerializeField] private CultManager cult = default;
-        [SerializeField] private AltarManager altar = default;
 
-        [SerializeField] private EffectsManager effects;
+        [SerializeField] private DemonBookUI demonBook = default;
+        [SerializeField] private EffectsManager effects = default;
+        [SerializeField] private GameManager game = default;
+        [SerializeField] private BoxCollider2D area = default;
+        [SerializeField] private Transform spawnPosition = default;
+        [SerializeField] private FadeBehavior worldFade = default;
         [SerializeField] private Transform[] waypoints = default;
 
         private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
@@ -25,8 +27,8 @@ namespace CultManager
 
         private void Start()
         {
-            InitSpawns();
-            InitPersistent();
+            /*InitSpawns();
+            InitPersistent();*/
         }
 
         public void ResetData()
@@ -38,37 +40,52 @@ namespace CultManager
         public void ResetCult(int level)
         {
             data.ResetDemonData(level);
+            KillAllSpawns();
+            InitSpawns();
         }
 
-        public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments)
+        public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
-            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments);
-            GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
-            instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy);
+            //reset.ActivateSpawn();
+            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
+            GameObject instance = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform);
+            instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy,area,demonBook);
             spawns.Add(instance.GetComponent<SpawnBehavior>());
+            spawns[spawns.Count - 1].spawnFade.ActivateFade();
             effects.UpdateModifiers();
+
+        }
+
+        public Spawn AddNewExperiment(int _durationInHours, Segment[] _segments, int _patternSegments, int _totalPatternSegments)
+        {
+            return data.CreateDemon(_durationInHours, _segments, new Modifier[0], _patternSegments, _totalPatternSegments);
+        }
+
+        public SpawnSummoningBehaviour SummonSpawn(Spawn _spawn)
+        {
+            SpawnSummoningBehaviour behaviour = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform).GetComponent<SpawnSummoningBehaviour>();
+            behaviour.Init(_spawn);
+
+            return behaviour;
         }
 
         public void CreateNewPersistentDemon(int spriteIndex)
         {
+            //reset.ActivateDemon();
+            worldFade.ActivateDelayedFade(3);
             PersistentDemon persistent = persistentData.CreatePersistentDemon(spriteIndex);
-            GameObject instance = Instantiate(persistentDemonPrefab, GetRandomPos(), Quaternion.identity, transform);
-            instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this);
+            GameObject instance = Instantiate(persistentDemonPrefab, spawnPosition.position, Quaternion.identity, transform);
+            instance.GetComponent<PersistentDemonBehavior>().Init(persistent, this,area);
+            instance.GetComponent<PersistentDemonBehavior>().spawnFade.ActivateFade();
             effects.UpdateModifiers();
-
-            ResetCultProgress();
-
         }
 
-        public void BreakRandomAltarPart()
+        void KillAllSpawns()
         {
-            altar.BreakAltarPart();
-        }
-
-        [ContextMenu("Reset Progress")]
-        void ResetCultProgress()
-        {
-            cult.ResetCultProgress();
+            for (int i = 0; i < spawns.Count; i++)
+            {
+                KillSpawn(spawns[i].spawn);
+            }
         }
 
         public void KillSpawn(Spawn spawn)
@@ -106,9 +123,10 @@ namespace CultManager
             {
                 for (int i = 0; i < data.spawns.Count; i++)
                 {
-                    GameObject instance = Instantiate(spawnPrefab, GetRandomPos(), Quaternion.identity, transform);
-                    instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this, data.spawns[i].patternAccuracy);
+                    GameObject instance = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform);
+                    instance.GetComponent<SpawnBehavior>().Init(data.spawns[i], this, data.spawns[i].patternAccuracy, area,demonBook);
                     spawns.Add(instance.GetComponent<SpawnBehavior>());
+                    spawns[i].EnableMove();
                     effects.UpdateModifiers();
                 }
             }
@@ -120,8 +138,9 @@ namespace CultManager
             {
                 for (int i = 0; i < persistentData.persistentDemons.Count; i++)
                 {
-                    GameObject instance = Instantiate(persistentDemonPrefab, GetRandomPos(), Quaternion.identity, transform);
-                    instance.GetComponent<PersistentDemonBehavior>().Init(persistentData.persistentDemons[i], this);
+                    GameObject instance = Instantiate(persistentDemonPrefab, spawnPosition.position, Quaternion.identity, transform);
+                    instance.GetComponent<PersistentDemonBehavior>().Init(persistentData.persistentDemons[i], this,area);
+                    instance.GetComponent<PersistentDemonBehavior>().EnableMove();
                     effects.UpdateModifiers();
                 }
             }
@@ -130,6 +149,11 @@ namespace CultManager
         private Vector2 GetRandomPos()
         {
             return waypoints[Random.Range(0, waypoints.Length)].position;
+        }
+
+        public void ResetPuzzle()
+        {
+            game.ResetCult(1);
         }
     }
 }

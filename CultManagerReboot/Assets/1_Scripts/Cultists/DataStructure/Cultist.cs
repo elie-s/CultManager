@@ -9,9 +9,9 @@ namespace CultManager
         public string cultistName { get; private set; }
         public int age { get; private set; }
         public int spriteIndex { get; private set; }
-        public bool occupied { get; set; }
-        public bool isInvestigator { get; set; }
-        public bool detected { get; set; }
+        public bool working { get; private set; }
+        public bool isInvestigator { get; private set; }
+        public bool detected { get; private set; }
         public CultistTraits traits { get; private set; }
         public BloodType blood { get; private set; }
 
@@ -23,17 +23,27 @@ namespace CultManager
             RandomAge();
             RandomTraits();
             RandomBloodType();
-            occupied = false;
+            working = false;
         }
 
         public void ToggleOccupy()
         {
-            occupied = !occupied;
+            working = !working;
         }
 
-        public bool IsOccupied()
+        public void SetWorking(bool _value)
         {
-            return occupied;
+            working = _value;
+        }
+
+        public void SetInvestigator(bool _value)
+        {
+            isInvestigator = _value;
+        }
+
+        public void SetDetected(bool _value)
+        {
+            detected = _value;
         }
 
         public void RandomAge()

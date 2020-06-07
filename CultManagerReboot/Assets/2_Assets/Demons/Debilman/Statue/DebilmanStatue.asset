@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: DebilmanStatue
+  m_EditorClassIdentifier: 
+  _demon: 3
+  statuePrefab: {fileID: 4803678039988979498, guid: 5fda445b028977342953616026978480,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: 31e65f600b0d7894c8adfc9e7500372e, type: 2}
+  - {fileID: 11400000, guid: 64e99c1d7535a0248b20afd4f2ea4c65, type: 2}
+  - {fileID: 11400000, guid: ecf30a9ddaf84dc47b83339f44318161, type: 2}
+  - {fileID: 11400000, guid: 11c90226ad987b44caed251cbd20f916, type: 2}
+  _cost: 400
+  status: 0
+  _puzzleSegments: 10
+  _demonSegments: 5
+  _statue:
+  - {fileID: 21300000, guid: d358c7700e4dc81409a6a91a2d0f76b4, type: 3}
+  - {fileID: 21300000, guid: 23ce878421f1b394e874e934140de791, type: 3}
+  - {fileID: 21300000, guid: 23ce878421f1b394e874e934140de791, type: 3}
+  - {fileID: 21300000, guid: 21e33dc10ca5cd04096f62f8b7eb51c9, type: 3}
+  _effectText: 

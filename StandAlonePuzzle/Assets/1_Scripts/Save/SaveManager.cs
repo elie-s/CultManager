@@ -17,11 +17,6 @@ namespace CultManager
         [Header("Settings")]
         [SerializeField] private SaveSettings settings = default;
 
-        [SerializeField] public int currentCultistsDebug = 0;
-        [SerializeField] public int currentMoneyDebug = 0;
-        [SerializeField] public int currentInfluenceDebug = 0;
-        [SerializeField] public int currentPoliceDebug = 0;
-
         public static bool saveLoaded;
 
         private string dataPath => Application.persistentDataPath + "/" + settings.saveFolder + "/" + settings.saveName + "." + settings.saveExtension + settings.version;

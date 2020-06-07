@@ -10,7 +10,7 @@ namespace CultManager
     {
         public DemonBookUI demonBook;
         public int pageIndex;
-        [SerializeField] private TMP_Text pageNumText;
+        [SerializeField] private TMP_Text pageNumText = default;
 
         private void Start()
         {
@@ -25,6 +25,20 @@ namespace CultManager
         public void PageClick()
         {
             demonBook.PageActive(pageIndex);
+        }
+
+        [ContextMenu("Underline")]
+        public void HighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Underline;
+            pageNumText.fontSize = 28;
+        }
+
+        [ContextMenu("Normalise")]
+        public void UnHighlightText()
+        {
+            pageNumText.fontStyle = FontStyles.Normal;
+            pageNumText.fontSize = 22;
         }
     }
 }

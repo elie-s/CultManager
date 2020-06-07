@@ -7,6 +7,7 @@ namespace CultManager
 {
     public class BloodBankManager : MonoBehaviour
     {
+        [SerializeField] private BloodBankUIDisplay display;
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private BloodBank[] tempBanks;
 
@@ -117,6 +118,22 @@ namespace CultManager
         {
             data.Increase(10);
         }
+
+        public void FillUp()
+        {
+            data.FillAllBloodBanks();
+        }
+
+        public void InAdequateBloodOfType(BloodType blood)
+        {
+            display.InadequateBloodAnim(blood);
+        }
+
+        public void UseOfBloodOfType(BloodType blood)
+        {
+            display.BloodUtilizeAnim(blood);
+        }
+
 
         public void ResetCult(int level)
         {

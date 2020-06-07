@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b539b669b3fd194f8a382445dcf8120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playCam: {fileID: 0}
   debug:
     filter: 0
   OnQuickTouch:
@@ -55,5 +54,5 @@ MonoBehaviour:
   OnLongTapEnd:
     m_PersistentCalls:
       m_Calls: []
-  useMouse: 0
-  settings: {fileID: 11400000, guid: 9ffb1a4f2324ca240bf02612862e341f, type: 2}
+  useMouse: 1
+  settings: {fileID: 11400000, guid: fd67a2b8995883643bdc53ccf2d14eb0, type: 2}

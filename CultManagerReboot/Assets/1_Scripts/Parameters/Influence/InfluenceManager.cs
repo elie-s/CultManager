@@ -10,7 +10,7 @@ namespace CultManager
         [SerializeField] private CultManager cultManager = default;
 
         private float candidatesFrequency => data.value / 100.0f * 60f;
-        public int value => data.value;
+        public int value => (int)data.value;
 
         
 
@@ -26,9 +26,10 @@ namespace CultManager
 
         public void ResetValue(int _value)
         {
-            data.Set(_value);
+            data.Reset(_value);
         }
 
+        [ContextMenu("Reset")]
         public void ResetData()
         {
             data.ResetData(100);
@@ -58,6 +59,8 @@ namespace CultManager
             for (int i = 0; i < candidatesToAdd; i++)
             {
                 SendCandidate();
+
+                Debug.Log("Candidate added");
             }
 
         }
