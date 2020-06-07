@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
   m_Name: Mortimer-Toga
   m_EditorClassIdentifier: 
-  _completedSprite: {fileID: 21300000, guid: 3b313bc1fe6f1f444a4d462f0661d007, type: 3}
-  _uncompletedSprite: {fileID: 21300000, guid: 05343d61049160a49994c3df8db27429, type: 3}
+  _completedSprite: {fileID: 21300000, guid: fa4797c7bd1f77d428b0f9d39f0e5b76, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: d9420fca384e22846b0ce8e1b072f2b5, type: 3}
   _uiCompletedSprite: {fileID: 21300000, guid: 113f5b5c3c679004c831b886f122e6fb, type: 3}
   _uiUncompletedSprite: {fileID: 21300000, guid: 67a89adbe7661cf43be2aa31a365e8d1,
     type: 3}
   _partName: Toga
   _completion:
-    _value: 0
+    _value: 500
     _max: 500
   _workers:
     _value: 0
     _max: 10
   _moneyCost: 0
   _relicCost: 0
-  _bought: 0
-  _completed: 0
+  _bought: 1
+  _completed: 1
