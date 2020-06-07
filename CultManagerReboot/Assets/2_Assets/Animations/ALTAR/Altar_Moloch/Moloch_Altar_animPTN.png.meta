@@ -1,0 +1,452 @@
+fileFormatVersion: 2
+guid: cb83df5499fcb2840a00e6d91f97db99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5970269088968895504
+    second: Moloch_Altar_animPTN_0
+  - first:
+      213: -8591166394890617746
+    second: Moloch_Altar_animPTN_1
+  - first:
+      213: 141835100498081985
+    second: Moloch_Altar_animPTN_2
+  - first:
+      213: 4242281955308350687
+    second: Moloch_Altar_animPTN_3
+  - first:
+      213: -6488515021928751683
+    second: Moloch_Altar_animPTN_4
+  - first:
+      213: -1587700629845778336
+    second: Moloch_Altar_animPTN_5
+  - first:
+      213: -8216194591065309568
+    second: Moloch_Altar_animPTN_6
+  - first:
+      213: 7350337273582253950
+    second: Moloch_Altar_animPTN_7
+  - first:
+      213: 4966982818175958266
+    second: Moloch_Altar_animPTN_8
+  - first:
+      213: -738033776244099371
+    second: Moloch_Altar_animPTN_9
+  - first:
+      213: 4395787626075699360
+    second: Moloch_Altar_animPTN_10
+  - first:
+      213: 2619881974938352446
+    second: Moloch_Altar_animPTN_11
+  - first:
+      213: -8110776058341826721
+    second: Moloch_Altar_animPTN_12
+  - first:
+      213: 3315127354354931687
+    second: Moloch_Altar_animPTN_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f3938a35e7552da0800000000000000
+      internalID: -5970269088968895504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_1
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c754a8eab06c880800000000000000
+      internalID: -8591166394890617746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8beddb546e7f100800000000000000
+      internalID: 141835100498081985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_3
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc243736fc9fda30800000000000000
+      internalID: 4242281955308350687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_4
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd962617f924f5a0800000000000000
+      internalID: -6488515021928751683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_5
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060e06c60ba57f9e0800000000000000
+      internalID: -1587700629845778336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_6
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 1997.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ef01afc863afd80800000000000000
+      internalID: -8216194591065309568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77fe2b7ec4a10660800000000000000
+      internalID: 7350337273582253950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_8
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afcb8d29e844ee440800000000000000
+      internalID: 4966982818175958266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_9
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6fab6d03af1c5f0800000000000000
+      internalID: -738033776244099371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_10
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8bc485e89f00d30800000000000000
+      internalID: 4395787626075699360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_11
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b36a586c0bb5420800000000000000
+      internalID: 2619881974938352446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_12
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5fdacdc52cb07f80800000000000000
+      internalID: -8110776058341826721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Moloch_Altar_animPTN_13
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 0.5
+        width: 2000
+        height: 1997.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e79185b3c2b10e20800000000000000
+      internalID: 3315127354354931687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
