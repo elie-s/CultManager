@@ -9,27 +9,27 @@ namespace CultManager
     [CreateAssetMenu(menuName = "CultManager/Parameters/InfluenceData")]
     public class InfluenceData : ScriptableObject, ILoadable
     {
-        public uint value { get; private set; }
+        public ulong value { get; private set; }
 
         public DateTime lastCandidateTimeReference;
 
         public void Increment(int _value)
         {
-            value +=(uint)value;
+            value +=(ulong)value;
         }
 
         public void Decrement(int _value)
         {
-            value -= (uint) _value;
+            value -= (ulong) _value;
         }
 
-        public void Reset(int _value)
+        public void Reset(ulong _value)
         {
-            value = (uint)_value;
+            value = (ulong)_value;
         }
 
 
-        public void ResetData(int _value)
+        public void ResetData(ulong _value)
         {
             Reset(_value);
             ResetCandidateTimeReference();

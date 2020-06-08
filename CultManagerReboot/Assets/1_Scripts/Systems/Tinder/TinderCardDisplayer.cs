@@ -55,7 +55,7 @@ namespace CultManager
                 candidateMoney.text = 999999.Format();
                 candidatePolice.text = 13.Format();
 
-                CloseCard(0.0f);
+                CloseCard(0.1f);
                 EnableInteractions(false);
 
                 return false;
@@ -84,7 +84,7 @@ namespace CultManager
             fading = true;
 
             Iteration iteration = new Iteration(_duration);
-            iteration.Increment(_in ? Mathf.Lerp(0.0f, 1.0f, card.alpha) * _duration : Mathf.Lerp(1.0f, 0.0f, card.alpha));
+            iteration.Increment(_in ? Mathf.Lerp(0.0f, 1.0f, card.alpha) * _duration : Mathf.Lerp(1.0f, 0.0f, card.alpha) * _duration);
 
             while (iteration.isBelowOne)
             {
@@ -171,6 +171,8 @@ namespace CultManager
 
         public void LerpCard()
         {
+            if (data.candidatesCount == 0) return;
+
             cardTransform.anchoredPosition = swipeLerp > 0.0f ?
                                             Vector2.Lerp(originWaypoint.anchoredPosition, acceptedWaypoint.anchoredPosition, swipeLerp) :
                                             Vector2.Lerp(rejectedWaypoint.anchoredPosition, originWaypoint.anchoredPosition, 1.0f + swipeLerp);

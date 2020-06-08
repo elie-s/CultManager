@@ -606,7 +606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -249}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: -620, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5838480193817507492
@@ -1152,6 +1152,7 @@ GameObject:
   - component: {fileID: 152400665862774856}
   - component: {fileID: 4723943016960260351}
   - component: {fileID: 4220360287062661377}
+  - component: {fileID: 5765872206045590901}
   m_Layer: 5
   m_Name: BarB
   m_TagString: Untagged
@@ -1206,7 +1207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ee8df9cb73f0b14fa0b4bd9c5371aa8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d952746f9b39d7c408db59fdad736f2a, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1260,6 +1261,22 @@ MonoBehaviour:
   uiElement: {fileID: 7856119885813461493}
   duration: 0.25
   uiAnimation: {fileID: 11400000, guid: 5cbb96688652c1b47b41ca48cedc9530, type: 2}
+--- !u!114 &5765872206045590901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856119885813461492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2f3bc16989a9044b1cd37d99526748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: d19ddbfeb5d678a4ebb25c75a10ceb0d, type: 2}
+  type: 2
+  imageComponent: {fileID: 7856119885813461482}
+  spriteRendererComponent: {fileID: 0}
 --- !u!1 &7856119886183294598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1375,8 @@ MonoBehaviour:
   pressedColor: {r: 1, g: 1, b: 1, a: 1}
   buttonPressInterval: 2
   isEnabled: 0
+  startEnabled: 0
+  disableSpriteShifting: 0
   isPressed: 0
   buttonPressOnDisabled:
     m_PersistentCalls:
@@ -1633,6 +1652,7 @@ GameObject:
   - component: {fileID: 2916075448703967774}
   - component: {fileID: 7002734878067009417}
   - component: {fileID: 8553741928038190813}
+  - component: {fileID: 7959437083304253721}
   m_Layer: 5
   m_Name: BarA
   m_TagString: Untagged
@@ -1687,7 +1707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e064dd2a9b27edd488e02aef39e9b7bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cddad5f5e0eb55d4fae5c56ebdaccf5d, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1741,6 +1761,22 @@ MonoBehaviour:
   uiElement: {fileID: 7856119886791836537}
   duration: 0.25
   uiAnimation: {fileID: 11400000, guid: 5cbb96688652c1b47b41ca48cedc9530, type: 2}
+--- !u!114 &7959437083304253721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856119886791836536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2f3bc16989a9044b1cd37d99526748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: d19ddbfeb5d678a4ebb25c75a10ceb0d, type: 2}
+  type: 1
+  imageComponent: {fileID: 7856119886791836542}
+  spriteRendererComponent: {fileID: 0}
 --- !u!1 &7856119886946408839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1791,7 @@ GameObject:
   - component: {fileID: 6304724716372277765}
   - component: {fileID: 3135438156985118291}
   - component: {fileID: 8512662904969194987}
+  - component: {fileID: 5724729094639329103}
   m_Layer: 5
   m_Name: BarO
   m_TagString: Untagged
@@ -1809,7 +1846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 47332c1a98594ba459da8cc8db3bc6ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29c596ea686e63a458c512cf5bfb3e5f, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1863,6 +1900,22 @@ MonoBehaviour:
   uiElement: {fileID: 7856119886946408836}
   duration: 0.25
   uiAnimation: {fileID: 11400000, guid: 5cbb96688652c1b47b41ca48cedc9530, type: 2}
+--- !u!114 &5724729094639329103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856119886946408839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2f3bc16989a9044b1cd37d99526748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: d19ddbfeb5d678a4ebb25c75a10ceb0d, type: 2}
+  type: 0
+  imageComponent: {fileID: 7856119886946408837}
+  spriteRendererComponent: {fileID: 0}
 --- !u!1 &7856119887046859515
 GameObject:
   m_ObjectHideFlags: 0

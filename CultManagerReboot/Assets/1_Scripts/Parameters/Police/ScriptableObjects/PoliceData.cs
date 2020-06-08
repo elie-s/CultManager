@@ -16,6 +16,8 @@ namespace CultManager
         public int max => gauge.max;
         public float ratio => gauge.ratio;
 
+        public int bribeLevelValue { get; private set; }
+
         public void Increment(int _value)
         {
             gauge.Increment(_value);
@@ -26,20 +28,37 @@ namespace CultManager
             gauge.Decrement(_value);
         }
 
+        public void Decrease(float _value)
+        {
+            gauge.Decrease(_value);
+        }
+
         public void Set(int _value)
         {
             gauge.SetValue(_value);
         }
 
+        public void SetBribeValue(int _value)
+        {
+            bribeLevelValue = _value;
+        }
+
+        public IntGauge GetGauge()
+        {
+            return gauge;
+        }
+
         public void Reset(int _max)
         {
             gauge = new IntGauge(0, _max, false);
+            SetBribeValue(10);
         }
 
         public void LoadSave(Save _save)
         {
             gauge = new IntGauge(0, _save.policeMaxValue, _save.policeCurrentValue);
             SetHourReference(_save.lastHourReference);
+            SetBribeValue(_save.bribeValue);
         }
 
         public void ResetPoliceData(int level)

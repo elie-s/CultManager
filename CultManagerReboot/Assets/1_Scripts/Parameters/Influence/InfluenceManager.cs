@@ -27,7 +27,7 @@ namespace CultManager
             uiManager?.UpdateDisplayer();
         }
 
-        public void ResetValue(int _value)
+        public void ResetValue(ulong _value)
         {
             data.Reset(_value);
             uiManager?.UpdateDisplayer();

@@ -119,6 +119,11 @@ public class IntGauge
         _value = Mathf.Clamp(value - _decrement, min, max);
     }
 
+    public void Decrease(float _ratio)
+    {
+        Decrement(Mathf.RoundToInt(max * _ratio));
+    }
+
     public override string ToString()
     {
         return value + "/" + max;

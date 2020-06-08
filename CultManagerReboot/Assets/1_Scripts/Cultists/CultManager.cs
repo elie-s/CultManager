@@ -60,8 +60,6 @@ namespace CultManager
 
             Cultist result = data.CreateCultist(cultistName, sprite);
 
-            Debug.Log(result == null ? "cultist null" : "cultist :" + result.cultistName); 
-
             if (allowInfiltration)
             {
                 result.SetInvestigator( ChanceOfInfiltration());

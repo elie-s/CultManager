@@ -22,7 +22,7 @@ namespace CultManager
         public int currentLevel;
 
         //Influence Data
-        public uint influenceCurrentValue;
+        public ulong influenceCurrentValue;
         public DateTime influenceCandidateTimeReference;
 
         //MoneyData
@@ -33,6 +33,7 @@ namespace CultManager
         public int policeMaxValue;
         public int policeCurrentValue;
         public DateTime lastHourReference;
+        public int bribeValue;
 
         //Altar Data
         //public AltarPart[] altarParts;
@@ -92,6 +93,7 @@ namespace CultManager
             policeMaxValue = _policeData.max;
             policeCurrentValue = _policeData.value;
             lastHourReference = _policeData.lastHourReference;
+            bribeValue = _policeData.bribeLevelValue;
 
             //altarParts = _altarData.altarParts.ToArray();
             //availableCultists = _altarData.availableCultists;

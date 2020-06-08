@@ -9,22 +9,11 @@ namespace CultManager
     {
         [SerializeField] private GameObject[] candidates = default;
 
-        [SerializeField] private CultManager cult = default;
-
-        int currentCandidates = 0;
-
-        private void Start()
-        {
-        }
+        [SerializeField] private CultData data = default;
 
         private void Update()
         {
-            if (currentCandidates != cult.currentCandidatesDebug)
-            {
-                currentCandidates = cult.currentCandidatesDebug;
-                DisplayCandidates(currentCandidates);
-            }
-            
+            DisplayCandidates(data.candidatesCount);
         }
 
         public void DisplayCandidates(int amount)
@@ -33,21 +22,11 @@ namespace CultManager
             {
                 candidates[i].SetActive(false);
             }
-            if (amount > 0 && amount <= candidates.Length)
+
+            for (int i = 0; i < Mathf.Clamp(amount, 0, candidates.Length); i++)
             {
-                for (int i = 0; i < amount; i++)
-                {
-                    candidates[i].SetActive(true);
-                }
+                candidates[i].SetActive(true);
             }
-            else if(amount>candidates.Length)
-            {
-                for (int i = 0; i < candidates.Length; i++)
-                {
-                    candidates[i].SetActive(true);
-                }
-            }
-            
         }
 
     }

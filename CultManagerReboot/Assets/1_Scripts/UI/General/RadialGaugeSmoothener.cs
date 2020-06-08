@@ -26,15 +26,15 @@ namespace CultManager
 
         private void LerpGauge()
         {
-            gauge.fillAmount = Mathf.Lerp(gauge.fillAmount, reachValue, smoothValue);
-            arrow.localEulerAngles = Vector3.Lerp(arrow.localEulerAngles, new Vector3(0.0f, 0.0f, Mathf.Lerp(0.0f, radialMaxValue, reachValue)), smoothValue);
+            if(gauge) gauge.fillAmount = Mathf.Lerp(gauge.fillAmount, reachValue, smoothValue);
+            if (arrow) arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(arrow.localEulerAngles.z, Mathf.Lerp(0.0f, radialMaxValue, reachValue), smoothValue));
         }
 
         public void SetGauge(float _value)
         {
             reachValue = _value;
-            gauge.fillAmount = _value;
-            arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(0.0f, radialMaxValue, reachValue));
+            if(gauge) gauge.fillAmount = _value;
+            if(arrow) arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(0.0f, radialMaxValue, reachValue));
         }
     }
 }

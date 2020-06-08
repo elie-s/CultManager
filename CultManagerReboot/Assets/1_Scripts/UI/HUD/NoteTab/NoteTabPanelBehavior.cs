@@ -28,10 +28,6 @@ namespace CultManager
 
         [SerializeField] private float lerpValue = 0;
 
-        void Start()
-        {
-            Togglebutton.localScale = new Vector3(Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-        }
 
         public void SetNoteTabSegments()
         {
@@ -148,8 +144,7 @@ namespace CultManager
                     }
                     break;
             }
-            Togglebutton.localScale = new Vector3(-Togglebutton.localScale.x, Togglebutton.localScale.y, Togglebutton.localScale.z);
-
+            
         }
 
         public void Display()
