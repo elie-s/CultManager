@@ -35,6 +35,11 @@ public class Iteration
         curve = _curve;
     }
 
+    public void Increment(float _value)
+    {
+        timer += _value;
+    }
+
     public void Increment()
     {
         timer += Time.deltaTime;
