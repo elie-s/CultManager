@@ -56,6 +56,7 @@ namespace CultManager
 
         public void LoadSave(Save _save)
         {
+            Debug.Log("_save.policeCurrentValue");
             gauge = new IntGauge(0, _save.policeMaxValue, _save.policeCurrentValue);
             SetHourReference(_save.lastHourReference);
             SetBribeValue(_save.bribeValue);

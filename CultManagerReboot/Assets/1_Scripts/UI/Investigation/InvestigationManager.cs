@@ -16,12 +16,6 @@ namespace CultManager
         private int currentBribeValue => currentBribeLevel * data.bribeLevelValue;
         public float totalRatio => currentBribeLevel * bribeRatio; 
 
-        [ContextMenu("fill police")]
-        public void SetPoliceMax()
-        {
-            data.Increment(data.max);
-            uiManager?.UpdateDisplayer();
-        }
 
         public int GetBribe()
         {
@@ -73,5 +67,60 @@ namespace CultManager
 
             return false;
         }
+
+        public void ResetData()
+        {
+            data.Reset(100);
+        }
+
+        public void InitAysnchValues()
+        {
+
+        }
+
+        #region Debug
+        [ContextMenu("fill police")]
+        public void SetPoliceMax()
+        {
+            data.Increment(data.max);
+            uiManager?.UpdateDisplayer();
+        }
+
+        [ContextMenu("set 4th quarter police")]
+        public void SetPolice4q()
+        {
+            data.Set(Mathf.RoundToInt(data.max * 0.75f) + 1);
+            uiManager?.UpdateDisplayer();
+        }
+
+        [ContextMenu("Set 3rd Quarter police")]
+        public void SetPolice3q()
+        {
+            data.Set(Mathf.RoundToInt(data.max * 0.5f) + 1);
+            uiManager?.UpdateDisplayer();
+        }
+
+        [ContextMenu("Set 2d Quarter")]
+        public void SetPolice2q()
+        {
+            data.Set(Mathf.RoundToInt(data.max*0.25f)+1);
+            uiManager?.UpdateDisplayer();
+        }
+
+        [ContextMenu("Set 1st Quarter")]
+        public void SetPolice1q()
+        {
+            data.Set(Mathf.RoundToInt(data.max * 0.25f) - 1);
+            uiManager?.UpdateDisplayer();
+        }
+
+        [ContextMenu("Empty police")]
+        public void SetPoliceMin()
+        {
+            data.Set(0);
+            uiManager?.UpdateDisplayer();
+        }
+
+        #endregion
     }
 }

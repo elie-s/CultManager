@@ -19,9 +19,12 @@ namespace CultManager
 
         [SerializeField] private bool onMove = false;
 
+        private float lastCandidates = 0;
+
         private void Update()
         {
             if (data.candidatesCount > 0 && !onMove && Gesture.Movement != Vector2.zero) StartCoroutine(GettingInputRoutine());
+            if (uiObject.activeSelf && lastCandidates == 0) CheckForNewCandidates();
         }
 
         #region Display
@@ -29,6 +32,15 @@ namespace CultManager
         {
             displayer?.SetCandidate(manager?.TryGetCandidate());
             displayer?.Display();
+            lastCandidates = data.candidatesCount;
+        }
+
+        private void CheckForNewCandidates()
+        {
+            if(data.candidatesCount != lastCandidates)
+            {
+                DisplayCandidate();
+            }
         }
 
         public void Open()

@@ -171,7 +171,7 @@ namespace CultManager
 
         public void LerpCard()
         {
-            if (data.candidatesCount == 0) return;
+            if (data.candidatesCount == 0 || toDisplay == null) return;
 
             cardTransform.anchoredPosition = swipeLerp > 0.0f ?
                                             Vector2.Lerp(originWaypoint.anchoredPosition, acceptedWaypoint.anchoredPosition, swipeLerp) :

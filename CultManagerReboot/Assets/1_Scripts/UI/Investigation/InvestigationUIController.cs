@@ -25,7 +25,7 @@ namespace CultManager
         #region Display
         public void Display()
         {
-            displayer.Display(manager.GetBribe(), manager.PredictGauge());
+            displayer.Display(manager.GetBribe(), manager.PredictGauge(), true);
         }
 
         public void Open()

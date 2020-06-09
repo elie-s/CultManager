@@ -15,7 +15,8 @@ namespace CultManager
         [SerializeField] private SaveManager saveManager = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private InfluenceManager influenceManager = default;
-        [SerializeField] private PoliceManager policeManager = default;
+        //[SerializeField] private PoliceManager policeManager = default;
+        [SerializeField] private InvestigationManager investigationManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
         [SerializeField] private UIGeneralManager uiManager = default;
 
@@ -86,13 +87,12 @@ namespace CultManager
             if (!SaveManager.saveLoaded)
             {
                 cultManager.ResetData();
-                policeManager.ResetData();
+                investigationManager.ResetData();
                 moneyManager.ResetData();
                 puzzeManager.ResetData();
 
                 bloodManager.ResetData();
                 demonManager.ResetData();
-                //altarManager.ResetData();
                 noteTabManager.SetNoteTabSegments();
                 statueManager.ResetData();
             }
@@ -101,7 +101,7 @@ namespace CultManager
                 currentLevel = cult.currentlevel;
                 //altarManager.InitAltarParts();
                 puzzeManager.LoadData();
-                policeManager.InitAysnchValues();
+                investigationManager.InitAysnchValues();
             }
 
             uiManager?.UpdateDisplayer();
@@ -148,19 +148,19 @@ namespace CultManager
 
         public void ResetCult(int level)
         {
-            //reset.ActivateReset();
+            ////reset.ActivateReset();
 
-            cultManager.ResetCult(level);
-            policeManager.ResetCult(level);
-            moneyManager.ResetCult(level);
-            puzzeManager.ResetCult(level);
+            //cultManager.ResetCult(level);
+            //investigationManager.ResetCult(level);
+            //moneyManager.ResetCult(level);
+            //puzzeManager.ResetCult(level);
 
-            bloodManager.ResetCult(level);
-            demonManager.ResetCult(level);
-            //altarManager.ResetCult(level);
+            //bloodManager.ResetCult(level);
+            //demonManager.ResetCult(level);
+            ////altarManager.ResetCult(level);
 
-            saveManager.SaveGame();
-            StartCoroutine(GetToloadingScene());
+            //saveManager.SaveGame();
+            //StartCoroutine(GetToloadingScene());
         }
 
         public void StandaloneReset()

@@ -168,6 +168,7 @@ MonoBehaviour:
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+  shiftImageColor: 0
 --- !u!1 &712986878329161999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1104,7 @@ MonoBehaviour:
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+  shiftImageColor: 0
 --- !u!1 &3586157188813952520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,11 +2239,12 @@ MonoBehaviour:
   imageA: {fileID: 0}
   imageB: {fileID: 0}
   imageC: {fileID: 0}
-  image: {fileID: 8879402812705228625}
-  colorA: {r: 1, g: 1, b: 1, a: 1}
-  colorB: {r: 1, g: 1, b: 1, a: 1}
-  colorC: {r: 1, g: 1, b: 1, a: 1}
+  image: {fileID: 2802944231045137713}
+  colorA: {r: 0.65882355, g: 0.4, b: 0.44313726, a: 1}
+  colorB: {r: 0.7372549, g: 0.2784314, b: 0.35686275, a: 1}
+  colorC: {r: 0.45490196, g: 0.21568628, b: 0.26666668, a: 1}
   textField: {fileID: 0}
+  shiftImageColor: 1
 --- !u!1 &7331062566982068848
 GameObject:
   m_ObjectHideFlags: 0
