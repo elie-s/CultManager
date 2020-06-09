@@ -26,6 +26,8 @@ namespace CultManager
         public UnityEvent buttonPressImmideate;
         public UnityEvent buttonPressDelayed;
 
+        private bool delaying = false;
+
         private void Awake()
         {
             isEnabled = false;
@@ -37,6 +39,14 @@ namespace CultManager
 
         public void EnableButton()
         {
+            if (delaying)
+            {
+                StopAllCoroutines();
+                isPressed = false;
+                if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
+                buttonImage.color = enabledColor;
+            }
+
             if (!isEnabled)
             {
                 Debug.Log(gameObject.name + " button enabled.");
@@ -48,6 +58,14 @@ namespace CultManager
 
         public void DisableButton()
         {
+            if (delaying)
+            {
+                StopAllCoroutines();
+                isPressed = false;
+                if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
+                buttonImage.color = enabledColor;
+            }
+
             if (isEnabled)
             {
                 Debug.Log(gameObject.name + " button disabled.");
@@ -66,7 +84,7 @@ namespace CultManager
                 buttonImage.color = pressedColor;
                 buttonPressImmideate.Invoke();
 
-                Invoke("PressEnd", buttonPressInterval);
+                PressEnd();
             }
             else if(!isEnabled)
             {
@@ -76,13 +94,24 @@ namespace CultManager
 
         public void PressEnd()
         {
-            if (isPressed)
+            if (!delaying) StartCoroutine(PressEndRoutine());
+        }
+
+        private IEnumerator PressEndRoutine()
+        {
+            delaying = true;
+
+            yield return new WaitForSeconds(buttonPressInterval);
+
+            if (isEnabled)
             {
                 buttonPressDelayed.Invoke();
                 isPressed = false;
                 if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
                 buttonImage.color = enabledColor;
             }
+
+            delaying = false;
         }
 
     }

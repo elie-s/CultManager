@@ -18,7 +18,8 @@ namespace CultManager
         public void Display(int _money, float _gaugeValue)
         {
             moneyValue.text = _money.Format();
-            mainGauge.SetGauge(policeData.ratio);
+            mainGauge.SetValue(policeData.ratio);
+            Debug.Log("gauge: " + _gaugeValue);
             previsualization.SetValue(_gaugeValue);
 
             if (_money <= moneyData.money) bribeButton.EnableButton();

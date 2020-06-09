@@ -11,6 +11,7 @@ namespace CultManager
         [SerializeField] private Image gauge = default;
         [SerializeField] private float smoothValue = 0.2f;
         [SerializeField] private float radialMaxValue = 90.0f;
+        [SerializeField] private bool invertArrow = false;
 
         private float reachValue;
 
@@ -26,8 +27,22 @@ namespace CultManager
 
         private void LerpGauge()
         {
+            
+
             if(gauge) gauge.fillAmount = Mathf.Lerp(gauge.fillAmount, reachValue, smoothValue);
-            if (arrow) arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(arrow.localEulerAngles.z, Mathf.Lerp(0.0f, radialMaxValue, reachValue), smoothValue));
+            if (!arrow) return;
+
+            if (!invertArrow)
+            {
+                arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(arrow.localEulerAngles.z, Mathf.Lerp(0.0f, radialMaxValue, reachValue), smoothValue));
+            }
+            else
+            {
+                arrow.localEulerAngles = new Vector3(0.0f, 0.0f, -arrow.localEulerAngles.z);
+                arrow.localEulerAngles = new Vector3(0.0f, 0.0f, Mathf.Lerp(arrow.localEulerAngles.z, Mathf.Lerp(0.0f, radialMaxValue, reachValue), smoothValue));
+                arrow.localEulerAngles = new Vector3(0.0f, 0.0f, -arrow.localEulerAngles.z);
+            }
+
         }
 
         public void SetGauge(float _value)
