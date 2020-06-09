@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1124742743584653950}
   - component: {fileID: 5448952194821920067}
+  - component: {fileID: 1819223621082899311}
   m_Layer: 0
   m_Name: recruitment_asset
   m_TagString: Untagged
@@ -405,6 +406,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1819223621082899311
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856616494731528404}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b1798a24b7227940824ab93999a455a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4736955810163631452
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7095969795419777475}
   m_Layer: 0
-  m_Name: FirstIsland
+  m_Name: PortalIsland03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

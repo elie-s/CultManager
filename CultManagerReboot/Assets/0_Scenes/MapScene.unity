@@ -4193,11 +4193,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecruitmentIslandV2
       objectReference: {fileID: 0}
-    - target: {fileID: 7110138262268103102, guid: 639aa7b2d030ba846a6d34edb275eb43,
-        type: 3}
-      propertyPath: cult
-      value: 
-      objectReference: {fileID: 1300975730}
     - target: {fileID: 9140301189719156944, guid: 639aa7b2d030ba846a6d34edb275eb43,
         type: 3}
       propertyPath: onAreaClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4252,6 +4247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CultManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050767449479303356, guid: 1a9713e8807ef624eb2f27b62ff2c698,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2050767449479303357, guid: 1a9713e8807ef624eb2f27b62ff2c698,
         type: 3}
