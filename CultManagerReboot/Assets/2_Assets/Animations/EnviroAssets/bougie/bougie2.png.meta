@@ -23,6 +23,30 @@ TextureImporter:
   - first:
       213: -1763538961603704014
     second: bougie2_6
+  - first:
+      213: 5597755259080202463
+    second: bougie2_7
+  - first:
+      213: -7062028241354242875
+    second: bougie2_8
+  - first:
+      213: -8727136929887871897
+    second: bougie2_9
+  - first:
+      213: 873853027910236594
+    second: bougie2_10
+  - first:
+      213: -3329637648513691697
+    second: bougie2_11
+  - first:
+      213: -8292177405348437753
+    second: bougie2_12
+  - first:
+      213: -7030050598053050855
+    second: bougie2_13
+  - first:
+      213: 3182865308710092745
+    second: bougie2_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,11 +148,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 213
+      alignment: 9
+      pivot: {x: 0.49591506, y: 0.000000050363493}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,11 +169,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 140
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -166,12 +190,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -187,12 +211,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 420
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 21, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -208,11 +232,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 560
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,11 +253,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 700
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -250,11 +274,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 840
-        y: 0
+        y: 21
         width: 140
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,6 +286,174 @@ TextureImporter:
       bones: []
       spriteID: 23bcc0678a6a687e0800000000000000
       internalID: -1763538961603704014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 975
+        height: 234
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8dc0dffb83fad40800000000000000
+      internalID: 5597755259080202463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 980
+        height: 234
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4cd401bb2aefd90800000000000000
+      internalID: -7062028241354242875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 980
+        height: 234
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c17db533bf2e680800000000000000
+      internalID: -8727136929887871897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 980
+        height: 234
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b93d72f2bc802c00800000000000000
+      internalID: 873853027910236594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 980
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf03992330cac1d0800000000000000
+      internalID: -3329637648513691697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 980
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 19, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701afab65944cec80800000000000000
+      internalID: -8292177405348437753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 980
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 19, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91686065a3e307e90800000000000000
+      internalID: -7030050598053050855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bougie2_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 973
+        height: 234
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cf349d722fcb2c20800000000000000
+      internalID: 3182865308710092745
       vertices: []
       indices: 
       edges: []
