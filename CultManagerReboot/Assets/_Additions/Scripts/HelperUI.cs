@@ -122,10 +122,22 @@ namespace CultManager
                                 }
                                 break;
                             case CurrentIsland.RecruitmentIsland:
+                                {
+                                    currentHelperPanel = HelperPanel.OfficeIsland;
+                                    helperButton.SetActive(true);
+                                }
                                 break;
                             case CurrentIsland.SacrificeIsland:
+                                {
+                                    currentHelperPanel = HelperPanel.SacrificeIsland;
+                                    helperButton.SetActive(true);
+                                }
                                 break;
                             case CurrentIsland.AltarIsland:
+                                {
+                                    currentHelperPanel = HelperPanel.AltarIsland;
+                                    helperButton.SetActive(true);
+                                }
                                 break;
                             case CurrentIsland.PuzzleIsland:
                                 {
@@ -145,7 +157,8 @@ namespace CultManager
                     break;
                 case CurrentPanel.RecruitmentPanel:
                     {
-                        helperButton.SetActive(false);
+                        currentHelperPanel = HelperPanel.RecruitmentCard;
+                        helperButton.SetActive(true);
                     }
                     break;
                 case CurrentPanel.AltarPanel:
@@ -167,11 +180,12 @@ namespace CultManager
                     break;
                 case CurrentPanel.HotKeys:
                     {
-                        helperButton.SetActive(true);
+                        helperButton.SetActive(false);
                     }
                     break;
                 case CurrentPanel.PolicePanel:
                     {
+                        currentHelperPanel = HelperPanel.PolicePanel;
                         helperButton.SetActive(true);
                     }
                     break;
@@ -196,6 +210,11 @@ namespace CultManager
         DemonPage=2,
         DemonSummary=3,
         ExperimentArea=4,
+        OfficeIsland=5,
+        RecruitmentCard=6,
+        PolicePanel=7,
+        SacrificeIsland=8,
+        AltarIsland=9,
     }
 }
 
