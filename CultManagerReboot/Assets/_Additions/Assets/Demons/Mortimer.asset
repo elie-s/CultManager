@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Mortimer
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: 414d54ebcb3f97945900a5ea9b45adf8, type: 3}
+  - {fileID: 21300000, guid: 3f1ab24fa7892b3419c02d9da2c44e33, type: 3}
+  - {fileID: 21300000, guid: fb0ab52fd9760434ebde248b41c3d764, type: 3}
+  - {fileID: 21300000, guid: 6a623013207c1894284b3ba8d882b967, type: 3}
+  - {fileID: 21300000, guid: cff51ac33df933445ae0d2f568909a33, type: 3}
+  demon: {fileID: 21300000, guid: 4aca61bd1b76434449ed8873bb9807f9, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: 4106962fd488e764a90bce1a1cce19bd, type: 3}
+  - {fileID: 21300000, guid: 41336e758b87e7d44bbcd4237943b3e2, type: 3}
+  - {fileID: 21300000, guid: 042607cda473dbe469d3413abd1a3c7d, type: 3}
+  - {fileID: 21300000, guid: 4747e1c1404ae444ab651e85b480503b, type: 3}
+  - {fileID: 21300000, guid: 374ae380a8968d24c975561016a8b6d5, type: 3}
+  demonID: {fileID: 21300000, guid: 79e00d9390727a54fa40e3631466e535, type: 3}

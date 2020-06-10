@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Gmork
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: c3d729cf52528e4488eabb042fd86ab6, type: 3}
+  - {fileID: 21300000, guid: 9c19bbfa2dcf4874ab77d3eddc5ed67a, type: 3}
+  - {fileID: 21300000, guid: c487157e5e59f3446a19bb89887aedd8, type: 3}
+  - {fileID: 21300000, guid: c6bcb710c9892cd4da169f44332fc1a1, type: 3}
+  - {fileID: 21300000, guid: 1554585568d09464d94dc2f75ed779cd, type: 3}
+  demon: {fileID: 21300000, guid: b3ae4462e3d51904794bb3bea20b958b, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: 9948a6f8a161a4742bae0da5cb0557d7, type: 3}
+  - {fileID: 21300000, guid: 7474da5f3c277f648947d1936baeead7, type: 3}
+  - {fileID: 21300000, guid: 056855af11d8ecc4f98eb8564ab42102, type: 3}
+  - {fileID: 21300000, guid: 48821ccefc1a55f478bffb183de13ce9, type: 3}
+  - {fileID: 21300000, guid: 4ce4c12461be829448e0d8525e54a5e1, type: 3}
+  demonID: {fileID: 21300000, guid: 6b3c750146b455e43a036bbe7b699d5a, type: 3}

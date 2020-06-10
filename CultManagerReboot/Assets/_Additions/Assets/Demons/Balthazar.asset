@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Balthazar
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: 49d64d4113eee794b94de93512111cc4, type: 3}
+  - {fileID: 21300000, guid: 385e4ac7a4bafc74f8c65093b9541bfa, type: 3}
+  - {fileID: 21300000, guid: f605ab1b11d243f4d9e46e232dd4c2aa, type: 3}
+  - {fileID: 21300000, guid: 448b1539e3c1eff48b1ddc5c849a26d3, type: 3}
+  - {fileID: 21300000, guid: e9a58f859b1779046a02c6d9f6add0f5, type: 3}
+  demon: {fileID: 21300000, guid: 8c825a789f09ea7409786a6da8f2744d, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: ef4afd496e70f0943b6ee99e56729e72, type: 3}
+  - {fileID: 21300000, guid: ccdbdc96f03001441ad17b8abfa231e7, type: 3}
+  - {fileID: 21300000, guid: a4ccbf16906b7ef459b0ffbb295bcf61, type: 3}
+  - {fileID: 21300000, guid: 5db8ddb3d4c21794a8de743b6b60c3af, type: 3}
+  - {fileID: 21300000, guid: 0f6115a145fbcb24abc16069fa1f9c0a, type: 3}
+  demonID: {fileID: 21300000, guid: c342f3f6fa576fa44885a320fede928a, type: 3}
