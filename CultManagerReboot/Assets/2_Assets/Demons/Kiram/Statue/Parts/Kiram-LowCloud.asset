@@ -17,14 +17,14 @@ MonoBehaviour:
   _uiCompletedSprite: {fileID: 21300000, guid: 75f562ec012a3af479556491545fe460, type: 3}
   _uiUncompletedSprite: {fileID: 21300000, guid: 10e0ff05e943d3242b67b0690d99f6fb,
     type: 3}
-  _partName: 
+  _partName: Low cloud
   _completion:
     _value: 0
-    _max: 0
+    _max: 150000
   _workers:
     _value: 0
-    _max: 0
-  _moneyCost: 0
+    _max: 15
+  _moneyCost: 9000
   _relicCost: 0
   _bought: 0
   _completed: 0

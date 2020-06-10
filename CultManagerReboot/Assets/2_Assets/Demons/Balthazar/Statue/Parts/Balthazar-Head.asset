@@ -17,14 +17,14 @@ MonoBehaviour:
   _uiCompletedSprite: {fileID: 21300000, guid: f2456a0fa7c27874da0226e332f0ec27, type: 3}
   _uiUncompletedSprite: {fileID: 21300000, guid: dc17f03a67f96e140a6e81f241f8ace3,
     type: 3}
-  _partName: 
+  _partName: Head
   _completion:
     _value: 0
-    _max: 0
+    _max: 5150000
   _workers:
     _value: 0
-    _max: 0
-  _moneyCost: 0
-  _relicCost: 0
+    _max: 20
+  _moneyCost: 3040000
+  _relicCost: 6
   _bought: 0
   _completed: 0

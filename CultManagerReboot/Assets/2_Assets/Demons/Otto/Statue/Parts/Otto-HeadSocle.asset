@@ -17,14 +17,14 @@ MonoBehaviour:
   _uiCompletedSprite: {fileID: 21300000, guid: 4018783173332cb48b6efb524a5d3cef, type: 3}
   _uiUncompletedSprite: {fileID: 21300000, guid: e1fd873c12f0b744cba030ca3f96aede,
     type: 3}
-  _partName: 
+  _partName: Head socle
   _completion:
     _value: 0
-    _max: 0
+    _max: 5000000
   _workers:
     _value: 0
-    _max: 0
-  _moneyCost: 0
-  _relicCost: 0
+    _max: 20
+  _moneyCost: 3040000
+  _relicCost: 6
   _bought: 0
   _completed: 0
