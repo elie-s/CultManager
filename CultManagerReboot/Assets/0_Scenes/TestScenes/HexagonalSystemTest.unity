@@ -313,9 +313,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1069043171}
   - component: {fileID: 1069043170}
+  - component: {fileID: 1069043173}
   - component: {fileID: 1069043169}
   - component: {fileID: 1069043172}
-  - component: {fileID: 1069043173}
   m_Layer: 0
   m_Name: PuzzleManager
   m_TagString: Untagged
@@ -373,7 +373,7 @@ MonoBehaviour:
     mode: 2
   patternSettings:
     shapeSegments: 10
-    startAtCenter: 1
+    startAtCenter: 0
     mode: 0
   generationSettings: {fileID: 0}
   altarComplete: 0
@@ -701,6 +701,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9039297533316286912, guid: a34a0f92086ab984eb5008154e3b73ee,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039297533316286912, guid: a34a0f92086ab984eb5008154e3b73ee,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039297533316286912, guid: a34a0f92086ab984eb5008154e3b73ee,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a34a0f92086ab984eb5008154e3b73ee, type: 3}
 --- !u!1001 &4249463413962397291
@@ -774,6 +789,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141189621775896439, guid: 884bbafb616526c45bb60c3a1f43deb9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141189621775896439, guid: 884bbafb616526c45bb60c3a1f43deb9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141189621775896439, guid: 884bbafb616526c45bb60c3a1f43deb9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884bbafb616526c45bb60c3a1f43deb9, type: 3}
