@@ -14,6 +14,7 @@ namespace CultManager
         [SerializeField] private Platform oPlatform = default;
         [SerializeField] private Transform cultistParent = default;
         [SerializeField] private Transform fountain = default;
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         [SerializeField] private int bloodPerCultist;
 

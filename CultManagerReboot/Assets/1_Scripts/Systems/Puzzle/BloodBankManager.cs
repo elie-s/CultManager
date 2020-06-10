@@ -10,6 +10,7 @@ namespace CultManager
         [SerializeField] private BloodBankUIDisplay display = default;
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private BloodBank[] tempBanks = default;
+        [SerializeField] private UIGeneralManager uiManager = default;
 
         private void Start()
         {

@@ -57,6 +57,7 @@ namespace CultManager
         public Spawn[] spawns;
         public int demonIdIndex;
         public int spawnCount;
+        public int currentDemon;
 
         //Persistent Demon Data
         public PersistentDemon[] persistentDemons;
@@ -112,6 +113,7 @@ namespace CultManager
             spawns = _demonData.spawns.ToArray();
             demonIdIndex = _demonData.idIndex;
             spawnCount = _demonData.spawnCount;
+            currentDemon = (int)_demonData.currentDemon;
 
             persistentDemons = _persistentDemonData.persistentDemons.ToArray();
             persistentdemonIdIndex = _persistentDemonData.idIndex;

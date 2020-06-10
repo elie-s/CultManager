@@ -71,7 +71,7 @@ namespace CultManager
             {
                 puzzeManager.SAResetData();
                 bloodManager.ResetData();
-                demonManager.ResetData();
+                demonManager.ResetSAPuzzle();
                 noteTabManager.SetNoteTabSegments();
             }
             else

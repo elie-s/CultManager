@@ -14,6 +14,7 @@ namespace CultManager
         public List<Spawn> spawns;
         public int idIndex = 0;
         public int spawnCount;
+        public DemonName currentDemon;
 
 
         public void Reset()
@@ -22,11 +23,18 @@ namespace CultManager
             demons = new List<Demon>();
             idIndex = 0;
             spawnCount = 0;
+            currentDemon = DemonName.None;
         }
 
         public void ResetDemonData(int level)
         {
             Reset();
+        }
+
+        public void ResetSAPuzzle()
+        {
+            Reset();
+            currentDemon = DemonName.Mortimer;
         }
 
 
@@ -36,13 +44,14 @@ namespace CultManager
             demons = _save.demons.ToList();
             idIndex = _save.demonIdIndex;
             spawnCount = _save.spawnCount;
+            currentDemon = (DemonName)_save.currentDemon;
         }
 
         public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int _patternSegments,int _totalPatternSegments)
         {
             System.DateTime deathTime = System.DateTime.Now + System.TimeSpan.FromHours(durationInHours);
-            Demon demon = new Demon(idIndex, segments, deathTime, _patternSegments, _totalPatternSegments);
-            Spawn spawn = new Spawn(idIndex, durationInHours,modifier, demon.accuracy);
+            Demon demon = new Demon(idIndex, segments, deathTime, _patternSegments, _totalPatternSegments, currentDemon);
+            Spawn spawn = new Spawn(idIndex, durationInHours,modifier, demon.accuracy, currentDemon);
             
             demon.description = SetDescription(segments.Length, _patternSegments,_totalPatternSegments);
 

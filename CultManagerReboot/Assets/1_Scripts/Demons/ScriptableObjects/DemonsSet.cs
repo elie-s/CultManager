@@ -16,6 +16,7 @@ namespace CultManager
 
         public Sprite GetSpawnSprite(DemonName _name, float _accuracy)
         {
+            Debug.Log(_name);
             return demonSpritesSets[(int)_name].SpawnSpriteFromAccuracy(_accuracy);
         }
 

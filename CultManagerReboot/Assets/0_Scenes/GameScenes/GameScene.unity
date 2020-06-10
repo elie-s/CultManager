@@ -2177,6 +2177,11 @@ PrefabInstance:
       propertyPath: cultistsDisplayer
       value: 
       objectReference: {fileID: 1520477077}
+    - target: {fileID: 2050767449479303358, guid: 1a9713e8807ef624eb2f27b62ff2c698,
+        type: 3}
+      propertyPath: investigationManager
+      value: 
+      objectReference: {fileID: 1185536717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9713e8807ef624eb2f27b62ff2c698, type: 3}
 --- !u!114 &288260601 stripped
@@ -13069,7 +13074,7 @@ PrefabInstance:
     - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
         type: 3}
       propertyPath: targets.Array.data[2].size
-      value: 2.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4348629188385145199, guid: a4cdc401e1e59a7458e00a830dfe88d7,
         type: 3}

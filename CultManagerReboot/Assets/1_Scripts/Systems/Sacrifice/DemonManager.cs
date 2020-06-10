@@ -21,7 +21,7 @@ namespace CultManager
         [SerializeField] private FadeBehavior worldFade = default;
         [SerializeField] private Transform[] waypoints = default;
 
-        private List<SpawnBehavior> spawns=new List<SpawnBehavior>();
+        private List<SpawnBehavior> spawns = new List<SpawnBehavior>();
 
 
 
@@ -34,6 +34,12 @@ namespace CultManager
         public void ResetData()
         {
             data.Reset();
+            persistentData.Reset();
+        }
+
+        public void ResetSAPuzzle()
+        {
+            data.ResetSAPuzzle();
             persistentData.Reset();
         }
 
