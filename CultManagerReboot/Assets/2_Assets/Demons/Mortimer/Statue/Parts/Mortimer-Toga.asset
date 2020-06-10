@@ -19,12 +19,12 @@ MonoBehaviour:
     type: 3}
   _partName: Toga
   _completion:
-    _value: 0
-    _max: 30000
+    _value: 200
+    _max: 200
   _workers:
-    _value: 0
+    _value: 10
     _max: 10
   _moneyCost: 50
   _relicCost: 0
-  _bought: 0
-  _completed: 0
+  _bought: 1
+  _completed: 1
