@@ -1071,6 +1071,7 @@ GameObject:
   - component: {fileID: 7856119885604976797}
   - component: {fileID: 7194814598741157057}
   - component: {fileID: 2204741619379548255}
+  - component: {fileID: 1314306584}
   m_Layer: 5
   m_Name: PuzzleHUD
   m_TagString: Untagged
@@ -1290,6 +1291,25 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   settings: {fileID: 11400000, guid: 554b8812138d3ec4bbe16faac40ee58a, type: 2}
+--- !u!95 &1314306584
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856119885604976796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14eb020542bdabc48868c851b3e61d46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7856119885813461492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,7 +1794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 45ef1f3c72e7a3643886608e1990a368, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dac2036d07e517b4e8600f2176047f66, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2300,7 +2320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67850ec014885264b9d0b78a658a4259, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8839a4648ee01434095165b67cebd678, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

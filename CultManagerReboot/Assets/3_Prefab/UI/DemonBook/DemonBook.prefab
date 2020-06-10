@@ -296,8 +296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 32}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchoredPosition: {x: -2, y: 37}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6551752280053374626
 CanvasRenderer:
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9f2b6972ef2b25a4082fa7ec8a71d882, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1adcf05bfc0a8b84e8e30628fc01f871, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -599,8 +599,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -252, y: 48}
-  m_SizeDelta: {x: 125, y: 125}
+  m_AnchoredPosition: {x: -254, y: -16}
+  m_SizeDelta: {x: 149, y: 140}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &486372436847981324
 CanvasRenderer:
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 45ef1f3c72e7a3643886608e1990a368, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dac2036d07e517b4e8600f2176047f66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1142,7 +1142,6 @@ MonoBehaviour:
   demonsSprites: {fileID: 11400000, guid: 0fcf51b4ba0d5704f8f53d38f5507704, type: 2}
   demonPage: {fileID: 4987049677944229523}
   confirmPage: {fileID: 4058208464549111460}
-  spawnColor: {fileID: 4389518734628879558}
   demonImage: {fileID: 2652852807129036795}
   starImage: {fileID: 2652852808082044072}
   demonPagedisplay: {fileID: 4486723893288348937}
@@ -1509,7 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2598e04ebed87484b9e9abc641afc638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
   alpha: {fileID: 0}
   accuracyColor:
     serializedVersion: 2
@@ -3474,6 +3472,7 @@ GameObject:
   - component: {fileID: 16594704388238426}
   - component: {fileID: 2015839917348177214}
   - component: {fileID: 3184141395503808518}
+  - component: {fileID: 509172220}
   m_Layer: 5
   m_Name: RemoveButton
   m_TagString: Untagged
@@ -3526,7 +3525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f76875362b32cc24f95867fd268950c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b96ce740b0c76940a82ce439db39142, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3564,6 +3563,32 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 509172220}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &509172220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223153950176530550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfe76d02b4d63c49a2fd3fba14dacdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiElement: {fileID: 5452884485558013341}
+  duration: 0.2
+  uiAnimation: {fileID: 11400000, guid: 94053d9f3383af94c97766e324fc6639, type: 2}
 --- !u!1 &8254626406202334972
 GameObject:
   m_ObjectHideFlags: 0
