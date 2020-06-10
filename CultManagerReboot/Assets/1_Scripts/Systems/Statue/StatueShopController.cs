@@ -71,14 +71,15 @@ namespace CultManager
             statueMenuGO?.SetActive(true);
             GameManager.currentPanel = CurrentPanel.DemonStatuePanel;
             onStatueMenuOpen.Invoke();
+            UpdateDisplayer();
         }
 
         public void CloseDemonTree(bool _main = true)
         {
             if (_main) menuGO?.SetActive(false);
             demonTreeGO?.SetActive(false);
+            lastPanel = GameManager.currentPanel;
             GameManager.currentPanel = CurrentPanel.None;
-            lastPanel = CurrentPanel.DemonTreePanel;
             onDemonTreeClose.Invoke();
         }
 
@@ -86,23 +87,25 @@ namespace CultManager
         {
             if(_main) menuGO?.SetActive(false);
             statueMenuGO?.SetActive(false);
+            lastPanel = GameManager.currentPanel;
             GameManager.currentPanel = CurrentPanel.None;
-            lastPanel = CurrentPanel.DemonStatuePanel;
             onStatueMenuClose.Invoke();
         }
 
         [ContextMenu("Open")]
         public void Open()
         {
-            if (lastPanel == CurrentPanel.DemonTreePanel) OpenDemonTree();
-            else if (lastPanel == CurrentPanel.DemonStatuePanel) OpenStatueMenu();
+            OpenDemonTree();
+
+            //if (lastPanel == CurrentPanel.DemonTreePanel) OpenDemonTree();
+            //else if (lastPanel == CurrentPanel.DemonStatuePanel) OpenStatueMenu();
         }
 
         [ContextMenu("Close")]
         public void Close()
         {
-            if (lastPanel == CurrentPanel.DemonTreePanel) CloseDemonTree();
-            else if (lastPanel == CurrentPanel.DemonStatuePanel) CloseStatueMenu();
+            CloseDemonTree();
+            CloseStatueMenu();
         }
 
         #endregion
@@ -111,8 +114,9 @@ namespace CultManager
         public void GetToStatue(int _demonId)
         {
             statueIndex = FindDemonIndex((DemonName)_demonId);
-            OpenStatueMenu(false);
             CloseDemonTree(false);
+            OpenStatueMenu(false);
+           
         }
 
         public void GoBackToTree()
@@ -128,7 +132,7 @@ namespace CultManager
             UpdateDisplayer();
         }
 
-        public void PreviousPart()
+        public void PreviousStatue()
         {
             onPreviousStatue.Invoke();
             DecreaseIndex();

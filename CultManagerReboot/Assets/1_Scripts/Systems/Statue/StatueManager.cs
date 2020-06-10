@@ -77,6 +77,7 @@ namespace CultManager
             if( moneyManager.TryBuy(data.currentStatueSet.currentPart.cost.money, data.currentStatueSet.currentPart.cost.relic))
             {
                 data.currentStatueSet.currentPart.Buy();
+                LoadStatue();
                 return true;
             }
 
@@ -122,6 +123,8 @@ namespace CultManager
 
         public void ResetData()
         {
+            Debug.Log("Rest Statue");
+
             data.Reset();
         }
     }

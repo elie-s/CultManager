@@ -354,10 +354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
-  setData: {fileID: 0}
-  bloodManager: {fileID: 0}
+  demonData: {fileID: 0}
+  puzzleSaveData: {fileID: 0}
   demonManager: {fileID: 0}
-  altarManager: {fileID: 0}
+  bloodManager: {fileID: 0}
+  resourcesManager: {fileID: 0}
   display: {fileID: 1069043169}
   scale: 1
   settings:
@@ -374,9 +375,13 @@ MonoBehaviour:
     shapeSegments: 10
     startAtCenter: 1
     mode: 0
+  generationSettings: {fileID: 0}
   altarComplete: 0
   background: {fileID: 0}
   patternSegments: []
+  onPerfectSpawnSummoned:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1069043171
 Transform:
   m_ObjectHideFlags: 0
@@ -483,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleData: {fileID: 11400000, guid: 33e5f52b1fefe2148ad9e1df61163559, type: 2}
   displayer: {fileID: 1069043169}
-  level: 0
+  demon: 0
   data: {fileID: 11400000, guid: 44b28b8d8d93bb64a9e28c648ff76b5c, type: 2}
 --- !u!1 &1428529827
 GameObject:

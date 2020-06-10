@@ -92,6 +92,7 @@ namespace CultManager
         {
             StatueSet statue = GetStatueSet(_demonName);
             statue.Buy();
+            _currentDemon = _demonName;
         }
 
         public StatueSetSave[] SaveSets()

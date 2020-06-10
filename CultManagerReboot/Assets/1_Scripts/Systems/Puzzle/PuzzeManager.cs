@@ -161,7 +161,7 @@ namespace CultManager
                     Debug.Log((BloodType)(i));
                 }
             }
-            puzzleSaveData.AddGeneration(settings, data.puzzle.ToArray());
+            puzzleSaveData?.AddGeneration(settings, data.puzzle.ToArray());
             grid = new HexGrid(pattern);
             pattern = new Pattern(grid, patternSettings);
             

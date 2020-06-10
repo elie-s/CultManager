@@ -71,7 +71,7 @@ namespace CultManager
             costTB.text = FormattingCost(currentSet.cost);
             statueTB.sprite = currentSet.statue[0];
 
-            if (currentSet.cost <= moneyData.money) buyButton.EnableButton();
+            if (currentSet.cost <= moneyData.money && data.currentDemon == DemonName.None) buyButton.EnableButton();
             else buyButton.DisableButton();
         }
 

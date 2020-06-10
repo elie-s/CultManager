@@ -20,6 +20,7 @@ namespace CultManager
         [SerializeField] bool isEnabled = false;
         [SerializeField] private bool startEnabled = false;
         [SerializeField] private bool disableSpriteShifting = false;
+        [SerializeField] private bool noDelay = false;
         public bool isPressed = false;
 
         public UnityEvent buttonPressOnDisabled;
@@ -77,6 +78,8 @@ namespace CultManager
 
         public void OnPress()
         {
+            if (Gesture.Movement != Vector2.zero) return;
+
             if (isEnabled && !isPressed)
             {
                 isPressed = true;
@@ -84,7 +87,13 @@ namespace CultManager
                 buttonImage.color = pressedColor;
                 buttonPressImmideate.Invoke();
 
-                PressEnd();
+                if(!noDelay) PressEnd();
+                else
+                {
+                    isPressed = false;
+                    if (!disableSpriteShifting) buttonImage.sprite = enabledSprite;
+                    buttonImage.color = enabledColor;
+                }
             }
             else if(!isEnabled)
             {
@@ -94,7 +103,7 @@ namespace CultManager
 
         public void PressEnd()
         {
-            if (!delaying) StartCoroutine(PressEndRoutine());
+            if (!delaying && gameObject.activeSelf) StartCoroutine(PressEndRoutine());
         }
 
         private IEnumerator PressEndRoutine()

@@ -164,9 +164,9 @@ namespace CultManager
 
         public void Reset()
         {
-            Debug.Log("reset");
+            status = StatueStatus.Unavailable;
+            Debug.Log(_demon.ToString() + " status: " + status.ToString());
 
-            SetStatus(StatueStatus.Unavailable);
             foreach (StatuePart part in _parts)
             {
                 part.Reset();

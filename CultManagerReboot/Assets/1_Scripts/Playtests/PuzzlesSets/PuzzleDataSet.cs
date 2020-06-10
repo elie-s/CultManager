@@ -9,79 +9,37 @@ namespace CultManager
     public class PuzzleDataSet : ScriptableObject
     {
         public bool save;
-        public List<PuzzleSegment> tutorial = new List<PuzzleSegment>();
-        public List<PuzzleSegment> levelOne = new List<PuzzleSegment>();
-        public List<PuzzleSegment> levelTwo = new List<PuzzleSegment>();
-        public List<PuzzleSegment> levelThree = new List<PuzzleSegment>();
-        public List<PuzzleSegment> levelFor = new List<PuzzleSegment>();
-        public List<PuzzleSegment> levelFive = new List<PuzzleSegment>();
+        public List<PuzzleSegment>[] demonsPuzzles;
+        public bool[] added;
 
-        public void AddPuzzle(Level _level, List<PuzzleSegment> _puzzle)
+
+        public void AddPuzzle(DemonName _demon, List<PuzzleSegment> _puzzle)
         {
-            switch (_level)
+            if (demonsPuzzles == null)
             {
-                case Level.Tutorial:
-                    tutorial = _puzzle;
-                    break;
-                case Level.One:
-                    levelOne = _puzzle;
-                    Debug.Log("New LevelOne puzzle Added.");
-                    break;
-                case Level.Two:
-                    levelTwo = _puzzle;
-                    Debug.Log("New levelTwo puzzle Added.");
-                    break;
-                case Level.Three:
-                    levelThree = _puzzle;
-                    Debug.Log("New levelThree puzzle Added.");
-                    break;
-                case Level.For:
-                    levelFor = _puzzle;
-                    Debug.Log("New levelFor puzzle Added. ");
-                    break;
-                case Level.Five:
-                    levelFive = _puzzle;
-                    Debug.Log("New levelFive puzzle Added.");
-                    break;
-                default:
-                    break;
+                demonsPuzzles = new List<PuzzleSegment>[10];
+                added = new bool[10];
             }
+
+            demonsPuzzles[(int)_demon] = _puzzle;
+            added[(int)_demon] = true;
 
             save = false;
         }
 
-        public List<PuzzleSegment> GetPuzzle(int _level)
+        public void CheckAdd()
         {
-            Debug.Log("Puzzle gotten");
-
-            switch (_level)
+            for (int i = 0; i < 10; i++)
             {
-                case 0:
-                    return tutorial;
-                case 1:
-                    return levelOne;
-                case 2:
-                    return levelTwo;
-                case 3:
-                    return levelThree;
-                case 4:
-                    return levelFor;
-                case 5:
-                    return levelFive;
-
-                default:
-                    return null;
+                added[i] = demonsPuzzles[i] != null;
             }
         }
 
-        public enum Level
+        public List<PuzzleSegment> GetPuzzle(DemonName _demon)
         {
-            Tutorial, 
-            One,
-            Two, 
-            Three,
-            For,
-            Five
+            Debug.Log("Puzzle gotten");
+
+            return demonsPuzzles[(int)_demon];
         }
     }
 }
