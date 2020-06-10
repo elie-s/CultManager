@@ -129,6 +129,14 @@ namespace CultManager
             }
         }
 
+        public void CheckPanel()
+        {
+            if (GameManager.currentPanel == CurrentPanel.None)
+            {
+                GameManager.currentPanel = thisPanelName;
+            }
+        }
+
         public void Close()
         {
             if (GameManager.currentPanel == thisPanelName)

@@ -11,6 +11,7 @@ namespace CultManager
         [SerializeField] private GameObject menuGO = default;
         [SerializeField] private StatueMenuValuesDisplayer displayer = default;
         [SerializeField] private StatueManager manager = default;
+        [SerializeField] private PuzzleTransitionBehaviour puzzleTransition = default;
         [Header("Events")]
         [SerializeField] private UnityEvent onBuyFailed = default;
         [SerializeField] private UnityEvent onBuySucceded = default;
@@ -111,6 +112,11 @@ namespace CultManager
             else onBuyFailed.Invoke();
 
             displayer.UpdateDisplay();
+        }
+
+        public void Resurrect()
+        {
+            puzzleTransition.GoToPuzzleFromStatue();
         }
     }
 }

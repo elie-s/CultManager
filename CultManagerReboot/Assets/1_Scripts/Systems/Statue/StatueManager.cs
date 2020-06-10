@@ -8,6 +8,7 @@ namespace CultManager
     public class StatueManager : MonoBehaviour
     {
         [SerializeField] private StatuesData data = default;
+        [SerializeField] private DemonData demonData = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
         [SerializeField] private PuzzeManager puzzleManager = default;
@@ -91,11 +92,24 @@ namespace CultManager
                 data.BuyStatue(_demon);
                 LoadStatue();
                 puzzleManager.GetDemonPuzzle();
+                demonData.currentDemon = _demon;
                 return true;
             }
 
             Debug.Log("!m: "+ data.GetStatueSet(_demon).cost);
             return false;
+        }
+
+        public void BreakStatue()
+        {
+            data.currentStatueSet.Break();
+        }
+
+        public void DemonSummoned()
+        {
+            Debug.Log("Demon Summoned");
+            data.CurrentSummoned();
+            UpdateAvailabilities();
         }
 
         public void Build()

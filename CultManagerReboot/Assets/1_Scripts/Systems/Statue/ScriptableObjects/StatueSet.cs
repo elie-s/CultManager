@@ -45,6 +45,13 @@ namespace CultManager
             SetStatus(StatueStatus.Bought);
         }
 
+        public void Break()
+        {
+            parts[0].Reset();
+            parts[0].Buy();
+            status = StatueStatus.Bought;
+        }
+
         public void SetAvailable()
         {
             SetStatus(StatueStatus.Available);

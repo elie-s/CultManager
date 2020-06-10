@@ -9,6 +9,7 @@ namespace CultManager
     {
         [SerializeField] private CameraController controller = default;
         [SerializeField] private Transform puzzleLocation = default;
+        [SerializeField] private Transform statueLocation = default;
         [SerializeField] private Transform spawnLocation = default;
         [SerializeField] private RectTransform topElements = default;
         [SerializeField] private RectTransform bottomElements = default;
@@ -23,12 +24,20 @@ namespace CultManager
         [SerializeField, DrawScriptable] private PuzzleTransitionSettings settings = default;
 
         private bool isTransitionning;
+        private bool resurrection;
 
         public void GoToPuzzle()
         {
             if (isTransitionning) return;
 
             StartCoroutine(GoToPuzzleRoutine());
+        }
+
+        public void GoToPuzzleFromStatue()
+        {
+            if (isTransitionning) return;
+            resurrection = true;
+            StartCoroutine(GoToPuzzleRoutineFromStatue());
         }
 
         public void GoToIsland(bool _stayFocused)
@@ -40,7 +49,8 @@ namespace CultManager
 
         public void SetCamToSpawnLocation()
         {
-            controller.SetWorldCamTo((Vector2)spawnLocation.position);
+            if (!resurrection) controller.SetWorldCamTo((Vector2)spawnLocation.position);
+            else controller.SetWorldCamTo((Vector2)statueLocation.position + Vector2.up * 0.5f);
         }
 
         private IEnumerator GoToPuzzleRoutine()
@@ -55,7 +65,45 @@ namespace CultManager
 
             while (iteration.isBelowOne)
             {
-                CameraController.CurrentCam.transform.localPosition = Vector2.Lerp(startPos, puzzleLocation.transform.position, iteration.curveEvaluation);
+                CameraController.CurrentCam.transform.localPosition = Vector2.Lerp(startPos, puzzleLocation.transform.position + Vector3.up * 0.5f, iteration.curveEvaluation);
+                controller.SetZoom(Mathf.Lerp(startZoom, 1.0f, iteration.fraction), false);
+                controller.SetScreen(settings.fade.Evaluate(settings.fadeCurve.Evaluate(iteration.fraction)));
+
+                yield return iteration.YieldIncrement();
+            }
+
+            controller.SwitchCam();
+            onMidTransitionToPuzzle.Invoke();
+            iteration = new Iteration(settings.transitionDuration / 2.0f);
+
+            while (iteration.isBelowOne)
+            {
+                controller.SetScreen(settings.fade.Evaluate(settings.fadeCurve.Evaluate(1.0f - iteration.fraction)));
+
+                yield return iteration.YieldIncrement();
+            }
+
+            onPuzzleReached.Invoke();
+
+            GameManager.currentIsland = CurrentIsland.PuzzleIsland;
+            isTransitionning = false;
+
+            controller.AllowControl(true);
+        }
+
+        private IEnumerator GoToPuzzleRoutineFromStatue()
+        {
+            GameManager.currentIsland = CurrentIsland.Transition;
+            isTransitionning = true;
+            controller.AllowControl(false);
+
+            Vector2 startPos = CameraController.CurrentCam.transform.localPosition;
+            float startZoom = controller.panningArea.zoom;
+            Iteration iteration = new Iteration(settings.transitionDuration / 2.0f, settings.movementCurve);
+
+            while (iteration.isBelowOne)
+            {
+                CameraController.CurrentCam.transform.localPosition = Vector2.Lerp(startPos, statueLocation.transform.position, iteration.curveEvaluation);
                 controller.SetZoom(Mathf.Lerp(startZoom, 1.0f, iteration.fraction), false);
                 controller.SetScreen(settings.fade.Evaluate(settings.fadeCurve.Evaluate(iteration.fraction)));
 

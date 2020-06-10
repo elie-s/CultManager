@@ -57,6 +57,9 @@ namespace CultManager
             data.puzzle = statuesData.currentPuzzle;
             UpdateInWorldPuzzle();
 
+            if ((int)statuesData.currentDemon < 4) data.layers = 2;
+            else data.layers = 3;
+
             display?.DisplayPuzzle(scale);
         }
 

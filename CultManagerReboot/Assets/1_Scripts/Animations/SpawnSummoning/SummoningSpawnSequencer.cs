@@ -16,6 +16,8 @@ namespace CultManager
         [SerializeField] private UnityEvent onSummoningStarts = default;
         [SerializeField] private UnityEvent onSpawnSummoned = default;
         [SerializeField] private UnityEvent onSequenceEnd = default;
+        [SerializeField] private UnityEvent onResurrectionSucceded = default;
+        [SerializeField] private UnityEvent onResurrectionFailed = default;
         [SerializeField, DrawScriptable] private SummoningSpawnSequencerSettings settings = default;
 
         public void HighlightShape() { StartCoroutine(HighlightShapeRoutine()); }
@@ -88,5 +90,9 @@ namespace CultManager
         {
             onSequenceEnd.Invoke();
         }
+
+        public void OnResurrectionSucceded() { onResurrectionSucceded.Invoke(); }
+
+        public void OnResurrectionFailed() { onResurrectionFailed.Invoke(); }
     }
 }
