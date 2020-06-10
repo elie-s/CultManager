@@ -12,6 +12,7 @@ namespace CultManager
         [SerializeField] private TextMeshProUGUI moneyAmount = default;
         [SerializeField] private TextMeshProUGUI influenceAmount = default;
         [SerializeField] private TextMeshProUGUI hardCurrencyAmount = default;
+        [SerializeField] private UISwitch[] policeIcons = default;
         [SerializeField] private RadialGaugeSmoothener gauge = default;
 
         public void UpdateDisplay(string _cultists, string _money, string _influence, string _currency, float _gauge)
@@ -21,7 +22,19 @@ namespace CultManager
             influenceAmount.text = _influence;
             hardCurrencyAmount.text = _currency;
 
-            gauge.SetValue(_gauge);
+            float gaugeValue = _gauge >= 0.25f ? (_gauge - 0.25f) / 0.75f : 0.0f;
+
+            gauge.SetValue(gaugeValue);
+            HandleIcons(_gauge);
+        }
+
+        private void HandleIcons(float _gaugeValue)
+        {
+            for (int i = 0; i < policeIcons.Length; i++)
+            {
+                if (_gaugeValue > (float)i / (float)policeIcons.Length) policeIcons[i].SetB();
+                else policeIcons[i].SetA();
+            }
         }
 
     }

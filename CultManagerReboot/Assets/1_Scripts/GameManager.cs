@@ -90,7 +90,7 @@ namespace CultManager
                 investigationManager.ResetData();
                 moneyManager.ResetData();
                 puzzeManager.ResetData();
-
+                influenceManager.ResetData();
                 bloodManager.ResetData();
                 demonManager.ResetData();
                 noteTabManager.SetNoteTabSegments();

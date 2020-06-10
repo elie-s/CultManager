@@ -10,6 +10,7 @@ namespace CultManager
         [Header("Cult Parameters")]
         [SerializeField] private GameManager gameManager = default;
         [SerializeField] private CultistsDisplayer cultistsDisplayer = default;
+        [SerializeField] private InvestigationManager investigationManager = default;
         [SerializeField] private CultData data = default;
         [SerializeField] public int currentCandidatesDebug = 0;
         [SerializeField] private CultSettings settings = default;
@@ -103,6 +104,7 @@ namespace CultManager
 
         public void RemoveCutlist(Cultist _cultist)
         {
+            investigationManager.Unregister(_cultist);
             data.RemoveCultist(_cultist);
             cultistsDisplayer.RemoveCultists(_cultist);
         }

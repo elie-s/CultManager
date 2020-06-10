@@ -27,8 +27,10 @@ namespace CultManager
 
             HandleIcons(_gaugeValue);
 
-            if (_money > moneyData.money || _money == 0) bribeButton.DisableButton();
+            if (_money > moneyData.money || _money == 0 || !policeData.CanBribe()) bribeButton.DisableButton();
             else bribeButton.EnableButton();
+
+            comeTomorrowObject?.SetActive(policeData.CanBribe());
         }
 
         private void HandleIcons(float _gaugeValue)

@@ -6,27 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/0_Scenes/GameScenes/TitleScene.unity
-    guid: deaee50daeb61d848bb8c960d45a2b6c
-  - enabled: 0
-    path: Assets/0_Scenes/TutorialScene.unity
-    guid: c9a7ce4269d65ad478a9e6d200fcd323
-  - enabled: 0
-    path: Assets/0_Scenes/Loadscene.unity
-    guid: dc817cb1b8ad95c4faaa77af1416cc7c
-  - enabled: 0
-    path: Assets/0_Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/0_Scenes/MapScene.unity
-    guid: 325aa6ef447a2b14eb43b88d23569643
-  - enabled: 0
     path: Assets/0_Scenes/PuzzleStandaloneScenes/PuzzleSAScene.unity
     guid: 5d4c0724643ef634a815058701069cb4
   - enabled: 0
     path: Assets/0_Scenes/PuzzleStandaloneScenes/PuzzleSATransitionScene.unity
     guid: 70055aaa64d833045b5d544a07a5c54e
   - enabled: 1
-    path: Assets/0_Scenes/GameScenes/GameScene.unity
+    path: Assets/0_Scenes/GameScenes/MainGameScene.unity
     guid: 8b35cfd04509f56469be817e6c66eb18
+  - enabled: 0
+    path: Assets/0_Scenes/GameScenes/MainGameScene 1.unity
+    guid: 708b029186e9ea041903ebbd7d83e479
   m_configObjects: {}

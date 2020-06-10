@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CultManager
 {
@@ -16,8 +16,17 @@ namespace CultManager
         [SerializeField] private float validationThreshold = 0.5f;
         [SerializeField] private float exitDuration = 0.5f;
         [SerializeField] private float backDuration = 0.1f;
+        [Header("Events")]
+        [SerializeField] private UnityEvent onOpen = default;
+        [SerializeField] private UnityEvent onClose = default;
+        [SerializeField] private UnityEvent onCandidateAccepted = default;
+        [SerializeField] private UnityEvent onCandidateRejected = default;
+        [SerializeField] private UnityEvent onNewCandidate = default;
+        [SerializeField] private UnityEvent onExitAccepted = default;
+        [SerializeField] private UnityEvent onExitRejected = default;
 
-        [SerializeField] private bool onMove = false;
+
+        private bool onMove = false;
 
         private float lastCandidates = 0;
 
@@ -40,6 +49,7 @@ namespace CultManager
             if(data.candidatesCount != lastCandidates)
             {
                 DisplayCandidate();
+                onNewCandidate.Invoke();
             }
         }
 
@@ -48,12 +58,15 @@ namespace CultManager
             uiObject?.SetActive(true);
             GameManager.currentPanel = CurrentPanel.RecruitmentPanel;
             DisplayCandidate();
+
+            onOpen.Invoke();
         }
 
         public void Close()
         {
             uiObject?.SetActive(false);
             GameManager.currentPanel = CurrentPanel.None;
+            onClose.Invoke();
         }
         #endregion
 
@@ -72,11 +85,13 @@ namespace CultManager
         {
             if(_accepted)
             {
+                onCandidateAccepted.Invoke();
                 Debug.Log("Candidate accepted.");
                 manager?.AcceptCurrent();
             }
             else
             {
+                onCandidateRejected.Invoke();
                 Debug.Log("Candidate rejected.");
                 manager?.Reject();
             }
@@ -109,6 +124,8 @@ namespace CultManager
         private IEnumerator ExitRoutine(bool _accepted, float _lerp)
         {
             onMove = true;
+            if (_accepted) onExitAccepted.Invoke();
+            else onExitRejected.Invoke();
 
             float lerpValue = 0.0f;
             Iteration iteration = new Iteration(exitDuration);

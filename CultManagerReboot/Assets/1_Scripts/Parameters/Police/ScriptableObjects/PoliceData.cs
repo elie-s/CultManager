@@ -12,6 +12,7 @@ namespace CultManager
         private IntGauge gauge;
         //public int PoliceRecoveryModifier;
         public DateTime lastHourReference;
+        public DateTime lastBribe { get; private set; }
         public int value => gauge.value;
         public int max => gauge.max;
         public float ratio => gauge.ratio;
@@ -92,6 +93,16 @@ namespace CultManager
                     }
                     break;
             }
+        }
+
+        public void SetBribeDate()
+        {
+            lastBribe = DateTime.Now;
+        }
+
+        public bool CanBribe()
+        {
+            return DateTime.Now.DayOfWeek != lastBribe.DayOfWeek && DateTime.Now.DayOfYear != lastBribe.DayOfYear;
         }
 
         public void SetHourReference()

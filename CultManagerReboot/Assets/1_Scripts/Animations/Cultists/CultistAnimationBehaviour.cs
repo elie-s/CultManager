@@ -9,6 +9,10 @@ namespace CultManager
     {
         [SerializeField] private Platform platform;
         [SerializeField] private CultistAnimationState state = default;
+        [SerializeField] private CultistsSprites sprites = default;
+        [SerializeField] private SpriteRenderer sRenderer = default;
+        [SerializeField] private Animator animator = default;
+        [SerializeField] private InvestigatorBehaviour investigatorBehaviour = default;
         [SerializeField, DrawScriptable] private CultistAnimationSettings settings = default;
 
         public Cultist cultist { get; private set; }
@@ -28,6 +32,11 @@ namespace CultManager
             platform = _platform;
             platform.RegisterCultist();
             cultist = _cultist;
+
+            sRenderer.sprite = sprites.GetSprite(cultist.spriteIndex);
+            animator.runtimeAnimatorController = sprites.GetAnimatorController(cultist.spriteIndex);
+
+            if (!cultist.isInvestigator) Destroy(investigatorBehaviour);
         }
 
         public void OnDestroy()
@@ -38,6 +47,8 @@ namespace CultManager
         public void Stop()
         {
             StopAllCoroutines();
+            animator.SetInteger("State", 2);
+            sRenderer.sortingLayerName = "Investigators";
         }
 
         private IEnumerator BehavioursRoutine()
@@ -46,6 +57,7 @@ namespace CultManager
             else yield return WanderingRoutine();
 
             state = CultistAnimationState.idle;
+            animator.SetInteger("State", 0);
 
             yield return new WaitForSeconds(1.0f);
 
@@ -55,10 +67,12 @@ namespace CultManager
         private IEnumerator WanderingRoutine()
         {
             state = CultistAnimationState.wandering;
+            animator.SetInteger("State", 1);
 
             Vector2 endPos = GetNewPos();
             Vector2 startPos = transform.localPosition;
             Iteration iteration = new Iteration(Vector2.Distance(startPos, endPos) / settings.movementSpeed);
+            if (startPos.x > endPos.x) sRenderer.flipX = true;
 
             while (iteration.isBelowOne)
             {
@@ -68,12 +82,14 @@ namespace CultManager
             }
 
             transform.localPosition = endPos;
+            sRenderer.flipX = false;
         }
 
 
         private IEnumerator IdlingRoutine()
         {
             state = CultistAnimationState.idle;
+            animator.SetInteger("State", 0);
 
             yield return new WaitForSeconds(Random.Range(settings.minIdleDuration, settings.maxIdleDuration));
         }

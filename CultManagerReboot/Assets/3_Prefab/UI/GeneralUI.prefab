@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 5192349548859880249}
   - component: {fileID: 5192349548859880231}
   - component: {fileID: 5192349548859880248}
+  - component: {fileID: 3224699946586787537}
   m_Layer: 5
   m_Name: Influence
   m_TagString: Untagged
@@ -145,6 +146,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3224699946586787537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192349548859880250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageA: {fileID: 0}
+  imageB: {fileID: 0}
+  imageC: {fileID: 0}
+  image: {fileID: 5192349548859880248}
+  colorA: {r: 0, g: 0, b: 0, a: 0.3137255}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  colorC: {r: 1, g: 1, b: 1, a: 1}
+  textField: {fileID: 0}
+  shiftImageColor: 1
 --- !u!1 &5192349548889334992
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +338,18 @@ MonoBehaviour:
   observedComponent: {fileID: 5192349549030100296}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816488981431933951}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5192349549030100296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +516,7 @@ MonoBehaviour:
   gauge: {fileID: 5192349550365082435}
   smoothValue: 0.2
   radialMaxValue: 90
+  invertArrow: 0
 --- !u!1 &5192349549047426793
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +567,7 @@ GameObject:
   - component: {fileID: 5192349549073302483}
   - component: {fileID: 5192349549073302481}
   - component: {fileID: 5192349549073302482}
+  - component: {fileID: 1371323892339461927}
   m_Layer: 5
   m_Name: Abductions
   m_TagString: Untagged
@@ -595,6 +630,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1371323892339461927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192349549073302484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageA: {fileID: 0}
+  imageB: {fileID: 0}
+  imageC: {fileID: 0}
+  image: {fileID: 5192349549073302482}
+  colorA: {r: 0, g: 0, b: 0, a: 0.3137255}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  colorC: {r: 1, g: 1, b: 1, a: 1}
+  textField: {fileID: 0}
+  shiftImageColor: 1
 --- !u!1 &5192349549139181333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1554,7 @@ MonoBehaviour:
   colorB: {r: 1, g: 1, b: 1, a: 1}
   colorC: {r: 1, g: 1, b: 1, a: 1}
   textField: {fileID: 0}
+  shiftImageColor: 0
 --- !u!1 &5192349550155453759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1566,7 @@ GameObject:
   - component: {fileID: 5192349550155453758}
   - component: {fileID: 5192349550155453756}
   - component: {fileID: 5192349550155453757}
+  - component: {fileID: 1816488981431933951}
   m_Layer: 5
   m_Name: Cultists
   m_TagString: Untagged
@@ -1573,6 +1631,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1816488981431933951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192349550155453759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfe76d02b4d63c49a2fd3fba14dacdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiElement: {fileID: 5192349550155453758}
+  duration: 0.2
+  uiAnimation: {fileID: 11400000, guid: eab89f6f9f6fe304e970b7cc03a7cb8c, type: 2}
 --- !u!1 &5192349550318004538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1700,11 @@ MonoBehaviour:
   moneyAmount: {fileID: 5192349550463015952}
   influenceAmount: {fileID: 5192349550550271698}
   hardCurrencyAmount: {fileID: 5192349550582982859}
+  policeIcons:
+  - {fileID: 5192349550106053788}
+  - {fileID: 3224699946586787537}
+  - {fileID: 4171044792455925641}
+  - {fileID: 1371323892339461927}
   gauge: {fileID: 5192349549037320585}
 --- !u!1 &5192349550365082437
 GameObject:
@@ -2380,6 +2458,7 @@ GameObject:
   - component: {fileID: 5192349550695010419}
   - component: {fileID: 5192349550695010417}
   - component: {fileID: 5192349550695010418}
+  - component: {fileID: 4171044792455925641}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -2442,6 +2521,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4171044792455925641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192349550695010420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dc0cee194d44b4a839e70feaadec4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageA: {fileID: 0}
+  imageB: {fileID: 0}
+  imageC: {fileID: 0}
+  image: {fileID: 5192349550695010418}
+  colorA: {r: 0, g: 0, b: 0, a: 0.3137255}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
+  colorC: {r: 1, g: 1, b: 1, a: 1}
+  textField: {fileID: 0}
+  shiftImageColor: 1
 --- !u!1 &5192349550772055431
 GameObject:
   m_ObjectHideFlags: 0

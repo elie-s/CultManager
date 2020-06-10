@@ -16,13 +16,14 @@ namespace CultManager
             cultists = new Dictionary<Cultist, GameObject>();
         }
 
-        public void SpawnCultists(Cultist[] _cultists, GameObject _prefab)
+        public void SpawnCultists(Cultist[] _cultists, GameObject _prefab, InvestigationManager _investigationManager)
         {
             if(cultists == null) cultists = new Dictionary<Cultist, GameObject>();
 
             for (int i = 0; i < _cultists.Length; i++)
             {
                 cultists.Add(_cultists[i], platforms[i % platforms.Length].SpawnCultist(_prefab, cultistParent, _cultists[i], true));
+                if (_cultists[i].isInvestigator) _investigationManager.RegisterInvestigator(_cultists[i], cultists[_cultists[i]].GetComponent<InvestigatorBehaviour>());
             }
         }
 

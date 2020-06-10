@@ -8,6 +8,7 @@ namespace CultManager
     public class CultistsDisplayer : MonoBehaviour
     {
         [SerializeField] private CultData data = default;
+        [SerializeField] private InvestigationManager investigationManager = default;
         [SerializeField] private GameObject cultistPrefab = default;
         [SerializeField] private IslandManager[] islandManagers = default;
         [SerializeField] private SacrificeIslandManager sacrificeIslandManager = default;
@@ -38,13 +39,13 @@ namespace CultManager
 
             for (int i = 0; i < islandManagers.Length; i++)
             {
-                islandManagers[i].SpawnCultists(toDisplay.GetRange(0, perIsland).ToArray(), cultistPrefab);
+                islandManagers[i].SpawnCultists(toDisplay.GetRange(0, perIsland).ToArray(), cultistPrefab, investigationManager);
                 toDisplay.RemoveRange(0, perIsland);
             }
 
             if(toDisplay.Count > 0)
             {
-                islandManagers[0].SpawnCultists(toDisplay.ToArray(), cultistPrefab);
+                islandManagers[0].SpawnCultists(toDisplay.ToArray(), cultistPrefab, investigationManager);
             }
         }
 
@@ -56,13 +57,13 @@ namespace CultManager
 
             for (int i = 0; i < islandManagers.Length; i++)
             {
-                islandManagers[i].SpawnCultists(toDisplay.GetRange(0, perIsland).ToArray(), cultistPrefab);
+                islandManagers[i].SpawnCultists(toDisplay.GetRange(0, perIsland).ToArray(), cultistPrefab, investigationManager);
                 toDisplay.RemoveRange(0, perIsland);
             }
 
             if(toDisplay.Count > 0)
             {
-                islandManagers[0].SpawnCultists(toDisplay.ToArray(), cultistPrefab);
+                islandManagers[0].SpawnCultists(toDisplay.ToArray(), cultistPrefab, investigationManager);
             }
         }
 
