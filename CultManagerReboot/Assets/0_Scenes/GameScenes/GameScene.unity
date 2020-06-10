@@ -7076,6 +7076,7 @@ MonoBehaviour:
   moneyManager: {fileID: 1465493476}
   uiManager: {fileID: 271957370}
   bribeRatio: 0.05
+  investigationEventFrequency: 1
 --- !u!4 &1185536718
 Transform:
   m_ObjectHideFlags: 0
@@ -10180,6 +10181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+  investigationManager: {fileID: 0}
   cultistPrefab: {fileID: 7334141955841767148, guid: d9952ad9165bc184d89e14eab13f5898,
     type: 3}
   islandManagers:
