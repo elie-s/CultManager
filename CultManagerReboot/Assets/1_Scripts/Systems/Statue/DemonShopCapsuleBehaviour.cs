@@ -74,7 +74,7 @@ namespace CultManager
         {
             foreach (DemonName demon in brothers)
             {
-                if (!_data.GetStatueSet(demon).completed) return false;
+                if (!_data.GetStatueSet(demon).summoned) return false;
             }
 
             return true;

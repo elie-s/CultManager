@@ -13,6 +13,7 @@ namespace CultManager
         [SerializeField] DemonName _currentDemon = default;
         [SerializeField] private float _baseWorkForce = 1.0f;
         [SerializeField] private DemonBrotherhood[] _family = default;
+        [SerializeField] private PuzzleDataSet puzzles = default;
 
         private List<DemonName> _demonsAvailable = new List<DemonName>();
 
@@ -22,6 +23,7 @@ namespace CultManager
         public DateTime timeRef { get; private set; }
         public DemonName[] demonsAvailable => _demonsAvailable.ToArray();
         public DemonBrotherhood[] family => _family;
+        public List<PuzzleSegment> currentPuzzle => puzzles.GetPuzzle(_currentDemon);
 
         public void SetDemon(DemonName _demon)
         {
@@ -93,6 +95,12 @@ namespace CultManager
             StatueSet statue = GetStatueSet(_demonName);
             statue.Buy();
             _currentDemon = _demonName;
+        }
+
+        public void CurrentSummoned()
+        {
+            currentStatueSet.SetSummoned();
+            _currentDemon = DemonName.None;
         }
 
         public StatueSetSave[] SaveSets()

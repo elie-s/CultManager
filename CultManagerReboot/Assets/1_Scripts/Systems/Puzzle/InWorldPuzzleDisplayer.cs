@@ -12,5 +12,10 @@ namespace CultManager
         {
             displayer.DisplayPuzzle(scale);
         }
+
+        public void UpdateDisplay()
+        {
+            displayer.DisplayPuzzle(scale);
+        }
     }
 }

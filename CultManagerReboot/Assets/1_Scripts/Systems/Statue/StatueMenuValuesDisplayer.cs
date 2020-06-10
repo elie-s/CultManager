@@ -23,12 +23,15 @@ namespace CultManager
         [SerializeField] private UISwitch relicSwitch = default;
         [SerializeField] private TextMeshProUGUI workersDisplay = default;
         [SerializeField] private ButtonInteraction buyButton = default;
+        [SerializeField] private TextMeshProUGUI demonName = default;
+        [SerializeField] private Image statue = default;
         [Header("GameObjects")]
         [SerializeField] private GameObject content = default;
         [SerializeField] private GameObject noDemonPanel = default;
         [SerializeField] private GameObject toBuyUI = default;
         [SerializeField] private GameObject bought = default;
         [SerializeField] private GameObject completed = default;
+        [SerializeField] private GameObject resurrection = default;
 
         private StatuePart currentPart => data.currentStatueSet.currentPart;
 
@@ -42,6 +45,8 @@ namespace CultManager
         [ContextMenu("Update Display")]
         public void UpdateDisplay()
         {
+            resurrection.SetActive(false);
+
             if (data.currentDemon == DemonName.None)
             {
                 content.SetActive(false);
@@ -52,6 +57,14 @@ namespace CultManager
 
             content.SetActive(true);
             noDemonPanel.SetActive(false);
+
+            if(data.currentStatueSet.completed)
+            {
+                resurrection.SetActive(true);
+                content.SetActive(false);
+                demonName.text = data.currentDemon.ToString();
+                statue.sprite = data.currentStatueSet.statue[2];
+            }
 
             DisplayBottomPart(currentPart.bought, currentPart.completed);
             partNameDisplay.text = currentPart.partName;

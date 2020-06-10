@@ -6,6 +6,7 @@
         Unavailable,
         Available,
         Bought,
-        Completed
+        Completed,
+        Resurrected
     }
 }

@@ -10,6 +10,7 @@ namespace CultManager
         [SerializeField] private StatuesData data = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
+        [SerializeField] private PuzzeManager puzzleManager = default;
         [SerializeField] private Transform statueParent = default;
         [SerializeField] private UnityEvent onPartCompleted = default;
         [SerializeField] private UnityEvent onStatueCompleted = default;
@@ -77,7 +78,6 @@ namespace CultManager
             if( moneyManager.TryBuy(data.currentStatueSet.currentPart.cost.money, data.currentStatueSet.currentPart.cost.relic))
             {
                 data.currentStatueSet.currentPart.Buy();
-                LoadStatue();
                 return true;
             }
 
@@ -88,8 +88,9 @@ namespace CultManager
         {
             if(moneyManager.TryBuy(data.GetStatueSet(_demon).cost, 0))
             {
-                Debug.Log("m");
                 data.BuyStatue(_demon);
+                LoadStatue();
+                puzzleManager.GetDemonPuzzle();
                 return true;
             }
 

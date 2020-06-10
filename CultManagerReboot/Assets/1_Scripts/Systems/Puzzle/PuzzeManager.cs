@@ -9,6 +9,7 @@ namespace CultManager
     public class PuzzeManager : MonoBehaviour
     {
         [SerializeField] private PuzzleData data = default;
+        [SerializeField] private StatuesData statuesData = default;
         [SerializeField] private DemonData demonData = default;
         [SerializeField] private PuzzleSaveData puzzleSaveData = default;
         [SerializeField] private DemonManager demonManager = default;
@@ -33,6 +34,7 @@ namespace CultManager
         {
             display?.DisplayPuzzle(scale);
             ClearSelection();
+            UpdateInWorldPuzzle();
         }
 
         public void ResetData()
@@ -48,6 +50,24 @@ namespace CultManager
         {
             if (!PuzzleSaveManager.puzzleSaveLoaded) puzzleSaveData.ResetData();
             SAResetCult();
+        }
+
+        public void GetDemonPuzzle()
+        {
+            data.puzzle = statuesData.currentPuzzle;
+            UpdateInWorldPuzzle();
+
+            display?.DisplayPuzzle(scale);
+        }
+
+        private void UpdateInWorldPuzzle()
+        {
+            InWorldPuzzleDisplayer[] displayers = FindObjectsOfType<InWorldPuzzleDisplayer>();
+
+            foreach (InWorldPuzzleDisplayer disp in displayers)
+            {
+                disp.UpdateDisplay();
+            }
         }
 
         public void ResetCult(int level)

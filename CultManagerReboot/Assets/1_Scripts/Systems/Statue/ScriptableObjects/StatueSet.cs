@@ -23,6 +23,7 @@ namespace CultManager
         public bool available => (int)status > 0;
         public bool bought => (int)status > 1;
         public bool completed => (int)status > 2;
+        public bool summoned => (int)status > 3;
         public int index { get; private set; }
         public StatuePart currentPart => parts[index];
         public int puzzleSegments => _puzzleSegments;
@@ -49,6 +50,11 @@ namespace CultManager
             SetStatus(StatueStatus.Available);
         }
 
+
+        public void SetSummoned()
+        {
+            SetStatus(StatueStatus.Resurrected);
+        }
         private void SetStatus(StatueStatus _status)
         {
             if ((int)_status > (int)status) status = _status;
