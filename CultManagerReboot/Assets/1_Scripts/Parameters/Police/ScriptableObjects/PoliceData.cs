@@ -53,6 +53,7 @@ namespace CultManager
         {
             gauge = new IntGauge(0, _max, false);
             SetBribeValue(10);
+            SetBribeDate(DateTime.MinValue);
         }
 
         public void LoadSave(Save _save)
@@ -98,6 +99,11 @@ namespace CultManager
         public void SetBribeDate()
         {
             lastBribe = DateTime.Now;
+        }
+
+        public void SetBribeDate(DateTime _value)
+        {
+            lastBribe = _value;
         }
 
         public bool CanBribe()

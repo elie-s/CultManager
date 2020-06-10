@@ -73,13 +73,13 @@ namespace CultManager
                     case BloodType.none:
                         break;
                     case BloodType.O:
-                        cultists.Add(_cultists[i], oPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], oPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true, i).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.A:
-                        cultists.Add(_cultists[i], aPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], aPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true, i).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.B:
-                        cultists.Add(_cultists[i], bPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true).GetComponent<SacrificedBehaviour>());
+                        cultists.Add(_cultists[i], bPlatform.SpawnCultist(_prefab, cultistParent, _cultists[i], true, i).GetComponent<SacrificedBehaviour>());
                         break;
                     case BloodType.AB:
                         break;
@@ -88,7 +88,7 @@ namespace CultManager
                 }
 
                 cultists[_cultists[i]].SetCultist(_cultists[i]);
-                cultists[_cultists[i]].GetComponent<InvestigatiorBehavior>().enabled = false;
+                cultists[_cultists[i]].GetComponent<InvestigatorBehaviour>().enabled = false;
             }
         }
 
