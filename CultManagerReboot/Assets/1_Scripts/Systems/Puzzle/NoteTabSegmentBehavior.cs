@@ -52,6 +52,7 @@ namespace CultManager
                 index = 0;
             }
             SetColor();
+            panelBehavior.NoteSegmentPressed();
             panelBehavior.SetIndex(segment.segment, index);
 
         }

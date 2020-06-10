@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 
 namespace CultManager
@@ -11,6 +13,9 @@ namespace CultManager
         [SerializeField] private BloodBankData data = default;
         [SerializeField] private BloodBank[] tempBanks = default;
         [SerializeField] private UIGeneralManager uiManager = default;
+
+        [SerializeField] private UnityEvent onBloodLinkActive = default;
+        [SerializeField] private UnityEvent onBloodLinkInactive = default;
 
         private void Start()
         {
@@ -130,10 +135,20 @@ namespace CultManager
             display.InadequateBloodAnim(blood);
         }
 
-        public void UseOfBloodOfType(BloodType blood)
+        public void UseOfBloodOfType(BloodType blood, bool isSelected)
         {
             display.BloodUtilizeAnim(blood);
+            if (isSelected)
+            {
+                onBloodLinkActive.Invoke();
+            }
+            else
+            {
+                onBloodLinkInactive.Invoke();
+            }
         }
+
+
 
 
         public void ResetCult(int level)

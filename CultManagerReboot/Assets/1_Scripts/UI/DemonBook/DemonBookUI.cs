@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace CultManager
@@ -54,6 +55,11 @@ namespace CultManager
 
         private bool favouritesActive;
 
+        [SerializeField] private UnityEvent onDemonSelected = default;
+        [SerializeField] private UnityEvent onSummarryPageSelected = default;
+        [SerializeField] private UnityEvent onNextPage = default;
+        [SerializeField] private UnityEvent onPreviousPage = default;
+
 
 
         public void Left()
@@ -67,6 +73,7 @@ namespace CultManager
                 currentDemonIndex = result.Length - 1;
             }
             DisplayDemonPage();
+            onPreviousPage.Invoke();
         }
 
         public void Right()
@@ -80,6 +87,7 @@ namespace CultManager
                 currentDemonIndex = 0;
             }
             DisplayDemonPage();
+            onNextPage.Invoke();
         }
 
         public void Start()
@@ -108,7 +116,7 @@ namespace CultManager
             GameManager.currentPanel = CurrentPanel.DemonPage;
             OpenDemonPage();
             DisplayDemonPage();
-            
+            onDemonSelected.Invoke();
         }
 
         public void DisplayLastDemon()
@@ -160,6 +168,7 @@ namespace CultManager
                     pageBehaviors[i].UnHighlightText();
                 }
             }
+            onSummarryPageSelected.Invoke();
         }
 
         public void LeftSwipe()

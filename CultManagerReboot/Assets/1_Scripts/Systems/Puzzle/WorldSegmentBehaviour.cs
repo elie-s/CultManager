@@ -93,7 +93,7 @@ namespace CultManager
                         ToggleNeighbours();
                         
                         bloodManager.IncreaseBloodOfType(segment.type, 10);
-                        bloodManager.UseOfBloodOfType(segment.type);
+                        bloodManager.UseOfBloodOfType(segment.type, selected);
                     }
                 }
                 else
@@ -105,7 +105,7 @@ namespace CultManager
                         ToggleNeighbours();
                         //segment.DisableSegment();
                         bloodManager.DecreaseBloodOfType(segment.type, 10);
-                        bloodManager.UseOfBloodOfType(segment.type);
+                        bloodManager.UseOfBloodOfType(segment.type,selected);
                     }
                     else
                     {
@@ -193,7 +193,7 @@ namespace CultManager
                         ToggleNeighbours();
                         //segment.DisableSegment();
                         bloodManager.DecreaseBloodOfType(segment.type, 10);
-                        bloodManager.UseOfBloodOfType(segment.type);
+                        bloodManager.UseOfBloodOfType(segment.type, selected);
                     }
                     else
                     {

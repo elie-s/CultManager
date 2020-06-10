@@ -456,6 +456,10 @@ MonoBehaviour:
     clipName: SummonLocked
   - clip: {fileID: 8300000, guid: 761ff9a6f787ae54984d23e0224271e3, type: 3}
     clipName: SummonPressed
+  - clip: {fileID: 8300000, guid: afe99b8437aa93949841037aab4ab767, type: 3}
+    clipName: Transitions
+  - clip: {fileID: 8300000, guid: 7c404fd6a8c5e7a45917588a27b50663, type: 3}
+    clipName: SummonFX
 --- !u!82 &7324357834427931307
 AudioSource:
   m_ObjectHideFlags: 0
@@ -467,7 +471,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1276,6 +1280,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1251867909495896883}
+        m_MethodName: PlayThisSound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SummonFX
+          m_BoolArgument: 0
+        m_CallState: 2
   onZoomOutAfterSummonning:
     m_PersistentCalls:
       m_Calls:
@@ -1832,6 +1847,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1251867909495896883}
+          m_MethodName: PlayThisSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Transitions
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7856119886791836536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2382,17 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1251867909495896883}
+          m_MethodName: PlayThisSound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: SummonPressed
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &8182371722984866721

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using CultManager.HexagonalGrid;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -27,6 +28,8 @@ namespace CultManager
         private string direction = "right";
 
         [SerializeField] private float lerpValue = 0;
+
+        [SerializeField] private UnityEvent onSegmentClicked = default;
 
 
         public void SetNoteTabSegments()
@@ -151,6 +154,11 @@ namespace CultManager
         {
             display.DisplayPuzzle(puzzleScale);
 
+        }
+
+        public void NoteSegmentPressed()
+        {
+            onSegmentClicked.Invoke();
         }
 
 
