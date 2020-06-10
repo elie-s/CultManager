@@ -11,11 +11,6 @@ namespace CultManager
         [SerializeField] private DemonName demon = DemonName.Mortimer;
         [SerializeField, DrawScriptable] private PuzzleDataSet data = default;
 
-        private void Update()
-        {
-            data.CheckAdd();
-        }
-
         public void SaveCurrentPuzzle()
         {
             data.AddPuzzle(demon, puzzleData.puzzle);
