@@ -29,6 +29,7 @@ namespace CultManager
         [SerializeField] private UnityEvent onPerfectSpawnSummoned = default;
 
         private Spawn lastSpawn;
+        public static bool resurrection;
 
         public void LoadData()
         {
@@ -287,7 +288,8 @@ namespace CultManager
 
         public void SummonExperiment(float _delay)
         {
-            demonManager.SummonSpawn(lastSpawn).Summon(_delay);
+            if(resurrection) demonManager.SummonDemon(lastSpawn).Summon(_delay);
+            else demonManager.SummonSpawn(lastSpawn).Summon(_delay);
         }
 
         public void Debugging(Demon instance)
@@ -300,14 +302,14 @@ namespace CultManager
 
         private void OnDrawGizmosSelected()
         {
-            if (data.puzzle != null)
-            {
-                foreach (PuzzleSegment segment in data.puzzle)
-                {
-                    Gizmos.color = segment.patternSegment ? Color.yellow : Color.blue;
-                    Gizmos.DrawLine(Node.WorldPosition(segment.a, scale) + (Vector2)transform.position, Node.WorldPosition(segment.b, scale) + (Vector2)transform.position);
-                }
-            }
+            //if (data.puzzle != null)
+            //{
+            //    foreach (PuzzleSegment segment in data.puzzle)
+            //    {
+            //        Gizmos.color = segment.patternSegment ? Color.yellow : Color.blue;
+            //        Gizmos.DrawLine(Node.WorldPosition(segment.a, scale) + (Vector2)transform.position, Node.WorldPosition(segment.b, scale) + (Vector2)transform.position);
+            //    }
+            //}
         }
     }
 }

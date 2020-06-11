@@ -22,5 +22,11 @@ namespace CultManager
                 demons[i].SetActive(data.GetStatueSet(i).summoned);
             }
         }
+
+        public Vector2 DemonPosition(DemonName _demon)
+        {
+            demons[(int)_demon].SetActive(true);
+            return demons[(int)_demon].transform.position;
+        }
     }
 }

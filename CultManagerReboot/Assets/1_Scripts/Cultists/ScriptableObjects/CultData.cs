@@ -18,7 +18,7 @@ namespace CultManager
         {
             cultists = new List<Cultist>();
             candidatesCount = 10;
-            maxCandidatesCount = 10;
+            maxCandidatesCount = 500;
             currentlevel = 0;
         }
 
@@ -71,6 +71,10 @@ namespace CultManager
             currentlevel++;
         }
 
+        public void SetCandidates(int _value)
+        {
+            candidatesCount = _value;
+        }
 
         public void ToggleOccupy()
         {

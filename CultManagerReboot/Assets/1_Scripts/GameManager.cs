@@ -10,6 +10,7 @@ namespace CultManager
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private bool standalonePuzzleMode = false;
+        [SerializeField] private bool Godmode = false;
         [Header("Managers")]
 
         [SerializeField] private SaveManager saveManager = default;
@@ -46,10 +47,16 @@ namespace CultManager
         {
             currentIsland = CurrentIsland.Origin;
             currentPanel = CurrentPanel.None;
-            saveManager?.Loadgame();
+            if(!Godmode)saveManager?.Loadgame();
 
             if (standalonePuzzleMode) StandaloneAwake();
             else NormalAwake();
+
+            if(Godmode)
+            {
+                moneyManager.Increase(int.MaxValue, 666);
+                cultManager.SetCandidatesAmount(500);
+            }
         }
 
         void Update()
@@ -109,6 +116,7 @@ namespace CultManager
 
         public void SaveGame()
         {
+            if (Godmode) return;
             saveManager.SaveGame();
         }
 

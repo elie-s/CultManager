@@ -371,6 +371,7 @@ MonoBehaviour:
   candidateMoney: {fileID: 4441719348887356706}
   candidatePolice: {fileID: 6291643083275593192}
   candidateRemaining: {fileID: 6417058250024470089}
+  candidateDescription: {fileID: 4929338035806477056}
   bloodSwitch:
   - {fileID: 9094422183177834305}
   - {fileID: 8829977143991170928}
@@ -761,6 +762,7 @@ MonoBehaviour:
   isEnabled: 0
   startEnabled: 1
   disableSpriteShifting: 0
+  noDelay: 0
   isPressed: 0
   buttonPressOnDisabled:
     m_PersistentCalls:
@@ -2414,6 +2416,7 @@ MonoBehaviour:
   isEnabled: 0
   startEnabled: 1
   disableSpriteShifting: 0
+  noDelay: 0
   isPressed: 0
   buttonPressOnDisabled:
     m_PersistentCalls:

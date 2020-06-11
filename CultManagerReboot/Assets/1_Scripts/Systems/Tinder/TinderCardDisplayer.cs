@@ -16,6 +16,7 @@ namespace CultManager
         [SerializeField] private TextMeshProUGUI candidateMoney = default;
         [SerializeField] private TextMeshProUGUI candidatePolice = default;
         [SerializeField] private TextMeshProUGUI candidateRemaining = default;
+        [SerializeField] private TextMeshProUGUI candidateDescription = default;
         [SerializeField] private UISwitch[] bloodSwitch = default;
         [SerializeField] private CanvasGroup card = default;
         [SerializeField] private Sprite[] images = default;
@@ -71,6 +72,7 @@ namespace CultManager
             candidateName.text = toDisplay.cultist.cultistName;
             candidateMoney.text = toDisplay.moneyValue.Format();
             candidatePolice.text = toDisplay.policeValue.Format();
+            candidateDescription.text = toDisplay.description;
             UpdateBlood(toDisplay.cultist.blood);
 
             OpenCard(defaultDuration);

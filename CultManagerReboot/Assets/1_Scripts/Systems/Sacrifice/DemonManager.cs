@@ -75,6 +75,14 @@ namespace CultManager
             return behaviour;
         }
 
+        public DemonSummoningBehaviour SummonDemon(Spawn _spawn)
+        {
+            DemonSummoningBehaviour behaviour = Instantiate(persistentDemonPrefab, (Vector2)CameraController.CurrentCam.transform.position, Quaternion.identity, transform).GetComponent<DemonSummoningBehaviour>();
+            behaviour.Init(_spawn);
+
+            return behaviour;
+        }
+
         public void CreateNewPersistentDemon(int spriteIndex)
         {
             //reset.ActivateDemon();

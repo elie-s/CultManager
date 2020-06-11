@@ -37,6 +37,7 @@ namespace CultManager
         {
             if (isTransitionning) return;
             resurrection = true;
+            PuzzeManager.resurrection = true;
             StartCoroutine(GoToPuzzleRoutineFromStatue());
         }
 

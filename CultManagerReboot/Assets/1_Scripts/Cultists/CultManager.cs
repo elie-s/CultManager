@@ -47,6 +47,11 @@ namespace CultManager
             cultists = data.cultists.ToArray();
         }
 
+        public void SetCandidatesAmount(int _value)
+        {
+            data.SetCandidates(_value);
+        }
+
         void SetTestCultists(int _amount)
         {
             for (int i = 0; i < _amount; i++)
@@ -58,16 +63,11 @@ namespace CultManager
         public Cultist CreateRandomCultist()
         {
             int sprite = Random.Range(0, settings.cultistThumbnails.Length);
-            string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)] + " " + settings.cultistLastNames[Random.Range(0, settings.cultistLastNames.Length)];
+            string cultistName = settings.cultistNames[Random.Range(0, settings.cultistNames.Length)];
 
             Cultist result = data.CreateCultist(cultistName, sprite);
 
-            if (allowInfiltration)
-            {
-                result.SetInvestigator( ChanceOfInfiltration());
-                Debug.Log("Added "+result.isInvestigator);
-                
-            }
+            result.SetInvestigator( ChanceOfInfiltration());
 
             return result;
         }
@@ -135,7 +135,7 @@ namespace CultManager
 
         public bool ChanceOfInfiltration()
         {
-            return ((int)Random.Range(1, 100) <= rateOfInfiltration);
+            return (Random.value < 0.12f);
         }
 
         // Work

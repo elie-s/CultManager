@@ -296,6 +296,24 @@ namespace CultManager
             allowControl = _value;
         }
 
+        public void ResurrectionCamera(Vector2 _pos)
+        {
+            allowControl = false;
+
+            SetWorldCamTo(_pos);
+
+            StartCoroutine(ResurrectionCameraRoutine());
+        }
+
+        public IEnumerator ResurrectionCameraRoutine()
+        {
+            yield return new WaitForSeconds(2.25f);
+
+            allowControl = true;
+
+            TransitionToOrigin();
+        }
+
         private void OnDrawGizmos()
         {
             if(panningArea != null)

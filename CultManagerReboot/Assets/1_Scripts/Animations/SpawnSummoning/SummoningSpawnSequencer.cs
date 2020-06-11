@@ -10,6 +10,8 @@ namespace CultManager
     {
         [SerializeField] private PuzzleDisplay puzzle = default;
         [SerializeField] private SpriteRenderer opaqueMask = default;
+        [SerializeField] private CameraController controller = default;
+        [SerializeField] private StatuesData data = default;
         [Header("Callbacks")]
         [SerializeField] private UnityEvent onHighlightDone = default;
         [SerializeField] private UnityEvent onDelayBeforeCamTransitionDone = default;
@@ -48,12 +50,12 @@ namespace CultManager
 
         public void InitOpaqueMask()
         {
-            opaqueMask.color = settings.spawnAppearingGradient.Evaluate(0.0f);
+            if(!PuzzeManager.resurrection) opaqueMask.color = settings.spawnAppearingGradient.Evaluate(0.0f);
         }
 
         public void FadeOpaqueMask(float _duration)
         {
-            StartCoroutine(FadeOpaqueMaskRoutine(_duration));
+            if (!PuzzeManager.resurrection) StartCoroutine(FadeOpaqueMaskRoutine(_duration));
         }
 
         private IEnumerator FadeOpaqueMaskRoutine(float _duration)
@@ -94,5 +96,10 @@ namespace CultManager
         public void OnResurrectionSucceded() { onResurrectionSucceded.Invoke(); }
 
         public void OnResurrectionFailed() { onResurrectionFailed.Invoke(); }
+
+        public void Ressurect()
+        {
+            controller.ResurrectionCamera(FindObjectOfType<DemonDisplayer>().DemonPosition(data.currentDemon));
+        }
     }
 }
