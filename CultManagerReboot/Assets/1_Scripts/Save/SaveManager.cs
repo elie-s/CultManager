@@ -7,6 +7,7 @@ namespace CultManager
 {
     public class SaveManager : MonoBehaviour
     {
+        
         [Header("Data Sets")]
         [SerializeField] private BloodBankData bloodBankData = default;
         [SerializeField] private CultData cultData = default;

@@ -8116,8 +8116,14 @@ PrefabInstance:
     - target: {fileID: 1574680397873183338, guid: 84b9bbbe044272b4086be98734813c63,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1574680397873183339, guid: 84b9bbbe044272b4086be98734813c63,
+        type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 11400000, guid: cd0bda4a147b88444ae100b2b43db6ee,
+        type: 2}
     - target: {fileID: 1574680397873183348, guid: 84b9bbbe044272b4086be98734813c63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8558,7 +8564,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 697121097
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6bca66da0eb050844a8f279f5d1bf080, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9619,10 +9625,30 @@ PrefabInstance:
       propertyPath: puzzle.size
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5424906771450107756, guid: a4cdc401e1e59a7458e00a830dfe88d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424906771450107756, guid: a4cdc401e1e59a7458e00a830dfe88d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
     - target: {fileID: 5789657148569627326, guid: a4cdc401e1e59a7458e00a830dfe88d7,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433877184250924447, guid: a4cdc401e1e59a7458e00a830dfe88d7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433877184250924447, guid: a4cdc401e1e59a7458e00a830dfe88d7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4cdc401e1e59a7458e00a830dfe88d7, type: 3}
@@ -10228,6 +10254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemonBook
       objectReference: {fileID: 0}
+    - target: {fileID: 2652852808673993856, guid: 3c4f7fc5bb3f8734c877c903af80c352,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c4f7fc5bb3f8734c877c903af80c352, type: 3}
 --- !u!224 &2095052312 stripped
@@ -10505,6 +10536,12 @@ PrefabInstance:
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 309620598}
+    - target: {fileID: 232117898150303340, guid: d14b39b34bdfa1847a7faca1725ef4f8,
+        type: 3}
+      propertyPath: statueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70e23172457ff7b49aa1c08242e95ad0,
+        type: 2}
     - target: {fileID: 232117898150303341, guid: d14b39b34bdfa1847a7faca1725ef4f8,
         type: 3}
       propertyPath: m_Name
@@ -10640,6 +10677,12 @@ PrefabInstance:
       propertyPath: generationSettings
       value: 
       objectReference: {fileID: 11400000, guid: 8a4ec92d1b9de164b892634580ff8107,
+        type: 2}
+    - target: {fileID: 1410087514839812045, guid: caa03ffa730d6a14a95936cd0aab7229,
+        type: 3}
+      propertyPath: statuesData
+      value: 
+      objectReference: {fileID: 11400000, guid: 70e23172457ff7b49aa1c08242e95ad0,
         type: 2}
     - target: {fileID: 1410087514839812046, guid: caa03ffa730d6a14a95936cd0aab7229,
         type: 3}

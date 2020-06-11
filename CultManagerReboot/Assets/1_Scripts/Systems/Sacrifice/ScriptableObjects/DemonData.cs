@@ -47,11 +47,11 @@ namespace CultManager
             currentDemon = (DemonName)_save.currentDemon;
         }
 
-        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int _patternSegments,int _totalPatternSegments)
+        public Spawn CreateDemon(int durationInHours, Segment[] segments,Modifier[] modifier,int _patternSegments,int _totalPatternSegments, DemonName _dmon)
         {
             System.DateTime deathTime = System.DateTime.Now + System.TimeSpan.FromHours(durationInHours);
-            Demon demon = new Demon(idIndex, segments, deathTime, _patternSegments, _totalPatternSegments, currentDemon);
-            Spawn spawn = new Spawn(idIndex, durationInHours,modifier, demon.accuracy, currentDemon);
+            Demon demon = new Demon(idIndex, segments, deathTime, _patternSegments, _totalPatternSegments, _dmon);
+            Spawn spawn = new Spawn(idIndex, durationInHours,modifier, demon.accuracy, _dmon);
             
             demon.description = SetDescription(segments.Length, _patternSegments,_totalPatternSegments);
 

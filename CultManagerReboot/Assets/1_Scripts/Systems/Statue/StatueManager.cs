@@ -9,6 +9,7 @@ namespace CultManager
     {
         [SerializeField] private StatuesData data = default;
         [SerializeField] private DemonData demonData = default;
+        [SerializeField] private DemonDisplayer demonsDisplayer = default;
         [SerializeField] private CultManager cultManager = default;
         [SerializeField] private MoneyManager moneyManager = default;
         [SerializeField] private PuzzeManager puzzleManager = default;
@@ -110,6 +111,7 @@ namespace CultManager
             Debug.Log("Demon Summoned");
             data.CurrentSummoned();
             UpdateAvailabilities();
+            demonsDisplayer.DisplayDemons();
         }
 
         public void Build()

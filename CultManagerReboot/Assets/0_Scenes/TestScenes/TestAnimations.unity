@@ -1641,6 +1641,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &294256685
 SpriteRenderer:
@@ -1942,6 +1946,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &358479037
 SpriteRenderer:
@@ -2585,6 +2593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &465878065
 SpriteRenderer:
@@ -3134,6 +3146,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &527233260
 SpriteRenderer:
@@ -3231,6 +3247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &544575939
 SpriteRenderer:
@@ -3315,6 +3335,7 @@ Transform:
   - {fileID: 824968066}
   - {fileID: 68354738}
   - {fileID: 1438838799}
+  - {fileID: 1611517043}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3975,6 +3996,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &672852516
 SpriteRenderer:
@@ -4072,6 +4097,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &677629785
 SpriteRenderer:
@@ -4270,6 +4299,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &700415737
 SpriteRenderer:
@@ -5534,6 +5567,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1794853103}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1027652900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 552902159}
+    m_Modifications:
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3459609976502715107, guid: e25f25352f068944793ba63015f8b20d,
+        type: 3}
+      propertyPath: m_Name
+      value: Korol_Sprite_PSB
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: -984910692515246170, guid: e25f25352f068944793ba63015f8b20d,
+    type: 3}
 --- !u!1 &1069887878
 GameObject:
   m_ObjectHideFlags: 0
@@ -5764,6 +5867,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1094485315
 SpriteRenderer:
@@ -5963,6 +6070,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1104939836
 SpriteRenderer:
@@ -6060,6 +6171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1111894095
 SpriteRenderer:
@@ -6111,6 +6226,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1001 &1176724291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2007254055, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_Name
+      value: kotkar_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.925953
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.399181
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007254057, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcccba5fad614c44fb245cb998580ca8, type: 3}
 --- !u!1 &1179379875
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,6 +6564,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1206427484
 SpriteRenderer:
@@ -6624,6 +6800,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1265789803
 SpriteRenderer:
@@ -6721,6 +6901,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1273952587
 SpriteRenderer:
@@ -8007,6 +8191,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1476864538
 SpriteRenderer:
@@ -8849,6 +9037,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1611517042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3459609976502715107, guid: e25f25352f068944793ba63015f8b20d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027652900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1611517043 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8214294931824289557, guid: e25f25352f068944793ba63015f8b20d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027652900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1611517044
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611517042}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f588a1cf6eda18e47a5fd46ba19caf75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1654518523
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,6 +10185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &1848467604
 SpriteRenderer:
@@ -10728,6 +10951,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 492809067}
   state: 0
+  sprites: {fileID: 0}
+  sRenderer: {fileID: 0}
+  animator: {fileID: 0}
+  investigatorBehaviour: {fileID: 0}
   settings: {fileID: 11400000, guid: 446ddde021787cd40873167084b99e30, type: 2}
 --- !u!212 &2024385899
 SpriteRenderer:

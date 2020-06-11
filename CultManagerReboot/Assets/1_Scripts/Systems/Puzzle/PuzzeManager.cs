@@ -82,7 +82,10 @@ namespace CultManager
 
         public void SAResetCult()
         {
-            SAGenerate();
+            //SAGenerate();
+            statuesData.SetDemon((DemonName)puzzleSaveData.currentIndex);
+            data.puzzle = statuesData.currentPuzzle;
+            puzzleSaveData.Increment();
             display?.DisplayPuzzle(scale);
         }
 
@@ -276,7 +279,7 @@ namespace CultManager
             GatherCurrentPatternSegments();
             lastSpawn = demonManager.AddNewExperiment(3, patternSegments.ToArray(), data.ComputePatternMatchCount(patternSegments.ToArray()), data.GatherPatternSegments().Length);
             Demon demon= demonData.ReturnDemonForSpawn(lastSpawn);
-            puzzleSaveData.generations[puzzleSaveData.currentIndex - 1].AddAttempt(demon);
+            //puzzleSaveData.generations[puzzleSaveData.currentIndex - 1].AddAttempt(demon);
             if (lastSpawn.patternAccuracy == 1.0f) onPerfectSpawnSummoned.Invoke();
 
             if (demon.patternSegments != 0) resourcesManager?.Increase(0, Mathf.CeilToInt(demon.patternSegments * demon.accuracy));

@@ -21,6 +21,11 @@ namespace CultManager
             Debug.Log(currentIndex);
         }
 
+        public void Increment()
+        {
+            currentIndex ++;
+        }
+
         public void LoadSave(PuzzleSave _puzzleSave)
         {
             generations = _puzzleSave.generations.ToList();

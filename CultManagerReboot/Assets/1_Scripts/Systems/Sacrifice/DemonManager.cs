@@ -12,7 +12,7 @@ namespace CultManager
         [SerializeField] private PersistentDemonData persistentData = default;
         [SerializeField] private GameObject spawnPrefab = default;
         [SerializeField] private GameObject persistentDemonPrefab = default;
-
+        [SerializeField] private StatuesData statueData = default;
         [SerializeField] private DemonBookUI demonBook = default;
         [SerializeField] private EffectsManager effects = default;
         [SerializeField] private GameManager game = default;
@@ -53,7 +53,7 @@ namespace CultManager
         public void CreateNewDemon(int durationInHours, Segment[] segments,int patternSegments, int totalPatternSegments)
         {
             //reset.ActivateSpawn();
-            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments);
+            Spawn spawn = data.CreateDemon(durationInHours, segments, effects.SetRandomSpawnEffect(segments.Length,patternSegments),patternSegments,totalPatternSegments, statueData.currentDemon);
             GameObject instance = Instantiate(spawnPrefab, spawnPosition.position, Quaternion.identity, transform);
             instance.GetComponent<SpawnBehavior>().Init(spawn, this,spawn.patternAccuracy,area,demonBook);
             spawns.Add(instance.GetComponent<SpawnBehavior>());
@@ -64,7 +64,7 @@ namespace CultManager
 
         public Spawn AddNewExperiment(int _durationInHours, Segment[] _segments, int _patternSegments, int _totalPatternSegments)
         {
-            return data.CreateDemon(_durationInHours, _segments, new Modifier[0], _patternSegments, _totalPatternSegments);
+            return data.CreateDemon(_durationInHours, _segments, new Modifier[0], _patternSegments, _totalPatternSegments, statueData.currentDemon);
         }
 
         public SpawnSummoningBehaviour SummonSpawn(Spawn _spawn)
