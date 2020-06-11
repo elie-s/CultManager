@@ -80,7 +80,7 @@ namespace CultManager
         public IEnumerator TransitionSceneRoutine(float _delay)
         {
             yield return new WaitForSeconds(_delay);
-            SceneManager.LoadSceneAsync("PuzzleSATransitionScene");
+            SceneManager.LoadScene(3);
         }
 
         public void OnSpawnSummoned()

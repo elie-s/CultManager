@@ -80,6 +80,7 @@ namespace CultManager
                 bloodManager.ResetData();
                 demonManager.ResetSAPuzzle();
                 noteTabManager.SetNoteTabSegments();
+                statueManager.ResetData();
             }
             else
             {

@@ -79,51 +79,51 @@ namespace CultManager
             savingSystemVersion = _savingSystemVersion;
             dateTime = DateTime.Now;
 
-            cultIdIndex = _cultData.idIndex;
-            cultists = _cultData.cultists.ToArray();
-            candidatesCount = _cultData.candidatesCount;
-            maxCandidatesCount = _cultData.maxCandidatesCount;
-            currentLevel = _cultData.currentlevel;
+            cultIdIndex = _cultData ? _cultData.idIndex : default;
+            cultists = _cultData ? _cultData.cultists.ToArray() : default;
+            candidatesCount = _cultData ? _cultData.candidatesCount : default;
+            maxCandidatesCount = _cultData ? _cultData.maxCandidatesCount : default;
+            currentLevel = _cultData ? _cultData.currentlevel : default;
 
-            influenceCurrentValue = _influenceData.value;
-            influenceCandidateTimeReference = _influenceData.lastCandidateTimeReference;
+            influenceCurrentValue = _influenceData ? _influenceData.value : default;
+            influenceCandidateTimeReference = _influenceData ? _influenceData.lastCandidateTimeReference : default;
 
-            moneyValue = _moneyData.money;
-            relicValue = _moneyData.relics;
+            moneyValue = _moneyData ? _moneyData.money : default;
+            relicValue = _moneyData ? _moneyData.relics : default;
 
-            policeMaxValue = _policeData.max;
-            policeCurrentValue = _policeData.value;
-            lastHourReference = _policeData.lastHourReference;
-            bribeValue = _policeData.bribeLevelValue;
+            policeMaxValue = _policeData ? _policeData.max : default;
+            policeCurrentValue = _policeData ? _policeData.value : default;
+            lastHourReference = _policeData ? _policeData.lastHourReference : default;
+            bribeValue = _policeData ? _policeData.bribeLevelValue : default;
 
             //altarParts = _altarData.altarParts.ToArray();
             //availableCultists = _altarData.availableCultists;
             //altarCompletion = _altarData.altarCompletion;
             //lastBuildTimeReference = _altarData.lastBuildTimeReference;
 
-            noteTabSegments = _noteTabData.noteTabSegments.ToArray();
+            noteTabSegments = _noteTabData ? _noteTabData.noteTabSegments.ToArray() : default;
 
-            puzzle = _puzzleData.puzzle.ToArray();
-            puzzleLayers = _puzzleData.layers;
+            puzzle = _puzzleData ? _puzzleData.puzzle.ToArray() : default;
+            puzzleLayers = _puzzleData ? _puzzleData.layers : default;
 
-            bloodBanks = _bloodBankData.bloodBanks;
-            level = _bloodBankData.level;
+            bloodBanks = _bloodBankData ? _bloodBankData.bloodBanks : default;
+            level = _bloodBankData ? _bloodBankData.level : default;
 
-            demons = _demonData.demons.ToArray();
-            spawns = _demonData.spawns.ToArray();
-            demonIdIndex = _demonData.idIndex;
-            spawnCount = _demonData.spawnCount;
-            currentDemon = (int)_demonData.currentDemon;
+            demons = _demonData ? _demonData.demons.ToArray() : default;
+            spawns = _demonData ? _demonData.spawns.ToArray() : default;
+            demonIdIndex = _demonData ? _demonData.idIndex : default;
+            spawnCount = _demonData ? _demonData.spawnCount : default;
+            currentDemon = _demonData ? (int)_demonData.currentDemon : default;
 
-            persistentDemons = _persistentDemonData.persistentDemons.ToArray();
-            persistentdemonIdIndex = _persistentDemonData.idIndex;
+            persistentDemons = _persistentDemonData ? _persistentDemonData.persistentDemons.ToArray() : default;
+            persistentdemonIdIndex = _persistentDemonData ? _persistentDemonData.idIndex : default;
 
-            storage = _modifierReference.storage;
+            storage = _modifierReference ? _modifierReference.storage : default;
 
-            statueSetSaves = _statueData.SaveSets();
-            demonName = (int)_statueData.currentDemon;
-            statueTimeRef = _statueData.timeRef;
-            demonsBought = _statueData.DemonsBoughtToIntArray();
+            statueSetSaves = _statueData ? _statueData.SaveSets() : default;
+            demonName = _statueData ? (int)_statueData.currentDemon : default;
+            statueTimeRef = _statueData ? _statueData.timeRef : default;
+            demonsBought = _statueData ? _statueData.DemonsBoughtToIntArray() : default;
         }
     }
 }

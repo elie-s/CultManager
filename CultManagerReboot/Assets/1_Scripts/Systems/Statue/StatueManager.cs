@@ -7,6 +7,7 @@ namespace CultManager
 {
     public class StatueManager : MonoBehaviour
     {
+        [SerializeField] private bool SAPuzzle = false;
         [SerializeField] private StatuesData data = default;
         [SerializeField] private DemonData demonData = default;
         [SerializeField] private DemonDisplayer demonsDisplayer = default;
@@ -24,12 +25,16 @@ namespace CultManager
 
         private void Start()
         {
+            if (SAPuzzle) return;
+
             LoadStatue();
             UpdateAvailabilities();
         }
 
         private void Update()
         {
+            if (SAPuzzle) return;
+
             Build();
         }
 

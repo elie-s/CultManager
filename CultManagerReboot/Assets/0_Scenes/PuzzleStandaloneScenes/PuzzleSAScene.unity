@@ -458,6 +458,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ae32200db25eda45b9e9521af91f36e, type: 3}
+--- !u!1 &87703065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87703067}
+  - component: {fileID: 87703066}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &87703066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87703065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5862aae2ae4e8c4fafce698f0fc26e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SAPuzzle: 1
+  data: {fileID: 11400000, guid: 70e23172457ff7b49aa1c08242e95ad0, type: 2}
+  demonData: {fileID: 11400000, guid: 8ee2b1ee6fce57a4da6c05d88c638b24, type: 2}
+  demonsDisplayer: {fileID: 0}
+  cultManager: {fileID: 0}
+  moneyManager: {fileID: 0}
+  puzzleManager: {fileID: 1201088421}
+  statueParent: {fileID: 0}
+  onPartCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onStatueCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  statueMenu: {fileID: 0}
+--- !u!4 &87703067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87703065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4865336, y: -0.05079721, z: -0.36012423}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96593378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,6 +4615,11 @@ PrefabInstance:
       propertyPath: standalonePuzzleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5356637368522100528, guid: 3226607ab569c144ca0c783e89f4aa11,
+        type: 3}
+      propertyPath: statueManager
+      value: 
+      objectReference: {fileID: 87703066}
     - target: {fileID: 5356637368522100529, guid: 3226607ab569c144ca0c783e89f4aa11,
         type: 3}
       propertyPath: m_Name
