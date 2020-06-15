@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Otto
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: 35c2276f631c48146a82984ca7fda327, type: 3}
+  - {fileID: 21300000, guid: d0e34d082af404341b8e06bc32fa1506, type: 3}
+  - {fileID: 21300000, guid: fa5505c6fb551464580cef476c4fc675, type: 3}
+  - {fileID: 21300000, guid: 843fbea8a97fbd947959248e23944058, type: 3}
+  - {fileID: 21300000, guid: 483d09c3a803b8147ad8758e94a11cc9, type: 3}
+  demon: {fileID: 21300000, guid: 0f255a98bfb283940afa834aa82732be, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: 629cccdeebb703845877ed6780fec19b, type: 3}
+  - {fileID: 21300000, guid: 0bf81b705d912c84680d51f784bdd835, type: 3}
+  - {fileID: 21300000, guid: ce211596bf61f144ebac14cad91f8a2b, type: 3}
+  - {fileID: 21300000, guid: 75e6bd0e3107b8c418ebe7aa8278f694, type: 3}
+  - {fileID: 21300000, guid: d3a83407331a1fa4598fe48afb271b96, type: 3}
+  demonID: {fileID: 21300000, guid: b47e78431b838584bb8671def35c2313, type: 3}

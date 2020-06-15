@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9bfc9cad4b777428a3df6fb3a0d4f2, type: 3}
+  m_Name: StatueData
+  m_EditorClassIdentifier: 
+  _statueSets:
+  - {fileID: 11400000, guid: 69b6870ddc67c0047a1f691ac20bc7ff, type: 2}
+  - {fileID: 11400000, guid: b161f1452bca36f4f8c2834ddf996569, type: 2}
+  - {fileID: 11400000, guid: 7d7bba7f317f6194c958d0acd36845af, type: 2}
+  - {fileID: 11400000, guid: 32628ccc1c297ef45894626371069f94, type: 2}
+  - {fileID: 11400000, guid: 8c79f6989c246f940ada0010d8f20109, type: 2}
+  - {fileID: 11400000, guid: e5ede17542f855d429d4662da936d790, type: 2}
+  - {fileID: 11400000, guid: e0aa880ff019ac74e82a040775e4635d, type: 2}
+  - {fileID: 11400000, guid: 302164e2e3993e645a0ba178f4ac72fa, type: 2}
+  - {fileID: 11400000, guid: 6910831bd86de1b44bdfdd52710a7469, type: 2}
+  - {fileID: 11400000, guid: c0ca42da08332db409421c4514f9d0b2, type: 2}
+  _defaultStatueSet: {fileID: 11400000, guid: 3999047da49137048ac162356f8e15aa, type: 2}
+  _currentDemon: 0
+  _baseWorkForce: 1
+  _family:
+  - brothers: 00000000
+  - brothers: 010000000200000003000000
+  - brothers: 040000000500000006000000
+  - brothers: 0700000008000000
+  - brothers: 09000000
+  puzzles: {fileID: 11400000, guid: 44b28b8d8d93bb64a9e28c648ff76b5c, type: 2}

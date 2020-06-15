@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Moloch
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: ca8c4174867700a47ab912fe8369a876, type: 3}
+  - {fileID: 21300000, guid: 11663fe55b1b8c14bb0566a8d65bdd00, type: 3}
+  - {fileID: 21300000, guid: 6556c689f28d2544aa34d9033983bba4, type: 3}
+  - {fileID: 21300000, guid: 1d210c949dc5cd54bb570fb14d804d03, type: 3}
+  - {fileID: 21300000, guid: 058cc9b70ed774b469a321b06ff3cfca, type: 3}
+  demon: {fileID: 21300000, guid: ad22557322aff6540a0d068762c7890b, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: f011e7cf51996974d90501292b553586, type: 3}
+  - {fileID: 21300000, guid: ab1daa6a70b423d49b798939210242a8, type: 3}
+  - {fileID: 21300000, guid: 5594ebfedf2bd8b45bbae34ca84106b7, type: 3}
+  - {fileID: 21300000, guid: 5f30cd54a9c962247b64c156a853a689, type: 3}
+  - {fileID: 21300000, guid: 102dd9e13144bef4dbb11944bdf4da68, type: 3}
+  demonID: {fileID: 21300000, guid: 0bae4938602757f48afebeeaa4afb150, type: 3}

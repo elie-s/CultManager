@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Korol-LowRightWing
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 21300000, guid: 74f7c60dbf6223d47b22645b81ad1d57, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: e42fa1b91a5eb9b42bd27d2b363d139c, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: 0574b1a03183e7c489d558c1df5f2522, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: 2ada4961abaade844a758515fe158918,
+    type: 3}
+  _partName: Low right wing
+  _completion:
+    _value: 0
+    _max: 560000
+  _workers:
+    _value: 0
+    _max: 30
+  _moneyCost: 2600000
+  _relicCost: 2
+  _bought: 0
+  _completed: 0

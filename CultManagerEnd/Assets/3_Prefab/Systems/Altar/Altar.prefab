@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &798708874607789051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798708874607789049}
+  - component: {fileID: 798708874607789048}
+  m_Layer: 0
+  m_Name: Altar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798708874607789049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798708874607789051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 495.56787, y: 548.8846, z: -527.875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798708874607789048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798708874607789051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816b83830b1e94141b740800eacc406b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  altarData: {fileID: 11400000, guid: c3924b76da5171e468f549be178d48b3, type: 2}
+  altarPartSets:
+  - {fileID: 11400000, guid: e332fd8880e56504d80d512e09b9ce3a, type: 2}
+  - {fileID: 11400000, guid: b182840528470934daa78b35c14b4e30, type: 2}
+  - {fileID: 11400000, guid: 6f496f034f0807f4ba9ae27ce09d2c93, type: 2}
+  - {fileID: 11400000, guid: 9bdc1300eb62b2a4ba780ea297dba556, type: 2}
+  - {fileID: 11400000, guid: 952b835630891c0498317ee68cff3cb8, type: 2}
+  display: {fileID: 0}
+  cult: {fileID: 11400000, guid: 330ec86ed9777754085d5edc28ce9227, type: 2}
+  moneyManager: {fileID: 0}
+  puzzleManager: {fileID: 0}
+  bloodBankUI: {fileID: 0}
+  controller: {fileID: 0}
+  altarPartPrefab: {fileID: 2765430510471640573, guid: 4995290e98f6df54d85bdf1677f19429,
+    type: 3}
+  assignedCultists:
+    _value: 0
+    _max: 0
+  workPower: 

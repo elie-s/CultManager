@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad175bb9f4cefc469e3346598d9ccce, type: 3}
+  m_Name: AltarData
+  m_EditorClassIdentifier: 
+  altarParts:
+  - altarPartName: 1_Legs
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 5
+    currentBuildPoints:
+      _value: 0
+      _max: 100
+  - altarPartName: 2_Belly
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 10
+    currentBuildPoints:
+      _value: 0
+      _max: 400
+  - altarPartName: 3_Shoulder
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 25
+    currentBuildPoints:
+      _value: 0
+      _max: 2500
+  - altarPartName: 4_Wing1
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 50
+    currentBuildPoints:
+      _value: 0
+      _max: 15000
+  - altarPartName: 5_Wing2
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 80
+    currentBuildPoints:
+      _value: 0
+      _max: 40000
+  - altarPartName: 6_Head
+    isBought: 0
+    assignedCultists:
+      _value: 0
+      _max: 100
+    currentBuildPoints:
+      _value: 0
+      _max: 90000
+  availableCultists: 3
+  altarCompletion: 0

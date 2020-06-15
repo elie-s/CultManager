@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Debilman
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: 8b2e9aad33f19d247baae183719bba87, type: 3}
+  - {fileID: 21300000, guid: ab9b900012104d24bab2251912cc5b9e, type: 3}
+  - {fileID: 21300000, guid: 5206d43f316bd924b9ea098c04dae6ea, type: 3}
+  - {fileID: 21300000, guid: 806ff0da18f7a1448bdec1e82c4ec47b, type: 3}
+  - {fileID: 21300000, guid: 7d7715314440b0d42bd6520fb50db606, type: 3}
+  demon: {fileID: 21300000, guid: dd3c289a40d5d7a4db227ac2a9fc5085, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: 107b000e78aa1574e85da5799a904bf2, type: 3}
+  - {fileID: 21300000, guid: 6adff2343acac184a9dc57f8e6978b92, type: 3}
+  - {fileID: 21300000, guid: 89ab20e2493b9de418bb2a0c4a0c4182, type: 3}
+  - {fileID: 21300000, guid: 8ea25143dcc059940986fa33461bb039, type: 3}
+  - {fileID: 21300000, guid: 780b3a71093af5e4b9ea51287cb1696f, type: 3}
+  demonID: {fileID: 21300000, guid: 2115d3b18d3b056429c40f7450baffc3, type: 3}

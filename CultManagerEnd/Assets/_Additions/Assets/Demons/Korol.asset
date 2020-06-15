@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e5d7cf0d05c441abdc6b36c62ac0e, type: 3}
+  m_Name: Korol
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 21300000, guid: dec598e8f8ed5664691b73dc7be72770, type: 3}
+  - {fileID: 21300000, guid: cdd65d5e9d2e13243b2def1ebf836aea, type: 3}
+  - {fileID: 21300000, guid: fd2ce474fa493fc45bf01b2a518f58dc, type: 3}
+  - {fileID: 21300000, guid: 483c202194536af4a986e970633410ff, type: 3}
+  - {fileID: 21300000, guid: 9d699cdbfe451384cb43cec353e76831, type: 3}
+  demon: {fileID: 21300000, guid: 6974782b64956be43906e02927f9fa6b, type: 3}
+  spawnsID:
+  - {fileID: 21300000, guid: fcb3a88e88def8f4a9f038b57c43f98c, type: 3}
+  - {fileID: 21300000, guid: 6867986dcb96e8e4c93ca4d03fd4a1b4, type: 3}
+  - {fileID: 21300000, guid: efcbcdc87f5384f45a634eb2c4512c45, type: 3}
+  - {fileID: 21300000, guid: 2738f0f700557f446be641aa71da3ede, type: 3}
+  - {fileID: 21300000, guid: 8fc6328d1e462384490afb0c3b791ee5, type: 3}
+  demonID: {fileID: 21300000, guid: 4a9b6a5c66ea73248998c3671120a94c, type: 3}

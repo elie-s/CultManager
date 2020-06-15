@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: KiramStatue
+  m_EditorClassIdentifier: 
+  _demon: 6
+  statuePrefab: {fileID: 4803678039988979498, guid: 4ce48d4022396964ea428db846e33492,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: 508c06ea3e3d2fa429c8a3b34ba40c7a, type: 2}
+  - {fileID: 11400000, guid: f674fce83e026e5428a67a2d66db956a, type: 2}
+  - {fileID: 11400000, guid: ee3bf398d46355745bb74bfcddb8fe1d, type: 2}
+  - {fileID: 11400000, guid: 8961b07e86ce5cf45af29667996764e7, type: 2}
+  - {fileID: 11400000, guid: cd5647420ebe38142a4873f632370bd2, type: 2}
+  - {fileID: 11400000, guid: e12b7ab80b9b42c48adff8de197ed421, type: 2}
+  _cost: 12000
+  status: 0
+  _puzzleSegments: 54
+  _demonSegments: 7
+  _statue:
+  - {fileID: 21300000, guid: 982c0a1be2eaf52448660f411214dea8, type: 3}
+  - {fileID: 21300000, guid: 75af4a39432e62d48bd910a7e5128791, type: 3}
+  - {fileID: 21300000, guid: 75af4a39432e62d48bd910a7e5128791, type: 3}
+  - {fileID: 21300000, guid: 1108873c2867df44caa2e8eb57a19e01, type: 3}
+  _effectText: Experimenting gives more influence.

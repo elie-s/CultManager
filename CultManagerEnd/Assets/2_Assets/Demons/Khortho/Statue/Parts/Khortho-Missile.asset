@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Khortho-Missile
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 21300000, guid: fa386253260344a40bec7c99c3110e84, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: 2f2237b1d2646224a8960fc562ce5d5f, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: 667e9f26079c45e4fbc21531c39e6e21, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: 3e057f422e596ab48a046d2c8ee3e273,
+    type: 3}
+  _partName: Missile
+  _completion:
+    _value: 0
+    _max: 1630000
+  _workers:
+    _value: 0
+    _max: 15
+  _moneyCost: 95000
+  _relicCost: 4
+  _bought: 0
+  _completed: 0

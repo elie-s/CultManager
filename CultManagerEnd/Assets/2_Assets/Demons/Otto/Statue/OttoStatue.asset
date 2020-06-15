@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: OttoStatue
+  m_EditorClassIdentifier: 
+  _demon: 8
+  statuePrefab: {fileID: 4803678039988979498, guid: e51dfdf5f49fff442a1f24ae1bf8b0d0,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: 297d26ae8262d384e9e0d8bf4baaff5c, type: 2}
+  - {fileID: 11400000, guid: 44909477052c1c94c8fb0ed3885488bc, type: 2}
+  - {fileID: 11400000, guid: 4f148e53e015ee44689dc47b397400ff, type: 2}
+  - {fileID: 11400000, guid: 465c0b14ae41c28439d03ea30e3fd1d0, type: 2}
+  - {fileID: 11400000, guid: 89572bfdbb312094f8a5f6e95a0b08c2, type: 2}
+  - {fileID: 11400000, guid: e5778ca6edebbd6448293761cc001d8e, type: 2}
+  - {fileID: 11400000, guid: d8db40d1e850b8242a9b72dd84c5c12c, type: 2}
+  - {fileID: 11400000, guid: 4eb088ef0abdcb04da59113106e3e21e, type: 2}
+  _cost: 160000
+  status: 0
+  _puzzleSegments: 78
+  _demonSegments: 9
+  _statue:
+  - {fileID: 21300000, guid: faee2d81b4d0c9b40adab1cc07795edd, type: 3}
+  - {fileID: 21300000, guid: 159cf6337290b4741aa46d87d7c22b33, type: 3}
+  - {fileID: 21300000, guid: 159cf6337290b4741aa46d87d7c22b33, type: 3}
+  - {fileID: 21300000, guid: 2736e322abf69434a8899a976989463e, type: 3}
+  _effectText: Investigation decreases faster with time.

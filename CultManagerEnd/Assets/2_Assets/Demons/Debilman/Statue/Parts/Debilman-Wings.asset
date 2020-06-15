@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Debilman-Wings
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 21300000, guid: c888869489d610a49a028bf9e7c46da2, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: 2ae094799631c9b4f9d4e216f69b8a85, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: 73afb45a62b0a7446ad8a28d32bf80f2, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: 246b2219be6af3543ba0482034841957,
+    type: 3}
+  _partName: Wings
+  _completion:
+    _value: 0
+    _max: 400000
+  _workers:
+    _value: 0
+    _max: 10
+  _moneyCost: 2270
+  _relicCost: 2
+  _bought: 0
+  _completed: 0

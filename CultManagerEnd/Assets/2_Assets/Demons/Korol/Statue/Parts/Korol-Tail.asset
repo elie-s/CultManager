@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Korol-Tail
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 21300000, guid: 44e6aa1ed1c25a64e820b6e76bb47b4a, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: 8ca0963d5897f4a45bc5dd3235e97b29, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: 91d45acdf25ef9e4d9c54b0012007c73, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: 898e601b337c71d43a1ca75af5273bfc,
+    type: 3}
+  _partName: Tail
+  _completion:
+    _value: 0
+    _max: 5830000
+  _workers:
+    _value: 0
+    _max: 30
+  _moneyCost: 27000000
+  _relicCost: 6
+  _bought: 0
+  _completed: 0

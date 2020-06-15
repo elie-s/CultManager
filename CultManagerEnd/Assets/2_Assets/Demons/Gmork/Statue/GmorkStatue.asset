@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1564848af668b04dada6b845ca525e4, type: 3}
+  m_Name: GmorkStatue
+  m_EditorClassIdentifier: 
+  _demon: 1
+  statuePrefab: {fileID: 4803678039988979498, guid: 2262da43dc978834ab155754175e4e25,
+    type: 3}
+  _parts:
+  - {fileID: 11400000, guid: d77d3eec1475b504682e332fb579d067, type: 2}
+  - {fileID: 11400000, guid: 0845c7f63a0dfce44bd8da2c242af448, type: 2}
+  - {fileID: 11400000, guid: c65f7d34858d60245b669335cfa32eae, type: 2}
+  _cost: 500
+  status: 0
+  _puzzleSegments: 9
+  _demonSegments: 3
+  _statue:
+  - {fileID: 21300000, guid: 8a18c2ca960adec4bbda06cd5a53245a, type: 3}
+  - {fileID: 21300000, guid: 690a82ded8f8aa64191340ae2b1975dc, type: 3}
+  - {fileID: 21300000, guid: 690a82ded8f8aa64191340ae2b1975dc, type: 3}
+  - {fileID: 21300000, guid: 50cd992c8c08bee4d9b5d726aaf956ac, type: 3}
+  _effectText: Each new cultist gives more money.

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4dc0d6488315b4cae76c9ded153489, type: 3}
+  m_Name: Korol-UpperBody
+  m_EditorClassIdentifier: 
+  _completedSprite: {fileID: 21300000, guid: d5911fa0fe7c929429f653c156433732, type: 3}
+  _uncompletedSprite: {fileID: 21300000, guid: b7562767745ed4949b8851cce293f21c, type: 3}
+  _uiCompletedSprite: {fileID: 21300000, guid: d6abcfe24632a514c954aed42b63e860, type: 3}
+  _uiUncompletedSprite: {fileID: 21300000, guid: 5b6af5ba98566234c926b66c146a50af,
+    type: 3}
+  _partName: Upper body
+  _completion:
+    _value: 0
+    _max: 1000000
+  _workers:
+    _value: 0
+    _max: 30
+  _moneyCost: 4700000
+  _relicCost: 3
+  _bought: 0
+  _completed: 0
